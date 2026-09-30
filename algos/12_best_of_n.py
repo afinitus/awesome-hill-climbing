@@ -52,6 +52,7 @@ from typing import ClassVar
 
 import numpy as np
 
+from lastmile.common.plotting import optional_media
 from lastmile.common.cli import parse
 from lastmile.common.eval import INIT_SETS, bootstrap_diff, format_rate, mcnemar_exact, policy_seed
 from lastmile.common.ledger import REPO_ROOT, Ledger
@@ -582,8 +583,10 @@ def main(cfg: Config) -> None:
         rnd_row.set_final(successes=rnd_eval)
         s["cost_steps"]["random"] = dict(rnd_row.robot_steps)
 
-        s["gif_seed"] = make_gif(cfg, media, base_eval.trajectories, first.trajectories,
-                                 f"best-of-{n_star}, {kind} verifier") if first.trajectories else None
+        s["gif_seed"] = None
+        with optional_media("the base vs best-of-N GIF"):
+            s["gif_seed"] = make_gif(cfg, media, base_eval.trajectories, first.trajectories,
+                                     f"best-of-{n_star}, {kind} verifier") if first.trajectories else None
         make_plots(cfg, media, s)
         for row in [*rows.values(), rnd_row]:
             row.extra = s

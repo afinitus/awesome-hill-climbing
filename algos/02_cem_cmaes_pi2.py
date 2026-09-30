@@ -453,8 +453,11 @@ def main(cfg: Config) -> None:
         name, seed = SHOWCASE
         if name in runs and seed in cfg.seeds:
             r = runs[name][cfg.seeds.index(seed)]
-            before_after_gif(base, r["final"], to_knobs(np.array(r["best_x"]), cfg), cfg, name,
-                             f"{name} (seed {seed})")
+            from lastmile.common.plotting import optional_media
+
+            with optional_media("the before/after GIF"):
+                before_after_gif(base, r["final"], to_knobs(np.array(r["best_x"]), cfg), cfg, name,
+                                 f"{name} (seed {seed})")
 
 
 if __name__ == "__main__":

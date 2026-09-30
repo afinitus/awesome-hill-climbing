@@ -511,19 +511,20 @@ def main(cfg: Config) -> None:
 
         # 7. Media: plots, then GIFs of demos and of base_v1 (first success and first failure, in seed order).
         make_plots(cfg, media, grid, ablation, epoch_abl, chosen, final, eval_runs, modes)
-        from lastmile.common.plotting import replay_frames, save_gif, side_by_side
+        from lastmile.common.plotting import optional_media, replay_frames, save_gif, side_by_side
 
         def clip(traj, label):
             return replay_frames(CupDropEnv(robot=cfg.robot), traj, label)
 
-        save_gif(side_by_side(clip(p_sel["clean"][0], "clean demo"), clip(p_sel["sloppy"][0], "sloppy demo")),
-                 media / "demos_clean_vs_sloppy.gif", fps=5, max_size=400)
         wins = [t for t in final.trajectories if t["success"]]
         fails = [t for t in final.trajectories if not t["success"]]
-        if wins and fails:
-            save_gif(side_by_side(clip(wins[0], f"base_v1 success (seed {wins[0]['seed']})"),
-                                  clip(fails[0], f"base_v1 failure (seed {fails[0]['seed']})")),
-                     media / "base_v1_success_vs_failure.gif", fps=5, max_size=400)
+        with optional_media("the ch00 GIFs"):
+            save_gif(side_by_side(clip(p_sel["clean"][0], "clean demo"), clip(p_sel["sloppy"][0], "sloppy demo")),
+                     media / "demos_clean_vs_sloppy.gif", fps=5, max_size=400)
+            if wins and fails:
+                save_gif(side_by_side(clip(wins[0], f"base_v1 success (seed {wins[0]['seed']})"),
+                                      clip(fails[0], f"base_v1 failure (seed {fails[0]['seed']})")),
+                         media / "base_v1_success_vs_failure.gif", fps=5, max_size=400)
         L.extra["gif_episodes"] = {
             "success": int(wins[0]["seed"]) if wins else None,
             "failure": int(fails[0]["seed"]) if fails else None,

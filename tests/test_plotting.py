@@ -59,3 +59,17 @@ def test_tile_fills_a_grid_and_pads_the_last_row():
     assert len(out) == 3 and out[0].shape == (8 + 4 + 8, 6 + 4 + 6, 3)
     assert (out[0][12:, 10:] == 255).all()  # the empty fourth cell is white
     assert (out[2][:8, :6] == 0).all() and (out[2][:8, 10:] == 7).all()
+
+
+def test_optional_media_skips_only_render_failures(capsys):
+    import pytest
+
+    from lastmile.common.plotting import optional_media
+    from lastmile.envs.cupdrop import RenderUnavailable
+
+    with optional_media("a gif"):
+        raise RenderUnavailable("no display")
+    assert "skipped a gif" in capsys.readouterr().out
+    with pytest.raises(ValueError):
+        with optional_media("a gif"):
+            raise ValueError("a real bug is not swallowed")

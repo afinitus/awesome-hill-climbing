@@ -151,6 +151,10 @@ def _tune_gripper(s: mujoco.MjSpec, spec: RobotSpec) -> None:
         act.forcerange = [-spec.gripper_force, spec.gripper_force]
 
 
+
+class RenderUnavailable(RuntimeError):
+    """Raised by CupDropEnv.render when this machine cannot render offscreen (no OpenGL context)."""
+
 class CupDropEnv:
     """The CupDrop task. See docs/DESIGN.md section 2 for the full contract."""
 
@@ -374,7 +378,13 @@ class CupDropEnv:
     def render(self, camera: str = "front") -> np.ndarray:
         if self._renderer is None:
             h, w = self.render_size
-            self._renderer = mujoco.Renderer(self.model, height=h, width=w)
+            try:
+                self._renderer = mujoco.Renderer(self.model, height=h, width=w)
+            except Exception as err:  # no OpenGL context: headless Linux without EGL, macOS CI runners
+                raise RenderUnavailable(
+                    f"MuJoCo cannot create an offscreen renderer here ({err}). On headless Linux set "
+                    "MUJOCO_GL=egl (or osmesa); GitHub's macOS runners have no GPU display."
+                ) from err
         name = self.robot.wrist_camera if camera == "wrist" else camera
         self._renderer.update_scene(self.data, camera=name)
         return self._renderer.render()

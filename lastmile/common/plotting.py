@@ -6,6 +6,8 @@ episodes the interval is roughly +-12 points, and a curve without it invites ove
 
 from __future__ import annotations
 
+from contextlib import contextmanager
+
 import warnings
 from collections.abc import Sequence
 from pathlib import Path
@@ -184,3 +186,18 @@ def tile(clips: Sequence[Sequence[np.ndarray]], cols: int, gap: int = 4) -> list
             parts += [white, row[t]]
         frames.append(np.concatenate(parts, axis=0))
     return frames
+
+
+@contextmanager
+def optional_media(what: str):
+    """Skip a GIF with a warning when MuJoCo cannot render on this machine (e.g. a headless CI runner).
+
+    Results and plots never depend on rendering, so a run without a display still finishes and is valid.
+    """
+    from lastmile.envs.cupdrop import RenderUnavailable
+
+    try:
+        yield
+    except RenderUnavailable as err:
+        print(f"[media] skipped {what}: {err}")
+

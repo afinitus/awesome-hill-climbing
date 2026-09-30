@@ -452,7 +452,10 @@ def main(cfg: Config) -> None:
     plot_curves(runs, base.sr, out / f"learning_curves{cfg.tag}.png")
     plot_knob_paths(runs, out / f"knob_paths{cfg.tag}.png")
     if cfg.gif:
-        save_before_after(max(runs, key=lambda r: r["final"].k), base, cfg)
+        from lastmile.common.plotting import optional_media
+
+        with optional_media("the before/after GIF"):
+            save_before_after(max(runs, key=lambda r: r["final"].k), base, cfg)
 
 
 if __name__ == "__main__":

@@ -63,6 +63,7 @@ import numpy as np
 from lastmile.common.cli import parse
 from lastmile.common.eval import INIT_SETS, EvalResult, bootstrap_diff, format_rate, mcnemar_exact, wilson
 from lastmile.common.ledger import DEFAULT_RESULTS_ROOT, Ledger
+from lastmile.common.plotting import optional_media
 from lastmile.common.policy_flow import FlowChunkPolicy
 from lastmile.common.rollout import evaluate, rollout_seeds
 
@@ -616,7 +617,8 @@ def main(cfg: Config) -> None:
     if cfg.replot:
         R = json.loads(Path(cfg.replot).read_text())["extra"]["analysis"]
         make_plots(R)
-        tickets_gif(R, cfg, MEDIA)
+        with optional_media("the ticket GIFs"):
+            tickets_gif(R, cfg, MEDIA)
         return
     t0 = time.time()
     root = cfg.results_root or str(ROOT / "runs" / "ch03_quick" if cfg.quick else DEFAULT_RESULTS_ROOT)
@@ -630,7 +632,8 @@ def main(cfg: Config) -> None:
     if cfg.media:  # quick runs draw into runs/ch03_quick/media so the committed media stay untouched
         out = ROOT / "runs" / "ch03_quick" / "media" if cfg.quick else MEDIA
         make_plots(analysis, out)
-        tickets_gif(analysis, cfg, out)
+        with optional_media("the ticket GIFs"):
+            tickets_gif(analysis, cfg, out)
 
 
 if __name__ == "__main__":
