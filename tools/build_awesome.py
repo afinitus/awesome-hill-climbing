@@ -28,6 +28,7 @@ import csv
 import datetime as dt
 import json
 import re
+import subprocess
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -93,6 +94,16 @@ def anchor(text: str) -> str:
 
 def esc(text: str) -> str:
     return text.replace("|", "\\|").replace("\n", " ").strip()
+
+
+def tracked(folder: str) -> list[str]:
+    """Files under `folder` that are committed to git (so a chapter counts as available only once
+    it is published, not while it is being written locally)."""
+    try:
+        out = subprocess.run(["git", "ls-files", folder], cwd=ROOT, capture_output=True, text=True, check=True)
+        return out.stdout.split()
+    except (OSError, subprocess.CalledProcessError):
+        return [str(p.relative_to(ROOT)) for p in (ROOT / folder).glob("*.py")]
 
 
 def month_label(d: str) -> str:
@@ -227,7 +238,7 @@ def sec_resources(res: list[dict]) -> list[str]:
 
 
 def sec_handson(code_released: bool) -> list[str]:
-    have = {p.name[:2] for p in (ROOT / "algos").glob("[0-9]*.py")} if code_released else set()
+    have = {Path(f).name[:2] for f in tracked("algos")} if code_released else set()
     rows = [f"| {n} | {m} | {b} | {p} | {'available' if f'{int(n):02d}' in have else 'planned for ' + s} |"
             for n, m, b, p, s in CHAPTERS]
     intro = [

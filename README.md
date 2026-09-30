@@ -805,8 +805,8 @@ make validate   # sanity-check the task with the scripted controller, on both ar
 
 | Ch | Method | Base idea | Mirrors | Status |
 | ---: | :--- | :--- | :--- | :--- |
-| 1 | Hill climbing & ARS | Finite differences on a smoothed objective | Kohl & Stone 2004, ARS, TD-ES | available |
-| 2 | CEM, CMA-ES, PI², BO | Reward-weighted averaging | Zero-order primer, BO review | available |
+| 1 | Hill climbing & ARS | Finite differences on a smoothed objective | Kohl & Stone 2004, ARS, TD-ES | planned for v0.1 |
+| 2 | CEM, CMA-ES, PI², BO | Reward-weighted averaging | Zero-order primer, BO review | planned for v0.1 |
 | 3 | The golden ticket | Black-box search in noise space | Golden Ticket | planned for v0.1 |
 | 4 | PPO/GRPO for a flow policy | Likelihood-ratio PG + anchors | SimpleVLA-RL, πRL, PAC-ACT | planned for v0.3 |
 | 5 | SAC → RLPD → Q-chunking | Bellman backups on replay | Q-chunking, Three Regimes, IPE | planned for v0.2 |
