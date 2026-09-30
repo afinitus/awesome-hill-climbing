@@ -1,0 +1,23 @@
+.venv
+.venv.nosync/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+*.egg-info/
+# local research dumps (large); the curated paper index lives in docs/
+docs/research/papers.json
+docs/research/synthesis.json
+docs/research/climbing-the-nines.html
+# scratch outputs
+runs/
+wandb/
+*.mp4
+# local working files
+MUJOCO_LOG.TXT
+rows_*.json
+docs/research/sweep_*.json
+docs/research/*_backup.csv
+docs/research/merge_sweep.py
+media/review/

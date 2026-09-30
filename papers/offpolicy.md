@@ -1,0 +1,144 @@
+# Off-policy critics & offline-to-online RL
+
+[← Awesome Hill Climbing](../README.md) · [all families](README.md)
+
+*How do I take a pretrained robot policy that works 40-80% of the time to 95-100% with minutes-to-hours of real robot data, reusing every demo and rollout I already have?*
+
+Learn a Q-function from every transition you have (demos, human corrections, old rollouts, new rollouts), then use it to pick, edit or push the policy's actions toward higher value.
+
+- **Loop step:** Improve
+- **Built on:** Bellman backups and off-policy replay; Max-entropy actor-critic (SAC) and its real-robot variant RLPD; Conservative and in-sample critics; The offline-to-online hand-off; Action-chunk critics; Policy extraction for expressive policies; Humans in the loop
+- **Use it when:** Use this family when you already have a decent policy (roughly 40-80% on one task), each real episode is expensive, and you can get a binary success signal. Off-policy RL reuses every demo, correction and failed rollout, so it usually needs far fewer robot minutes than on-policy PPO/GRPO.
+- **What changed in 2025–26:** Five shifts happened in the last 12 months. (1) The target policy changed. The 2023-24 lineage (RLPD, SERL, HIL-SERL) trained small Gaussian SAC policies from scratch.
+
+**93 entries**, newest first. ⭐ marks must-know work.
+
+
+## September 2026
+
+- **[ReF-HIL](https://arxiv.org/abs/2609.37131)** (Tsinghua University, 2026-09-29) — Shapes the critic around human action neighborhoods in HIL RL; plug insertion 91.7±2.9 vs HIL-SERL 0.0 and SiLRI 0.0.
+- **[Schrödinger–Föllmer Actor–Critic](https://arxiv.org/abs/2609.33239)** (Jiao et al., 2026-09-27) — SFAC: offline-to-online diffusion policy improvement via Doob h-transform drift correction estimated with paired self-normalized importance sampling and a minimax Bellman critic; finite-sample bounds, six continuous-control tasks.
+- **[Performance-Preserving Online Adaptation in Social Navigation via Diffusion Steering](https://arxiv.org/abs/2609.24317)** (Nagahisa et al., 2026-09-21) — Applies DSRL to social navigation: trains only the latent-noise policy over a frozen diffusion policy distilled from multi-seed RL policies, adapting to new social conventions; hardware-in-the-loop validated.
+- ⭐ **[RAPolicy](https://arxiv.org/abs/2609.22888)** (Fudan University and collaborators, 2026-09-19) — Collects data with a frozen pi0.5 copy while a learner updates a live copy, training an IQL-style chunk critic and a one-step flow actor only on stored actions. Real, 4 tasks: 86.3% average vs EXPO-FT 50%. · [code](https://github.com/flyfaerss/RAPolicy)
+- **[Refinement-Based Flow Policy Optimization](https://arxiv.org/abs/2609.15123)** (Park et al., 2026-09-14) — RFPO alternates Q-guided stochastic action refinement with flow matching on refined targets; matches or beats a Gaussian-policy baseline on almost all of 6 continuous-control tasks, no mode collapse.
+- **[MPC Scaffolding](https://arxiv.org/abs/2609.14878)** (Honda Research Institute USA, 2026-09-14) — MPC data, BC/Soft-SARSA pretraining and guidance seed SAC on an Allegro hand; first 5/5 after 7.4 min, then 100% at 55 deg/s vs MPC's 9.9 deg/s.
+- **[VGFM](https://arxiv.org/abs/2609.14261)** (Koirala et al., 2026-09-13) — Offline RL flow-matching policy with dense critic guidance at randomly sampled flow timesteps, avoiding BPTT through the flow; strong OGBench locomotion and manipulation results with minimal tuning (IROS 2026).
+- **[Noisy-Space Policy Gradient for Diffusion Policies in Offline Reinforcement Learning](https://arxiv.org/abs/2609.06882)** (Selim et al., 2026-09-07) — Defines a Q-function over diffusion latents and a noisy-space policy gradient that avoids backprop through denoising; improves offline RL on state-based D4RL and vision-based OGBench (ICML 2026). · [code](https://mahmoud-selim.github.io/NSPG/)
+- ⭐ **[VLA-Precision](https://arxiv.org/abs/2609.04355)** (University of Science and Technology of China and…, 2026-09-03) — Trains pi0/pi0.5 fast with flow-matching BC on corrections and successes, while a slowly calibrated ensemble critic acts as a preference signal, not a Q to maximize. 9 real lab tasks: 98.3% vs pi0.5 67.8%, ConRFT 7.8% (not budget-matched). · [code](https://github.com/scy-v/VLA-Precision)
+
+## August 2026
+
+- **[SmoothRL](https://arxiv.org/abs/2608.29768)** (Astribot, 2026-08-30) — Bounded residual TD3 actor on a frozen pi0.5 trained under the real asynchronous execution loop; tossing 39% → 94%, pen capping 8% → 83% over ~250 episodes.
+- **[GRAFT](https://arxiv.org/abs/2608.27079)** (USTC, 2026-08-27) — ConRFT-style online VLA RL plus training-only visual anchors for fine-grained lab tasks; 82.5% vs 57.5% for proposal-union supervision.
+- **[CounterAlign](https://arxiv.org/abs/2608.21740)** (Kondoh et al., 2026-08-22) — Pairs expert actions with mismatched instructions and trains an adversarial discriminator as a reward for offline-RL VLA post-training; improves LIBERO-PRO robustness and real-robot (TX-G2) results. · [code](https://counteralign.airoa.io)
+- **[CIDER](https://arxiv.org/abs/2608.21899)** (AgiBot; SJTU, 2026-08-22) — RLPD on each new task plus reverse-KL distillation to a frozen teacher; stage-average 100.0 across 6 sequential real tasks vs 16.7 for plain fine-tuning.
+- **[Critic-Free Pretraining for Efficient Online Reinforcement Learning Fine-Tuning](https://arxiv.org/abs/2608.10473)** (Li et al., 2026-08-11) — Critic-Free Pretraining (CFP): skips offline critic training and initializes a fresh critic for online fine-tuning; plugs into existing offline-to-online algorithms, matching or exceeding conventional methods.
+- **[HARC](https://arxiv.org/abs/2608.09762)** (IIT Genoa and others, 2026-08-10) — Separate arm and gripper actors with one reward-decomposed central critic; real 3-task average 40% → 75% vs HIL-SERL.
+- **[TEMPO](https://arxiv.org/abs/2608.07314)** (Zhejiang Gongshang University; KTH, 2026-08-07) — Two TD3 loops at different speeds for a VLA's semantic projection and action expert; CALVIN SR5 81.7 vs FLOWER 77.8. · [code](https://anonymous.4open.science/r/TEMPO-RL/README.md)
+- **[EvoHIL](https://arxiv.org/abs/2608.03872)** (Chongqing University, 2026-08-04) — HIL-SERL with a self-evolving reward classifier and flow chunk actor; under a 60% lighting shift USB 1.00 vs HIL-SERL 0.50, includes SO-101 tasks.
+
+## July 2026
+
+- ⭐ **[IPE](https://arxiv.org/abs/2607.27203)** (Stanford University, 2026-07-29) — Shows demo-pretrained critics barely beat random ones, then spends a small rollout budget on a diverse policy ensemble so the critic sees contrasting actions. Sim: 1.26x average fine-tuning improvement over naive Q pretraining (figure readings suggest about 1.21x).
+- **[Data Where It Matters](https://arxiv.org/abs/2607.15982)** (TU Munich; Siemens, 2026-07-17) — Classical planning for free space, SAC-family RL only on the contact segment; real average 96 vs 55 for the best baseline.
+- **[VINE](https://arxiv.org/abs/2607.10369)** (AgiBot; HKUST; PKU, 2026-07-11) — Replaces the Euler sampler so direct Q-gradients through a flow policy stay stable; OGBench 40 tasks 60 vs QAM 55.
+- **[OTQL](https://arxiv.org/abs/2607.06262)** (U, 2026-07-07) — Advantage-weighted optimal-transport pairing in flow matching; OGBench 0.59 at 2 function evaluations vs QAM 0.55, real single-task 36% → 86%.
+- **[HALO-WA](https://arxiv.org/abs/2607.04265)** (CASIA; GigaAI; Tsinghua, 2026-07-05) — Small TD3 adapter on a frozen world-action model reads its latents and proposed chunk; real average 26.4% → 87.1%. · [code](https://github.com/YeanRoot/HALO-WA)
+- ⭐ **[AutoSERL](https://arxiv.org/abs/2607.01651)** (Institute of Automation, Chinese Academy of Sciences, 2026-07-02) — Replaces SERL's human intervener with a one-demo script: a planner corrects drift beyond 2 cm, and stalls trigger partial demo replay. Real, 1 demo: 50/50 on all 6 tasks in 8-45 min; SERL (20 demos, same time): 0-20/50. · [code](https://github.com/autoserl/AutoSERL)
+
+## June 2026
+
+- **[FORCE](https://arxiv.org/abs/2606.26006)** (BAAI; CASIA, 2026-06-24) — Intervention-free ConRFT-style recipe with a value-calibrated warm-up; sim average FORCE(Octo) 82.3 vs ConRFT 71.1.
+- ⭐ **[FlowDPG](https://arxiv.org/abs/2606.22303)** (Carnegie Mellon University, University of Pennsylvania,…, 2026-06-21) — Predicts the clean action from a noisy flow point, nudges it along the critic's gradient, and regresses velocity toward it alongside BC, without ODE backprop. Real dual-arm AirPods assembly: 88% offline vs 80% for RLT/QAM (BC 64%).
+- **[DF-ExpEnse](https://arxiv.org/abs/2606.19656)** (Stanford; Brown, 2026-06-17) — UCB selection among M=3 generative-policy candidates using the existing critic ensemble; project-page approximations, e.g., Square ~70 (DSRL) vs ~90. · [code](https://github.com/real-stanford/dfexpense)
+- **[TORL-VLA](https://arxiv.org/abs/2606.09337)** (Meituan; CASIA and others, 2026-06-08) — Frozen wrench-aware pi0.5 plus small per-contact-phase actor-critics; full-task 12/30 (pi0.5) and 21/30 (reference) → 28/30. · [code](https://torl-vla.github.io/)
+- **[Reinforcement Learning for Flow-Matching Policies with Density Transport](https://arxiv.org/abs/2606.08602)** (Lei et al., 2026-06-07) — RLDT: builds an SVGD transport field from a max-entropy RL objective and fine-tunes a pretrained flow-matching policy toward it without backprop through time; tested on vision-based long-horizon manipulation.
+- **[Q-VGM](https://arxiv.org/abs/2606.08015)** (SJTU; U, 2026-06-06) — Value-gradient matching on the last denoising steps of pi0.5, no BPTT; LIBERO average 84.6 → 98.4 online.
+- **[PACT](https://arxiv.org/abs/2606.03949)** (Central South University; NTU, 2026-06-02) — Treats each human takeover as a preference to deflate credit for pre-takeover actions; average 58.0 → 82.5 vs HIL-SERL on 5 real tasks.
+- **[CSIL++](https://arxiv.org/abs/2606.02194)** (TU Darmstadt, Oxford and others, 2026-06-01) — Dense coherent reward from a small BC policy avoids the fine-tuning dip on a frozen pi0.5; Threading 0.14 → 0.92 in sim, Nut Assembly no gain.
+
+## May 2026
+
+- **[VE2VF](https://arxiv.org/abs/2605.29564)** (TU Wien, 2026-05-28) — HIL-SERL-style vision teacher distilled into a vision-free student via real RL; 95.0% overall vs residual RL 85.7% in about 50 min.
+- **[CGPO](https://arxiv.org/abs/2605.30056)** (ShanghaiTech University, 2026-05-28) — Critic-guided diffusion sampling distilled back with advantage-weighted denoising; best on 5/5 MuJoCo tasks. · [code](https://github.com/wadx2019/cgpo)
+- **[BORA](https://arxiv.org/abs/2605.30226)** (SJTU, CASIA, Shanghai AI Lab, USTC, 2026-05-28) — Offline IQL-style chunk critic on a consistency-head dexterous VLA, then a small online residual; real average 53.0% → 86.0%.
+- ⭐ **[EXPO-FT](https://arxiv.org/abs/2605.25477)** (Stanford University, 2026-05-25) — Samples 8 chunks from pi0.5, adds a tanh-bounded learned edit to each, and executes the argmax-Q of 16 candidates; no RL gradient enters the VLA. Real, 8 tasks: SFT 20.5/30 → 30/30 each, 19.1 min average (HG-DAgger 22.1/30). · [code](https://github.com/pd-perry/expo-ft/)
+- **[Bridging the Gap](https://arxiv.org/abs/2605.24975)** (ETH Zurich RSL, 2026-05-24) — Policy initialization, timeout-aware critic targets and multi-step returns let SAC train stably at scale and match PPO on legged locomotion, suiting off-policy real-robot adaptation. · [code](https://github.com/leggedrobotics/rsl_rl_sac)
+- **[Discrete Flow Matching for Offline-to-Online Reinforcement Learning](https://arxiv.org/abs/2605.12379)** (Khan et al., 2026-05-12) — DRIFT: fine-tunes an offline-pretrained CTMC policy online with advantage-weighted discrete flow matching, a path-space penalty and candidate-set approximation; best on Jericho text games, not robotics.
+- **[RankQ](https://arxiv.org/abs/2605.11151)** (Horizon Robotics, 2026-05-11) — Self-supervised action-ranking losses replace CQL-style pessimism; antmaze-large-play 91.2% vs Cal-QL 67.7%, plus pi0 VLA experiments in sim.
+- **[ACH](https://arxiv.org/abs/2605.10044)** (KAIST, 2026-05-11) — Causal-transformer critic scores every chunk prefix so the chunk length is picked per state; puzzle-4x4 13 → 90 vs QC 11 → 38.
+- **[Adaptive Q-Chunking (AQC)](https://arxiv.org/abs/2605.05544)** (Peking University; Galbot; U, 2026-05-07) — Critics for several chunk lengths pick how long to commit at each re-plan; OGBench 25 tasks 62 → 96 vs QC 52 → 86.
+- **[Q2RL](https://arxiv.org/abs/2605.05172)** (RAI Institute; Brown; Northeastern, 2026-05-06) — Reads a Q-function out of BC log-probabilities plus MC values and gates BC vs SAC actions; real peg insertion 0.70 → 1.00, pipe assembly 0.20 → 0.75. · [code](https://github.com/rai-opensource/q2rl)
+- **[OGPO](https://arxiv.org/abs/2605.03065)** (CMU, UC Berkeley, UW, TRI, 2026-05-04) — Off-policy TD critics give the terminal reward for a GRPO-style denoising MDP; DPPO takes ~10x longer to reach OGPO+'s final success (sim). · [code](https://github.com/simchowitzlabpublic/OGPO_public)
+- ⭐ **[LWD (Learning While Deploying)](https://arxiv.org/abs/2605.00416)** (AGIBOT Finch; Shanghai Innovation Institute, 2026-05-01) — A 16-robot fleet logs rollouts and takeovers with sparse success labels; a learner runs off-policy RL on offline plus fleet data, bootstrapping a distributional critic from an uncertainty-adaptive quantile. 8 real tasks: 0.95 vs SFT 0.76, RECAP 0.85.
+
+## April 2026
+
+- ⭐ **[RL Token (RLT)](https://arxiv.org/abs/2604.23073)** (Physical Intelligence, 2026-04-24) — Compresses frozen pi0.6 embeddings into one 'RL token'; a tiny TD3-style actor-critic then edits the VLA's own sampled action chunk under an L2 penalty, only in each task's critical phase. Screw critical-phase success: 20% → 65%.
+- **[MoRI](https://arxiv.org/abs/2604.10165)** (Huazhong University of Science and Technology, 2026-04-11) — Gate picks a BC expert or a BC-anchored SAC expert per state; 4 real tasks average 97.5% vs BC 37.5% in 142-288 min.
+
+## February 2026
+
+- ⭐ **[ALOE](https://arxiv.org/abs/2602.12691)** (AgiBot, HKUST, Fudan University, Nanjing University, 2026-02-13) — Learns a chunk-level Q of the current pi0.5 policy by TD bootstrapping with a pessimistic ensemble, instead of Monte Carlo state values, to weight policy updates. Phone Assembly, 60 trials, 10.0% BC start: ALOE 95.0, AWR 80.0.
+- **[SERNF](https://arxiv.org/abs/2602.09580)** (ETH Zurich, 2026-02-10) — Normalizing-flow chunk policy (exact likelihood) with a chunk critic; real dexterous scissors cut success 0.16 → 0.84 with 60 online rollouts. · [code](https://srl-ethz.github.io/SERNF/)
+- **[TQL](https://arxiv.org/abs/2602.01439)** (Stanford University, 2026-02-01) — Attention-entropy regularization lets transformer critics improve with size (43% gain from 0.4M to 26M); 25-task average 40±7 vs floq 34±7. · [code](https://github.com/pd-perry/TQL) · numbers corrected after check
+
+## January 2026
+
+- **[Green-VLA](https://arxiv.org/abs/2602.00919)** (Apanasevich et al., 2026-01-31) — Five-stage VLA curriculum (VLM, grounding, multi-embodiment pretraining on 3,000 h, embodiment adaptation) ending in an RL policy-alignment stage; adds progress prediction and anomaly detection at inference. · [code](https://github.com/greenvla/GreenVLA)
+- ⭐ **[QAM](https://arxiv.org/abs/2601.14234)** (UC Berkeley, 2026-01-20) — Trains a second flow toward pi_beta(a\|s)·exp(tau·Q(s,a)) via adjoint matching, using the critic's action gradient without backpropagating through the sampler. Offline RL over 50 OGBench tasks (sim): QAM 44 vs ReBRAC 40, FQL 36, FBRAC 11. · [code](https://github.com/ColinQiyangLi/qam)
+- **[FARL](https://arxiv.org/abs/2601.07821)** (Shanghai Qi Zhi Institute, SJTU, Tsinghua and others, 2026-01-12) — World-model failure predictor plus recovery policy wrapped around PPO-style offline-to-online RL; 73.1% fewer intervention-requiring failures (mean of per-task reductions). Likely misfiled: PPO-based.
+
+## December 2025
+
+- **[SiLRI](https://arxiv.org/abs/2512.24288)** (Beijing Innovation Center of Humanoid Robotics and others, 2025-12-30) — Per-state Lagrange multiplier keeps the policy near human interventions only where humans are consistent; reaches 90% at least 50% faster than HIL-SERL. · [code](https://github.com/nuomizai/HIL-RL)
+- **[Posterior BC](https://arxiv.org/abs/2512.16911)** (UC Berkeley; Stanford, 2025-12-18) — Pretrain BC to match a posterior over demonstrator actions so later RL can explore; Libero 16 tasks at 1000 rollouts best-of-N: BC 33.1, PostBC 55.1.
+- **[Decoupled Q-Chunking (DQC)](https://arxiv.org/abs/2512.10926)** (UC Berkeley, 2025-12-11) — Long-chunk critic for value learning, short executed prefix for the policy; six hardest OGBench environments 82 vs SHARSA 44 and QC 25. · [code](https://github.com/ColinQiyangLi/dqc)
+- **[GR-RL](https://arxiv.org/abs/2512.01801)** (ByteDance Seed, 2025-12-01) — Offline distributional chunk critic filters demos, then weight-frozen latent-noise online RL; real shoe lacing 45.7% → 83.3%.
+
+## October 2025
+
+- **[Value Flows](https://arxiv.org/abs/2510.07650)** (Stanford; Princeton, 2025-10-09) — Flow-matching model of the return distribution trained with distributional TD; 1.3x average success gain over 62 tasks. · [code](https://github.com/chongyi-zheng/value-flows)
+- ⭐ **[Three Regimes of Offline-to-Online RL](https://arxiv.org/abs/2510.01460)** (Mila - Quebec AI Institute; Universite de Montreal, 2025-10-01) — Compares the pretrained policy's return with the dataset's average: if the policy is better, protect it with warm-up rollouts; if the data is better, replay offline data. Regime predictions matched outcomes in 45/63 D4RL settings (71%).
+
+## September 2025
+
+- **[SAC Flow](https://arxiv.org/abs/2509.25756)** (Tsinghua, CMU, Li Auto, Shanghai AI Lab, 2025-09-30) — Treats the flow sampler as a residual RNN and adds GRU/Transformer-style gating so SAC can backprop through it; curves only, up to 130% gain on HumanoidStandup. · [code](https://github.com/Elessar123/SAC-FLOW)
+- **[SHaRe-RL](https://arxiv.org/abs/2509.13949)** (Bielefeld University; Fraunhofer IOSB-INA, 2025-09-17) — HIL-SERL plus scripted manipulation primitives so RL learns only a 3-D insertion primitive; 100% vs HIL-SERL 65% in about 3 h. · [code](https://github.com/ubi-coro/share-rl)
+
+## Before September 2025
+
+- **[AC3](https://arxiv.org/abs/2508.11143)** (Fudan University and others, 2025-08-15) — TD3-style actor-critic over 16-action chunks with success-only actor updates; BiGym average 0.465 vs CQN-AS 0.349. · [code](https://github.com/flyfaerss/ac3)
+- **[CO-RFT](https://arxiv.org/abs/2508.02219)** (Beihang University; Tsinghua SIGS, 2025-08-04) — Offline chunked actor-critic (Cal-QL, transformer chunk critic) on 30-60 demos after BC; 'average improvement of 57%' over SFT (unclear if absolute or relative).
+- ⭐ **[Q-chunking (QC, QC-FQL)](https://arxiv.org/abs/2507.07969)** (UC Berkeley, 2025-07-10) — Critic and policy act on h-step action chunks with an unbiased h-step TD target, while the policy stays near a flow-matching BC model of the data. OGBench, 25 tasks, offline → online: QC 52→86 vs FQL 37→58. · [code](https://github.com/ColinQiyangLi/qc)
+- **[Data-Guided Noise (DGN)](https://arxiv.org/abs/2506.07505)** (Stanford University, 2025-06-09) — Uses demos only to shape RLPD's exploration covariance, never as a BC loss; up to 2-3x improvement over prior methods on 7 sim tasks.
+- **[FastTD3](https://arxiv.org/abs/2505.22642)** (Seo et al., 2025-05-28) — TD3 with parallel simulation, large-batch updates and a distributional critic; solves a range of HumanoidBench tasks in under 3 hours on one A100 GPU. · [code](https://github.com/younggyoseo/FastTD3)
+- **[Batch online RL: what matters](https://arxiv.org/abs/2505.08078)** (Stanford University, 2025-05-12) — Controlled study of deploy-collect-retrain loops; implicit Q best-of-N extraction beats AWR (Square: AWR 62 → 11 vs best-of-N 47 → 83).
+- **[T-SAC](https://arxiv.org/abs/2503.03660)** (KIT, 2025-03-05) — Transformer critic over action prefixes trained with N-step returns without importance sampling; Box-Pushing dense 96.8% vs baselines at or below 85%. · [code](https://github.com/DongTian95/T-SAC-Official)
+- **[ConRFT](https://arxiv.org/abs/2502.05450)** (Institute of Automation, CAS, 2025-02-08) — Consistency-policy head on a frozen Octo, trained with BC + Q (Cal-QL offline, then HIL online); 8-task average 39.4% → 96.3%. · [code](https://github.com/cccedric/conrft)
+- **[Value-Based Deep RL Scales Predictably](https://arxiv.org/abs/2502.04327)** (UC Berkeley, 2025-02-06) — Fits power laws for UTD, batch size and learning rate in SAC-style RL so they can be set from small pilot runs. · [code](https://github.com/prestonfu/qscaled)
+- **[FQL](https://arxiv.org/abs/2502.02538)** (UC Berkeley, 2025-02-04) — Pure-BC flow policy plus a one-step actor that climbs Q under a distillation leash; OGBench cube-double 29 vs ReBRAC 12. · [code](https://github.com/seohongpark/fql)
+- **[WSRL](https://arxiv.org/abs/2412.07762)** (UC Berkeley; CMU, 2024-12-10) — Drop offline data, warm up with frozen-policy rollouts, then high-UTD RL; real robot 13/20 → 20/20 in 18 min while SERL/RLPD stayed at 0/20. · [code](https://github.com/zhouzypaul/wsrl)
+- **[PA-RL](https://arxiv.org/abs/2412.06685)** (CMU; Stanford, 2024-12-09) — Sample from any policy, keep top-Q actions, refine by gradient ascent on Q, distill with the policy's own loss; CALVIN 28 → 61. · [code](https://github.com/MaxSobolMark/PolicyAgnosticRL)
+- **[CQN-AS](https://arxiv.org/abs/2411.12155)** (UC Berkeley, 2024-11-19) — Critic-only coarse-to-fine Q-network over action sequences; avoids actor-driven overestimation that breaks chunked SAC/TD3 (curves only). · [code](https://github.com/younggyoseo/CQN-AS)
+- **[HIL-SERL](https://arxiv.org/abs/2410.21845)** (UC Berkeley, 2024-10-29) — RLPD with human SpaceMouse takeovers and a success classifier; e.g., RAM insertion 29 → 100% in 1.5 h, faster cycle times on all tasks. · [code](https://github.com/rail-berkeley/hil-serl)
+- **[DAC](https://arxiv.org/abs/2405.20555)** (HKUST; SUSTech, 2024-05-31) — KL-constrained policy iteration written as diffusion noise regression with a Q-gradient nudge; locomotion total 836.4 vs DTQL 798.3. · [code](https://github.com/Fang-Lin93/DAC)
+- **[Perceiver-Actor-Critic (PAC)](https://arxiv.org/abs/2402.05546)** (Google DeepMind, 2024-02-08) — Up to about 1B-parameter offline actor-critic with one BC-to-RL knob; self-improvement on real CHEF from 69.8% to 93.2%.
+- **[SERL](https://arxiv.org/abs/2401.16013)** (UC Berkeley, U, 2024-01-29) — Tuned real-robot RLPD stack with reward classifiers; 100/100 success on 3 tasks with 20-105 min of training. · [code](https://github.com/rail-berkeley/serl)
+- **[QSM](https://arxiv.org/abs/2312.11752)** (UC Berkeley, 2023-12-18) — Trains a diffusion policy's score to match alpha * grad_a Q, avoiding backprop through the sampler; matches SAC/TD3 on DMC. · [code](https://github.com/Alescontrela/score_matching_rl)
+- **[IBRL](https://arxiv.org/abs/2311.02198)** (Stanford University, 2023-11-03) — Frozen BC policy and TD3 actor both propose; the critic picks, also inside the TD target. Real Hang task: BC 65%, RLPD 15%, IBRL 85%. · [code](https://github.com/hengyuan-hu/ibrl)
+- **[V-PTR](https://arxiv.org/abs/2309.13041)** (UC Berkeley; Google DeepMind, 2023-09-22) — TD value pretraining on action-free human video initializes a CQL agent; WidowX scenario 1 total 24/48 vs PTR 5/48.
+- **[Q-Transformer](https://arxiv.org/abs/2309.10150)** (Google DeepMind, 2023-09-18) — Per-dimension autoregressive Transformer Q-function trained offline on demos plus failures; 56% vs RT-1 25% on 72 real tasks.
+- **[Deep RL at Scale (waste sorting)](https://arxiv.org/abs/2305.03270)** (Google, 2023-05-05) — PI-QT-Opt on a 23-robot fleet with sim and curriculum bootstrapping; 84.35% sorting vs a 71% hand-engineered policy.
+- **[Cal-QL](https://arxiv.org/abs/2303.05479)** (UC Berkeley; Stanford, 2023-03-09) — Calibrated CQL that keeps Q at or above a reference value to avoid unlearning; 11-task average 44 → 90 vs CQL 42 → 71. · [code](https://github.com/nakamotoo/Cal-QL)
+- **[MEDAL++](https://arxiv.org/abs/2303.01488)** (Stanford University, 2023-03-02) — Forward and backward image-based actor-critics with classifier rewards for reset-free real practice; cube grasping from OOD starts 0.08 → 0.82 vs BC. · [code](https://github.com/rehaanahmad2013/self-improving-robots)
+- **[RLPD](https://arxiv.org/abs/2302.02948)** (Oxford; UC Berkeley, 2023-02-06) — SAC with 50/50 offline/online batches, LayerNorm critics and ensembles; 2.5x the best reported result on sparse Adroit Door. The engine of SERL and HIL-SERL. · [code](https://github.com/ikostrikov/rlpd)
+- **[PEX](https://arxiv.org/abs/2302.00935)** (Horizon Robotics, 2023-02-02) — Freeze the offline policy, add a new policy, and let a shared critic choose between their proposals by Boltzmann sampling; curves only. · [code](https://github.com/Haichao-Zhang/PEX)
+- **[Diffusion-QL](https://arxiv.org/abs/2208.06193)** (UT Austin; Twitter, 2022-08-12) — Diffusion policy trained with a denoising BC loss plus a Q-maximizing term backpropagated through the chain; D4RL Gym average 88.0 vs CQL 77.6. · [code](https://github.com/Zhendong-Wang/Diffusion-Policies-for-Offline-RL)
+- **[JSRL](https://arxiv.org/abs/2204.02372)** (Google, UC Berkeley and others, 2022-04-05) — A guide policy runs the first h steps and RL learns the tail, handing over earlier as success rises; sim grasping with 20 demos 0.91 vs QT-Opt 0.00.
+- **[IQL](https://arxiv.org/abs/2110.06169)** (UC Berkeley, 2021-10-12) — Expectile value regression that never queries unseen actions; D4RL antmaze total 378.0 vs CQL 303.6. · [code](https://github.com/ikostrikov/implicit_q_learning)
+- **[AWAC](https://arxiv.org/abs/2006.09359)** (UC Berkeley, 2020-06-16) — TD critic plus advantage-weighted regression actor for pretrain-then-finetune without the dip; sparse Adroit door 95%, relocate 54%. · [code](https://github.com/vitchyr/rlkit/tree/master/examples/awac)
+- **[CQL](https://arxiv.org/abs/2006.04779)** (UC Berkeley; Google Brain, 2020-06-08) — Pessimistic critic that pushes Q down on policy actions and up on data actions; big wins on mixed-quality D4RL data. · [code](https://github.com/aviralkumar2907/CQL)
+- **[R3L](https://arxiv.org/abs/2004.12570)** (UC Berkeley, Oxford, U, 2020-04-27) — SAC from pixels plus a goal-image classifier reward and a perturbation controller for reset-free real-world practice.
+- **[QT-Opt](https://arxiv.org/abs/1806.10293)** (Google Brain; X; UC Berkeley, 2018-06-27) — Actor-free Q-learning with CEM on 580k real grasps; adding 28k on-policy grasps took unseen-object grasping from 87% to 96%. · [code](https://github.com/google-research/tensor2robot/tree/master/research/qtopt)
+- **[DDPGfD](https://arxiv.org/abs/1707.08817)** (DeepMind, 2017-07-27) — About 100 human demos kept permanently in DDPG's prioritized replay buffer; learns sparse-reward insertion without a shaped reward.

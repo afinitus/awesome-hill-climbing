@@ -1,0 +1,208 @@
+[
+ {
+  "key": "blackbox",
+  "name": "Black-box search",
+  "loop_step": "Improve",
+  "question": "How do I improve a policy when all I can do is run it and get a score, for example a success flag, and I cannot or do not want to backprop through it?",
+  "tagline": "Treat the policy, or a few knobs around it, as a vector. Try perturbed copies, score each with one number per episode, and move toward the copies that scored well. No backprop through the policy, no critic, no action log-probs.",
+  "built_on": [
+   "Perturb, evaluate, step (random search / finite differences / ES)",
+   "Reward-weighted averaging (PoWER, PI2, CEM, MPPI)",
+   "Adapt the search distribution (CMA-ES)",
+   "Bayesian optimization (BO)",
+   "Quality-diversity (MAP-Elites) as a prior",
+   "Parameter-space vs action-space exploration",
+   "Black-box search inside modern methods"
+  ],
+  "use_when": "Use it when (1) you only have a scalar, trajectory-level score such as success, success times time, or pass/fail, (2) the policy's log-probs are unavailable or expensive (diffusion, flow, action chunks, deterministic controllers, closed APIs), and (3) you can shrink the search to a small space: controller gains, impedance, a noise vector, a residual or last-layer head, a prompt. Pick BO for tens of expensive real trials over a few knobs.",
+  "trend": "Three things changed in the last 12 months. (1) Scale: ES went from 'works for small MLPs' to full-parameter fine-tuning of billion-parameter models. C155 (Sep 2025, ICML 2026) beat tuned PPO/GRPO on Countdown with a population of 30."
+ },
+ {
+  "key": "onpolicy",
+  "name": "On-policy policy gradients",
+  "loop_step": "Improve",
+  "question": "How do I take a BC or SFT policy (diffusion, flow, ACT or a 7B VLA) that succeeds 50-90% of the time and push it toward 95-100% using only a success signal, a resettable simulator, and fresh on-policy rollouts?",
+  "tagline": "Roll out the pretrained policy as a stochastic policy, raise the log-probability of rollouts that beat a baseline, and clip each step so the pretrained skill survives.",
+  "built_on": [
+   "Likelihood-ratio policy gradient",
+   "Trust region by clipping (PPO)",
+   "Where the baseline comes from: critic vs group",
+   "Getting a log-prob out of an expressive policy",
+   "Anchoring to the pretrained policy",
+   "Signal needs variance"
+  ],
+  "use_when": "Use it when you have (1) a pretrained policy that already succeeds sometimes, roughly 10-90%, (2) a simulator or digital twin with cheap resets and an automatic success check, and (3) GPUs for millions of rollouts. It is the right tool for pushing a competent SFT policy past its imitation plateau (RL4VLA: more demos stopped helping at 0.781, PPO reached 0.938).",
+  "trend": "Twelve months ago (2025-05 to 2025-07), the question was whether PPO/GRPO can train a VLA at all. RIPT-VLA, VLA-RL, RL4VLA, TGRPO, ReinFlow and FPO said yes, in simulation. From 2025-09 to 2025-10 this became standard recipes and infrastructure."
+ },
+ {
+  "key": "offpolicy",
+  "name": "Off-policy critics & offline-to-online RL",
+  "loop_step": "Improve",
+  "question": "How do I take a pretrained robot policy that works 40-80% of the time to 95-100% with minutes-to-hours of real robot data, reusing every demo and rollout I already have?",
+  "tagline": "Learn a Q-function from every transition you have (demos, human corrections, old rollouts, new rollouts), then use it to pick, edit or push the policy's actions toward higher value.",
+  "built_on": [
+   "Bellman backups and off-policy replay",
+   "Max-entropy actor-critic (SAC) and its real-robot variant RLPD",
+   "Conservative and in-sample critics",
+   "The offline-to-online hand-off",
+   "Action-chunk critics",
+   "Policy extraction for expressive policies",
+   "Humans in the loop"
+  ],
+  "use_when": "Use this family when you already have a decent policy (roughly 40-80% on one task), each real episode is expensive, and you can get a binary success signal. Off-policy RL reuses every demo, correction and failed rollout, so it usually needs far fewer robot minutes than on-policy PPO/GRPO.",
+  "trend": "Five shifts happened in the last 12 months. (1) The target policy changed. The 2023-24 lineage (RLPD, SERL, HIL-SERL) trained small Gaussian SAC policies from scratch."
+ },
+ {
+  "key": "residual",
+  "name": "Residual, edit & steering policies",
+  "loop_step": "Improve",
+  "question": "How do I push a big imitation, diffusion or VLA policy from 50% to 95%+ when I can't cheaply fine-tune or backprop through it, without breaking what it already does well?",
+  "tagline": "Freeze the big pretrained policy and train a small add-on with RL: one that corrects its actions (residual/edit) or one that picks the noise it is fed (steering).",
+  "built_on": [
+   "Residual policy: the base is part of the environment",
+   "Start at base performance: zero-init, bound and scale the correction",
+   "Off-policy actor-critic with prior data is what makes this fit on a real robot",
+   "Latent-noise steering: RL picks the noise, not the action",
+   "Edit policy + best-of-N selection by Q",
+   "Support versus reach"
+  ],
+  "use_when": "Use it when you already have a decent base (roughly 20-80% success) that you can't or won't fine-tune: a VLA too big to backprop through with RL, a closed checkpoint that allows only forward calls, or a chunked diffusion or ACT policy whose likelihood is awkward for policy gradients. It also fits when you want the base's generality and recovery behaviors kept intact, and when your budget is minutes to hours of real robot time with sparse success labels.",
+  "trend": "Four shifts in the last 12 months. (1) Bases moved from task-specific diffusion or ACT policies to frozen generalist VLAs (pi0, pi0.5, GR00T, SmolVLA, OpenVLA-OFT). Freezing became the default because full RL fine-tuning of 3B models is costly and erodes recovery behavior (PPS, TRANSIC-style findings)."
+ },
+ {
+  "key": "advbc",
+  "name": "Advantage-weighted & filtered BC",
+  "loop_step": "Improve",
+  "question": "How do I push a big imitation policy (a diffusion policy or a flow VLA) up on one task using its own rollouts, human corrections and success labels, without running policy-gradient RL through it?",
+  "tagline": "Keep the supervised imitation loss, but decide which actions (or which demos) the policy copies and how much, using a success label, a value function or a data-influence score.",
+  "built_on": [
+   "Reward- and advantage-weighted regression (RWR/AWR)",
+   "Filtered BC and rejection sampling",
+   "Advantage- or return-conditioned policies",
+   "Classifier-free guidance as a policy-improvement knob",
+   "Where the advantage comes from",
+   "Curation: hill-climbing the dataset instead of the loss"
+  ],
+  "use_when": "Use this family when you have a decent BC or VLA policy (roughly 20-60% success) on a specific task, a way to label episodes success or failure, and ideally a teleop device for takeovers, but you do not want to backprop RL through a large flow or diffusion sampler. Start with curation (RoboDrop, QoQ or CUPID-style audits, or cheap smoothness filters) when your demos are mixed-quality.",
+  "trend": "The big shift came with pi*0.6/RECAP in November 2025. Advantage-weighted BC gave way to advantage-conditioned BC with classifier-free guidance, which fits flow VLAs whose likelihood is awkward to weight, and CFGRL (May 2025) supplied the theory. In the next ten months at least a dozen groups copied or modified the recipe: GigaBrain RAMP, chi0, DexPIE, DEED, ROVE, STEAM, Robo-ValueRL, PACE, DistAL, Facet-0, CLIFT and the LeHome winner."
+ },
+ {
+  "key": "hitl",
+  "name": "Human corrections & DAgger",
+  "loop_step": "Find failures → Improve",
+  "question": "My imitation policy works most of the time but fails in states the demos never covered. How do I spend a small amount of human time so the next version fixes exactly those failures?",
+  "tagline": "Run the policy, let a person (or now a machine) step in where it goes wrong, and train on those on-policy fixes so the policy learns to handle the states it actually reaches.",
+  "built_on": [
+   "Compounding error (covariate shift)",
+   "DAgger: label the learner's own states",
+   "Human-gated vs robot-gated takeovers",
+   "Reweighting correction data",
+   "A takeover as a reward, value or preference signal",
+   "Human effort is the budget"
+  ],
+  "use_when": "Use this family when you have a decent imitation policy (roughly 30% to 80% success) that fails in specific, repeatable places, and a person who can recognize and fix those failures. It is the default last-mile tool when you have no reward function, when the task is long-horizon or contact-rich, and when you want the policy to stay close to its pretrained behavior.",
+  "trend": "Five shifts in the last 12 months. (1) The policy being corrected is now a VLA. pi0/pi0.5, GO-1, Being-H0.5 and Gr-Dexter replace small BC-RNNs, and the loops are built as systems: SOP streams fleet corrections to a cloud learner, and HELP splits operator roles and reports successes per hour."
+ },
+ {
+  "key": "testtime",
+  "name": "Test-time search & verifiers",
+  "loop_step": "Improve at deploy time (no weight updates)",
+  "question": "My policy sometimes does the right thing but not reliably. Can I raise its success rate without retraining it, just by choosing better among its own samples at run time?",
+  "tagline": "Leave the policy's weights alone and spend extra compute at deployment: sample several candidate actions, score them with a critic, verifier, world model or monitor, and run the best one (or nudge the sampler toward it).",
+  "built_on": [
+   "Best-of-N with a verifier (sample, score, pick)",
+   "KL-regularized optimum = guidance",
+   "Offline critics that are safe to argmax over",
+   "Lookahead with a model (shooting, MPPI, MCTS)",
+   "Over-optimization and support",
+   "Runtime monitors and adaptive compute",
+   "Search, then distill (expert iteration)"
+  ],
+  "use_when": "Use it when (1) your policy is stochastic (diffusion, flow or sampled tokens) and pass@k is clearly above pass@1, i.e. it sometimes does the right thing, (2) fine-tuning the policy is expensive or risky (a large VLA, a shared checkpoint), and (3) you can afford some extra latency or can batch samples off a shared prefill.",
+  "trend": "Five shifts in the last 12 months. (1) From generic to on-policy verifiers. V-GPS (2024) used a generic offline-RL Q, and RoboMonkey (2025-06) a 7B verifier on synthetic preferences."
+ },
+ {
+  "key": "reward",
+  "name": "Reward, value & progress models",
+  "loop_step": "Measure → Find failures",
+  "question": "My robot only gets a success bit at the end of an episode, or a human has to watch every rollout. How do I get a dense, trustworthy score so RL, filtered BC or advantage conditioning can push the policy from about 60-80% toward 95%+?",
+  "tagline": "These methods leave the policy alone and build the score it climbs against: a learned or zero-shot judge that says how far along a rollout is, whether it succeeded, and where it went wrong.",
+  "built_on": [
+   "Success classifier as reward",
+   "Progress from time (time-as-label)",
+   "Preference and ranking rewards (Bradley-Terry)",
+   "Potential-based shaping",
+   "Value model for advantage-weighted updates",
+   "VLM as a zero-shot judge",
+   "Reward hacking and pessimism",
+   "Measuring a reward model before spending robot time"
+  ],
+  "use_when": "Use this family when success is sparse or expensive to judge and the task is long or multi-stage. Examples: cloth folding, insertion sequences, anything where a rollout that gets 80% of the way looks the same as one that fails at once under a success bit.",
+  "trend": "Four shifts stand out. (1) Scale and generality. Per-task rankers (Rank2Reward, VIP-style) gave way to VLM reward models trained on large pooled datasets: Robo-Dopamine on about 3,400 hours, Robometer on RBM-1M (over 1M trajectories), RynnValue on over 7,000 hours."
+ },
+ {
+  "key": "worldmodel",
+  "name": "World models & evaluation",
+  "loop_step": "Deploy → Measure",
+  "question": "How do I tell whether checkpoint k+1 really beats checkpoint k, and how do I improve a policy, when every real robot trial is slow, noisy and needs a reset?",
+  "tagline": "Build a stand-in for the real robot, either a learned video or latent world model or a scanned real-to-sim twin, then use it to score checkpoints cheaply and to run the try-score-improve loop without spending robot time.",
+  "built_on": [
+   "Dyna: learn a model, then practice inside it",
+   "Latent imagination (PlaNet/Dreamer)",
+   "Monte Carlo policy evaluation in a stand-in world",
+   "Model exploitation and compounding error",
+   "Rewards inside imagination",
+   "Real-to-sim twins",
+   "Runtime monitors"
+  ],
+  "use_when": "Use evaluation infrastructure first, almost always. If you will compare more than a handful of checkpoints, build a twin or learned evaluator and validate it on 5-10 checkpoints with paired real trials (report Pearson r and MMRV) before trusting it.",
+  "trend": "In the last 12 months the family went from 'world models as evaluators' to 'world models as RL environments for VLAs', and then to 'making those environments trustworthy'. (1) Starting in Sept-Nov 2025, World-Env, VLA-RFT, WMPO and ProphRL ran GRPO/PPO for VLAs inside pretrained video generators (Cosmos, OpenSora, Wan, SVD), using learned or VLM success judges. The draw was on-policy RL without resets."
+ },
+ {
+  "key": "simreal",
+  "name": "Sim-to-real & real-to-sim",
+  "loop_step": "Deploy → Improve",
+  "question": "How do I get the trial-and-error gains of RL for a robot policy without paying for thousands of risky, hand-reset real-world episodes?",
+  "tagline": "Uses a simulator, often a scanned or generated copy of the real scene, as a safe practice gym where the policy can hill-climb with RL before or alongside a short real-robot stage. Real demos or real replay data keep it tied to reality.",
+  "built_on": [
+   "Domain randomization",
+   "Real-to-sim: digital twins and cousins",
+   "BC-anchored sim RL (sim-real co-training)",
+   "Sim-to-online RL on the real robot",
+   "Sim value as a shaping signal",
+   "Residual correction on a sim-made base",
+   "Gradient-free and label-light last-mile knobs (the 'other' bucket)"
+  ],
+  "use_when": "Use this family when real-world trial and error is slow, unsafe or needs human resets, and you can build a simulator that gets the coarse task structure right: rigid objects, known geometry, a calibratable controller. Pick by situation.",
+  "trend": "Four shifts in the last 12 months. (1) The simulator changed jobs. Earlier sim-to-real trained small policies from scratch and hoped for zero-shot transfer."
+ },
+ {
+  "key": "industry",
+  "name": "Industry recipes & deployment reports",
+  "loop_step": "The whole loop",
+  "question": "How do real robot companies actually climb from ~60-80% to 99% on a paying task, and what do they disclose about it?",
+  "tagline": "Companies take a big pretrained robot model and push one real task from \"works in a demo\" to \"works all shift\" with deploy, grade, curate and retrain loops, sometimes with RL folded in.",
+  "built_on": [
+   "On-policy data aggregation (DAgger and its human-gated variant)",
+   "Automatic success and progress detection",
+   "Policy improvement through supervised learning (advantage-weighted or advantage-conditioned BC)",
+   "Pretraining scale makes local hill-climbing trustworthy",
+   "Reliability compounds and evaluation is statistical",
+   "Sparse outcome reward plus self-play"
+  ],
+  "use_when": "Use these case studies as a template when you have one fixed, economically defined task, a pretrained base policy that already works sometimes (roughly 50-80%), and the ability to run many long evaluation sessions. The order that shows up across companies: (1) define success with the customer's own quality bar and log everything; (2) automate grading and failure localization (progress model or auto-labeler); (3) collect targeted recovery or correction data where the policy actually fails (DAgger-style); (4) if success plateaus or speed matters, add a value function and advantage-weighted or advantage-conditioned retraining in the RECAP style; (5) report streaks, successes per hour and graded quality over hundreds of trials with a declared scope.",
+  "trend": "Four shifts in the last 12 months. (1) RL entered industry recipes in supervised-friendly forms. π*0.6/RECAP (2025-11) showed a value function plus advantage-conditioned retraining beating PPO and AWR on a 4B flow VLA."
+ },
+ {
+  "key": "generalrl",
+  "name": "Broader RL advances that transfer",
+  "loop_step": "Background for every step",
+  "question": "Which general RL results from the last year change how you should hill-climb a robot policy?",
+  "tagline": "Not robot-manipulation papers: scaling laws for value functions and RL compute, critic and actor-critic design studies, flow/diffusion policy theory, RL for language models (group baselines, off-policy and stale-data training, process rewards, test-time compute), and last-mile RL for driving policies. Robot work keeps borrowing from all of them.",
+  "built_on": [
+   "Everything in Foundations"
+  ],
+  "use_when": "Read these when you are choosing an algorithm family or a compute budget, or when a robot paper cites an idea from language-model RL and you want the original.",
+  "trend": "RL for language models and RL for robot policies converged on the same toolkit in 2025-26: critic-free group baselines, KL-anchored fine-tuning from a pretrained model, learned verifiers, and spending compute at test time."
+ }
+]

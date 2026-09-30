@@ -1,0 +1,133 @@
+# World models & evaluation
+
+[← Awesome Hill Climbing](../README.md) · [all families](README.md)
+
+*How do I tell whether checkpoint k+1 really beats checkpoint k, and how do I improve a policy, when every real robot trial is slow, noisy and needs a reset?*
+
+Build a stand-in for the real robot, either a learned video or latent world model or a scanned real-to-sim twin, then use it to score checkpoints cheaply and to run the try-score-improve loop without spending robot time.
+
+- **Loop step:** Deploy → Measure
+- **Built on:** Dyna: learn a model, then practice inside it; Latent imagination (PlaNet/Dreamer); Monte Carlo policy evaluation in a stand-in world; Model exploitation and compounding error; Rewards inside imagination; Real-to-sim twins; Runtime monitors
+- **Use it when:** Use evaluation infrastructure first, almost always. If you will compare more than a handful of checkpoints, build a twin or learned evaluator and validate it on 5-10 checkpoints with paired real trials (report Pearson r and MMRV) before trusting it.
+- **What changed in 2025–26:** In the last 12 months the family went from 'world models as evaluators' to 'world models as RL environments for VLAs', and then to 'making those environments trustworthy'. (1) Starting in Sept-Nov 2025, World-Env, VLA-RFT, WMPO and ProphRL ran GRPO/PPO for VLAs inside pretrained video generators (Cosmos, OpenSora, Wan, SVD), using learned or VLM success judges. The draw was on-policy RL without resets.
+
+**79 entries**, newest first. ⭐ marks must-know work.
+
+
+## September 2026
+
+- **[WorldLine](https://arxiv.org/abs/2609.38059)** (Zheng et al., 2026-09-29) — Action-driven visual simulator trained on 10,000+ h action-free video plus 2,000+ h action trajectories; predicts trajectory success at 74% accuracy; rollouts lift RoboTwin success up to 21.4 points. · [code](https://zhengsh123.github.io/WorldLine/)
+- **[EVO-WAM](https://arxiv.org/abs/2609.38057)** (Zhou et al., 2026-09-29) — World action model self-improves without new demos by training on its own rollouts filtered by VLM success and inverse-dynamics consistency; RoboTwin 2.0 26.9% to 68.0%, real 20.0% to 76.7%. · [code](https://evo-wam.github.io/)
+- **[Direct Experience World-Model Optimization](https://arxiv.org/abs/2609.37398)** (Zhan et al., 2026-09-29) — DEWO: post-deployment improvement of world-action models from successful and failed futures via classifier-free guidance, gated by a progress value head; real dexterous success 51.0% to 71.7% after two rounds.
+- **[WorldGuide](https://arxiv.org/abs/2609.34206)** (Liu et al., 2026-09-28) — Latent world model trained contrastively on matched success/failure trajectories serves as a reward signal for VLA policy optimization, removed at deployment; 96.8% LIBERO, 72.0% SimplerEnv.
+- **[Achieve What You Imagined](https://arxiv.org/abs/2609.33832)** (Qiao et al., 2026-09-27) — Frozen action-conditioned world model scores action consistency with the WAM's visual plan; Flow Policy Optimization improves the policy without online interaction or reward models; UR5 success 43.4% to 75.1%. · [code](https://imagine-to-achieve.github.io/)
+- **[Precision at Speed](https://arxiv.org/abs/2609.31025)** (Canales et al., 2026-09-25) — Online MBRL with a probabilistic dynamics ensemble and sampling-based MPC learned from scratch on an 11.5-ton excavator; sub-centimeter mean path error after 40 minutes of real interaction.
+- **[HapticWorld](https://arxiv.org/abs/2609.31924)** (Peng et al., 2026-09-25) — Learned interactive world simulator that predicts joint torques and renders haptic feedback to teleoperators; 1.6x data-collection throughput, policies from generated demos reach 54/60 real vs 19/60 vision-only. · [code](https://haptic-world.github.io/)
+- **[Towards VLA-Dreamer](https://arxiv.org/abs/2609.31313)** (Kashani et al., 2026-09-25) — Trains a JEPA-style predictive world model in the VLA vision-encoder embedding space, enabling short-horizon planning over sampled VLA actions conditioned on goal images; no headline number given.
+- **[AD-WM](https://arxiv.org/abs/2609.30264)** (Qiu et al., 2026-09-24) — Latent world model with residual dynamics plus action-recovery regularization so rollouts stay action-discriminative for MPC; OGBench-Cube 3.7% to 52.0%, zero-shot real robot 42.2% to 71.1%. · [code](https://ad-wm.github.io/)
+- **[Generalizable Robotic Insertion with World Models](https://arxiv.org/abs/2609.28258)** (Hansen et al., 2026-09-23) — Single model-based RL world model trained on up to 90 insertion tasks: 56% zero-shot on unseen geometries vs 7% model-free; finetuning beats training from scratch on held-out objects.
+- **[ReVeal](https://arxiv.org/abs/2609.23910)** (Purdue; Samsung SDS Research America, 2026-09-20) — Checks whether a phone-scanned twin can be trusted. A better reconstruction lifts real-sim r from 0.773 to 0.960 and cuts MAE from 0.246 to 0.050.
+- **[Expert-Play Contouring Control](https://arxiv.org/abs/2609.22798)** (Cho et al., 2026-09-19) — EPCC: extracts a time-independent progress contour from slow expert demos, trains a world model on fast play data, and plans to maximize contour progress; 2.0x throughput over IL baselines.
+- **[U-GROW](https://arxiv.org/abs/2609.22879)** (Nanjing University; Cirquar, 2026-09-19) — Starts world-model branches at states where the flow policy's 3-step and 5-step samples disagree. RoboTwin average 58.8 vs 54.3 for VLA-MBPO.
+- **[WorldContact](https://arxiv.org/abs/2609.19600)** (Wang et al., 2026-09-17) — Contact-centric world model for deformable manipulation, 10x faster than its source simulator; VLA fine-tuned on its expanded synthetic data lifts real bag-lifting success from 65% to 95%.
+- **[DexTouch-WM](https://arxiv.org/abs/2609.20649)** (Qin et al., 2026-09-17) — Action-conditioned visuo-tactile world model trained on 5h robot plus up to 100h human touch data; used as surrogate for policy evaluation and synthetic trajectory generation.
+- **[Pelican-Sim 1.0](https://arxiv.org/abs/2609.12036)** (Zou et al., 2026-09-10) — Action-conditioned world-model simulator with a unified 28-D action space; 0.994 Pearson for policy evaluation, generated trajectories lift policy success 70% to 93%, 20.3% relative policy-improvement gain. · [code](https://zoushilong1024.github.io/Pelican-Sim1.0/)
+- **[HaWMPO](https://arxiv.org/abs/2609.09941)** (JD Joy Future Academy; Jilin University, 2026-09-09) — Per-chunk hallucination score (AUROC 0.9375) down-weights unreliable imagined chunks in GRPO. LIBERO average 63.7 vs 60.9 for WoVR*.
+- **[WHIRL](https://arxiv.org/abs/2609.06009)** (HKUST; IIT; Zhejiang University, 2026-09-05) — Real-world residual SAC with an intervention-aware latent world model. Pick & Place 43.3% → 90.0%; the gain appears only when the world model is added.
+- **[R2S-Eval](https://arxiv.org/abs/2609.03276)** (Sharpa; Nanjing U; Tongji; Tsinghua, 2026-09-03) — Calibrated Isaac twin plus pairwise VLM preferences with Bradley-Terry. Mean real-sim gap 2.13 pp and identical ranking across 6 VLAs. · [code](https://r2s-eval.github.io)
+- **[WISE](https://arxiv.org/abs/2609.03681)** (Tsinghua; BAAI, 2026-09-03) — Imagines candidate chunks only at interaction-relevant states. Uses 77% less GPU time than full imagination and gets real pi0 60.0 → 77.5.
+- **[Do Better Imagined Rollouts Mean Better Robot Control? A Controlled Study of…](https://arxiv.org/abs/2609.02811)** (Raghavan et al., 2026-09-02) — Six state estimators on differential-drive path tracking, 24 sensing conditions: replay position RMSE predicts closed-loop cross-track error (Spearman 0.923) better than open-loop rollout error (0.774). · [code](https://github.com/rdharini2001/Robot_World_Model)
+
+## August 2026
+
+- **[Motus2](https://arxiv.org/abs/2608.30237)** (Bi et al., 2026-08-31) — Single shared-weight model serves as policy, simulator and evaluator in a closed loop; expert demos and failed interactions improve dynamics and value prediction, with tactile sensing on a dexterous bimanual platform.
+- **[CLAP](https://arxiv.org/abs/2608.27406)** (Liu et al., 2026-08-27) — Cross-embodiment action-conditioned video world model: curriculum from latent actions on unlabeled video to end-effector/language actions; approaches or surpasses single-embodiment models on DROID, spans Bridge, YAM, G1. · [code](https://omni-clap.github.io)
+- **[Hydra-0](https://arxiv.org/abs/2608.18077)** (Li et al., 2026-08-18) — Generalist world model conditioned on pixel action flow across embodiments; 90.4% lower robot-motion error than action-conditioned baseline, r=0.96 replayed-vs-reference success correlation on RoboLab. · [code](https://nvidia-isaac.github.io/video_to_data/hydra-0/)
+- **[FACT](https://arxiv.org/abs/2608.10232)** (Peng et al., 2026-08-10) — World-action model that predicts future video and task progress conditioned on executed actions, using failure rollouts as supervision; beats baselines on sim and real bimanual tasks, reducing success-biased hallucination. · [code](https://fact-wam.github.io/)
+
+## July 2026
+
+- **[BWM](https://arxiv.org/abs/2607.29302)** (Team, 2026-07-31) — Action-conditioned world model (initial-environment guidance, visual history, aligned action conditioning) for imitation-data augmentation and closed-loop policy evaluation; ranked first overall in the WorldArena Challenge.
+- **[ViTacWorld](https://arxiv.org/abs/2607.22530)** (Huang et al., 2026-07-24) — Action-conditioned visuo-tactile world model trained on real plus simulated tactile data; predicts aligned vision and touch for policy evaluation and rollout-based data augmentation of tactile policies. · [code](https://vitacworld.github.io/)
+- **[DriftWorld](https://arxiv.org/abs/2607.15065)** (Lu et al., 2026-07-16) — Action-conditioned drifting world model generating future frames in one pass: 30+ fps, 17x faster than diffusion baselines; rollout-based policy scoring correlates with ground truth up to 0.99. · [code](https://susie-lu.github.io/driftworld/)
+- **[TACO](https://arxiv.org/abs/2607.02840)** (Peking University, 2026-07-03) — Visuo-tactile world model imagines corrections at stalled states. Average task score 0.375 → 0.825 vs DreamGen 0.550.
+- **[GigaWorld-1](https://arxiv.org/abs/2607.02642)** (GigaAI; Tsinghua, 2026-07-02) — Roadmap and benchmark for world-model evaluators (324k human-scored segments). Action faithfulness and memory matter, and background and photometric consistency are negative predictors. · [code](https://github.com/open-gigaai/giga-world-1)
+- ⭐ **[WorldSample](https://arxiv.org/abs/2607.02431)** (Nanyang Technological University; Tsinghua; Central South…, 2026-07-02) — Adds a Dyna-like stream to real-robot SAC/RLPD: jittered actions are rendered by a post-trained Cosmos-Predict2.5 model, reward-labeled, and gated into the critic loss. Real robot, 5 tasks: 82% in 64 min vs HIL-SERL 56% in 83 min.
+- ⭐ **[RoboWorld](https://arxiv.org/abs/2607.01060)** (KAIST; Config, 2026-07-01) — Converts Wan2.1-T2V-1.3B into a causal, KV-cached, 4-step autoregressive video model on DROID, trained with Step Forcing to limit drift, and scores rollouts with GPT-4o. Across 8 VLAs (4,186 rollouts): Pearson r = 0.989 with the real RoboArena leaderboard.
+
+## June 2026
+
+- **[DGAC](https://arxiv.org/abs/2606.21406)** (ETH Zurich; TU Munich; Microsoft; MCML, 2026-06-19) — Human-video dynamics plus value models relabel failed states with better actions. Stretch average 85.3% vs RISE 76.0%; pi0.5 62.7 → 88.0.
+- **[SC3-Eval](https://arxiv.org/abs/2606.18610)** (Tseng et al., 2026-06-17) — Video-model policy evaluator enforcing forward-inverse dynamics, cross-view and test-time consistency; 0.929 closed-loop Pearson and 0.119 MMRV across seven real-world VLA policies.
+- **[Mem-World](https://arxiv.org/abs/2606.18960)** (Zheng et al., 2026-06-17) — 4D wrist-view surfel-indexed memory for action-conditioned world models; +14.5% Pearson correlation with real performance over Ctrl-World, and synthetic data lifts long-horizon success 58% to 72%.
+- **[SafeDojo](https://arxiv.org/abs/2606.20698)** (Peking University; others, 2026-06-15) — Constrained GRPO in a Wan 2.2 world model with a learned collision-cost head. Real Franka safe-success 70% vs 22% for WoVR.
+- **[WEAVER, Better, Faster, Longer](https://arxiv.org/abs/2606.13672)** (Jain, Wu, Farebrother, Swamy, Bajcsy, 2026-06-11) — Multi-view flow-matching world model predicting future latents and rewards: 0.870 correlation with real success for policy evaluation, +38% real success over a foundation policy, +14% from 5-10x faster test-time planning. · [code](https://github.com/arnavkj1995/WEAVER)
+
+## May 2026
+
+- **[τ0-WM](https://arxiv.org/abs/2606.01027)** (Zhou et al., 2026-05-31) — Unified video-action predictor plus action-conditioned simulator that scores candidate actions by task progress; trained on ~27,300 hours of teleop, UMI, egocentric human video and rollout/failure data. · [code](https://tau0-wm.github.io)
+- **[StressDream](https://arxiv.org/abs/2606.00267)** (CMU; NVIDIA; UW; Stanford, 2026-05-29) — Steers diffusion noise toward VLM-specified failures. Failure recall 54% → 94%; down-weighting lucky demos lifts pi0.5 from 39% to 71%. · [code](https://github.com/CMU-IntentLab/StressDream)
+- **[RAW-Dream](https://arxiv.org/abs/2605.12334)** (Nanjing University; UIUC; UTS; Tsinghua, 2026-05-12) — Task-agnostic world model from play data plus a zero-shot VLM judge, no target-task world-model data. LIBERO 43.4 → 52.3 zero-shot; real Piper 50.0% → 71.7%.
+- **[Sword](https://arxiv.org/abs/2605.07288)** (Tianjin University; Tsinghua; others, 2026-05-08) — Style augmentation plus latent scheduled sampling make the world-model simulator robust (Mixed FVD 111.19 vs 198.84 for WoVR). RL success is measured only inside the world model.
+
+## April 2026
+
+- **[dWorldEval](https://arxiv.org/abs/2604.22152)** (Current Robotics; U Toronto, 2026-04-24) — Discrete-token masked-diffusion evaluator with failure data. Real AgileX r 0.918 / MMRV 0.02, with better action controllability than video evaluators.
+- **[WM-DAgger](https://arxiv.org/abs/2604.11351)** (Peking University; JD Logistics; others, 2026-04-13) — Not RL: a world model synthesizes detour-and-recover data in place of human DAgger. Bag pushing reaches 93.3% with 5 demos vs 26.7% for BC. · [code](https://github.com/czs12354-xxdbd/WM-Dagger)
+
+## March 2026
+
+- ⭐ **[VLA-MBPO](https://arxiv.org/abs/2603.20607)** (Nanjing University; Mila / Universite de Montreal, 2026-03-21) — Fine-tunes Bagel on ~50 real rollouts per task to predict frames 10 steps ahead and task completion, then runs PPO on short imagined branches from real states. LIBERO average 76.8 → 85.9, vs 82.6 for equal-budget online RL.
+- **[AcceRL](https://arxiv.org/abs/2603.18464)** (Lu et al., 2026-03-19) — Distributed asynchronous VLA RL framework decoupling rollouts, inference and gradient updates, plus a world model; 2.4x throughput and up to 200x online sample efficiency on LIBERO-Spatial. · [code](https://github.com/distanceLu/AcceRL)
+- **[SimDist](https://arxiv.org/abs/2603.15759)** (UT Austin; University of Washington, 2026-03-16) — Distill a TD-MPC-style latent world model in sim, then fine-tune only the dynamics on 15-30 min of real data with MPPI. Quadruped 5/5 where RLPD and IQL fail. · [code](https://github.com/CLeARoboticsLab/simdist)
+- **[RoboStereo](https://arxiv.org/abs/2603.12639)** (Tsinghua; X Square Robot; HKUST, 2026-03-13) — RGB plus pointmap dual-tower world model. Combined planning and imagined RL take MimicGen 27.7 → 54.0, while online GRPO at the same budget reaches 29.2.
+- **[World2Act](https://arxiv.org/abs/2603.10422)** (MBZUAI, 2026-03-11) — Residual policy trained in world-model latent space, not pixels. Small gains (RoboCasa 70.1 → 72.6), and pixel-space DreamGen dropped LIBERO from 97.0 to 92.1. · [code](https://github.com/andvg3/World2Act)
+- ⭐ **[PlayWorld](https://arxiv.org/abs/2603.09030)** (Princeton University, 2026-03-09) — Fine-tunes a Ctrl-World-style model on 30 hours of unattended, failure-rich robot self-play, then hill-climbs a few-demo diffusion policy inside it with DSRL. Towel folding: 10% → 75% at 2000 steps vs a 40% human-demo-model peak (chart reading). · [code](https://github.com/irom-princeton/open-world)
+- **[Interactive World Simulator](https://arxiv.org/abs/2603.08546)** (Columbia; TRI; Amazon; UIUC, 2026-03-09) — Per-task consistency-model world model from about 6 h of play. Evaluation r 0.8455-0.9908 across checkpoints of DP/ACT/pi0/pi0.5; runs 10+ minutes at 15 FPS on a 4090. · [code](https://github.com/WangYixuan12/interactive_world_sim)
+- **[AtomVLA](https://arxiv.org/abs/2603.08519)** (INFIFORCE; HUST; others, 2026-03-09) — Offline GRPO scoring sampled chunks by V-JEPA2 latent distance to subgoals. LIBERO 93.0% → 97.0% with no extra rollouts.
+
+## February 2026
+
+- ⭐ **[WoVR](https://arxiv.org/abs/2602.13977)** (CASIA; Zhongguancun Academy; Tsinghua University, 2026-02-15) — Runs GRPO entirely inside an action-conditioned Wan2.2-5B world model, starting imagined episodes near failure keyframes and refreshing the model with policy-aligned data to curb hallucination. Real Franka: 51.1 → 80.0 average (WMPO 64.5), no online robot RL. · [code](https://github.com/RLinf/RLinf)
+- ⭐ **[VLAW](https://arxiv.org/abs/2602.12063)** (Stanford University; Tsinghua University, 2026-02-12) — Grounds a world model on 50 real pi0.5 rollouts per task each iteration, labels synthetic rollouts with a strict Qwen3-VL-4B, and fine-tunes on real plus synthetic successes. 5 real DROID tasks: 0.460 → 0.868 vs filtered BC 0.752. · [code](https://github.com/Robert-gyj/Ctrl-World)
+- ⭐ **[RISE](https://arxiv.org/abs/2602.11075)** (CUHK; Kinetix AI; HKU; Shanghai Innovation Institute;…, 2026-02-11) — Replaces physical rollouts with a learned action-conditioned video model and a pi0.5-based value model that scores imagined chunk outcomes, driving advantage-conditioned training of pi0.5. Real dual-arm, 20 trials per task: box closing 35% → 95% vs RECAP 60%. · [code](https://github.com/OpenDriveLab/RISE)
+- **[DreamDojo](https://arxiv.org/abs/2602.06949)** (NVIDIA and collaborators, 2026-02-06) — World model pretrained on 44k h of human video with latent actions. Checkpoint ranking r = 0.995 / MMRV 0.003 on AgiBot fruit packing (human-scored). · [code](https://github.com/NVIDIA/DreamDojo)
+- **[World-VLA-Loop](https://arxiv.org/abs/2602.06508)** (Show Lab, NUS, 2026-02-06) — Cosmos world model with a built-in reward head, trained on success plus near-success data and refreshed with policy rollouts. Real Place Cup 13.3% → 50.0% after 2 loops. · [code](https://github.com/showlab/World-VLA-Loop)
+- **[World-Gymnast](https://arxiv.org/abs/2602.02454)** (NYU; NYU Shanghai; UC Berkeley, 2026-02-02) — GRPO inside WorldGym with a GPT-4o reward. Real eggplant-to-sink 4% → 72%, beating RL in SIMPLER on 3 of 4 tasks; test-time RL on close-drawer 62% → 100%. · [code](https://github.com/world-gymnast/world-gymnast)
+
+## December 2025
+
+- ⭐ **[PolaRiS](https://arxiv.org/abs/2512.16881)** (University of Washington; Princeton; UC Berkeley; Stanford;…, 2025-12-18) — Turns a 2-5 minute phone video into an interactive splat-rendered IsaacSim twin for policy evaluation, with brief co-training to align visuals. Average Pearson r = 0.9 across 6 unseen scenes; the Ctrl-World video model mis-ranks policies (MMRV 0.22). · [code](https://github.com/arhanjain/PolaRiS)
+- ⭐ **[Veo world-sim eval](https://arxiv.org/abs/2512.10675)** (Google DeepMind, 2025-12-11) — Fine-tunes Veo 2 into an action-conditioned multi-view world model, runs a Gemini Robotics On-Device VLA closed-loop in it, and has humans score the videos to predict real success. 8 checkpoints, 1600+ real trials: Pearson 0.88, MMRV 0.03.
+
+## November 2025
+
+- ⭐ **[Prophet / ProphRL](https://arxiv.org/abs/2511.20633)** (Fudan University; Shanghai Innovation Institute; Logos…, 2025-11-25) — Trains flow VLAs with FA-GRPO and FlowScale inside a 2B Cosmos-initialized action-to-video world model, rewarded by a VLM majority vote. Real UR30e, 100 in-model RL updates, 3 runs x 20 trials: pi0.5-3B 52.1 → 82.1 (+30.0). · [code](https://github.com/LogosRoboticsGroup/ProphRL)
+- **[Scalable eval with video WMs](https://arxiv.org/abs/2511.11520)** (NVIDIA; U Toronto; Vector Institute, 2025-11-14) — Action-conditioned Cosmos-Predict2 evaluator. Sim Pearson 0.833-0.879; real Bridge only 0.687. Adding other policies' rollouts to world-model training matters.
+- ⭐ **[WMPO](https://arxiv.org/abs/2511.09515)** (HKUST; ByteDance Seed, 2025-11-12) — Runs critic-free GRPO for OpenVLA-OFT inside a pixel-space video world model refit on the current policy's real rollouts, failures included, with a VideoMAE success classifier. MimicGen, 128 real rollouts: 33.6 → 47.1 vs online GRPO 33.2, DPO 37.3. · [code](https://github.com/WM-PO/WMPO)
+- **[Soft-body GS real-to-sim eval](https://arxiv.org/abs/2511.04665)** (Columbia; SceniX; Google DeepMind, 2025-11-06) — PhysTwin spring-mass plus Gaussian splat twin ranks ACT/DP/pi0/SmolVLA checkpoints on deformables with r 0.944 / 0.901 / 0.915. · [code](https://github.com/kywind/real2sim-eval)
+
+## October 2025
+
+- **[GSWorld](https://arxiv.org/abs/2510.20813)** (UCSD; UCLA; Meta, 2025-10-23) — 3DGS plus ManiSkill3 photoreal twin for evaluation and DAgger. Sim underestimates real in all 8 ACT/pi0 cells. Real DAgger at iteration 5: 63.75% vs 55% training from scratch. · [code](https://github.com/luccachiang/GSWorld)
+- ⭐ **[Ctrl-World](https://arxiv.org/abs/2510.10125)** (Stanford University; Tsinghua University, 2025-10-11) — Fine-tunes a 1.5B multi-view video diffusion model on DROID so a VLA runs closed-loop inside it, then fine-tunes the policy on human-labeled successful imagined rollouts. pi0.5-DROID: 38.7% → 83.4% on novel instructions and objects, imagined rollouts only. · [code](https://github.com/Robert-gyj/Ctrl-World)
+- **[FIPER](https://arxiv.org/abs/2510.09459)** (TU Munich, 2025-10-10) — Failure predictor that uses no failure data (RND OOD score AND action-chunk entropy). Average Acc 0.78 / TWA 0.65. MAJOR CORRECTION: the headline row uses a time-varying threshold that carries no false-alarm guarantee; the guaranteed CP-band variant scores TWA 0.62, TPR 0.72, TNR 0.84. · [code](https://github.com/utiasDSL/fiper) · numbers corrected after check
+- **[VLA-RFT](https://arxiv.org/abs/2510.00406)** (Westlake University; Zhejiang University; OpenHelix; Fudan;…, 2025-10-01) — GRPO for a flow VLA against a 138M world model with 'verified' reward (distance to the world model's rendering of the expert). LIBERO 86.6 → 91.1 in 400 steps. · [code](https://github.com/OpenHelix-Team/VLA-RFT)
+
+## September 2025
+
+- **[World-Env](https://arxiv.org/abs/2509.24948)** (Sun Yat-sen University; AMAP, 2025-09-29) — RLOO+PPO for OpenVLA-OFT inside a video simulator with a VLM reflector. LIBERO 5-demo average 74.85 → 79.6, about equal to RIPT-VLA in the real simulator. · [code](https://github.com/amap-cvlab/world-env)
+- **[World4RL](https://arxiv.org/abs/2509.19080)** (CASIA, 2025-09-23) — PPO inside a diffusion world model trained on demos plus policy and random rollouts. Real Franka 68.3% → 93.3% (DP 88.3%).
+
+## Before September 2025
+
+- **[Genie Envisioner](https://arxiv.org/abs/2508.05635)** (AgiBot, 2025-08-07) — One video world model platform for policy (GE-Act), simulation and closed-loop evaluation (GE-Sim), trained on about 3,000 h of teleop. · [code](https://github.com/AgibotTech/Genie-Envisioner-V1)
+- **[DiWA](https://arxiv.org/abs/2508.03645)** (University of Freiburg; UTN, 2025-08-05) — DPPO inside a frozen RSSM trained on play data, zero real RL steps. CALVIN skills gain roughly 17-42 points (e.g. close-drawer 59.14 → 91.95). · [code](https://github.com/acl21/diwa)
+- **[WorldGym](https://arxiv.org/abs/2506.00613)** (Stanford; NYU; Google DeepMind, 2025-05-31) — Video world model plus GPT-4o judge as a policy evaluator. Pearson r = 0.78 vs real over 17 Bridge tasks. · [code](https://github.com/world-model-eval/world-model-eval)
+- **[WorldEval](https://arxiv.org/abs/2505.19017)** (Midea Group; East China Normal University, 2025-05-25) — Conditions Wan 2.1 14B on the policy's own latent (Policy2Vec). Average r 0.942 vs 0.411 for a real-to-sim baseline. · [code](https://github.com/liyaxuanliyaxuan/Worldeval)
+- **[Real-is-Sim](https://arxiv.org/abs/2504.03597)** (RAI Institute; QUT, 2025-04-04) — The policy always acts on a synced dynamic digital twin. Failure states mined in sim plus 30 new demos lift real PushT from about 57% to 80%.
+- **[Sentinel](https://arxiv.org/abs/2410.04640)** (Stanford; NVIDIA, 2024-10-06) — Runtime failure detector (action-chunk consistency plus VLM progress check). Detects 18% more failures than either detector alone. · [code](https://github.com/agiachris/sentinel)
+- **[SIMPLER](https://arxiv.org/abs/2405.05941)** (UCSD; Stanford; UC Berkeley; Google DeepMind, 2024-05-09) — Real-to-sim evaluation via sysID plus visual matching. Average Pearson r 0.924 vs 0.308 for offline action MSE. Introduced MMRV. · [code](https://github.com/simpler-env/SimplerEnv)
+- **[UniSim](https://arxiv.org/abs/2310.06114)** (Google DeepMind; UC Berkeley; MIT; U Alberta, 2023-10-09) — A 5.6B video simulator. REINFORCE inside it raises simulated VLA success from 0.58 to 0.81 (pointing tasks 0.12 to 0.71).
+- **[DreamerV3](https://arxiv.org/abs/2301.04104)** (Google DeepMind; University of Toronto, 2023-01-10) — Robust imagination actor-critic with one config across 150+ tasks. Its components are widely reused in world-model fine-tuning. · [code](https://github.com/danijar/dreamerv3)
+- **[DayDreamer](https://arxiv.org/abs/2206.14176)** (UC Berkeley, 2022-06-28) — Dreamer on four real robots with no simulator: an A1 learns to walk in about 1 hour, while SAC on the same budget only rolls over. · [code](https://github.com/danijar/daydreamer)
