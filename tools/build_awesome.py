@@ -158,13 +158,18 @@ def sec_loop() -> list[str]:
         "and which part of the system they change.", "",
         "```mermaid",
         "flowchart LR",
-        "  S[\"0 · Start<br/>pretrained policy<br/>that sometimes works\"] --> D[\"1 · Deploy<br/>robot · fleet · sim · twin · world model\"]",
-        "  D --> M[\"2 · Measure<br/>success check · progress model · VLM judge\"]",
-        "  M --> F[\"3 · Find failures<br/>progress dips · monitors · takeovers\"]",
-        "  F --> I[\"4 · Improve<br/>search · RL · residual · weighted BC · DAgger · test-time\"]",
-        "  I --> R[\"5 · Re-measure<br/>held-out states + confidence intervals\"]",
+        "  S([Start]) --> D[Deploy] --> M[Measure] --> F[Find failures] --> I[Improve] --> R[Re-measure]",
         "  R --> D",
         "```", "",
+        "| Step | What happens | Families that live here |",
+        "| :--- | :--- | :--- |",
+        "| **Start** | A pretrained policy that already succeeds sometimes: BC, ACT, a diffusion or flow policy, a VLA. | |",
+        "| **Deploy** | Collect episodes on the robot, a fleet, a simulator, a digital twin or a learned world model. | [World models](papers/worldmodel.md), [sim-to-real](papers/simreal.md) |",
+        "| **Measure** | Turn each episode into a number: a success check, a progress model, a VLM judge. | [Reward & progress models](papers/reward.md), [evaluation](papers/worldmodel.md) |",
+        "| **Find failures** | Locate where and why it fails: progress dips, runtime monitors, human takeovers. | [Reward models](papers/reward.md), [human corrections](papers/hitl.md) |",
+        "| **Improve** | Apply an update. Each family is a different update operator. | [Black-box search](papers/blackbox.md), [on-policy PG](papers/onpolicy.md), [off-policy critics](papers/offpolicy.md), [residual & steering](papers/residual.md), [weighted BC](papers/advbc.md), [DAgger](papers/hitl.md), [test-time search](papers/testtime.md) |",
+        "| **Re-measure** | Held-out start states, trial counts and confidence intervals. Then repeat. | [Evaluation](papers/worldmodel.md), [industry loops](papers/industry.md) |",
+        "",
         "**Measuring the nines.** Near the top, the hard part is knowing whether you climbed. "
         "30/30 successes only shows the true rate is at least **88.6%** (95% Wilson interval). "
         "You need **73** straight successes for a lower bound of 95%, and **381** for 99%. "
