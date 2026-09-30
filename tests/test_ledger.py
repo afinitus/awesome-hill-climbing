@@ -105,3 +105,10 @@ def test_base_and_final_must_be_the_same_episodes(tmp_path):
         ledger.set_final(_result([True] * 8, "eval", first_seed=100))
     ledger.set_final(_result([True] * 8, "eval"))
     assert ledger.final["k"] == 8
+
+
+def test_results_config_uses_repo_relative_paths():
+    from lastmile.common.ledger import REPO_ROOT, _portable
+
+    cfg = {"results_root": str(REPO_ROOT / "results"), "runs": [str(REPO_ROOT / "runs" / "x")], "k": 3, "other": "/tmp/y"}
+    assert _portable(cfg) == {"results_root": "results", "runs": ["runs/x"], "k": 3, "other": "/tmp/y"}

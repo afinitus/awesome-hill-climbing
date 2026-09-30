@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "chapter": "ch01",
+  "method": "random_s3",
+  "robot": "so101",
+  "variant": "v1",
+  "setting": "sim",
+  "base": {
+    "id": "knobs_default",
+    "sr": 0.48046875,
+    "ci": [
+      0.42000768037908615,
+      0.5415073349225438
+    ],
+    "k": 123,
+    "n": 256,
+    "init_set": "eval"
+  },
+  "final": {
+    "sr": 0.0,
+    "ci": [
+      0.0,
+      0.014784391721725852
+    ],
+    "k": 0,
+    "n": 256,
+    "init_set": "eval",
+    "init_set_version": "v1"
+  },
+  "budget": {
+    "robot_minutes": {
+      "search": 0.0,
+      "train": 0.0,
+      "eval": 104.03833333333333
+    },
+    "human_minutes": {
+      "demos": 0.0,
+      "labels": 0.0,
+      "takeovers": 0.0,
+      "resets": 0.0,
+      "annotation": 0.0
+    },
+    "compute": {
+      "cpu_hours": 0.008483152222222224,
+      "gpu_hours": 0.0,
+      "wall_minutes": 0.0976836833333285
+    }
+  },
+  "extra": {
+    "seed": 3,
+    "knobs": {
+      "grasp_dx": 0.012245514728311098,
+      "grasp_dy": -0.004333990187885099,
+      "grasp_dz": 0.007090494233628893,
+      "approach_h": 0.07545784315097656,
+      "close_steps": 2.5926156371005984,
+      "lift_h": 0.08284402836910235,
+      "drop_dx": -0.05,
+      "drop_dy": -0.002319323776441895,
+      "drop_h": 0.07221308231352552,
+      "speed": 1.0
+    },
+    "mcnemar_p_vs_base": 1.88079096131566e-37
+  },
+  "git_sha": "1fa05e6",
+  "timestamp": "2026-09-30T14:35:13",
+  "config": {
+    "method": "random",
+    "robot": "so101",
+    "seeds": [
+      2,
+      3,
+      4
+    ],
+    "iterations": 10,
+    "n_dirs": 6,
+    "top_b": 3,
+    "batch": 16,
+    "sigma": 0.1,
+    "fd_step": 0.02,
+    "ars_step": 0.05,
+    "tag": "",
+    "n_eval": 256,
+    "heldout": true,
+    "n_workers": 6,
+    "gif": true,
+    "quick": false
+  }
+}

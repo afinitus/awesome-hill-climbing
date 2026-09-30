@@ -63,6 +63,7 @@ RESOURCE_SECTIONS = [
 ]
 
 CHAPTERS = [  # (number, method, base idea, papers mirrored, planned release)
+    ("0", "The base policy", "Behavior-clone a flow policy from mixed-quality demos", "Rectified flow, ACT, Diffusion Policy", "v0.1"),
     ("1", "Hill climbing & ARS", "Finite differences on a smoothed objective", "Kohl & Stone 2004, ARS, TD-ES", "v0.1"),
     ("2", "CEM, CMA-ES, PI², BO", "Reward-weighted averaging", "Zero-order primer, BO review", "v0.1"),
     ("3", "The golden ticket", "Black-box search in noise space", "Golden Ticket", "v0.1"),
@@ -104,6 +105,11 @@ def tracked(folder: str) -> list[str]:
         return out.stdout.split()
     except (OSError, subprocess.CalledProcessError):
         return [str(p.relative_to(ROOT)) for p in (ROOT / folder).glob("*.py")]
+
+
+def join_and(items: list[str]) -> str:
+    """'0', '0 and 1', '0, 1 and 2'."""
+    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
 
 
 def month_label(d: str) -> str:
@@ -256,7 +262,9 @@ def sec_handson(code_released: bool) -> list[str]:
             "**What is in the repo today:** the simulated task on both arms, the evaluation harness (fixed search and "
             "held-out start states, Wilson intervals, a cost ledger) and a scripted controller with ten tunable knobs. "
             "Tuned, it scores 255/256 on the held-out set; with the deliberately mis-tuned knobs that chapters 1 and 2 "
-            "start from, it scores 123/256 = 48.0% [42.0%, 54.2%]. The chapters themselves are next.", "",
+            "start from, it scores 123/256 = 48.0% [42.0%, 54.2%]. "
+            + (f"Chapters {join_and([str(int(n)) for n in sorted(have)])} are available, with notes and results in "
+               "[docs/chapters/](docs/chapters/)." if have else "The chapters themselves are next."), "",
         ]
         intro += ["```bash",
                   "make setup      # uv venv + dependencies",

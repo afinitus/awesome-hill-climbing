@@ -212,6 +212,16 @@ def test_plots_are_created_and_linked(tmp_path, lb):
         assert f"](media/leaderboard/{name})" in (tmp_path / "README.md").read_text()
 
 
+def test_many_runs_switch_to_one_panel_per_chapter(tmp_path, lb):
+    """Past MAX_LABELLED runs the per-point names would overprint, so the plot facets by chapter."""
+    for i in range(lb.MAX_LABELLED + 1):
+        write_result(tmp_path, f"ch0{i % 4}", f"m{i}", k=100 + i, base_k=100, search=float(i))
+    runs = lb.load_runs(tmp_path / "results")
+    assert len(runs) > lb.MAX_LABELLED
+    for png in lb.save_plots(runs, tmp_path / "plots"):
+        assert png.exists() and png.stat().st_size > 1000
+
+
 def test_plots_with_zero_results(tmp_path, lb):
     assert len(lb.save_plots([], tmp_path / "plots")) == 2
 

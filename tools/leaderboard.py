@@ -224,7 +224,9 @@ def is_paired(base: Rate, final: Rate) -> bool:
 
 
 def table_row(run: Run) -> list[str]:
-    if run.base is None:
+    if run.chapter == "ch00":
+        delta = "— (builds base_v1)"  # the base is the demonstrator being imitated, not a policy being improved
+    elif run.base is None:
         delta = "—"
     elif not is_paired(run.base, run.final):
         delta = "n/a (unpaired)"  # a difference between different episode sets is not an improvement
@@ -318,8 +320,11 @@ def _label_heights(xs: list[float], ys: list[float], gap: float = 4.0) -> list[f
     return heights
 
 
-def _draw_panel(ax, runs: list[Run], costs: list[float | None], xlabel: str) -> None:
-    """One point per run: final success with its Wilson interval against a cost on a log axis."""
+def _draw_panel(ax, runs: list[Run], costs: list[float | None], xlabel: str, labels: bool = True) -> None:
+    """One point per run: final success with its Wilson interval against a cost on a log axis.
+
+    ``labels=False`` drops the per-point method names, for panels with too many runs to label legibly.
+    """
     points = [(run, cost) for run, cost in zip(runs, costs) if cost is not None]
     ax.set_xscale("log")
     ax.set_ylim(0, 104)
@@ -356,6 +361,8 @@ def _draw_panel(ax, runs: list[Run], costs: list[float | None], xlabel: str) -> 
             capsize=3,
             zorder=3,
         )
+        if not labels:
+            continue
         leader = None if label_y == y else {"arrowstyle": "-", "color": MUTED, "lw": 0.6}
         ax.annotate(
             f"{run.chapter} {run.method}" + ("" if run.variant == "v1" else f" ({run.variant})"),
@@ -368,7 +375,7 @@ def _draw_panel(ax, runs: list[Run], costs: list[float | None], xlabel: str) -> 
             arrowprops=leader,
             zorder=4,
         )
-    if xs:
+    if xs and labels:  # unlabelled panels share one x range, which the caller sets
         ax.set_xlim(COST_FLOOR_MIN / 2, max(100.0, 20 * max(xs)))  # room for the labels on the right
     if any(cost <= 0 for _, cost in points):
         ax.axvline(COST_FLOOR_MIN, color=MUTED, lw=1, ls=":", zorder=1)
@@ -398,28 +405,59 @@ def _draw_panel(ax, runs: list[Run], costs: list[float | None], xlabel: str) -> 
         ax.legend(handles=handles, frameon=False, fontsize=8, loc="lower right")
 
 
+MAX_LABELLED = 12  # up to this many runs, one labelled panel; beyond it, one unlabelled panel per chapter
+
+
 def save_plots(runs: list[Run], out_dir: Path) -> list[Path]:
-    """Write the two leaderboard plots and return their paths."""
+    """Write the two leaderboard plots and return their paths.
+
+    With a handful of runs each point carries its name. Once there are more than ``MAX_LABELLED``, the
+    names would overprint, so the plot becomes small multiples: one panel per chapter, shared axes, no
+    per-point names (the table above the plots names every run).
+    """
     from matplotlib.figure import Figure  # no pyplot: no GUI backend or global state needed
 
     out_dir.mkdir(parents=True, exist_ok=True)
     panels = [
-        ("robot", "Improvement robot-minutes (search + train), log scale", [r.robot_minutes for r in runs]),
-        ("human", "Human-minutes, log scale", [r.human_minutes for r in runs]),
+        ("robot", "Improvement robot-minutes (search + train), log scale", lambda r: r.robot_minutes),
+        ("human", "Human-minutes, log scale", lambda r: r.human_minutes),
     ]
     paths = []
-    for key, xlabel, costs in panels:
-        fig = Figure(figsize=(7.5, 4.5), dpi=150, facecolor=SURFACE)
-        ax = fig.subplots()
-        ax.set_facecolor(SURFACE)
-        _draw_panel(ax, runs, costs, xlabel)
-        n = sum(c is not None for c in costs)
-        ax.set_title(
-            f"Final success vs {key}-minutes ({n} run{'s' if n != 1 else ''})",
-            loc="left",
-            fontsize=10,
-            color=INK,
-        )
+    for key, xlabel, cost_of in panels:
+        n = sum(cost_of(r) is not None for r in runs)
+        title = f"Final success vs {key}-minutes ({n} run{'s' if n != 1 else ''})"
+        if n <= MAX_LABELLED:
+            fig = Figure(figsize=(7.5, 4.5), dpi=150, facecolor=SURFACE)
+            ax = fig.subplots()
+            ax.set_facecolor(SURFACE)
+            _draw_panel(ax, runs, [cost_of(r) for r in runs], xlabel)
+            ax.set_title(title, loc="left", fontsize=10, color=INK)
+        else:
+            chapters = sorted({r.chapter for r in runs}, key=_chapter_key)
+            ncols = min(3, len(chapters))
+            nrows = math.ceil(len(chapters) / ncols)
+            fig = Figure(figsize=(4.2 * ncols, 3.4 * nrows), dpi=150, facecolor=SURFACE)
+            axes = fig.subplots(nrows, ncols, sharex=True, sharey=True, squeeze=False).ravel()
+            costs = [c for r in runs if (c := cost_of(r)) is not None]
+            hi = max([100.0, *(3 * c for c in costs)])
+            for ax, chapter in zip(axes, chapters):
+                mine = [r for r in runs if r.chapter == chapter]
+                ax.set_facecolor(SURFACE)
+                ax.set_xscale("log")
+                ax.set_xlim(COST_FLOOR_MIN / 2, hi)  # fixed before drawing: no autoscaling to a single point
+                _draw_panel(ax, mine, [cost_of(r) for r in mine], xlabel, labels=False)
+                m = sum(cost_of(r) is not None for r in mine)
+                ax.set_title(f"{chapter} ({m} run{'s' if m != 1 else ''})", loc="left", fontsize=9, color=INK)
+            for i, ax in enumerate(axes):
+                if i >= len(chapters):
+                    ax.set_visible(False)
+                    continue
+                if i % ncols:
+                    ax.set_ylabel("")
+                if i < len(chapters) - ncols:
+                    ax.set_xlabel("")
+            fig.suptitle(title, x=0.01, ha="left", fontsize=10, color=INK)
+            fig.tight_layout()
         path = out_dir / PLOT_FILES[key]
         fig.savefig(path, bbox_inches="tight", facecolor=SURFACE)
         paths.append(path)

@@ -21,3 +21,5 @@ docs/research/sweep_*.json
 docs/research/*_backup.csv
 docs/research/merge_sweep.py
 media/review/
+*.bak
+tools/ch12_pilots/*.log

@@ -8,9 +8,10 @@ Paper ids (`C###`) match [data/papers.csv](../../data/papers.csv).
 
 | # | Chapter | The base idea | Papers mirrored | Code | Status |
 |---|---|---|---|---|---|
-| 1 | Hill climbing with a success counter | Perturb, evaluate, step: antithetic finite differences on a Gaussian-smoothed success rate. ARS adds reward-std normalization and top-b directions. | Kohl & Stone 2004 ([C000]), ARS ([C012]), ES at Scale ([C155]), TD-ES ([C186]), EvolSAC ([C134]) | `algos/01_hill_climb.py` | v0.1 |
-| 2 | One update, different weights: CEM, CMA-ES, PI2/MPPI and BO | Sample candidates, weight them (elites, ranks or `exp(-cost/λ)`) and move to the weighted mean. For tiny budgets, BO fits a GP and picks the next trial with an acquisition function. | Zero-order optimization primer ([C130]), A decade of BO for controller tuning ([C445]), PI2 ([C002]), CMA-ES tutorial ([C005]), BOpt-GMM ([C057]) | `algos/02_cem_cmaes_pi2.py`, `algos/02b_bo.py` | v0.1 |
-| 3 | The golden ticket: black-box search over one noise vector | Freeze the flow policy and search its 32-dim input noise. Select by search score, report the held-out score. Search can only select behavior the base already has. | Golden Ticket ([C236]), INSPO, SDN, Diffusion-ES ([C055]) | `algos/03_golden_ticket.py` | v0.1 |
+| 0 | [The base policy](ch00.md) | Behavior-clone a flow-matching chunk policy (rectified flow) from mixed-quality demos. At a fixed training budget the sloppy fraction sets the success rate; more demos of the same mix help only if training grows with them. Calibrated on the search set: `base_v1` scores 129/256 = 50.4% on the eval set, with pass@8 of 95.3%. | Rectified flow, flow matching, ACT, Diffusion Policy; Golden Ticket ([C236]), RINSE ([C274]) | [`algos/00_bc_flow.py`](../../algos/00_bc_flow.py) | available |
+| 1 | [Hill climbing with a success counter](ch01.md) | Perturb, evaluate, step: greedy hill climbing, antithetic finite differences on a Gaussian-smoothed success rate, and ARS (reward-std normalization, top-b directions). On the mis-tuned scripted controller all three go from 48.0% to 99-100% on the eval set, at 280-420 search robot-minutes per run before tuning costs; a 2.5× larger FD step falls off cliffs, and a random candidate is a lottery. | Kohl & Stone 2004 ([C000]), ARS ([C012]), ES at Scale ([C155]), TD-ES ([C186]), EvolSAC ([C134]) | [`algos/01_hill_climb.py`](../../algos/01_hill_climb.py) | available |
+| 2 | [One update, different weights: CEM, CMA-ES, PI2/MPPI and BO](ch02.md) | Sample candidates, weight them (elites, ranks or `exp(-cost/λ)`) and move to the weighted mean; BO fits a GP and picks the next trial with an acquisition function. CEM, CMA-ES, PI2 and BO all reach 99.7-99.9% on the eval set (pooled over 3 seeds). BO was not more sample-efficient than local sampling here, but it beat global Sobol search; local random search matches the final score at higher robot-minute cost, and a hardware-sized BO budget failed on 2 of 3 seeds. | Zero-order optimization primer ([C130]), A decade of BO for controller tuning ([C445]), PI2 ([C002]), CMA-ES tutorial ([C005]), BOpt-GMM ([C057]) | [`algos/02_cem_cmaes_pi2.py`](../../algos/02_cem_cmaes_pi2.py), [`algos/02b_bo.py`](../../algos/02b_bo.py) | available |
+| 3 | [The golden ticket: black-box search over one noise vector](ch03.md) | Freeze `base_v1` and search its 32-dim input noise (random search, CEM, racing). Select on the search set, report the eval set: 50.4% → 87.5%, from a method added after peeking at results; the best of the methods fixed in advance gives 85.5%. The free zero ticket already gives 75.8%, random tickets are mostly worse than fresh noise, and small searches overstate their pick. | Golden Ticket ([C236]), DSRL ([C120]), Diffusion-ES ([C055]), FPO++ ([C208]) | [`algos/03_golden_ticket.py`](../../algos/03_golden_ticket.py) | available |
 | 4 | Likelihood-ratio policy gradients with anchors | `∇ = E[∇ log π(a\|s) · A]` with PPO clipping; GAE vs GRPO group baselines; KL/BC anchors to the frozen base so it does not collapse. | SimpleVLA-RL ([C140]), piRL ([C157]), PAC-ACT ([C352]), FPO++ ([C208]), ADEPT ([C400]), Prism-GRPO ([C385]) | `algos/04_ppo_flow.py` | planned |
 | 5 | Off-policy critics: SAC → RLPD → Q-chunking | Bellman backups on replay that reuse every transition; RLPD's 50/50 batches and LayerNorm critics; a chunk critic with an unbiased h-step target. | Q-chunking ([C133]), Three Regimes ([C172]), IPE ([C348]), WSRL ([C088]), RLPD ([C037]), DQC ([C191]) | `algos/05_rlpd_qchunk.py` | planned |
 | 6 | Residual RL on a frozen base | `a = a_base + α·tanh(u)` with a zero-initialized last layer, trained off-policy (TD3) with a warmed-up critic. | ResFiT ([C142]), DAWN ([C233]), Res-HIL ([C432]), PLD ([C158]), Policy Decorator ([C086]) | `algos/06_residual_td3.py` | planned |
@@ -19,9 +20,9 @@ Paper ids (`C###`) match [data/papers.csv](../../data/papers.csv).
 | 9 | Supervised policy improvement: filtered BC, AWR and RECAP-style conditioning | Project `π* ∝ π_ref·exp(A/β)` with weighted BC, 0/1 filtering, or an advantage token plus classifier-free guidance; retrain from the base each round. | π\*0.6 / RECAP ([C179]), CFGRL ([C110]), Dissecting advantage-guided post-training ([C435]), DEED ([C369]), Hi-ORS ([C159]) | `algos/09_recap_lite.py` | planned |
 | 10 | Humans in the loop: DAgger, HG-DAgger, RaC and takeovers as reward | Covariate shift makes errors compound; aggregate corrections where the policy actually goes, gate takeovers by a human, or treat a takeover as −1 reward (RLIF). | RaC ([C148]), SOP ([C203]), FlowDAgger ([C355]), TimelyDAgger ([C443]), HELP ([C351]), PAKT ([C462]) | `algos/10_hg_dagger.py` | planned |
 | 11 | Where the reward comes from: success detectors, progress models and hacking them | Replace the human success key with a learned classifier or progress model, use potential-based shaping, and watch the policy exploit the learned reward. | Robometer ([C244]), TOPReward ([C226]), SVM ([C337]), Robo-Dopamine ([C193]), SARM ([C152]), RoboReward ([C205]) | `algos/11_progress_reward.py` | planned |
-| 12 | Test-time search with a critic, then the finale | Best-of-N with a verifier is one greedy improvement step, capped by pass@N; guidance and disagreement gating spend compute only where it helps. Then stack the best methods. | UF-OPS ([C259]), Q-Planning ([C392]), SeeQ ([C438]), QGF ([C307]), VLA-ATTC ([C288]), JITI ([C189]) | `algos/12_best_of_n.py` | v0.1 |
+| 12 | [Test-time search with a verifier](ch12.md) | Best-of-N with a verifier is one greedy improvement step: sample N chunks from the frozen `base_v1`, execute the one a learned Monte-Carlo value ranks highest. With 4096 labeled rollouts per verifier, best-of-32 goes from 50.4% to 93.9% on the eval set (pooled over 3 verifier seeds; one seed reaches 95%). With a few hundred labeled rollouts the gains are small, depend on the seed and fade as N grows. v0.1 implements best-of-N only; QGF guidance, disagreement gating and the finale stack are planned. | UF-OPS ([C259]), Q-Planning ([C392]), SeeQ ([C438]), V-GPS ([C075]), IDQL ([C042]), VLA-ATTC ([C288]); planned: QGF ([C307]), JITI ([C189]) | [`algos/12_best_of_n.py`](../../algos/12_best_of_n.py) | available |
 
-**Status.** `v0.1` chapters are the first release: sim, state observations, runnable on a Mac CPU. `planned` chapters follow the roadmap in the curriculum (§5): chapters 5–8 in v0.2, chapters 4 and 9–11 in v0.3, then hardware steps on the SO-101.
+**Status.** `available` chapters (0-3 and 12) make up the v0.1 release: sim, state observations, runnable on a Mac CPU, each with a chapter doc and full-run results in `results/`. `planned` chapters follow the roadmap in the curriculum (§5): chapters 5–8 in v0.2, chapters 4 and 9–11 in v0.3, then hardware steps on the SO-101.
 
 Each chapter doc (`chNN.md`) covers the idea in plain words, the math, the papers it mirrors, our actual results with intervals and plots, what went wrong, and the hardware step (DESIGN.md §8).
 
@@ -30,8 +31,10 @@ Each chapter doc (`chNN.md`) covers the idea in plain words, the math, the paper
 [C005]: https://arxiv.org/abs/1604.00772
 [C012]: https://arxiv.org/abs/1803.07055
 [C037]: https://arxiv.org/abs/2302.02948
+[C042]: https://arxiv.org/abs/2304.10573
 [C055]: https://arxiv.org/abs/2402.06559
 [C057]: https://arxiv.org/abs/2403.14305
+[C075]: https://arxiv.org/abs/2410.13816
 [C086]: https://arxiv.org/abs/2412.13630
 [C088]: https://arxiv.org/abs/2412.07762
 [C110]: https://arxiv.org/abs/2505.23458
@@ -64,6 +67,7 @@ Each chapter doc (`chNN.md`) covers the idea in plain words, the math, the paper
 [C244]: https://arxiv.org/abs/2603.02115
 [C259]: https://arxiv.org/abs/2603.10282
 [C263]: https://arxiv.org/abs/2604.19730
+[C274]: https://arxiv.org/abs/2604.23000
 [C276]: https://arxiv.org/abs/2605.25477
 [C288]: https://arxiv.org/abs/2605.01194
 [C304]: https://arxiv.org/abs/2605.11387

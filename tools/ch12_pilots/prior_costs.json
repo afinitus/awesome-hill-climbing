@@ -1,0 +1,17 @@
+{
+  "note": "Robot steps (10 Hz sim steps; robot-minutes = steps / 600) spent on Chapter 12 before the committed full run. Pass this file with `--prior-costs tools/ch12_pilots/prior_costs.json` to charge it. rows = 'verifier' charges every best-of-N verifier row, 'all' also charges the random-pick row. Earlier full runs are charged in full to every verifier row (all seeds' labels, sweeps and data sweeps, plus their simulator lookahead), because the pooled choice of (verifier, N) used all seeds.",
+  "items": [
+    {"name": "pilot 1: 1024 labeled episodes (seeds 70 000+), best-of-N trials on 128 dev seeds (79 000+)",
+     "script": "tools/ch12_pilots/pilot1.py", "rows": "verifier", "search": 94285, "train": 100174},
+    {"name": "pilot 2: 4096 labeled episodes (seeds 70 000+), best-of-N trials on 256 dev seeds (79 000+)",
+     "script": "tools/ch12_pilots/pilot2.py", "rows": "verifier", "search": 690324, "train": 415678},
+    {"name": "full run 20260930-154814: all seeds' labels and sweeps, 1-rollout lookahead on 32 seeds (266 836 steps)",
+     "script": "algos/12_best_of_n.py (that day's version)", "rows": "verifier", "search": 1075125, "train": 1243195},
+    {"name": "full run 20260930-154814: pass@k diagnostic, N = 1 check, random-pick sweep",
+     "script": "algos/12_best_of_n.py (that day's version)", "rows": "all", "search": 225750},
+    {"name": "full run 20260930-161317: all seeds' labels and sweeps, 1-rollout lookahead on 64 seeds (1 035 372 steps)",
+     "script": "algos/12_best_of_n.py (that day's version)", "rows": "verifier", "search": 1843661, "train": 1243195},
+    {"name": "full run 20260930-161317: pass@k diagnostic, N = 1 check, random-pick sweep",
+     "script": "algos/12_best_of_n.py (that day's version)", "rows": "all", "search": 225750}
+  ]
+}

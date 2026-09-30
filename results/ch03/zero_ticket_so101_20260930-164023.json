@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "chapter": "ch03",
+  "method": "zero_ticket",
+  "robot": "so101",
+  "variant": "v1",
+  "setting": "sim",
+  "base": {
+    "id": "base_v1_gaussian",
+    "sr": 0.50390625,
+    "ci": [
+      0.4430547843724404,
+      0.5646422125672337
+    ],
+    "k": 129,
+    "n": 256,
+    "init_set": "eval"
+  },
+  "final": {
+    "sr": 0.7578125,
+    "ci": [
+      0.7017711387942602,
+      0.806230659224225
+    ],
+    "k": 194,
+    "n": 256,
+    "init_set": "eval",
+    "init_set_version": "v1"
+  },
+  "budget": {
+    "robot_minutes": {
+      "search": 7.193333333333333,
+      "train": 0.0,
+      "eval": 66.73333333333333
+    },
+    "human_minutes": {
+      "demos": 0.0,
+      "labels": 0.0,
+      "takeovers": 0.0,
+      "resets": 0.0,
+      "annotation": 0.0
+    },
+    "compute": {
+      "cpu_hours": 0.007875549444444446,
+      "gpu_hours": 0.0,
+      "wall_minutes": 0.09903728195001046
+    }
+  },
+  "extra": {
+    "search": {
+      "k": 45,
+      "n": 64,
+      "sr": 0.703125,
+      "ci": [
+        0.5822956740587202,
+        0.8009500041092477
+      ]
+    },
+    "vs_base": {
+      "p_mcnemar": 2.489280605223287e-10,
+      "only_a": 22,
+      "only_b": 87,
+      "diff_ci": [
+        0.1796875,
+        0.328125
+      ]
+    }
+  },
+  "git_sha": "1fa05e6",
+  "timestamp": "2026-09-30T16:40:23",
+  "config": {
+    "robot": "so101",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "search_n": 64,
+    "n_random": 32,
+    "cem_pop": 8,
+    "cem_gens": 4,
+    "cem_elites": 3,
+    "cem_smooth": 0.5,
+    "near0_sigma": 0.5,
+    "race_tickets": 512,
+    "eval_n": 256,
+    "pass_k": 8,
+    "pass_more": 64,
+    "ext": true,
+    "n_workers": 6,
+    "media": true,
+    "replot": "",
+    "results_root": "",
+    "quick": false
+  }
+}

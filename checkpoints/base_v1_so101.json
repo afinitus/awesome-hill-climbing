@@ -1,0 +1,160 @@
+{
+  "name": "base_v1",
+  "robot": "so101",
+  "variant": "v1",
+  "created": "2026-09-30T14:57:37-04:00",
+  "git_sha": "1fa05e6",
+  "dataset_hash": "1d0c955f745dabb2",
+  "n_samples": 1449,
+  "n_demos": 20,
+  "sloppy_fraction": 0.5,
+  "n_sloppy": 10,
+  "keep_rule": "all attempts (successes and failures)",
+  "demo_successes": 15,
+  "sloppy_noise": {
+    "knob_std": 0.15,
+    "action_std": 0.3
+  },
+  "demo_seeds": {
+    "clean": [
+      52000,
+      52001,
+      52002,
+      52003,
+      52004,
+      52005,
+      52006,
+      52007,
+      52008,
+      52009
+    ],
+    "sloppy": [
+      53000,
+      53001,
+      53002,
+      53003,
+      53004,
+      53005,
+      53006,
+      53007,
+      53008,
+      53009
+    ]
+  },
+  "demo_policy_seeds": "same as the demo env seeds (see known_caveats)",
+  "demo_env_steps": 1449,
+  "real_arm_demo_minutes": 2.415,
+  "training": {
+    "steps": 4000,
+    "epochs": 667,
+    "batch_size": 256,
+    "lr": 0.001,
+    "seed": 1,
+    "optimizer": "AdamW+cosine"
+  },
+  "search": {
+    "k": 250,
+    "n": 512,
+    "sr": 0.48828125,
+    "ci": [
+      0.44523156918003665,
+      0.5315054756802461
+    ],
+    "salts": 8,
+    "ci_cluster": [
+      0.435546875,
+      0.541015625
+    ]
+  },
+  "eval": {
+    "k": 129,
+    "n": 256,
+    "sr": 0.50390625,
+    "ci": [
+      0.4430547843724404,
+      0.5646422125672337
+    ],
+    "salt": 0
+  },
+  "eval_pass_at_8": {
+    "k": 244,
+    "n": 256,
+    "sr": 0.953125,
+    "ci": [
+      0.9198662271464744,
+      0.9729854178557116
+    ]
+  },
+  "eval_pass_at_1_mean_over_8_salts": {
+    "k": 966,
+    "n": 2048,
+    "sr": 0.4716796875,
+    "ci": [
+      0.4501325140618068,
+      0.49333290744051567
+    ],
+    "ci_cluster": [
+      0.44384765625,
+      0.4995239257812498
+    ]
+  },
+  "failure_modes_eval": {
+    "missed_grasp": 102,
+    "success": 129,
+    "slip": 18,
+    "rim_hit": 4,
+    "off_target": 3
+  },
+  "eval_seconds": 7.757468938827515,
+  "eval_seconds_n_episodes": 256,
+  "calibration_fallback": null,
+  "known_caveats": [
+    "Under-trained on purpose: more steps on the same demos score higher (plateau_search_sr).",
+    "More demos of the same mix, trained as many epochs, score higher (more_demos_search_sr).",
+    "Sloppy demos: controller seed = env seed, so knob jitter is weakly tied to the cube pose.",
+    "Failures are mostly missed grasps (failure_modes_eval)."
+  ],
+  "plateau_search_sr": {
+    "steps": 16000,
+    "n_demos": 20,
+    "k": 954,
+    "n": 1536,
+    "sr": 0.62109375,
+    "ci": [
+      0.5965592542740817,
+      0.645024035851344
+    ]
+  },
+  "more_demos_search_sr": {
+    "n_demos": 80,
+    "epochs": 667,
+    "k": 1194,
+    "n": 1536,
+    "sr": 0.77734375,
+    "ci": [
+      0.7558604830841271,
+      0.7974431813966871
+    ]
+  },
+  "mandatory_baselines": {
+    "chapters": [
+      4,
+      9,
+      10
+    ],
+    "baselines": [
+      "train longer on the same demos",
+      "train longer on more demos of the same mix"
+    ]
+  },
+  "config_hash": "597ce3aae53b",
+  "arch": {
+    "obs_dim": 21,
+    "act_dim": 4,
+    "horizon": 8,
+    "hidden": 256,
+    "depth": 4,
+    "time_dim": 32,
+    "n_steps": 10
+  }
+}

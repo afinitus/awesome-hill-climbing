@@ -190,9 +190,9 @@ Optional second bases through LeRobot: **ACT**, since ResFiT, Res-HIL and PAC-AC
 
 ### Calibrating to "about 40-60%, climbable to 95%+"
 1. **Ceiling check.** The privileged `KnobController`, after BO tuning, must reach ≥98% on `S_eval` in sim. This proves the task is solvable.
-2. **Set base success.** Train FlowChunk on n demos with 30% sloppy demos mixed in (off-center grasps, early releases), and sweep n (for example 10-60). Freeze the smallest n that gives 45-55% on `S_eval` as `base_v1`. Publish it with a dataset hash on the Hugging Face Hub.
+2. **Set base success.** Train FlowChunk on n demos with 30% sloppy demos mixed in (off-center grasps, early releases), and sweep n (for example 10-60). Freeze the smallest n that gives 45-55% on `S_search` as `base_v1` (then report its `S_eval` score once). Publish it with a dataset hash on the Hugging Face Hub.
 3. **Headroom check.** Require pass@8 ≥ 90% with sim resets. If this fails, selection and steering methods cannot reach 95%, and the cup diameter is adjusted.
-4. **Real calibration.** Collect about 50 leader-arm teleop demos (about 40 min). Tune demo count and cup diameter until real `base_v1` lands at 40-60% on `R_eval`. On the real arm the policy uses the **state** mode, with cube xy from a color-blob detector through a calibrated table homography, so Mac-trained MLP policies transfer. Pixel policies are optional from v1.0.
+4. **Real calibration.** Collect about 50 leader-arm teleop demos (about 40 min). Tune demo count and cup diameter until real `base_v1` lands at 40-60% on `R_search` (then report `R_eval` once). On the real arm the policy uses the **state** mode, with cube xy from a color-blob detector through a calibrated table homography, so Mac-trained MLP policies transfer. Pixel policies are optional from v1.0.
 
 **Honest caveat.** 95%+ on the real SO-101 is a *target*. Hobby servos, no force sensing and blob-detector noise may cap it. The README will report where each method actually lands, with intervals.
 

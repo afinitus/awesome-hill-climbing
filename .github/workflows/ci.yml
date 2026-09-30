@@ -46,6 +46,7 @@ jobs:
 
       # Diagnostic only: tests that render must skip themselves when a renderer cannot be created.
       - name: Check offscreen rendering
+        if: runner.os == 'Linux'
         continue-on-error: true
         run: >
           uv run python -c "import mujoco; m = mujoco.MjModel.from_xml_string('<mujoco/>');

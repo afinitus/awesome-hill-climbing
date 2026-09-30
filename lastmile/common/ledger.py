@@ -32,6 +32,23 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_RESULTS_ROOT = REPO_ROOT / "results"
 STEPS_PER_MINUTE = 600  # 10 Hz control
 ROBOT_CATEGORIES = ("search", "train", "eval")
+
+
+def _portable(value: Any) -> Any:
+    """Config values with this checkout's absolute path replaced by a repo-relative one, so results
+    files are the same on every machine (and do not publish a local home directory)."""
+    if isinstance(value, dict):
+        return {k: _portable(v) for k, v in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [_portable(v) for v in value]
+    if isinstance(value, (str, Path)):
+        text = str(value)
+        root = str(REPO_ROOT)
+        if text == root:
+            return "."
+        if text.startswith(root + "/"):
+            return text[len(root) + 1:]
+    return value
 HUMAN_CATEGORIES = ("demos", "labels", "takeovers", "resets", "annotation")
 
 
@@ -209,7 +226,7 @@ class Ledger:
             "extra": self.extra,
             "git_sha": git_sha(),
             "timestamp": datetime.now().isoformat(timespec="seconds"),
-            "config": self.config,
+            "config": _portable(self.config),
         }
 
     def write(self) -> Path:
