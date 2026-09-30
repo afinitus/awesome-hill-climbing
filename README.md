@@ -795,7 +795,7 @@ This repo also hosts **`lastmile`**, an open-source course that implements these
 
 <p><img src="media/env/so101_tuned.gif" width="330" alt="SO-101 picking up the cube and dropping it in the cup"> <img src="media/env/piper_tuned.gif" width="330" alt="AgileX PiPER doing the same task"></p>
 
-**What is in the repo today:** the simulated task on both arms, the evaluation harness (fixed search and held-out start states, Wilson intervals, a cost ledger) and a scripted controller with ten tunable knobs. Tuned, it scores 255/256 on the held-out set; with the deliberately mis-tuned knobs that chapters 1 and 2 start from, it scores 123/256 = 48.0% [42.0%, 54.2%]. The chapters themselves are next.
+**What is in the repo today:** the simulated task on both arms, the evaluation harness (fixed search and held-out start states, Wilson intervals, a cost ledger) and a scripted controller with ten tunable knobs. Tuned, it scores 255/256 on the held-out set; with the deliberately mis-tuned knobs that chapters 1 and 2 start from, it scores 123/256 = 48.0% [42.0%, 54.2%]. Chapters 0, 1, 2, 3 and 12 are available, with notes and results in [docs/chapters/](docs/chapters/).
 
 ```bash
 make setup      # uv venv + dependencies
@@ -805,10 +805,10 @@ make validate   # sanity-check the task with the scripted controller, on both ar
 
 | Ch | Method | Base idea | Mirrors | Status |
 | ---: | :--- | :--- | :--- | :--- |
-| 0 | The base policy | Behavior-clone a flow policy from mixed-quality demos | Rectified flow, ACT, Diffusion Policy | planned for v0.1 |
-| 1 | Hill climbing & ARS | Finite differences on a smoothed objective | Kohl & Stone 2004, ARS, TD-ES | planned for v0.1 |
-| 2 | CEM, CMA-ES, PI², BO | Reward-weighted averaging | Zero-order primer, BO review | planned for v0.1 |
-| 3 | The golden ticket | Black-box search in noise space | Golden Ticket | planned for v0.1 |
+| 0 | The base policy | Behavior-clone a flow policy from mixed-quality demos | Rectified flow, ACT, Diffusion Policy | available |
+| 1 | Hill climbing & ARS | Finite differences on a smoothed objective | Kohl & Stone 2004, ARS, TD-ES | available |
+| 2 | CEM, CMA-ES, PI², BO | Reward-weighted averaging | Zero-order primer, BO review | available |
+| 3 | The golden ticket | Black-box search in noise space | Golden Ticket | available |
 | 4 | PPO/GRPO for a flow policy | Likelihood-ratio PG + anchors | SimpleVLA-RL, πRL, PAC-ACT | planned for v0.3 |
 | 5 | SAC → RLPD → Q-chunking | Bellman backups on replay | Q-chunking, Three Regimes, IPE | planned for v0.2 |
 | 6 | Residual RL | Frozen base + bounded add-on | ResFiT, DAWN, Res-HIL | planned for v0.2 |
@@ -817,7 +817,7 @@ make validate   # sanity-check the task with the scripted controller, on both ar
 | 9 | Filtered BC, AWR, RECAP-lite | Improvement as supervised learning | π*0.6/RECAP, CFGRL | planned for v0.3 |
 | 10 | DAgger, HG-DAgger, RaC | On-policy labels | RaC, SOP, FlowDAgger | planned for v0.3 |
 | 11 | Rewards & progress models | Shaping and learned judges | Robometer, TOPReward | planned for v0.3 |
-| 12 | Test-time best-of-N | Greedy selection with a verifier | UF-OPS, Q-Planning, SeeQ | planned for v0.1 |
+| 12 | Test-time best-of-N | Greedy selection with a verifier | UF-OPS, Q-Planning, SeeQ | available |
 
 Design contract: [docs/DESIGN.md](docs/DESIGN.md) · course plan: [docs/research/curriculum.md](docs/research/curriculum.md) · chapter notes: [docs/chapters/](docs/chapters/)
 
@@ -826,7 +826,7 @@ Design contract: [docs/DESIGN.md](docs/DESIGN.md) · course plan: [docs/research
 <!-- LEADERBOARD:START -->
 | Chapter | Method | Robot | Setting | Base SR [CI] | Final SR [CI] | Δ | Improvement robot-min | Human-min | n eval |
 | :--- | :--- | :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: |
-| ch00 | bc_flow | so101 | sim | 99.6% [97.8, 99.9] | 50.4% [44.3, 56.5] | -49.2 pp | 9,906.7 | 52.0 | 256 |
+| ch00 | bc_flow | so101 | sim | 99.6% [97.8, 99.9] | 50.4% [44.3, 56.5] | — (builds base_v1) | 9,906.7 | 52.0 | 256 |
 | ch01 | ars_s2 | so101 | sim | 48.0% [42.0, 54.2] | 100.0% [98.5, 100.0] | +52.0 pp | 1,207.8 | 0 | 256 |
 | ch01 | ars_s3 | so101 | sim | 48.0% [42.0, 54.2] | 100.0% [98.5, 100.0] | +52.0 pp | 1,194.4 | 0 | 256 |
 | ch01 | fd_bigstep_s2 | so101 | sim | 48.0% [42.0, 54.2] | 100.0% [98.5, 100.0] | +52.0 pp | 3,731.8 | 0 | 256 |
