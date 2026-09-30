@@ -1,0 +1,44 @@
+[project]
+name = "lastmile"
+version = "0.1.0"
+description = "lastmile: the hands-on course inside Awesome Hill Climbing. Hill-climb a robot policy from ~50% toward 95%+, from classic search to 2026 last-mile RL, in MuJoCo on a laptop, then on a real SO-101."
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+license = { text = "MIT" }
+dependencies = [
+    "mujoco>=3.3,<3.5",
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "torch>=2.3",
+    "matplotlib>=3.8",
+    "imageio>=2.34",
+    "pillow>=10",
+    "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+bo = ["botorch>=0.11", "gpytorch>=1.11"]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["lastmile"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+
+# Linux CI has no GPU: use the CPU-only PyTorch wheels there (the default Linux wheels pull in CUDA).
+# macOS is unaffected and keeps the normal wheels with MPS support.
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true

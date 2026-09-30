@@ -239,6 +239,14 @@ def sec_handson(code_released: bool) -> list[str]:
         "needed), and each chapter then gets a real-arm step.", "",
     ]
     if code_released:
+        intro += [
+            '<p><img src="media/env/so101_tuned.gif" width="330" alt="SO-101 picking up the cube and dropping it in the cup">'
+            ' <img src="media/env/piper_tuned.gif" width="330" alt="AgileX PiPER doing the same task"></p>', "",
+            "**What is in the repo today:** the simulated task on both arms, the evaluation harness (fixed search and "
+            "held-out start states, Wilson intervals, a cost ledger) and a scripted controller with ten tunable knobs. "
+            "Tuned, it scores 255/256 on the held-out set; with the deliberately mis-tuned knobs that chapters 1 and 2 "
+            "start from, it scores 123/256 = 48.0% [42.0%, 54.2%]. The chapters themselves are next.", "",
+        ]
         intro += ["```bash",
                   "make setup      # uv venv + dependencies",
                   "make test       # fast test suite",

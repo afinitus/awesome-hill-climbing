@@ -1,0 +1,64 @@
+# Runs the test suite and a --quick smoke run of every algorithm file on Linux and macOS.
+# The steps call the Makefile targets, so CI and `make test` / `make smoke` on a laptop stay identical.
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+          enable-cache: true
+
+      # Linux runners have no display. MuJoCo renders offscreen through EGL, here with Mesa's software
+      # driver. macOS needs nothing: MuJoCo uses CGL there by default.
+      - name: Headless OpenGL for MuJoCo (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libegl1 libegl-mesa0 libgl1 libgl1-mesa-dri libgles2
+          echo "MUJOCO_GL=egl" >> "$GITHUB_ENV"
+
+      # The bo extra is included so a BoTorch chapter (algos/02b_bo.py) can be smoke-tested too.
+      - name: Install dependencies
+        run: uv sync --locked --extra dev --extra bo
+
+      # Diagnostic only: tests that render must skip themselves when a renderer cannot be created.
+      - name: Check offscreen rendering
+        continue-on-error: true
+        run: >
+          uv run python -c "import mujoco; m = mujoco.MjModel.from_xml_string('<mujoco/>');
+          mujoco.Renderer(m, 16, 16).render(); print('offscreen rendering works')"
+
+      - name: Tests
+        run: make test
+
+      # README.md and papers/*.md are generated from data/; fail if someone edited one side only.
+      - name: Awesome list is in sync with data/
+        run: uv run python tools/build_awesome.py --check
+
+      # Runs every algos/[0-9]*.py with --quick and passes when there are none yet.
+      # Quick runs write results files, but the leaderboard ignores them (config.quick is true).
+      - name: Smoke-test algorithm files
+        run: make smoke
