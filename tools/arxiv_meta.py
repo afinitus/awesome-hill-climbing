@@ -14,6 +14,7 @@ import csv
 import difflib
 import re
 import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -24,8 +25,15 @@ ARXIV_ID = re.compile(r"arxiv\.org/(?:abs|pdf|html)/(\d{4}\.\d{4,5})")
 
 def fetch(ids: list[str]) -> dict[str, tuple[str, str, str]]:
     """Return {id: (published_date, title, "First-author et al.")} for the given arXiv ids."""
-    with urllib.request.urlopen(API + ",".join(ids), timeout=60) as r:
-        xml = r.read().decode("utf-8")
+    for attempt in range(6):  # the API answers 429/503 when busy: back off and retry
+        try:
+            with urllib.request.urlopen(API + ",".join(ids), timeout=60) as r:
+                xml = r.read().decode("utf-8")
+            break
+        except urllib.error.HTTPError as e:
+            if e.code not in (429, 500, 502, 503) or attempt == 5:
+                raise
+            time.sleep(10 * 2 ** attempt)
     out = {}
     for entry in re.findall(r"<entry>(.*?)</entry>", xml, re.S):
         m = re.search(r"<id>https?://arxiv\.org/abs/(\d{4}\.\d{4,5})(v\d+)?</id>", entry)

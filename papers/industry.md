@@ -11,11 +11,12 @@ Companies take a big pretrained robot model and push one real task from "works i
 - **Use it when:** Use these case studies as a template when you have one fixed, economically defined task, a pretrained base policy that already works sometimes (roughly 50-80%), and the ability to run many long evaluation sessions. The order that shows up across companies: (1) define success with the customer's own quality bar and log everything; (2) automate grading and failure localization (progress model or auto-labeler); (3) collect targeted recovery or correction data where the policy actually fails (DAgger-style); (4) if success plateaus or speed matters, add a value function and advantage-weighted or advantage-conditioned retraining in the RECAP style; (5) report streaks, successes per hour and graded quality over hundreds of trials with a declared scope.
 - **What changed in 2025–26:** Four shifts in the last 12 months. (1) RL entered industry recipes in supervised-friendly forms. π*0.6/RECAP (2025-11) showed a value function plus advantage-conditioned retraining beating PPO and AWR on a 4B flow VLA.
 
-**27 entries**, newest first. ⭐ marks must-know work.
+**28 entries**, newest first. ⭐ marks must-know work.
 
 
 ## September 2026
 
+- **[The Robot Data Factory](https://arxiv.org/abs/2609.16705)** (Haddadin, Laptev, Reid et al., 2026-09-15) — Infrastructure for a continuous Deploy-Measure-Learn-Repeat robot-experience loop, with a mission-to-capability hierarchy, fleet/sensor/compute scaling laws, and three physical training grounds.
 - **[Smooth Exponentials for Robotics](https://evjang.com/2026/09/10/smooth-exponential.html)** (Eric Jang, 2026-09-10) — Essay arguing robotics has entered smooth exponential progress via many players and standardized hardware-agnostic pretraining data; predicts first 2-3 general home robots by October 2027. No RL fine-tuning content.
 - ⭐ **[Skild Physical Self-Play](https://www.skild.ai/blogs/physical-self-play)** (Skild AI, 2026-09) — Previews RL post-training via self-play: in simulated robot soccer the policy only tries to score against recent versions of itself, then transfers to a real humanoid. No quantitative results; 140 simulated years of play, real match on video.
 
