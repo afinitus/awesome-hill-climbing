@@ -159,7 +159,7 @@ class FlowChunk(nn.Module):
 
 
 class NumpyFlow:
-    """The same Euler sampler in plain numpy (~0.3-1.3 ms per chunk for batch 1-64 on an M-series CPU).
+    """The same Euler sampler in plain numpy (~0.3 ms per row per chunk on an M-series CPU).
 
     Two tricks: the observation's contribution to the first layer is computed once per chunk
     (it does not change across Euler steps), and the time embeddings of the 10 fixed step
@@ -191,15 +191,17 @@ class NumpyFlow:
         return h * 0.5 * (1.0 + np.tanh(0.5 * h))  # h * sigmoid(h), without exp overflow
 
     def __call__(self, obs: np.ndarray, noise: np.ndarray) -> np.ndarray:
-        cfg = self.config
         obs = np.asarray(obs, dtype=np.float32)
-        x = np.array(noise, dtype=np.float32)
-        batch = len(obs)
-        if batch == 1:
-            # BLAS takes a different (matrix-vector) code path for a single row, which changes
-            # results in the last bits. Padding to two rows keeps an episode's actions identical
-            # whatever batch it runs in.
-            obs, x = np.repeat(obs, 2, axis=0), np.repeat(x, 2, axis=0)
+        noise = np.asarray(noise, dtype=np.float32)
+        # BLAS libraries pick different kernels for different batch sizes (OpenBLAS on Linux more
+        # than Apple's Accelerate), which changes results in the last bits. Running every row on
+        # its own, always as the same two-row matrix, makes an episode's actions identical whatever
+        # batch or worker it runs in: that is what common random numbers need.
+        return np.stack([self._sample_pair(o[None], n[None])[0] for o, n in zip(obs, noise)])
+
+    def _sample_pair(self, obs: np.ndarray, x: np.ndarray) -> np.ndarray:
+        cfg = self.config
+        obs, x = np.repeat(obs, 2, axis=0), np.repeat(x, 2, axis=0)
         h_obs = ((obs - self.obs_mean) / self.obs_std) @ self.w_obs
         dt = np.float32(1.0 / cfg.n_steps)
         for i in range(cfg.n_steps):
@@ -207,7 +209,7 @@ class NumpyFlow:
             for w, b in self.hidden:
                 h = self._silu(h @ w + b)
             x = x + dt * (h @ self.w_out + self.b_out)
-        chunk = x[:batch].reshape(batch, cfg.horizon, cfg.act_dim) * self.act_std + self.act_mean
+        chunk = x[:1].reshape(1, cfg.horizon, cfg.act_dim) * self.act_std + self.act_mean
         return np.clip(chunk, -1.0, 1.0)
 
 
