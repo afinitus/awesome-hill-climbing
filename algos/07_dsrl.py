@@ -824,7 +824,7 @@ def main(cfg: Config) -> None:
             with optional_media("the DSRL GIFs"):
                 make_gifs(A, trajs, ("v1", best["arm"], best["seed"]), cfg, media)
         L.__exit__(None, None, None)
-        print(f"headline: {best['method']} -> eval {format_rate(best['final']['k'], best['final']['n'])}; JSON {L.path}")
+        print(f"best-by-search pick: {best['method']} -> eval {format_rate(best['final']['k'], best['final']['n'])}; JSON {L.path}")
     if cfg.media:
         make_plots(A, media)
 

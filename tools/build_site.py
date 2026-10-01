@@ -180,7 +180,7 @@ def sec_start(c: Ctx) -> str:
         if not p:
             continue
         cards.append(
-            f'<article class="pick"><div class="when">{e(mon_year(p["date"]))} · {e(p.get("org", ""))}</div>'
+            f'<article class="pick"><div class="when">{e(mon_year(p["date"]))} · {e(ba.org_of(p))}</div>'
             f'<h3>{ext(p["url"], e(p["short"]))}</h3><p>{c.t(why)}</p><p class="num">{c.t(p["one_line"])}</p>'
             f'<div class="chips">{c.chip(p["family"])}</div></article>')
     return (f'<section class="sec" id="start"><div class="sec-head"><h2>Start here</h2><p class="lede">If you read '
@@ -194,7 +194,7 @@ def sec_new(c: Ctx) -> str:
     for p in new[:10]:
         star = '<span class="star" title="must-know">★</span> ' if p.get("key") == "1" else ""
         items.append(f'<li><span class="d">{e(p["date"])}</span><span class="w">{star}{ext(p["url"], e(p["short"]))}'
-                     f'<small>{e(p.get("org", ""))}</small></span>{c.chip(p["family"])}</li>')
+                     f'<small>{e(ba.org_of(p))}</small></span>{c.chip(p["family"])}</li>')
     more = (f'<p><a class="btn to-idx" href="#papers" data-period="new">Show all {len(new)} in the paper index</a></p>'
             if len(new) > 10 else "")
     body = f'<ul class="newlist">{"".join(items)}</ul>{more}' if new else "<p>Nothing in the window.</p>"
@@ -246,8 +246,8 @@ def sec_nines(c: Ctx) -> str:
 <div class="nines-grid">
 <div class="stat"><div class="big">30/30</div><p>only shows the true success rate is at least <b>{100 * lo30:.1f}%</b> (95% Wilson interval). A perfect score on 30 trials is not 100%.</p></div>
 <div class="stat"><div class="big">{n95}</div><p>consecutive successes with no failures are needed before the interval’s lower bound reaches 95%.</p></div>
-<div class="stat"><div class="big">{n99}</div><p>consecutive successes are needed for a lower bound of 99%. This is why Sunday reports 785 attempts and Dyna reports 24-hour runs.</p></div>
-<div class="stat"><div class="big">778/785</div><p>Sunday’s laundry result gives a 95% interval of <b>[{100 * slo:.1f}%, {100 * shi:.1f}%]</b>. Tight enough to call it a “Solve”.</p></div>
+<div class="stat"><div class="big">{n99}</div><p>consecutive successes are needed for a lower bound of 99%. Evaluations on the scale of Sunday’s 785 attempts or Dyna’s 24-hour runs are what it takes to measure at this level.</p></div>
+<div class="stat"><div class="big">778/785</div><p>Sunday’s laundry result gives a 95% interval of <b>[{100 * slo:.1f}%, {100 * shi:.1f}%]</b>. Sunday’s “Solve” label rests on more than the interval: a declared scope and zero per-home adaptation.</p></div>
 </div>
 <div class="calc" aria-labelledby="calc-h"><h4 id="calc-h">Interval calculator</h4><div class="row"><label for="wk">Successes<input id="wk" type="number" min="0" value="27" inputmode="numeric"></label><label for="wn">Trials<input id="wn" type="number" min="1" value="30" inputmode="numeric"></label><div class="out" id="wout" aria-live="polite"></div></div><div class="bar" aria-hidden="true"><div class="ci" id="wci"></div><div class="pt" id="wpt"></div></div><div class="axis" aria-hidden="true"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div><p class="small">Wilson score interval at 95%. Report it next to every success rate, keep search episodes separate from evaluation episodes, and use paired start states when comparing two methods.</p></div>
 </section>"""
@@ -296,7 +296,7 @@ def work_card(c: Ctx, p: dict) -> str:
     code = f' · {ext(p["code"], "code")}' if p.get("code") else ""
     return (f'<div class="work"><div class="top"><span class="when">{e(mon_year(p["date"]))}</span>'
             f'<span class="badge {cls}" title="{e(title)}">{label}</span></div><h5>{ext(p["url"], e(p["short"]))}</h5>'
-            f'<div class="org">{e(p.get("org", ""))}</div><p class="ex">{c.t(p["one_line"])}</p>'
+            f'<div class="org">{e(ba.org_of(p))}</div><p class="ex">{c.t(p["one_line"])}</p>'
             f'<div class="foot">{e(p.get("kind", "paper"))}{code}</div></div>')
 
 
@@ -427,8 +427,9 @@ def sec_tree(c: Ctx) -> str:
             f'{c.t(c.ex["family_tree_ascii"])}</pre></div></section>')
 
 
-# The result each chapter leads with in its own doc: pooled over seeds where the chapter has seeds,
-# and never a best-of-seeds pick by held-out score (that would select on the held-out set).
+# The result each chapter leads with in its own doc: pooled over seeds, or a single run for Chapter 0
+# (one base) and Chapter 3 (whose method picks one ticket on the search set), and never a best-of-seeds
+# pick by held-out score (that would select on the held-out set).
 CHAPTER_HEADLINES = {
     "00": (r"bc_flow", "base_v1"),
     "01": (r"ars_s\d+", "ARS, pooled over 3 seeds"),
@@ -436,7 +437,7 @@ CHAPTER_HEADLINES = {
     "03": (r"racing_s1", "peek-free pick (racing), chosen on the search set"),
     "05": (r"qc_s\d+", "Q-chunking best-of-32, pooled over 3 seeds"),
     "06": (r"residual-td3_v1_s\d+", "residual TD3, pooled over 3 seeds"),
-    "07": (r"noise-steering-best", "best steering run, chosen on the search set"),
+    "07": (r"dsrl-pss8_s\d+", "steering the top 8 PSS noise directions, pooled over 3 seeds"),
     "08": (r"expo-b0\.1_s\d+", "EXPO edit (β = 0.1, chosen on search), pooled over 3 seeds"),
     "12": (r"bon-q-n32_s\d+", "best-of-32 with a learned verifier, pooled over 3 seeds"),
 }
@@ -497,9 +498,9 @@ def sec_course(c: Ctx) -> str:
                     f'<td>{e(mirrors)}</td><td>{status}</td><td class="r">{res}</td></tr>')
     n_avail = sum(1 for ch in ba.CHAPTERS if f"{int(ch[0]):02d}" in algos)
     table = "\n".join(rows)
-    return f"""<section class="sec" id="course"><div class="sec-head"><h2>Build it yourself</h2><p class="lede">This guide is the map for <b>lastmile</b>, an open-source course in the same repo: one robot, one task, one base policy that works about half the time, and {num_word(len(ba.CHAPTERS))} ways to push it toward 95%+, each scored by success and by what it cost in robot-minutes and human-minutes.</p></div>
-<div class="prose"><p>A low-cost <b>SO-101</b> arm (the AgileX PiPER is supported in simulation too) picks up a cube and drops it in a cup. Everything runs in MuJoCo on a laptop without an NVIDIA GPU, and each chapter then gets a real-arm step. Every run reports a Wilson interval on fixed held-out start states, robot-minutes (search, training and evaluation kept separate) and human-minutes.</p>
-<p><b>{n_avail}</b> of {len(ba.CHAPTERS)} chapters are available. The result column is the headline each chapter leads with, on the held-out set with its 95% Wilson interval: pooled over seeds where there are seeds, and never the best seed picked by its held-out score. The chapter notes have every run and what went wrong.</p></div>
+    return f"""<section class="sec" id="course"><div class="sec-head"><h2>Build it yourself</h2><p class="lede">This guide is the map for <b>lastmile</b>, an open-source course in the same repo: one robot, one task, a starting policy that works about half the time (a behavior-cloned flow policy; Chapters 1 and 2 tune a mis-tuned scripted controller instead), and {num_word(len(ba.CHAPTERS) - 1)} ways to push it toward 95%+, each scored by success and by what it cost in robot-minutes and human-minutes.</p></div>
+<div class="prose"><p>A low-cost <b>SO-101</b> arm (the AgileX PiPER is supported in simulation too) picks up a cube and drops it in a cup. Everything runs in MuJoCo on a laptop without an NVIDIA GPU. Each chapter also describes a real-arm step for the SO-101; none has been run on hardware yet, and each carries a safety note to read first. Every run reports a Wilson interval on fixed held-out start states, robot-minutes (search, training and evaluation kept separate) and human-minutes.</p>
+<p><b>{n_avail}</b> of {len(ba.CHAPTERS)} chapters are available. The result column is the headline each chapter leads with, on the held-out set with its 95% Wilson interval: pooled over seeds, or a single run in Chapter 0 (one base) and Chapter 3 (whose method is to pick one ticket on the search set), and never a seed picked by its held-out score. Every seed is scored on the same 256 held-out start states, so a pooled interval, which treats the seeds as independent, is narrower than the evidence supports. The chapter notes have every run and what went wrong.</p></div>
 <div class="scroll mt"><table class="chapters"><thead><tr><th>Ch</th><th>Method</th><th>Base idea it teaches</th><th>Papers it mirrors</th><th>Status</th><th>Headline result [95% CI]</th></tr></thead><tbody>
 {table}
 </tbody></table></div>
@@ -515,7 +516,7 @@ def sec_reading(c: Ctx) -> str:
             continue
         lis = "".join(
             f'<li>{ext(r["url"], e(r["name"]))}'
-            + (f' <span class="small">({e(r["org"])})</span>' if r.get("org") else "")
+            + (f' <span class="small">({e(ba.org_of(r))})</span>' if r.get("org") else "")
             + f'<span class="ol">{c.t(r.get("one_line", ""))}</span></li>' for r in items)
         groups.append(f'<details class="res"><summary>{e(title)} <span class="small">({len(items)})</span></summary>'
                       f'<ul>{lis}</ul></details>')
@@ -536,7 +537,7 @@ def sec_papers(c: Ctx) -> str:
         rows.append(
             f'<tr id="p-{e(p["id"])}" data-fam="{e(p["family"])}" data-date="{e(p["date"])}" data-key="{e(p.get("key", "0"))}">'
             f'<td class="d">{e(p["date"])}</td><td class="t">{star}{ext(p["url"], name)}<span class="ol">{c.t(p["one_line"])}{code}</span></td>'
-            f'<td class="o">{e(p.get("org", ""))}</td><td class="f">{e(c.short(p["family"]))}</td>'
+            f'<td class="o">{e(ba.org_of(p))}</td><td class="f">{e(c.short(p["family"]))}</td>'
             f'<td class="s"><span class="badge {cls}" title="{e(title)}">{label}</span></td></tr>')
     return f"""<section class="sec" id="papers"><div class="sec-head"><h2>All {len(c.papers)} papers</h2><p class="lede">Every paper and post in the list, newest first. Filter by family or period, or search titles, labs and descriptions. “Checked” means an independent pass re-read the source and confirmed or corrected the numbers.</p></div>
 <div class="filters"><label for="q">Search<input id="q" type="search" placeholder="e.g. EXPO, residual, Physical Intelligence"></label><label for="fam">Family<select id="fam"><option value="">All families</option>{opts}</select></label><label for="per">Period<select id="per"><option value="">All time</option><option value="year" data-from="{e(RECENT_FROM)}">Since {e(mon_year(RECENT_FROM))}</option><option value="new" data-from="{e(c.new_from)}">Last {c.window} days</option></select></label><label class="cb" for="key"><input id="key" type="checkbox"> Must-know only</label><span class="count" id="cnt" aria-live="polite"></span></div>
@@ -552,7 +553,7 @@ def sec_footer(c: Ctx) -> str:
     return f"""<footer class="method" id="method"><div class="wrap"><div class="prose"><h2>How this was made</h2>
 <p>The list started from an agent-assisted literature sweep in September 2026: many search angles plus rounds of gap-finding (arXiv month by month, citation mining, company blogs and talks), and it is swept for new work every week. Of the {len(c.papers)} papers and posts, {n_deep} were read in full into structured notes and {n_checked} were re-checked against their source by a second pass, with corrections applied and flagged. The rest, mostly from the newest weeks, were read once from the source and get the full check in later updates.</p>
 <p>The narrative sections (the loop, the decision guide, milestones, industry recipes, classic search, lessons, open problems and the family tree) were written from the September 2026 deep-read of the core papers and fact-checked against them. Everything else on this page, from the counts and family sections to the timeline, the course table and the paper index, is regenerated from the repository’s data files by <code>tools/build_site.py</code> whenever the list changes.</p>
-<p>Numbers are as reported by the authors. Many are read from bar charts, most real-robot results use 20–60 trials, and industry numbers are self-reported with no ablations. Treat this as a map, and check the paper before you cite a number. Research and drafting were assisted by Claude (Anthropic).</p>
+<p>Numbers are as reported by the authors. Many are read from bar charts, most real-robot results use 20–60 trials, and company blog numbers are self-reported, mostly without ablations that isolate the improvement loop. Treat this as a map, and check the paper before you cite a number. Research and drafting were assisted by Claude (Anthropic), which also helped write the lastmile course code and chapter notes.</p>
 <p class="small">Updated {e(upd)} · <a href="{e(REPO_URL)}">source on GitHub</a> · <a href="{e(REPO_URL)}/blob/main/CONTRIBUTING.md">corrections and additions welcome</a> · MIT license</p></div></div></footer>"""
 
 

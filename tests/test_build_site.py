@@ -107,16 +107,20 @@ def test_chapter_results_pool_the_headline_and_skip_other_sets(tmp_path, monkeyp
         run("ch05", "qc_s0", "qc_s0", 230, 256, init_set="eval", init_set_version=v),
         run("ch05", "qc_s1", "qc_s1", 250, 256, init_set="eval", init_set_version=v),
         run("ch05", "rlpd_s0", "rlpd_s0", 255, 256, init_set="eval", init_set_version=v),  # not the headline method
-        # ch07 headline is a single run; versions on other sets or old init sets are skipped
-        run("ch07", "a", "noise-steering-best", 200, 256, init_set="eval", init_set_version=v),
-        run("ch07", "b", "noise-steering-best", 64, 64, init_set="search"),
-        run("ch07", "c", "noise-steering-best", 250, 256, init_set="eval", init_set_version="v0"),
+        # ch07 headline is PSS steering pooled over seeds; runs on other sets or old init sets are skipped,
+        # and so are the search-selected best run and the other arms
+        run("ch07", "pss_s0", "dsrl-pss8_s0", 200, 256, init_set="eval", init_set_version=v),
+        run("ch07", "pss_s1", "dsrl-pss8_s1", 210, 256, init_set="eval", init_set_version=v),
+        run("ch07", "pss_s2_search", "dsrl-pss8_s2", 64, 64, init_set="search"),
+        run("ch07", "pss_s2_v0", "dsrl-pss8_s2", 250, 256, init_set="eval", init_set_version="v0"),
+        run("ch07", "best", "noise-steering-best", 225, 256, init_set="eval", init_set_version=v),
+        run("ch07", "res_s0", "dsrl-pss8-res_s0", 250, 256, init_set="eval", init_set_version=v),
     ]
     monkeypatch.setattr(build_site, "ROOT", tmp_path)
     monkeypatch.setattr(build_site, "git_files", lambda folder: files if folder == "results" else [])
     res = build_site.chapter_results()
     assert (res["05"]["k"], res["05"]["n"]) == (480, 512)
-    assert (res["07"]["k"], res["07"]["n"]) == (200, 256)
+    assert (res["07"]["k"], res["07"]["n"]) == (410, 512)
 
 
 def test_fact_check_fixes_applied(page):
@@ -124,7 +128,7 @@ def test_fact_check_fixes_applied(page):
     for bad in ["collapsing in 0/5", "fails in 0/5", "TACO's argmax pseudo-count", "finite-difference correction",
                 "Q-Planning rounds"]:
         assert bad not in text, bad
-    assert "0/5 seeds reach ADR 50" in text
+    assert "0/5 seeds to ADR 50" in text
     assert "Sep 2026 deep-read" in text
 
 
