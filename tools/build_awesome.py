@@ -374,6 +374,11 @@ def build() -> dict[Path, str]:
            ("Hands-on: lastmile", []), ("How this list is made", []), ("Contributing", [])]
     lines = [
         "# Awesome Hill Climbing [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)", "",
+        "<picture>",
+        '  <source media="(prefers-color-scheme: dark)" srcset="media/banner-dark.svg">',
+        '  <img src="media/banner-light.svg" width="100%" alt="Climbing the Nines: a success-rate landscape drawn as '
+        'contour lines, with a dashed hill-climbing path from a pretrained policy at 50% up past the 99% contour.">',
+        "</picture>", "",
         "> Papers, posts, code and courses on **hill-climbing robot policies**: taking a pretrained or "
         "imitation-learned policy from ~50% to 95–99%+ success on a real task. RL fine-tuning, residual and steering "
         "policies, advantage-weighted retraining, human corrections, test-time verifiers, reward and world models, "
