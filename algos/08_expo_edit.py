@@ -566,6 +566,8 @@ def make_plots(cfg: Config, media: Path, s: dict) -> None:
     plotting.setup()
     P = plotting.PALETTE + ["#8c6d31", "#17becf"]
     names = list(s["configs"])
+    final_set = "search" if cfg.quick else "eval"
+    final_label = "search" if cfg.quick else "held-out eval"
     colors = {nm: P[i % len(P)] for i, nm in enumerate(names)}
 
     def reference(ax, k, n, label, ls="--"):  # a reference rate as a line inside its Wilson band
@@ -584,7 +586,7 @@ def make_plots(cfg: Config, media: Path, s: dict) -> None:
             ax.plot(x, [c["k"] / c["n"] for c in r["curve"]], color=colors[nm], alpha=0.3, lw=0.8)
     reference(ax, *s["base_search"], "base_v1 (search)")
     nm = s["chosen"]
-    plotting.heldout_point(ax, x[-1] * 1.03, *s["eval"][nm]["pooled"], label=f"held-out eval, {nm} (chosen)",
+    plotting.heldout_point(ax, x[-1] * 1.03, *s["eval"][nm]["pooled"], label=f"{final_label}, {nm} (chosen)",
                            color="black")
     ax.set(xlabel="training robot-minutes (online interaction)", ylabel="success", xlim=(0, None),
            title="Learning curves on the search set (thin = each seed)")
@@ -602,8 +604,9 @@ def make_plots(cfg: Config, media: Path, s: dict) -> None:
         ax.errorbar([i], p, yerr=err, fmt="D", color=color, capsize=4)
         ax.scatter([i] * len(per_seed), [a / b for a, b in per_seed.values()], color=color, alpha=0.5, s=14)
     ax.set_xticks(range(len(groups)), [g[0] for g in groups], rotation=30, ha="right", fontsize=7.5)
-    ax.set(ylabel=f"held-out success (eval, n = {cfg.eval_n} per seed)", ylim=(0, 1.02),
-           title="Held-out eval: methods and controls (diamond = pooled, Wilson 95%; dots = seeds)")
+    success_label = "success" if cfg.quick else "held-out success"
+    ax.set(ylabel=f"{success_label} ({final_set}, n = {cfg.eval_n} per seed)", ylim=(0, 1.02),
+           title=f"{final_label.capitalize()}: methods and controls (diamond = pooled, Wilson 95%; dots = seeds)")
     ax.yaxis.set_major_formatter(PercentFormatter(1.0))
     ax.legend(loc="lower right", fontsize=8)
     plotting.save_fig(fig, media / "eval_by_config.png")
@@ -622,7 +625,7 @@ def make_plots(cfg: Config, media: Path, s: dict) -> None:
         ax.plot(bins[:, 0], bins[:, 1], marker="o", color=colors[nm], label=nm)
     ax.plot([0, 1.2], [0, 1.2], ls="--", color="gray", lw=1, label="calibrated")
     ax.set(xlabel="critic's Q of the executed candidate (binned)", ylabel="realized return (TD definition)",
-           title="Critic vs realized gamma^(4 floor((T-1-t)/4)) * success (eval, seed 0)")
+           title=f"Critic vs realized gamma^(4 floor((T-1-t)/4)) * success ({final_set}, seed 0)")
     ax.legend(fontsize=8)
     plotting.save_fig(fig, media / "q_calibration.png")
 
@@ -674,7 +677,8 @@ def make_fan_gif(cfg: Config, media: Path, ckpt: str, seed: int, pseed: int, lab
         frames.append(np.concatenate([cam, np.full((cam.shape[0], 4, 3), 255, np.uint8), fan], 1))
     frames += [frames[-1]] * 6
     save_gif(frames, media / "proposal_fan.gif", fps=5, max_size=516)
-    print(f"proposal fan GIF: eval seed {seed}, {label}, success={info['success']}")
+    final_set = "search" if cfg.quick else "eval"
+    print(f"proposal fan GIF: {final_set} seed {seed}, {label}, success={info['success']}")
     return bool(info["success"])
 
 
@@ -770,7 +774,7 @@ def main(cfg: Config) -> None:
                 r["edited_chosen_eval"] = float(np.mean(picks >= (r["wide"] or cfg.n_props)))
             e["pooled"] = [int(np.sum([v[i] for v in e["per_seed"].values()])) for i in (0, 1)]
             s["q_calibration"][nm] = q_calibration(finals[runs[0]].trajectories, cfg.gamma)
-            print(f"eval {nm}: pooled {format_rate(*e['pooled'])}; per seed "
+            print(f"{final_set} {nm}: pooled {format_rate(*e['pooled'])}; per seed "
                   f"{ {k: format_rate(*v) for k, v in e['per_seed'].items()} }", flush=True)
 
         # 5. Controls on the chosen runs, paired with the base and with the method (honesty rule 4): which
@@ -848,7 +852,7 @@ def main(cfg: Config) -> None:
             with optional_media("the proposal-fan GIF"):
                 ok = make_fan_gif(cfg, media, first["ckpt"], int(base_eval.seeds[i]),
                                   int(base_eval.policy_seeds[i]), first["name"])
-                assert ok == bool(finals[first["name"]].successes[i]), "GIF episode diverged from eval"
+                assert ok == bool(finals[first["name"]].successes[i]), f"GIF episode diverged from {final_set}"
                 s["gif_seed"] = int(base_eval.seeds[i])
         make_plots(cfg, media, s)
         s["wall_minutes"] = (time.perf_counter() - wall0) / 60
@@ -856,7 +860,8 @@ def main(cfg: Config) -> None:
             role = roles.get(rn, "control")
             row.extra = {**s, "role": role, "selected_on_search": role == "chosen"}
 
-    print(f"\n=== Chapter 8 summary (held-out eval, n = {cfg.eval_n} per seed, unless marked) ===")
+    final_label = "search" if cfg.quick else "held-out eval"
+    print(f"\n=== Chapter 8 summary ({final_label}, n = {cfg.eval_n} per seed, unless marked) ===")
     print(f"base_v1: {base_eval.summary}")
     for label, per in s["controls"].items():
         print(f"{label}: { {k: format_rate(*v) for k, v in per.items()} }  {s['control_stats'][label]}")
@@ -868,7 +873,7 @@ def main(cfg: Config) -> None:
             print(f"    {rn}: {format_rate(*e['per_seed'][rn])}  McNemar p={e['mcnemar_p'][rn]:.2g}  "
                   f"{e['paired'][rn]}  edited picks {s['runs'][rn].get('edited_chosen_eval', 0):.3f}")
     print(f"chosen on search: beta* = {beta_star:g} ({s['chosen']})")
-    print(f"base support on {first['name']}'s eval failures (base successes of {cfg.support_salts} salts):",
+    print(f"base support on {first['name']}'s {final_set} failures (base successes of {cfg.support_salts} salts):",
           s["base_support_on_failures"]["solved_by_seed"])
     print(f"latency ms/decision: { {n: round(x, 2) for n, x in s['latency_ms'].items()} }")
     for rn, row in [*rows.items(), ("controls", ctrl_row)]:

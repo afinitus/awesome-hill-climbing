@@ -342,6 +342,7 @@ def make_plots(cfg: Config, media: Path, s: dict) -> None:
 
     plotting.setup()
     P, ns, kind, n_star = plotting.PALETTE, cfg.ns, s["chosen"]["kind"], s["chosen"]["n"]
+    final_label = "search" if cfg.quick else "held-out eval"
 
     def log2(ax, ticks, label):
         ax.set_xscale("log", base=2)
@@ -371,9 +372,9 @@ def make_plots(cfg: Config, media: Path, s: dict) -> None:
     plotting.success_curve(ax, on, [ob["k"]] + [s["oracle"][str(n)]["k"] for n in on[1:]], ob["n"],
                            color=P[4], marker="s", label=f"sim lookahead, {cfg.oracle_rollouts} rollouts per "
                            f"candidate, {ob['n']} seeds (not deployable)")
-    plotting.heldout_point(ax, n_star * 1.12, *s["eval"]["pooled"], label=f"held-out eval, {kind} N={n_star}",
+    plotting.heldout_point(ax, n_star * 1.12, *s["eval"]["pooled"], label=f"{final_label}, {kind} N={n_star}",
                            color=P[1])
-    plotting.heldout_point(ax, 1.12, *s["eval"]["base"], label="held-out eval, base", color="black")
+    plotting.heldout_point(ax, 1.12, *s["eval"]["base"], label=f"{final_label}, base", color="black")
     log2(ax, ns, "N (candidate chunks per decision)")
     ax.set(ylabel="success", title="Best-of-N at every chunk decision (search set unless marked)")
     ax.legend(loc="lower right", fontsize=8)
@@ -592,7 +593,8 @@ def main(cfg: Config) -> None:
         for row in [*rows.values(), rnd_row]:
             row.extra = s
 
-    print("\n=== Chapter 12 summary (held-out eval unless marked) ===")
+    final_label = "search" if cfg.quick else "held-out eval"
+    print(f"\n=== Chapter 12 summary ({final_label} unless marked) ===")
     print(f"base_v1:            {base_eval.summary}")
     for v, f in finals.items():
         print(f"{kind} N={n_star} seed {v}: {f.summary}  McNemar p={s['eval']['mcnemar_p'][str(v)]:.2g}  "

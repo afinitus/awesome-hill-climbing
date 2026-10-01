@@ -61,7 +61,7 @@ The design said penetration stayed around 1 mm and the cube did not sink into ot
 
 **Location:** quick modes across implemented chapters; Chapter 3 diagnostic result and narrative.
 
-Quick modes formerly generated small held-out scores during repeated debugging. They now use `search` for their final diagnostics as well. The Chapter 7 aggregate ledger was corrected to use the selected set consistently. Full experiment configurations keep their declared evaluation sets.
+Quick modes formerly generated small held-out scores during repeated debugging. They now use `search` for their final diagnostics as well. The Chapter 7 aggregate ledger was corrected to use the selected set consistently. Full experiment configurations keep their declared evaluation sets. Quick-run console, figure and GIF-status labels now name the search set too; Chapter 12’s held-out verifier-validation AUC remains labeled as validation. A [22-figure display check](QUICK-LABEL-CHECK.json) confirmed that full-run labels did not change.
 
 Chapter 3's **224/256** exploratory CEM-near-zero ticket followed earlier held-out peeking; it must not be promoted as a clean headline. The public lead remains the search-selected, peek-free racing ticket at **219/256 (85.5%)**. Both stored outcome bitstrings replayed exactly. Relabeled ambiguous internal “headline” references and tagged the exploratory result for the leaderboard. Software changes cannot erase historical adaptive reuse of held-out data; fresh independent states would be needed for new confirmatory claims.
 
@@ -97,7 +97,7 @@ The Wilson and exact McNemar implementations agree with their standard definitio
 
 The published configurations' demo/training ranges are disjoint from search, eval, eval_ext and stress. Arbitrary custom CLI seed/budget values are not globally range-validated. Several historical pilots and learned checkpoints are absent from the repository; charged constants were traced but their historical collection cannot be independently reconstructed from committed logs.
 
-The corrected Chapter 5 run began with the selector fix uncommitted. Its raw `git_sha` records repository HEAD at write time, not a complete snapshot of the running source. The archive manifest records this limitation, the final source hash and the raw outputs before the explicit accounting migration. Subsequent Chapter 5 edits during the run affected historical-cost metadata, plot labels and comments, not training or action selection.
+The corrected Chapter 5 run began with the selector fix uncommitted. Its raw `git_sha` records repository HEAD at write time, not a complete snapshot of the running source. The archive manifest records this limitation, the integration source hash and the raw outputs before the explicit accounting migration. A separate publication-source hash identifies later display-only edits without replacing the historical integration digest. Subsequent Chapter 5 edits during the run affected historical-cost metadata, plot labels and comments, not training or action selection.
 
 Browser rendering was attempted through the available computer-use interface. No browser-control surface was available and native Chrome and Safari returned `cgWindowNotFound`; rendered visual QA could not be completed. HTML structure, sections, counts, links and interactive-control markup are checked by the site test suite. This limitation is separate from source verification and generator consistency.
 

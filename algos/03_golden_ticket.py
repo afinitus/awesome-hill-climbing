@@ -262,8 +262,8 @@ def baselines(cfg, ev, new_ledger) -> dict:
         L.set_base(id="base_v1_gaussian", successes=B["base"])
         L.set_final(successes=B["zero"])
         L.extra.update(search=rate(B["zero_search"].k, cfg.search_n), vs_base=paired(B["base"], B["zero"]))
-    print(f"Gaussian base: eval {B['base'].summary} | search {B['base_search'].summary}\n"
-          f"zero ticket: eval {B['zero'].summary} | search {B['zero_search'].summary}")
+    print(f"Gaussian base: {cfg.final_set} {B['base'].summary} | search {B['base_search'].summary}\n"
+          f"zero ticket: {cfg.final_set} {B['zero'].summary} | search {B['zero_search'].summary}")
     return B
 
 
@@ -295,7 +295,7 @@ def run_searches(cfg, ev, new_ledger, B) -> tuple[list, list]:
                 if method in PEEKED:
                     L.extra["note"] = "added after seeing w = 0's search score and quick-mode eval numbers"
             print(f"  {method} seed {seed}: search {format_rate(r['search_k'], cfg.search_n)} -> "
-                  f"eval {final.summary} (McNemar vs base p = {r['vs_base']['p_mcnemar']:.3g}) | "
+                  f"{cfg.final_set} {final.summary} (McNemar vs base p = {r['vs_base']['p_mcnemar']:.3g}) | "
                   f"{r['search_minutes']:.0f} search robot-min")
             runs.append(r)
     return runs, pools
@@ -446,7 +446,8 @@ def headline(cfg, ev, new_ledger, B, runs, pools, random_ticket) -> tuple[dict, 
 
 def report(A: dict, runs: list, cfg: Config, wall: float, path: Path) -> None:
     n_e, n_s = cfg.eval_n, cfg.search_n
-    print(f"\nsummary (held-out eval, n={n_e}; Gaussian base, salt 0: {fmt(A['gaussian']['eval'])})")
+    final_label = "search" if cfg.quick else "held-out eval"
+    print(f"\nsummary ({final_label}, n={n_e}; Gaussian base, salt 0: {fmt(A['gaussian']['eval'])})")
     for m in METHODS:
         rs = [r for r in runs if r["method"] == m]
         print(f"  {m:9s} per seed [{', '.join(str(r['final'].k) for r in rs)}] of {n_e}, pooled "
@@ -457,12 +458,12 @@ def report(A: dict, runs: list, cfg: Config, wall: float, path: Path) -> None:
           f"{A['regression']['mean_pool_eval']:.1%}")
     for name in ("headline", "peek_free"):
         h = A[name]
-        print(f"  {name} ({h['run']}): search {fmt(h['search'])} -> eval {fmt(h['eval'])}; "
+        print(f"  {name} ({h['run']}): search {fmt(h['search'])} -> {cfg.final_set} {fmt(h['eval'])}; "
               f"McNemar vs Gaussian p = {h['vs_base']['p_mcnemar']:.3g}, "
               f"vs zero p = {h['vs_zero']['p_mcnemar']:.3g}")
     o = A["optimistic"]
-    print(f"  optimistic (best of {len(A['scatter'])} tickets picked ON EVAL, {o['id']}): "
-          f"{fmt(o['eval'])}; slope eval~search {A['regression']['slope']:.2f}")
+    print(f"  optimistic (best of {len(A['scatter'])} tickets picked ON {cfg.final_set.upper()}, {o['id']}): "
+          f"{fmt(o['eval'])}; slope {cfg.final_set}~search {A['regression']['slope']:.2f}")
     H = A["hard_states"]
     print(f"  pass@{cfg.pass_k} {A['gaussian']['pass_at_k'][-1]}/{n_e}; the {len(H['idx'])} states at "
           f"0/{cfg.pass_k} succeed {H['extra_k']} times in {H['extra_tries']} more Gaussian tries -> "
@@ -470,7 +471,7 @@ def report(A: dict, runs: list, cfg: Config, wall: float, path: Path) -> None:
           f"solve it): {[(u['seed'], u['tickets']) for u in H['still_unsolved']]}")
     for b in A["small_budgets"]:
         print(f"  replayed N(0, I) random search, {b['tickets']} tickets x {b['states']} states: pick's "
-              f"search score {b['search_est']:.1%} -> eval {b['eval']:.1%} (10-90%: "
+              f"search score {b['search_est']:.1%} -> {cfg.final_set} {b['eval']:.1%} (10-90%: "
               f"{b['eval_q10_q90'][0]:.1%}-{b['eval_q10_q90'][1]:.1%})")
     print(f"  search robot-minutes, all {len(runs)} runs: {sum(r['search_minutes'] for r in runs):.0f} | "
           f"wall {wall / 60:.1f} min | headline JSON {path}")
@@ -483,7 +484,7 @@ def fmt(r: dict) -> str:
 # ---------------------------------------------------------------------------- media
 
 
-def make_plots(R: dict, out: Path = MEDIA) -> None:
+def make_plots(R: dict, out: Path = MEDIA, *, final_set: str = "eval") -> None:
     import matplotlib.pyplot as plt
     from matplotlib.ticker import PercentFormatter
 
@@ -492,6 +493,7 @@ def make_plots(R: dict, out: Path = MEDIA) -> None:
     plotting.setup()
     P, n_s, n_e = plotting.PALETTE, R["search_n"], R["eval_n"]
     gs, ge = R["gaussian"]["search"], R["gaussian"]["eval"]
+    final_label = "search" if final_set == "search" else f"held-out {final_set}"
     colors = dict(zip(METHODS, P))
 
     # 1. search curves (best-so-far on search) + held-out eval of each chosen ticket
@@ -530,7 +532,7 @@ def make_plots(R: dict, out: Path = MEDIA) -> None:
             plotting.heldout_point(ax2, j + dx, t["k"], t["n"], color=c, label=None)
         labels.append(name)
     ax2.set(xticks=range(len(labels)), xticklabels=labels, ylim=(0, 1.02),
-            title=f"Held-out eval (n={n_e}), 95% Wilson")
+            title=f"{final_label.capitalize()} (n={n_e}), 95% Wilson")
     ax2.tick_params(axis="x", rotation=30)
     ax2.yaxis.set_major_formatter(PercentFormatter(1.0))
     plotting.save_fig(fig, out / "search_curves.png")
@@ -542,7 +544,7 @@ def make_plots(R: dict, out: Path = MEDIA) -> None:
     xs, ys = np.array([t["search_k"] / n_s for t in pool]), np.array([t["eval_k"] / n_e for t in pool])
     jit = np.random.default_rng(0).uniform(-0.004, 0.004, len(xs))  # search scores are on a 1/64 grid
     ax.scatter(xs + jit, ys, s=18, color=P[0], alpha=0.6, label="random tickets (pools; bars not drawn)")
-    ax.plot([0, 1], [0, 1], color="0.6", lw=1, ls="--", label="search = eval")
+    ax.plot([0, 1], [0, 1], color="0.6", lw=1, ls="--", label=f"search = {final_set}")
     fit = R["regression"]
     xx = np.linspace(xs.min(), xs.max(), 10)
     ax.plot(xx, fit["intercept"] + fit["slope"] * xx, color=P[0], lw=1.2,
@@ -554,14 +556,16 @@ def make_plots(R: dict, out: Path = MEDIA) -> None:
         px, ex = plotting.wilson_err([t["search_k"] for t in sel], n_s)
         py, ey = plotting.wilson_err([t["eval_k"] for t in sel], n_e)
         ax.errorbar(px, py, xerr=ex, yerr=ey, fmt=mk, ms=size, color=c, mec="k", mew=0.5, elinewidth=0.6,
-                    alpha=0.9, zorder=5, label=f"{kind} ticket" + ("s" * (len(sel) > 1)) + " (95% Wilson)")
+                    alpha=0.9, zorder=5, label=f"{kind.replace('eval', final_set)} ticket"
+                    + ("s" * (len(sel) > 1)) + " (95% Wilson)")
     px, ex = plotting.wilson_err([gs["k"]], n_s)
     py, ey = plotting.wilson_err([ge["k"]], n_e)
     ax.errorbar(px, py, xerr=ex, yerr=ey, fmt="o", color="k", ms=7, capsize=3, zorder=6,
                 label="Gaussian base (95% Wilson)")
     ax.set(xlabel=f"success on search (n={n_s}) = what the search sees",
-           ylabel=f"success on held-out eval (n={n_e})", xlim=(-0.02, 1.02), ylim=(-0.02, 1.02),
-           title="Tickets that look best on search regress on eval")
+           ylabel=f"success on {final_label} (n={n_e})", xlim=(-0.02, 1.02), ylim=(-0.02, 1.02),
+           title=("Quick smoke: ticket scores on search subsets" if final_set == "search"
+                  else "Tickets that look best on search regress on eval"))
     for axis in (ax.xaxis, ax.yaxis):
         axis.set_major_formatter(PercentFormatter(1.0))
     ax.legend(fontsize=7.5, loc="upper left")
@@ -573,13 +577,13 @@ def make_plots(R: dict, out: Path = MEDIA) -> None:
     c = np.array([b["c"] for b in B])
     series = [("Gaussian base, salt 0", "base_k", "0.3"), ("zero ticket", "zero_k", P[4]),
               ("chosen ticket", "chosen_k", P[1]),
-              ("any scored ticket\n(oracle, picked on eval)", "any_ticket_k", P[2])]
+              (f"any scored ticket\n(oracle, picked on {final_set})", "any_ticket_k", P[2])]
     for j, (name, key, col) in enumerate(series):
         p, err = plotting.wilson_err([b[key] for b in B], [b["n"] for b in B])
         ax.errorbar(c + 0.16 * (j - 1.5), p, yerr=err, fmt="o", color=col, capsize=3, label=name)
     for b in B:
         ax.text(b["c"], -0.1, f"n={b['n']}", ha="center", fontsize=7.5)
-    ax.set(xlabel=f"Gaussian successes out of {R['pass_k']} tries from that start state (eval)",
+    ax.set(xlabel=f"Gaussian successes out of {R['pass_k']} tries from that start state ({final_set})",
            ylabel="success on those states (95% Wilson)", ylim=(-0.14, 1.04), xticks=c,
            title="Success by how often the Gaussian base solves each start state")
     ax.yaxis.set_major_formatter(PercentFormatter(1.0))
@@ -611,7 +615,7 @@ def tickets_gif(R: dict, cfg: Config, out: Path) -> None:
             f[:4], f[-4:], f[:, :4], f[:, -4:] = color, color, color, color
         clips.append(frames + [frames[-1]] * 4)
     path = save_gif(tile(clips, cols=3), out / "tickets_grid.gif", fps=4, max_size=488)
-    print(f"wrote {path} ({path.stat().st_size / 1e6:.2f} MB, eval seed {seed})")
+    print(f"wrote {path} ({path.stat().st_size / 1e6:.2f} MB, {cfg.final_set} seed {seed})")
     path = save_gif(side_by_side(clips[0], clips[2]), out / "before_after.gif", fps=4, max_size=324)
     print(f"wrote {path} ({path.stat().st_size / 1e6:.2f} MB)")
 
@@ -621,8 +625,10 @@ def tickets_gif(R: dict, cfg: Config, out: Path) -> None:
 
 def main(cfg: Config) -> None:
     if cfg.replot:
-        R = json.loads(Path(cfg.replot).read_text())["extra"]["analysis"]
-        make_plots(R)
+        saved = json.loads(Path(cfg.replot).read_text())
+        R = saved["extra"]["analysis"]
+        plot_set = saved["final"].get("init_set", "eval")
+        make_plots(R, final_set=plot_set)
         with optional_media("the ticket GIFs"):
             tickets_gif(R, cfg, MEDIA)
         return
@@ -637,7 +643,7 @@ def main(cfg: Config) -> None:
     report(analysis, runs, cfg, time.time() - t0, path)
     if cfg.media:  # quick runs draw into runs/ch03_quick/media so the committed media stay untouched
         out = ROOT / "runs" / "ch03_quick" / "media" if cfg.quick else MEDIA
-        make_plots(analysis, out)
+        make_plots(analysis, out, final_set=cfg.final_set)
         with optional_media("the ticket GIFs"):
             tickets_gif(analysis, cfg, out)
 

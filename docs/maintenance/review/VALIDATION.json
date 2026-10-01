@@ -12,51 +12,51 @@
     "make test": {
       "exit_code": 0,
       "passed": 136,
-      "seconds": 16.02
+      "seconds": 19.91
     },
     "make smoke": {
       "exit_code": 0,
-      "seconds": 353.62,
+      "seconds": 251.75,
       "scripts": [
         {
           "script": "algos/00_bc_flow.py --quick",
-          "seconds": 35.44
+          "seconds": 28.77
         },
         {
           "script": "algos/01_hill_climb.py --quick",
-          "seconds": 24.68
+          "seconds": 16.86
         },
         {
           "script": "algos/02_cem_cmaes_pi2.py --quick",
-          "seconds": 31.43
+          "seconds": 16.46
         },
         {
           "script": "algos/02b_bo.py --quick",
-          "seconds": 15.44
+          "seconds": 8.32
         },
         {
           "script": "algos/03_golden_ticket.py --quick",
-          "seconds": 50.83
+          "seconds": 35.87
         },
         {
           "script": "algos/05_rlpd_qchunk.py --quick",
-          "seconds": 25.02
+          "seconds": 18.84
         },
         {
           "script": "algos/06_residual_td3.py --quick",
-          "seconds": 35.59
+          "seconds": 26.2
         },
         {
           "script": "algos/07_dsrl.py --quick",
-          "seconds": 36.54
+          "seconds": 25.79
         },
         {
           "script": "algos/08_expo_edit.py --quick",
-          "seconds": 59.12
+          "seconds": 43.97
         },
         {
           "script": "algos/12_best_of_n.py --quick",
-          "seconds": 39.46
+          "seconds": 30.61
         }
       ],
       "published_files_changed": [],
@@ -195,6 +195,20 @@
       "explicit_doc_intervals": 224,
       "publication_check": "CH05-PUBLICATION-CHECK.json",
       "training_log_path_prefix_redacted": true
+    },
+    "quick_mode_figure_labels": {
+      "status": "passed",
+      "figures": 22,
+      "full_mode_labels_unchanged": true,
+      "quick_labels_name_search": true,
+      "evidence": "QUICK-LABEL-CHECK.json"
+    },
+    "GitHub Actions integration commit": {
+      "commit": "935e77ee1356d3b910c49709ab75c5655e51600d",
+      "url": "https://github.com/afinitus/awesome-hill-climbing/actions/runs/36934277611",
+      "macOS": "passed",
+      "Ubuntu": "passed",
+      "scope": "Integration commit before the subsequent display-only quick-mode label fixes. The final label edits are covered by the local checks recorded here."
     }
   },
   "pending": []

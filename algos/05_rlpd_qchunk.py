@@ -498,6 +498,7 @@ def make_plots(cfg: Config, media, s: dict) -> None:
     labels = {"sac": "SAC + prior data", "rlpd": "RLPD", "qc": "QC (best-of-N, warm-up)",
               "qc-cql": "QC-CQL (demos only, no warm-up)"}
     base = s["eval"]["base"]
+    final_label = "search" if cfg.final_set == "search" else f"held-out {cfg.final_set}"
 
     def pooled_curve(m):
         curves = [s["curves"][m][str(seed)] for seed in cfg.seeds]
@@ -511,8 +512,8 @@ def make_plots(cfg: Config, media, s: dict) -> None:
         x, k, n = pooled_curve(m)
         plotting.success_curve(ax, x, k, n, label=f"{labels[m]}: training rollouts", color=colors[m])
         ev = s["eval"]["pooled"][m]
-        plotting.heldout_point(ax, x[-1] * 1.04, ev[0], ev[1], label=f"{labels[m]}: held-out eval", color=colors[m])
-    ax.axhline(base[0] / base[1], ls="--", color="black", lw=1, label="base_v1, held-out eval")
+        plotting.heldout_point(ax, x[-1] * 1.04, ev[0], ev[1], label=f"{labels[m]}: {final_label}", color=colors[m])
+    ax.axhline(base[0] / base[1], ls="--", color="black", lw=1, label=f"base_v1, {final_label}")
     ax.set(xlabel="fresh train robot-minutes (demos + warm-up + online, mean over seeds)", ylabel="success",
            title=f"Learning curves, {len(cfg.seeds)} seeds pooled")
     ax.legend(fontsize=7, loc="center left", bbox_to_anchor=(1.0, 0.5))
@@ -524,7 +525,7 @@ def make_plots(cfg: Config, media, s: dict) -> None:
             _, k, n = pooled_curve(m)
             r = min(len(k), cfg.dip_rounds)
             plotting.success_curve(ax, range(1, r + 1), k[:r], n[:r], label=labels[m], color=colors[m])
-        ax.axhline(base[0] / base[1], ls="--", color="black", lw=1, label="base_v1, held-out eval")
+        ax.axhline(base[0] / base[1], ls="--", color="black", lw=1, label=f"base_v1, {final_label}")
         ax.set(xlabel="online round (round 1 = the offline critic, before any online update)",
                ylabel="success (training rollouts)", title="Offline to online: is there a dip?")
         ax.legend(fontsize=8, loc="lower right")
@@ -543,7 +544,8 @@ def make_plots(cfg: Config, media, s: dict) -> None:
         xs += 1
     ax.axhline(base[0] / base[1], ls="--", color="black", lw=1, label="base_v1")
     ax.set_xticks(ticks, cfg.methods)
-    ax.set(ylabel="success (eval, n=256 per seed)", ylim=(0, 1.02), title="Held-out eval, one point per seed")
+    ax.set(ylabel=f"success ({cfg.final_set}, n={cfg.eval_n} per seed)", ylim=(0, 1.02),
+           title=f"{final_label.capitalize()}, one point per seed")
     ax.legend(fontsize=8, loc="center left", bbox_to_anchor=(1.0, 0.5))
     plotting.save_fig(fig, media / "eval_per_seed.png")
 

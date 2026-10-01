@@ -255,6 +255,7 @@ def make_plots(cfg, media, grid, ablation, epoch_abl, chosen, final, eval_runs, 
     from lastmile.common import plotting
 
     plotting.setup()
+    final_label = "search check" if cfg.quick else "held-out eval"
     n_sel, f_sel = chosen
 
     def curve(ax, xs, rows, **kw):  # rows: dicts with pooled "k" and "n" (search estimates)
@@ -265,7 +266,7 @@ def make_plots(cfg, media, grid, ablation, epoch_abl, chosen, final, eval_runs, 
         ns = [n for n in cfg.n_demos if (n, frac) in grid]
         curve(ax, ns, [grid[(n, frac)] for n in ns], label=f"{frac:.0%} sloppy (search)")
     ax.axhspan(*cfg.target, color="0.85", zorder=0, label="target band")
-    plotting.heldout_point(ax, n_sel * 1.1, final.k, final.n, label="base_v1, held-out eval")
+    plotting.heldout_point(ax, n_sel * 1.1, final.k, final.n, label=f"base_v1, {final_label}")
     log2_axis(ax, cfg.n_demos, f"demos (all attempts kept), {cfg.train_steps} gradient steps each")
     ax.set(ylabel="success rate",
            title=f"Calibration on search ({len(cfg.seeds)} seeds x {cfg.search_salts} salts x 64)")
@@ -280,7 +281,7 @@ def make_plots(cfg, media, grid, ablation, epoch_abl, chosen, final, eval_runs, 
         plotting.success_curve(ax, steps, [ablation[s]["pass_k"][0] for s in steps],
                                [ablation[s]["pass_k"][1] for s in steps], label=f"pass@{cfg.pass_k} (search)",
                                marker="s")
-        plotting.heldout_point(ax, cfg.train_steps * 1.1, final.k, final.n, label="base_v1, held-out eval")
+        plotting.heldout_point(ax, cfg.train_steps * 1.1, final.k, final.n, label=f"base_v1, {final_label}")
         ax.axhspan(*cfg.target, color="0.85", zorder=0)
         log2_axis(ax, steps, "gradient steps")
         ax.set(ylabel="success rate", title="Training length (search set)")
@@ -297,7 +298,7 @@ def make_plots(cfg, media, grid, ablation, epoch_abl, chosen, final, eval_runs, 
         lo_hi = np.abs(np.array(wilson(a["k"], a["n"])) - a["sr"])[:, None]
         ax.errorbar([n_sel], [a["sr"]], yerr=lo_hi, fmt="^", capsize=3, color=plotting.PALETTE[2],
                     label=f"n={n_sel} trained {top} steps")
-        plotting.heldout_point(ax, n_sel * 1.1, final.k, final.n, label="base_v1, held-out eval")
+        plotting.heldout_point(ax, n_sel * 1.1, final.k, final.n, label=f"base_v1, {final_label}")
         log2_axis(ax, ns, f"demos ({f_sel:.0%} sloppy, all attempts kept)")
         ax.set(ylabel="success rate", title="More demos of the same mix: it depends on training (search)")
         ax.legend(fontsize=8, loc="lower right")
@@ -306,7 +307,7 @@ def make_plots(cfg, media, grid, ablation, epoch_abl, chosen, final, eval_runs, 
     fig, ax = plt.subplots()
     ks = list(range(1, len(eval_runs) + 1))
     hits = [pass_at_k(eval_runs, k) for k in ks]
-    plotting.success_curve(ax, ks, [h[0] for h in hits], hits[0][1], label="base_v1 pass@k (held-out eval)")
+    plotting.success_curve(ax, ks, [h[0] for h in hits], hits[0][1], label=f"base_v1 pass@k ({final_label})")
     ax.axhline(cfg.min_pass_k, color="0.5", ls="--", lw=1, label=f"headroom target {cfg.min_pass_k:.0%}")
     ax.set_xticks(ks)
     ax.set(xlabel="k (noise draws per start state, sim resets)", ylabel="solved start states",
@@ -320,7 +321,7 @@ def make_plots(cfg, media, grid, ablation, epoch_abl, chosen, final, eval_runs, 
     ax.bar(labels, [modes[m] for m in labels], color=colors)
     for i, m in enumerate(labels):
         ax.text(i, modes[m], str(modes[m]), ha="center", va="bottom")
-    ax.set(ylabel=f"episodes (of {sum(modes.values())})", title="base_v1 outcomes on held-out eval (salt 0)")
+    ax.set(ylabel=f"episodes (of {sum(modes.values())})", title=f"base_v1 outcomes on {final_label} (salt 0)")
     ax.grid(axis="x", visible=False)
     plotting.save_fig(fig, media / "failure_modes.png")
 
@@ -534,20 +535,22 @@ def main(cfg: Config) -> None:
         }
 
     rm, c = L.robot_minutes, cluster_ci(eval_runs)
+    final_label = "search check" if cfg.quick else "eval"
+    final_note = "search check" if cfg.quick else "held-out"
     print("\n=== Chapter 0 summary ===")
-    print(f"scripted TUNED (eval):         {scripted.summary}")
-    print(f"base_v1 pass@1 (eval, salt 0): {final.summary}   <- held-out")
+    print(f"scripted TUNED ({final_label}):         {scripted.summary}")
+    print(f"base_v1 pass@1 ({final_label}, salt 0): {final.summary}   <- {final_note}")
     print(f"base_v1 pass@1 mean {cfg.pass_k} salts:  {format_rate(*mean1)}  "
           f"(start-state cluster bootstrap [{100 * c[0]:.1f}, {100 * c[1]:.1f}])")
-    print(f"base_v1 pass@{cfg.pass_k} (eval):         {format_rate(*pk)}  (sim resets: a ceiling)")
+    print(f"base_v1 pass@{cfg.pass_k} ({final_label}):         {format_rate(*pk)}  (sim resets: a ceiling)")
     print("\n".join(f"  pass@{k}: {format_rate(*pass_at_k(eval_runs, k))}" for k in range(1, cfg.pass_k + 1)))
     for s, r in per_seed_eval.items():
-        print(f"  seed {s} eval: {r.summary}{'  <- base_v1 (picked on search)' if s == base_seed else ''}")
-    print(f"  pooled seeds eval: {format_rate(*pooled_eval)}")
+        print(f"  seed {s} {final_label}: {r.summary}{'  <- base_v1 (picked on search)' if s == base_seed else ''}")
+    print(f"  pooled seeds {final_label}: {format_rate(*pooled_eval)}")
     print(f"failure modes: {dict(modes)}")
-    print(f"{cfg.eval_n}-episode eval took {eval_seconds:.1f}s with {cfg.n_workers} workers")
+    print(f"{cfg.eval_n}-episode {final_label} took {eval_seconds:.1f}s with {cfg.n_workers} workers")
     print(f"robot-minutes: search {rm['search']:.1f} (this run {this_run_search:.1f}), train (demos) "
-          f"{rm['train']:.1f}, eval {rm['eval']:.1f}; human demo minutes {L.human_minutes['demos']:.1f}; "
+          f"{rm['train']:.1f}, {final_label} {rm['eval']:.1f}; human demo minutes {L.human_minutes['demos']:.1f}; "
           f"base_v1's own demos {demo_steps / 600:.1f} min")
     print(f"results: {L.path}\ncheckpoint: {ckpt}")
 

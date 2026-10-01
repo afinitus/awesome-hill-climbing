@@ -490,7 +490,7 @@ def ch03_tickets() -> dict[str, np.ndarray]:
 # ---------------------------------------------------------------------------- media
 
 
-def make_plots(A: dict, out: Path) -> None:
+def make_plots(A: dict, out: Path, *, quick: bool = False) -> None:
     import matplotlib.pyplot as plt
 
     from lastmile.common import plotting
@@ -499,6 +499,7 @@ def make_plots(A: dict, out: Path) -> None:
     P = plotting.PALETTE
     colors = {"dsrl": P[0], "pss": P[2], "hybrid": P[1], "residual": P[3], "rfs": P[4]}
     variants = [v for v in ("v1", "hard") if any(r["variant"] == v for r in A["runs"])]
+    final_labels = {v: "search" if quick else f"held-out {HELDOUT[v]}" for v in variants}
 
     # 1. learning curves: search success of the deterministic actor vs train robot-minutes (+ held-out)
     fig, axes = plt.subplots(1, len(variants), figsize=(6.4 * len(variants), 4.4), squeeze=False)
@@ -521,7 +522,7 @@ def make_plots(A: dict, out: Path) -> None:
         for key, ls, name in (("gauss_search", ":", "Gaussian base"), ("zero_search", "--", "zero ticket")):
             ax.axhline(b[key]["sr"], color="0.35", ls=ls, lw=1.1, label=f"{name} (search)")
         ax.set(xlabel="train robot-minutes (per run)", ylabel="success",
-               title=f"{v}: search set (Wilson bands); diamonds = held-out {HELDOUT[v]}")
+               title=f"{v}: search set (Wilson bands); diamonds = {final_labels[v]}")
         ax.legend(fontsize=7.5, loc="lower right")
     plotting.save_fig(fig, out / "learning_curves.png")
 
@@ -549,7 +550,7 @@ def make_plots(A: dict, out: Path) -> None:
             labels.append(arm)
             j += 1
         ax.set(xticks=range(len(labels)), xticklabels=labels, ylim=(0, 1.02), ylabel="success (Wilson 95%)",
-               title=f"{v}: held-out {HELDOUT[v]} (n={A['eval_n']}), one point per seed")
+               title=f"{v}: {final_labels[v]} (n={A['eval_n']}), one point per seed")
         ax.yaxis.set_major_formatter(plt.matplotlib.ticker.PercentFormatter(1.0))
     plotting.save_fig(fig, out / "heldout.png")
 
@@ -565,7 +566,8 @@ def make_plots(A: dict, out: Path) -> None:
                         color=col, capsize=3, label=name)
         ax.set(xticks=range(len(S["groups"])), ylim=(-0.02, 1.02), ylabel="success on those states (Wilson 95%)",
                xticklabels=[f"{g['name']}\n(n={g['n']})" for g in S["groups"]],
-               xlabel=f"hard held-out states by Gaussian successes in {S['salts']} tries (salts 0-{S['salts'] - 1})",
+               xlabel=f"hard {'search' if quick else 'held-out'} states by Gaussian successes in "
+               f"{S['salts']} tries (salts 0-{S['salts'] - 1})",
                title="Steering needs states the base can sometimes solve")
         ax.legend(fontsize=7.5, loc="upper left")
         plotting.save_fig(fig, out / "support_limit.png")
@@ -583,7 +585,8 @@ def make_plots(A: dict, out: Path) -> None:
                width, label=f"{name} ({M[name]['modes_5pct']} cells >= 5%, H = {M[name]['entropy_bits']:.2f} bits)",
                color=colors.get(name, {"gauss": "0.65", "zero": P[4]}.get(name, "#8c6d31")))
     ax.set(xticks=range(len(cells)), xticklabels=cells, ylabel="share of grasped episodes",
-           xlabel="grasp side (EE y offset from cube) / grasp timing", title="Grasp modes on v1 eval")
+           xlabel="grasp side (EE y offset from cube) / grasp timing",
+           title=f"Grasp modes on v1 {'search' if quick else 'eval'}")
     ax.tick_params(axis="x", rotation=30)
     ax.legend(fontsize=7, loc="upper right")
     plotting.save_fig(fig, out / "grasp_modes.png")
@@ -636,7 +639,8 @@ def make_gifs(A: dict, trajs: dict, pick: tuple | None, cfg: Config, out: Path) 
 
 def main(cfg: Config) -> None:
     if cfg.replot:
-        make_plots(json.loads(Path(cfg.replot).read_text())["extra"]["analysis"], MEDIA)
+        saved = json.loads(Path(cfg.replot).read_text())
+        make_plots(saved["extra"]["analysis"], MEDIA, quick=saved["final"].get("init_set") == "search")
         return
     torch.set_num_threads(2)
     t0 = time.time()
@@ -825,11 +829,13 @@ def main(cfg: Config) -> None:
             with optional_media("the DSRL GIFs"):
                 make_gifs(A, trajs, ("v1", best["arm"], best["seed"]), cfg, media)
         L.__exit__(None, None, None)
-        print(f"best-by-search pick: {best['method']} -> eval {format_rate(best['final']['k'], best['final']['n'])}; JSON {L.path}")
+        print(f"best-by-search pick: {best['method']} -> {final_sets['v1']} "
+              f"{format_rate(best['final']['k'], best['final']['n'])}; JSON {L.path}")
     if cfg.media:
-        make_plots(A, media)
+        make_plots(A, media, quick=cfg.quick)
 
-    print("\n=== Chapter 7 summary (held-out; Wilson 95%) ===")
+    final_label = "search" if cfg.quick else "held-out"
+    print(f"\n=== Chapter 7 summary ({final_label}; Wilson 95%) ===")
     for v in variants:
         b = A["baselines"][v]
         print(f"[{v}] Gaussian base {format_rate(b['gauss']['k'], b['gauss']['n'])} | zero ticket "

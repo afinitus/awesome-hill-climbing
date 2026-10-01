@@ -38,7 +38,8 @@
     "raw_git_sha": "Ledger records HEAD at write time, excluding uncommitted edits. Raw git_sha fields are preserved and do not alone reproduce this rerun.",
     "selector_fix": "The process started with the uncommitted online-mean selector fix already applied.",
     "post_launch_source_changes": "Chapter 5 changes after launch were historical-cost constants/metadata and their comments, the fresh-cost plot label, and documentation comments; no later training or policy-selection semantics changed.",
-    "reproduction_source": "Use the final reviewed algos/05_rlpd_qchunk.py matching source_sha256_at_integration, not the raw git_sha alone. Its historical charge is added explicitly to the raw run by this migration; plot labels are refreshed from the emitted curves."
+    "reproduction_source": "The historical integration source is algos/05_rlpd_qchunk.py at 935e77e, matching source_sha256_at_integration. The current publication source matches publication_source_sha256 and adds only dynamic display labels. Both contain the reviewed selector fix; raw git_sha alone omits that uncommitted fix. The historical charge is added explicitly to the raw run by this migration.",
+    "publication_label_only_change": "After integration at 935e77e, plot labels were made conditional on the actual init set and configured episode count so quick/search runs are not labeled held-out eval. These are display-only changes; training, selection, inference, accounting and saved results are unchanged. All full-configuration Chapter 5 plot labels match the integration source in an in-memory comparison. source_sha256_at_integration remains the historical integration digest; publication_source_sha256 identifies the current publication source."
   },
   "command": "uv run python algos/05_rlpd_qchunk.py --out runs/prelaunch_ch05",
   "accounting": {
@@ -109,5 +110,7 @@
     "path": "corrected_training.log",
     "sha256": "4cca7b245863a572b7287e9596eb648bd3d15e952d0bc016b5b10e9977a15ac5"
   },
-  "training_log_redaction": "Removed the single absolute checkout-path prefix from the output location; all measured values and relative output paths are unchanged."
+  "training_log_redaction": "Removed the single absolute checkout-path prefix from the output location; all measured values and relative output paths are unchanged.",
+  "integration_source_commit": "935e77e",
+  "publication_source_sha256": "9a96e432efaf1cabf57ed23f31ddc883f223ffe70615ed98d0896ee20ba70d31"
 }

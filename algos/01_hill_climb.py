@@ -233,7 +233,8 @@ def run_method(method: str, seed: int, cfg: Config, base: EvalResult | None) -> 
                        last_iter_search={"k": history[-1]["k"], "n": history[-1]["n"]},
                        search_episodes=scorer.episodes, mcnemar_p_vs_base=p,
                        search_robot_min_this_run=run_min, tuning_robot_min_charged=tuning)
-    print(f"{name}: -> eval {final.summary} | base {base.summary} | McNemar p={p:.2g} | "
+    final_label = "search check" if cfg.quick else "eval"
+    print(f"{name}: -> {final_label} {final.summary} | base {base.summary} | McNemar p={p:.2g} | "
           f"search budget {run_min:.1f} + tuning {tuning:.1f} robot-min", flush=True)
     return {"method": method, "label": f"{method}{cfg.tag}", "seed": seed, "history": history, "final": final,
             "final_k": final.k, "final_n": final.n, "best_x": best_x, "robot_min": run_min}
@@ -244,13 +245,15 @@ def run_method(method: str, seed: int, cfg: Config, base: EvalResult | None) -> 
 # --------------------------------------------------------------------------------------
 
 
-def plot_curves(runs: list[dict], base_sr: float, path: Path) -> None:
+def plot_curves(runs: list[dict], base_sr: float, path: Path, *, quick: bool = False) -> None:
     """Search-set score of the current iterate vs robot-minutes, one panel per method, eval marked apart."""
     import matplotlib.pyplot as plt
 
     from lastmile.common import plotting
 
     plotting.setup()
+    final_label = "search check" if quick else "held-out eval"
+    base_label = "search check" if quick else "eval"
     labels = list(dict.fromkeys(r["label"] for r in runs))  # e.g. greedy, fd, ars (or fd, fd_bigstep)
     fig, axes = plt.subplots(1, len(labels), figsize=(4.4 * len(labels) + 1.8, 3.9), sharex=True, sharey=True,
                              squeeze=False)
@@ -261,9 +264,10 @@ def plot_curves(runs: list[dict], base_sr: float, path: Path) -> None:
             plotting.success_curve(ax, [p["robot_min"] for p in h], [p["k"] for p in h], h[0]["n"],
                                    label=f"seed {r['seed']}: search (n={h[0]['n']})", color=plotting.PALETTE[j])
             plotting.heldout_point(ax, x_max * (1.06 + 0.04 * j), r["final_k"], r["final_n"],
-                                   label=f"held-out eval (n={r['final_n']}), selected iterate" if j == 0 else None,
+                                   label=f"{final_label} (n={r['final_n']}), selected iterate" if j == 0 else None,
                                    color=plotting.PALETTE[j])
-        ax.axhline(base_sr, color=plotting.PALETTE[5], linestyle=":", linewidth=1.2, label="default knobs (eval)")
+        ax.axhline(base_sr, color=plotting.PALETTE[5], linestyle=":", linewidth=1.2,
+                   label=f"default knobs ({base_label})")
         ax.set_title(label)
         ax.set_xlabel("search robot-minutes")
     axes[0][0].set_ylabel("success rate")
@@ -354,8 +358,9 @@ def save_before_after(run: dict, base: EvalResult, cfg: Config) -> None:
     from lastmile.common.plotting import save_gif
 
     flipped = np.flatnonzero(~base.successes & run["final"].successes)
+    final_label = "search check" if cfg.quick else "eval"
     if len(flipped) == 0:
-        print("no eval episode where the default fails and the searched knobs succeed; skipping the GIF")
+        print(f"no {final_label} episode where the default fails and the searched knobs succeed; skipping the GIF")
         return
     seed = int(base.seeds[flipped[0]])
     before, ok_before = render_episode(DEFAULT_KNOBS, cfg.robot, seed, every=3)
@@ -366,7 +371,7 @@ def save_before_after(run: dict, base: EvalResult, cfg: Config) -> None:
     frames = [np.concatenate([caption(a, "default knobs: fail"), caption(b, f"{run['label']} knobs: success")],
                              axis=1) for a, b in zip(pad(before), pad(after))]
     path = save_gif(frames, (QUICK_MEDIA if cfg.quick else MEDIA) / "before_after.gif", fps=4, max_size=512)
-    print(f"wrote {path} (eval seed {seed}; left: default knobs fail, right: {run['label']} seed "
+    print(f"wrote {path} ({final_label} seed {seed}; left: default knobs fail, right: {run['label']} seed "
           f"{run['seed']} knobs succeed; {path.stat().st_size / 1e6:.2f} MB)")
 
 
@@ -415,7 +420,8 @@ def random_baseline(seed: int, cfg: Config, base: EvalResult) -> EvalResult:
                          n=cfg.n_eval, n_workers=cfg.n_workers, ledger=L, category="eval")
         L.set_final(successes=final)
         L.extra.update(seed=seed, knobs=to_knobs(x), mcnemar_p_vs_base=mcnemar_exact(base.successes, final.successes))
-    print(f"random candidate seed {seed} (sigma {cfg.sigma}, no search): eval {final.summary}")
+    final_label = "search check" if cfg.quick else "eval"
+    print(f"random candidate seed {seed} (sigma {cfg.sigma}, no search): {final_label} {final.summary}")
     return final
 
 
@@ -435,14 +441,16 @@ def main(cfg: Config) -> None:
     make_default = partial(KnobController, DEFAULT_KNOBS, cfg.robot)
     base = evaluate(make_default, "search" if cfg.quick else "eval", robot=cfg.robot,
                     n=cfg.n_eval, n_workers=cfg.n_workers)
-    print(f"default knobs on eval: {base.summary}")
+    final_label = "search check" if cfg.quick else "eval"
+    print(f"default knobs on {final_label}: {base.summary}")
     if cfg.method == "random":
         finals = [random_baseline(s, cfg, base) for s in cfg.seeds]
         print(f"random candidates pooled: {format_rate(sum(f.k for f in finals), sum(f.n for f in finals))}")
         return
     runs = [run_method(m, s, cfg, base) for m in methods for s in cfg.seeds]
 
-    print(f"\n{'method':8s} {'seed':>4s}  {'held-out eval [Wilson 95%]':32s} {'search robot-min':>16s}")
+    summary_label = "search check [Wilson 95%]" if cfg.quick else "held-out eval [Wilson 95%]"
+    print(f"\n{'method':8s} {'seed':>4s}  {summary_label:32s} {'search robot-min':>16s}")
     for m in methods:
         mine = [r for r in runs if r["method"] == m]
         for r in mine:
@@ -454,7 +462,7 @@ def main(cfg: Config) -> None:
     print(f"{'default':8s}    -  {base.summary:32s} {0.0:16.1f}")
 
     out = QUICK_MEDIA if cfg.quick else MEDIA
-    plot_curves(runs, base.sr, out / f"learning_curves{cfg.tag}.png")
+    plot_curves(runs, base.sr, out / f"learning_curves{cfg.tag}.png", quick=cfg.quick)
     plot_knob_paths(runs, out / f"knob_paths{cfg.tag}.png")
     if cfg.gif:
         from lastmile.common.plotting import optional_media
