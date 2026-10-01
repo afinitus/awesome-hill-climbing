@@ -10,8 +10,8 @@ from the same data as the Awesome list, so the two never drift apart:
     data/meta.json        the "updated" date (the only date written into the page)
     data/explainer.json   the cross-cutting narrative: thesis, the loop, decision guide, milestones, lessons,
                           industry recipes, classic search inside modern methods, family tree, open problems
-                          and the ideas x families matrix. Written from the September 2026 deep-read of the
-                          core papers; edit it by hand.
+                          and the ideas x families matrix. Drawn from the linked papers and posts;
+                          edit it by hand.
     tools/build_awesome.py START_HERE picks, the course CHAPTERS table, RESOURCE_SECTIONS and the repo URL
     algos/, results/, docs/chapters/ (git-tracked files only) chapter status and headline results
 
@@ -66,10 +66,10 @@ STEP_FAMILIES = {
     4: ["blackbox", "onpolicy", "offpolicy", "residual", "advbc", "hitl", "testtime"], 5: ["worldmodel", "industry"],
 }
 BADGES = {
-    "checked": ("ok", "✓ checked", "Numbers re-checked against the source by an independent pass"),
-    "corrected": ("fix", "✓ corrected", "Numbers corrected after an independent check against the source"),
-    "read-once": ("once", "read once", "Read once from the source; the full check comes in a later update"),
-    "classic": ("classic", "◦ classic", "Older work, read from the source"),
+    "checked": ("ok", "✓ checked", "Recorded as source-checked in a second pass"),
+    "corrected": ("fix", "✓ corrected", "Recorded as corrected after a second source check"),
+    "read-once": ("once", "read once", "Recorded as read once; no second-pass status recorded"),
+    "classic": ("classic", "◦ classic", "Older work marked as a classic source"),
 }
 ID_RE = re.compile(r"\b[CN]\d{3}\b")
 
@@ -156,7 +156,7 @@ class Ctx:
 
 
 def narrative_note() -> str:
-    return '<p class="src">Narrative from the Sep 2026 deep-read of the core papers.</p>'
+    return '<p class="src">Narrative drawn from the linked papers and posts.</p>'
 
 
 # ---------------------------------------------------------------------------- sections
@@ -167,8 +167,8 @@ def sec_hero(c: Ctx) -> str:
     return f"""<header class="hero"><div class="wrap">
 <div class="eyebrow">A field guide to last-mile robot learning · {e(mon_year(RECENT_FROM))} – {e(mon_year(end_ym))}</div>
 <h1>Climbing the <span class="nines">Nines</span></h1>
-<p class="dek">A pretrained robot policy that works half the time is a demo. One that works 99% of the time is a product. This guide explains how people close that gap: the hill-climbing methods, the textbook RL ideas under each one, and what changed in the last twelve months.</p>
-<div class="meta"><span><b>{len(c.papers)}</b> papers &amp; posts</span><span><b>{len(c.recent)}</b> from the last 12 months</span><span><b>{n_checked}</b> re-checked against the source</span><span><b>{len(c.fams)}</b> method families</span><span>Updated <b>{e(upd)}</b></span></div>
+<p class="dek">A pretrained robot policy that works half the time needs more reliable behavior before deployment. Even 99% success needs a declared task scope, quality bar, speed and evaluation protocol. This guide explains how people improve reliability: the hill-climbing methods, the textbook RL ideas under each one, and what changed in the last twelve months.</p>
+<div class="meta"><span><b>{len(c.papers)}</b> papers &amp; posts</span><span><b>{len(c.recent)}</b> from the last 12 months</span><span><b>{n_checked}</b> marked checked or corrected</span><span><b>{len(c.fams)}</b> method families</span><span>Updated <b>{e(upd)}</b></span></div>
 <p class="hero-links"><a href="{e(REPO_URL)}">The Awesome list on GitHub</a> · <a href="#course">The hands-on course</a> · <a href="#papers">Search all papers</a></p>
 </div><figure class="topo" aria-label="Illustration: a success-rate landscape drawn as contour lines, with a dashed hill-climbing path from a pretrained policy at about 45% up to the 99% contour."><canvas id="topo"></canvas><figcaption>success-rate landscape · illustrative</figcaption></figure></header>"""
 
@@ -242,7 +242,7 @@ def sec_nines(c: Ctx) -> str:
 
     n95, n99 = need(0.95), need(0.99)
     slo, shi = lb.wilson(778, 785)
-    return f"""<section class="sec" id="nines"><div class="sec-head"><h2>Measuring the nines</h2><p class="lede">Near the top, the hard part is knowing whether you actually climbed. A small evaluation cannot tell 95% from 99%, and many headline results are 20–50 trials.</p></div>
+    return f"""<section class="sec" id="nines"><div class="sec-head"><h2>Measuring the nines</h2><p class="lede">Near the top, the hard part is knowing whether you actually climbed. An evaluation with only 20–50 trials cannot reliably distinguish 95% from 99% success.</p></div>
 <div class="nines-grid">
 <div class="stat"><div class="big">30/30</div><p>only shows the true success rate is at least <b>{100 * lo30:.1f}%</b> (95% Wilson interval). A perfect score on 30 trials is not 100%.</p></div>
 <div class="stat"><div class="big">{n95}</div><p>consecutive successes with no failures are needed before the interval’s lower bound reaches 95%.</p></div>
@@ -499,7 +499,8 @@ def sec_course(c: Ctx) -> str:
     n_avail = sum(1 for ch in ba.CHAPTERS if f"{int(ch[0]):02d}" in algos)
     table = "\n".join(rows)
     return f"""<section class="sec" id="course"><div class="sec-head"><h2>Build it yourself</h2><p class="lede">This guide is the map for <b>lastmile</b>, an open-source course in the same repo: one robot, one task, a starting policy that works about half the time (a behavior-cloned flow policy; Chapters 1 and 2 tune a mis-tuned scripted controller instead), and {num_word(len(ba.CHAPTERS) - 1)} ways to push it toward 95%+, each scored by success and by what it cost in robot-minutes and human-minutes.</p></div>
-<div class="prose"><p>A low-cost <b>SO-101</b> arm (the AgileX PiPER is supported in simulation too) picks up a cube and drops it in a cup. Everything runs in MuJoCo on a laptop without an NVIDIA GPU. Each chapter also describes a real-arm step for the SO-101; none has been run on hardware yet, and each carries a safety note to read first. Every run reports a Wilson interval on fixed held-out start states, robot-minutes (search, training and evaluation kept separate) and human-minutes.</p>
+<div class="prose"><p>A low-cost <b>SO-101</b> arm (the AgileX PiPER is supported in simulation too) picks up a cube and drops it in a cup. Everything runs in MuJoCo on a laptop without an NVIDIA GPU. Each chapter also describes a real-arm step for the SO-101; none has been run on hardware yet, and each carries a safety note to read first. Published full runs report a Wilson interval on fixed held-out start states, robot-minutes (search, training and evaluation kept separate) and human-minutes. Quick runs use search states for their diagnostic scores.</p>
+<p><b>Benchmark limitation:</b> CupDrop-v1 can count a successful drop after the cup was moved or tipped and recovered. These scores do not establish a no-shoving benchmark; see the <a href="{REPO_URL}/blob/main/docs/maintenance/review/REPORT.md">prelaunch review</a>.</p>
 <p><b>{n_avail}</b> of {len(ba.CHAPTERS)} chapters are available. The result column is the headline each chapter leads with, on the held-out set with its 95% Wilson interval: pooled over seeds, or a single run in Chapter 0 (one base) and Chapter 3 (whose method is to pick one ticket on the search set), and never a seed picked by its held-out score. Every seed is scored on the same 256 held-out start states, so a pooled interval, which treats the seeds as independent, is narrower than the evidence supports. The chapter notes have every run and what went wrong.</p></div>
 <div class="scroll mt"><table class="chapters"><thead><tr><th>Ch</th><th>Method</th><th>Base idea it teaches</th><th>Papers it mirrors</th><th>Status</th><th>Headline result [95% CI]</th></tr></thead><tbody>
 {table}
@@ -539,7 +540,7 @@ def sec_papers(c: Ctx) -> str:
             f'<td class="d">{e(p["date"])}</td><td class="t">{star}{ext(p["url"], name)}<span class="ol">{c.t(p["one_line"])}{code}</span></td>'
             f'<td class="o">{e(ba.org_of(p))}</td><td class="f">{e(c.short(p["family"]))}</td>'
             f'<td class="s"><span class="badge {cls}" title="{e(title)}">{label}</span></td></tr>')
-    return f"""<section class="sec" id="papers"><div class="sec-head"><h2>All {len(c.papers)} papers</h2><p class="lede">Every paper and post in the list, newest first. Filter by family or period, or search titles, labs and descriptions. “Checked” means an independent pass re-read the source and confirmed or corrected the numbers.</p></div>
+    return f"""<section class="sec" id="papers"><div class="sec-head"><h2>All {len(c.papers)} papers</h2><p class="lede">Every paper and post in the list, newest first. Filter by family or period, or search titles, labs and descriptions. “Checked” and “corrected” record a second pass against the source; they do not mean independent experimental replication.</p></div>
 <div class="filters"><label for="q">Search<input id="q" type="search" placeholder="e.g. EXPO, residual, Physical Intelligence"></label><label for="fam">Family<select id="fam"><option value="">All families</option>{opts}</select></label><label for="per">Period<select id="per"><option value="">All time</option><option value="year" data-from="{e(RECENT_FROM)}">Since {e(mon_year(RECENT_FROM))}</option><option value="new" data-from="{e(c.new_from)}">Last {c.window} days</option></select></label><label class="cb" for="key"><input id="key" type="checkbox"> Must-know only</label><span class="count" id="cnt" aria-live="polite"></span></div>
 <div class="idx-box"><table class="idx" id="idx"><thead><tr><th>Date</th><th>Paper or post</th><th>Lab</th><th>Family</th><th>Status</th></tr></thead><tbody>
 {chr(10).join(rows)}
@@ -551,9 +552,9 @@ def sec_footer(c: Ctx) -> str:
     n_checked = sum(1 for p in c.papers if p.get("verified") in ("checked", "corrected"))
     upd = f"{c.updated.day} {MONTH[c.updated.month]} {c.updated.year}"
     return f"""<footer class="method" id="method"><div class="wrap"><div class="prose"><h2>How this was made</h2>
-<p>The list started from an agent-assisted literature sweep in September 2026: many search angles plus rounds of gap-finding (arXiv month by month, citation mining, company blogs and talks), and it is swept for new work every week. Of the {len(c.papers)} papers and posts, {n_deep} were read in full into structured notes and {n_checked} were re-checked against their source by a second pass, with corrections applied and flagged. The rest, mostly from the newest weeks, were read once from the source and get the full check in later updates.</p>
-<p>The narrative sections (the loop, the decision guide, milestones, industry recipes, classic search, lessons, open problems and the family tree) were written from the September 2026 deep-read of the core papers and fact-checked against them. Everything else on this page, from the counts and family sections to the timeline, the course table and the paper index, is regenerated from the repository’s data files by <code>tools/build_site.py</code> whenever the list changes.</p>
-<p>Numbers are as reported by the authors. Many are read from bar charts, most real-robot results use 20–60 trials, and company blog numbers are self-reported, mostly without ablations that isolate the improvement loop. Treat this as a map, and check the paper before you cite a number. Research and drafting were assisted by Claude (Anthropic), which also helped write the lastmile course code and chapter notes.</p>
+<p>The list started from an agent-assisted literature sweep in September 2026: many search angles plus rounds of gap-finding (arXiv month by month, citation mining, company blogs and talks). The repository documents a workflow for weekly updates. Of the {len(c.papers)} papers and posts, {n_checked} are marked <code>checked</code> or <code>corrected</code> and {len(c.papers) - n_deep} are marked <code>read-once</code>. These are recorded review statuses, not independent replication.</p>
+<p>The narrative sections (the loop, the decision guide, milestones, industry recipes, classic search, lessons, open problems and the family tree) draw on the linked papers and posts. The <a href="{REPO_URL}/blob/main/docs/maintenance/review/REPORT.md">prelaunch review</a> records the scope of the latest source checks and their limits. Everything on this page, from the narrative and family sections to the timeline, the course table and the paper index, is regenerated from the repository’s data files by <code>tools/build_site.py</code> whenever the list changes.</p>
+<p>Numbers are as reported by the authors. Some are read from bar charts or estimated from small trial counts. Company blog numbers are self-reported and may combine several changes without isolating the improvement loop. Check the paper before you cite a number. Research and drafting were assisted by Claude (Anthropic), which also helped write the lastmile course code and chapter notes. The pre-launch review and fixes also used Codex (OpenAI).</p>
 <p class="small">Updated {e(upd)} · <a href="{e(REPO_URL)}">source on GitHub</a> · <a href="{e(REPO_URL)}/blob/main/CONTRIBUTING.md">corrections and additions welcome</a> · MIT license</p></div></div></footer>"""
 
 

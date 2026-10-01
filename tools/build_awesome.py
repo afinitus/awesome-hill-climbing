@@ -282,6 +282,9 @@ def sec_handson(code_released: bool) -> list[str]:
         "needed). Each chapter also describes a real-arm step for the SO-101; none has been run on hardware yet, and each "
         "carries a safety note to read first (clear workspace, power switch or e-stop in reach, low speed limits, supervise every run). "
         "Each hardware step in the chapter notes opens with a safety checklist; read it before you power the arm.", "",
+        "**Benchmark limitation:** CupDrop-v1 scores a drop into the cup at its current position; it can count successes "
+        "after the cup was moved or tipped and recovered. These scores do not establish a no-shoving benchmark. "
+        "See the [prelaunch review](docs/maintenance/review/REPORT.md).", "",
     ]
     if code_released:
         intro += [
@@ -316,16 +319,16 @@ def sec_footer(n_papers: int, n_deep: int, n_checked: int, n_res: int, today: dt
         "## How this list is made", "",
         f"The first version (September 2026) came from an agent-assisted literature sweep: many search angles plus rounds "
         f"of gap-finding (arXiv month by month, citation mining, company blogs and talks). Of the {n_papers} papers "
-        f"and posts, {n_deep} were read in full into structured notes, and the {n_checked} of those from September 2025 "
-        f"onward were re-checked against their source by a second pass, with corrections applied and flagged. The other "
-        f"{n_papers - n_deep} were read once from the source (`verified = read-once` in the data) and get the full check "
-        f"in later updates. The {n_res} resources were each opened and confirmed. `tools/arxiv_meta.py` checks every "
+        f"and posts, {n_checked} are marked `checked` or `corrected` in the catalog, and "
+        f"{n_papers - n_deep} are marked `read-once`; these are recorded review statuses, not independent replication. "
+        f"The {n_res} resources are also listed from source pages. `tools/arxiv_meta.py` checks every "
         f"arXiv link in the paper list and its first-version date against the arXiv API and flags titles that do not "
-        f"match, and `tools/check_links.py` checks the non-arXiv links. A scheduled agent sweeps for new work every week, "
-        f"following [docs/maintenance/weekly-sweep.md](docs/maintenance/weekly-sweep.md).", "",
-        "Numbers are as reported by the authors. Many are bar-chart readings, most real-robot results use 20–60 "
-        "trials, and industry numbers are self-reported. Check the paper before citing a number. Research and "
-        "drafting were assisted by Claude (Anthropic), which also helped write the lastmile code and chapter notes.", "",
+        f"match, and `tools/check_links.py` checks the non-arXiv links. The workflow for weekly updates is documented "
+        f"in [docs/maintenance/weekly-sweep.md](docs/maintenance/weekly-sweep.md).", "",
+        "Numbers are as reported by the authors. Some are bar-chart readings or estimates from small trial "
+        "counts, and industry numbers are self-reported. Check the paper before citing a number. Research and "
+        "drafting were assisted by Claude (Anthropic), which also helped write the lastmile code and chapter notes. "
+        "The pre-launch review and fixes also used Codex (OpenAI).", "",
         "## Contributing", "",
         "Add a row to [`data/papers.csv`](data/papers.csv) or [`data/resources.csv`](data/resources.csv), run "
         "`uv run python tools/build_awesome.py`, and open a pull request. A good entry has a concrete one-line "
@@ -418,7 +421,8 @@ def build() -> dict[Path, str]:
         *([f"**Interactive explainer: [Climbing the Nines]({meta['site_url']})**: the hill-climbing loop, the RL "
            "ideas underneath, a timeline of the last 12 months, the course results, and a searchable index of every "
            "paper.", ""] if meta.get("site_url") else []),
-        "A pretrained robot policy that works half the time is a demo. One that works 99% of the time is a product. "
+        "A pretrained robot policy that works half the time needs more reliable behavior before deployment. "
+        "Even 99% success needs a declared task scope, quality bar, speed and evaluation protocol. "
         "\"Hill climbing\" is what labs and companies call the loop in between: deploy, measure, find failures, improve, "
         "re-measure. This list maps the ways people run that loop, the textbook RL ideas each one comes from, and what "
         "changed in the last twelve months, down to this week.", "",

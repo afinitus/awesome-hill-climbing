@@ -129,7 +129,7 @@ def test_fact_check_fixes_applied(page):
                 "Q-Planning rounds"]:
         assert bad not in text, bad
     assert "0/5 seeds to ADR 50" in text
-    assert "Sep 2026 deep-read" in text
+    assert "Narrative drawn from the linked papers and posts." in text
 
 
 def test_deterministic(tmp_path):

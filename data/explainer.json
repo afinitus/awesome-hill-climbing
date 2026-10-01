@@ -328,7 +328,7 @@
    "evidence": "EvolSAC: SAC on a surrogate reward, then SNES directly on the target score. On the cartpole task, swing-up time fell from 2.085 s to 1.135 s, where 1000 more SAC episodes reached 1.565 s; the same recipe was then applied to the AI Olympics competition score. Q-Planning: on real stack-cups, critic-only rounds on a frozen BC policy go from 40% to 90%, where SFT on successful rollouts stalls at 55%. Related, but without a metric switch: TD-ES refines PPO checkpoints with bounded ES on the same return, lifting IQM success from 67.2% to 85.0% (Gaussian ES: 73.7%) at a fixed total budget."
   },
   {
-   "lesson": "Any learned judge (reward model, world model, preference loss) gets exploited under optimization. Use shaping, anchors, short horizons and an independent success check.",
+   "lesson": "Learned judges (reward models, world models, preference losses) can be exploited under optimization. Use shaping, anchors, short horizons and an independent success check.",
    "evidence": "Robo-Dopamine: without its policy-invariant shaping, the raw progress reward drops a 3-task real average from 85.0% to 41.3%. FlowPRO: plain DPO on correction pairs collapses PACK success to 13% from an 80% SFT base. VLA-MBPO: full-horizon world-model rollouts compound model error and fall below SFT on LIBERO-Long (52.8 vs 54.6), while 2-chunk branched rollouts reach 66.8. PlayWorld: a policy fine-tuned inside a world model trained only on human demos peaked at 45% and then fell to 25% on carrot removal, below its 30% base (chart reading, 20 trials per checkpoint). GPT-5 as reward: in the SOLE-R1 authors' review of failed rollouts, 42% of failures come from hallucinated success, vs 9% for SOLE-R1."
   },
   {
@@ -384,7 +384,7 @@
   {
    "org": "AgiBot",
    "recipe": "SOP: 10 robots run pi0.5, humans take over on failure, episodes stream to a cloud learner that publishes new weights every 25 steps (HG-DAgger or RECAP as the loss). LWD: a 16-robot fleet logs everything with sparse success labels, and a learner runs offline-to-online RL (distributional implicit value learning plus adjoint-matching policy extraction) over offline plus fleet data.",
-   "evidence": "SOP+HG-DAgger: Grocery 0.61 -> 0.94, Laundry 0.58 -> 0.96, Box Assembly 0.70 -> 0.98. LWD over 8 real tasks with about 60 fleet robot-hours: SFT 0.76 -> 0.95 (RECAP 0.85, HG-DAgger 0.85).",
+   "evidence": "SOP+HG-DAgger: Grocery 0.61 -> 0.94, Laundry 0.58 -> 0.96, Box Assembly 0.70 -> 0.98. LWD over 8 real tasks with about 60 fleet robot-hours, averaging binary success on grocery tasks and partial-credit sub-step scores on long-horizon tasks: SFT 0.76 -> 0.95 (RECAP 0.85, HG-DAgger 0.85).",
    "disclosed": "arXiv papers with methods. No public code for SOP was found (the project page listed in the paper returned 404 when checked in October 2026). LWD reports its 652.5-hour offline buffer and a roughly 60 robot-hour online budget, but not intervention counts or learner compute. SOP's Fig. 5 and text disagree on one number (0.895 vs 0.800)."
   },
   {
