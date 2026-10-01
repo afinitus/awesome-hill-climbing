@@ -6,6 +6,14 @@ You are a fresh pair of eyes. The repo is about to be announced on X (Twitter). 
 - Live explainer site: https://afinitus.github.io/awesome-hill-climbing/
 - This brief: `docs/maintenance/review/PRELAUNCH-REVIEW.md`
 
+## Status (updated 2026-10-01)
+
+**P0 is done** on `main` (commit "Pre-launch P0 fixes", merged into this branch). An automated pass re-checked every P0 surface against primary sources and applied 395 changes. Each change was confirmed by an independent skeptic, and fresh reviewers then re-read the README, the site and every company mention three times. It covered the must-know, industry and What's-new entries, the family intros, the whole site narrative, the README claims and Start-here blurbs, the foundations table, and the course headlines. Chapter 7 is now pooled PSS (81.0%) everywhere. It also added safety notes for the real-arm steps and removed a dead link.
+
+**Your job:**
+1. Spot-check P0. Read the README top and the site as an X reader would. Sample about 20 changed rows from `git show f076f75 -- data/papers.csv` and check them against their sources. Read every company mention once.
+2. Then do **P1** (chapter experiments, harness) and **P2** (remaining entries, resources) below. These were never audited.
+
 ## What the repo is
 
 1. **An "Awesome" list** of papers, posts and resources on *hill climbing* robot policies: taking a pretrained or imitation-learned policy from ~50% to 95–99%+ success with RL fine-tuning, residual and steering policies, advantage-weighted retraining, human corrections, test-time verifiers, reward and world models, sim-to-real, and black-box search. It has 912 papers/posts in 12 families and 213 resources. It is **generated from data**:
@@ -52,7 +60,7 @@ uv run python tools/check_links.py             # every other link
 1. **README top**: title, banner, the stats line, the "What's new", "Start here", "The hill-climbing loop" and "Foundations" sections. Check every count against `data/` (recompute it), every process claim ("every arXiv link validated", "re-checked against the source", "updated weekly") against `tools/` and `docs/maintenance/`, and every claim about a paper against the paper.
 2. **The site** (https://afinitus.github.io/awesome-hill-climbing/): every section. The narrative comes from `data/explainer.json` and the family text from `data/families.json`: verify each factual claim, number and attribution.
 3. **Everything said about companies and labs**: the "Industry" family (`papers/industry.md`, rows with `family=industry`), the "How companies climb" section of the site (`industry_recipes` in `data/explainer.json`), and any sentence naming Sunday Robotics, Physical Intelligence, Generalist AI, Dyna Robotics, Figure, Skild AI, Siemens, AgiBot, 1X, Google DeepMind, NVIDIA, Amazon or Stanford. Each claim must match the company's own post/paper, be neutrally worded, and separate "reported" from "independently verified".
-4. **Course headline numbers** in the README table, the site's course table and `docs/chapters/README.md`: each must equal what the chapter doc leads with, computed from `results/`. They must be pooled over seeds or chosen on the search set, and **never the best seed picked by its held-out score**. (Known suspect: the site shows Chapter 7 as one PSS seed chosen by search score, while the chapter's own pooled PSS number is 81.0%. Decide which is the honest headline and make the README, site and chapter agree.)
+4. **Course headline numbers** in the README table, the site's course table and `docs/chapters/README.md`: each must equal what the chapter doc leads with, computed from `results/`. They must be pooled over seeds or chosen on the search set, and **never the best seed picked by its held-out score**. (Fixed in P0: Chapter 7 now shows pooled PSS over 3 seeds everywhere.)
 5. **Legal and safety**: LICENSE and the vendored MuJoCo Menagerie model licenses (`lastmile/envs/assets/*/LICENSE`); no long verbatim copies of abstracts or blog text in `one_line` (flag more than about 12 consecutive copied words); no logos or implied endorsements; no secrets, tokens or local paths; the AI-assistance disclosure is present and accurate; real-arm steps in the chapter docs carry a basic safety caution (e-stop, force/speed limits, clear workspace).
 
 ### P1: substance
@@ -75,8 +83,8 @@ uv run python tools/check_links.py             # every other link
 
 An automated audit checked every entry and the narrative before it was stopped. It never reached its verification step, and its tone, chapter and harness audits never ran. Use its output as **leads to confirm or reject**, not as truth:
 
-- `docs/maintenance/review/pass1-other-candidates.md`: 87 candidate issues in `data/explainer.json`, `data/families.json`, `data/foundations.csv` and the site generator, majors first (21 major). Several look real, for example: family "What changed" text cut off after item (1) of a numbered list; an internal catalog id ("C155") visible to readers; claims about specific papers (ReinFlow/FPO training VLAs, VIP being "per-task", which world models were used) that the sources contradict; the RECAP espresso gain quoted against the wrong baseline; statements about LWD and 1X disclosures that appear wrong.
-- `docs/maintenance/review/pass1-entry-candidates.csv`: 558 candidate fixes to individual rows (GitHub renders it as a searchable table), each with the problem, evidence and proposed fields. Expect many to be nitpicks (truncated affiliations, nuance in mechanism wording) and some to be wrong. Confirm each one you apply against the source.
+- `docs/maintenance/review/pass1-other-candidates.md`: (resolved in P0; kept as a note.) It held 87 candidate issues in `data/explainer.json`, `data/families.json`, `data/foundations.csv` and the site generator, majors first (21 major). Several look real, for example: family "What changed" text cut off after item (1) of a numbered list; an internal catalog id ("C155") visible to readers; claims about specific papers (ReinFlow/FPO training VLAs, VIP being "per-task", which world models were used) that the sources contradict; the RECAP espresso gain quoted against the wrong baseline; statements about LWD and 1X disclosures that appear wrong.
+- `docs/maintenance/review/pass1-entry-candidates.csv`: the remaining candidate fixes to individual rows that P0 did not cover (rows dated before 2026-09-16 that are not must-know or industry, plus resources) (GitHub renders it as a searchable table), each with the problem, evidence and proposed fields. Expect many to be nitpicks (truncated affiliations, nuance in mechanism wording) and some to be wrong. Confirm each one you apply against the source.
 
 Delete both candidate files before merging, once they are processed.
 
