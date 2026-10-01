@@ -413,7 +413,8 @@ def main(cfg: Config) -> None:
     names = [*METHODS, BASELINE] if cfg.weights == "all" else [cfg.weights]
     if cfg.failures:
         names += [f for f, (m, _) in FAILURES.items() if m in names]
-    ev = partial(evaluate, init_set="eval", robot=cfg.robot, n_workers=cfg.n_workers, n=cfg.eval_n)
+    ev = partial(evaluate, init_set="search" if cfg.quick else "eval", robot=cfg.robot,
+                 n_workers=cfg.n_workers, n=cfg.eval_n)
     base = ev(partial(KnobController, DEFAULT_KNOBS, cfg.robot)) if cfg.heldout else None
     base_search = evaluate(partial(KnobController, DEFAULT_KNOBS, cfg.robot), "search", robot=cfg.robot,
                            n_workers=cfg.n_workers, n=cfg.audit_n)  # for the plot's reference line only

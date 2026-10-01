@@ -100,6 +100,11 @@ class Config:
                              "cem_elites": 2, "race_tickets": 16, "eval_n": 64, "pass_k": 2, "pass_more": 8,
                              "ext": False}
 
+    @property
+    def final_set(self) -> str:
+        """Smoke tests must never reveal the held-out episodes while developing a method."""
+        return "search" if self.quick else "eval"
+
 
 class TicketPolicy(FlowChunkPolicy):
     """Many tickets in one batch: each episode's policy seed is the index of its ticket.
@@ -248,11 +253,11 @@ def small_budgets(search_mat: np.ndarray, eval_mat: np.ndarray, reps: int = 4000
 
 def baselines(cfg, ev, new_ledger) -> dict:
     """The unsteered base (8 salts on eval, one on search) and the zero ticket, all before any search."""
-    salts = [ev(GAUSS, "eval", n=cfg.eval_n, salt=s) for s in range(cfg.pass_k)]  # salt 0 = the paired base
+    salts = [ev(GAUSS, cfg.final_set, n=cfg.eval_n, salt=s) for s in range(cfg.pass_k)]
     B = {"salts": salts, "base": salts[0], "base_search": ev(GAUSS, "search", n=cfg.search_n)}
     with new_ledger(method="zero_ticket") as L:
         B["zero_search"] = ev(fixed(np.zeros(DIM)), "search", n=cfg.search_n, ledger=L, category="search")
-        B["zero"] = ev(fixed(np.zeros(DIM)), "eval", n=cfg.eval_n, ledger=L, category="eval")
+        B["zero"] = ev(fixed(np.zeros(DIM)), cfg.final_set, n=cfg.eval_n, ledger=L, category="eval")
         L.robot_steps["eval"] += B["base"].env_steps
         L.set_base(id="base_v1_gaussian", successes=B["base"])
         L.set_final(successes=B["zero"])
@@ -271,12 +276,12 @@ def run_searches(cfg, ev, new_ledger, B) -> tuple[list, list]:
             with new_ledger(method=f"{method}_s{seed}") as L:
                 print(f"  {method} seed {seed}")
                 r = SEARCH[method](rng, cfg, L)
-                final = ev(fixed(r["ticket"]), "eval", n=cfg.eval_n, ledger=L, category="eval")
+                final = ev(fixed(r["ticket"]), cfg.final_set, n=cfg.eval_n, ledger=L, category="eval")
                 L.robot_steps["eval"] += base.env_steps  # the shared base evaluation
                 L.set_base(id="base_v1_gaussian", successes=base)
                 L.set_final(successes=final)
                 if method == "random":  # extra held-out rollouts of the whole pool, for the scatter plot
-                    pool_eval = score(r["pool"], "eval", range(cfg.eval_n), cfg, L, "eval")
+                    pool_eval = score(r["pool"], cfg.final_set, range(cfg.eval_n), cfg, L, "eval")
                     assert np.array_equal(pool_eval[int(np.argmax(r["pool_k"]))], final.successes), "parity"
                     pools.append((seed, r, pool_eval))
                     L.extra.update(pool=r["pool"].tolist(), pool_search=bits(r["pool_search"]),
@@ -301,7 +306,7 @@ def random_ticket_baselines(cfg, ev, new_ledger, B, pools) -> list[dict]:
     out = []
     for seed, r, _ in pools:
         with new_ledger(method=f"random_ticket_s{seed}") as L:
-            first = ev(fixed(r["pool"][0]), "eval", n=cfg.eval_n, ledger=L, category="eval")
+            first = ev(fixed(r["pool"][0]), cfg.final_set, n=cfg.eval_n, ledger=L, category="eval")
             L.robot_steps["eval"] += B["base"].env_steps
             L.set_base(id="base_v1_gaussian", successes=B["base"])
             L.set_final(successes=first)
@@ -346,17 +351,17 @@ def support_split(cfg, B, chosen: EvalResult, S: list[dict], L: Ledger) -> tuple
     hard, tries = np.flatnonzero(c == 0), range(cfg.pass_k, cfg.pass_more)
     more = np.zeros((len(hard), len(tries)), bool)
     if len(hard) and len(tries):
-        more = rollout_seeds(GAUSS, [INIT_SETS["eval"][i] for i in hard for _ in tries],
-                             [policy_seed("eval", int(i), s) for i in hard for s in tries], robot=cfg.robot,
+        more = rollout_seeds(GAUSS, [INIT_SETS[cfg.final_set][i] for i in hard for _ in tries],
+                             [policy_seed(cfg.final_set, int(i), s) for i in hard for s in tries], robot=cfg.robot,
                              n_workers=cfg.n_workers, ledger=L, category="eval",
-                             init_set="eval").successes.reshape(len(hard), len(tries))
+                             init_set=cfg.final_set).successes.reshape(len(hard), len(tries))
     extra_k = more.sum(1)
     hard_info = {"idx": hard.tolist(), "extra_tries": len(tries), "extra_k": extra_k.tolist(),
                  "pass_more": cfg.pass_more, "solved_with_more": int(np.sum(extra_k > 0)),
                  "pass_at_more": int(np.sum(c > 0) + np.sum(extra_k > 0)),
                  "chosen_solves": hard[chosen.successes[hard]].tolist(),
                  "zero_solves": hard[B["zero"].successes[hard]].tolist(),
-                 "still_unsolved": [{"idx": int(i), "seed": INIT_SETS["eval"][i],
+                 "still_unsolved": [{"idx": int(i), "seed": INIT_SETS[cfg.final_set][i],
                                      "tickets": [t["id"] for t in S if t["eval_s"][i]]}
                                     for i in hard[extra_k == 0]]}
     return support, hard_info
@@ -380,6 +385,7 @@ def headline(cfg, ev, new_ledger, B, runs, pools, random_ticket) -> tuple[dict, 
         L.set_base(id="base_v1_gaussian", successes=base)
         L.set_final(successes=best["final"])
         if best["method"] in PEEKED:
+            L.extra["role"] = "exploratory: method added after held-out peek"
             L.extra["note"] = (
                 f"The pick comes from {best['method']}, a method added after seeing w = 0's search "
                 f"score and quick-mode eval numbers on the first 64 eval seeds (part of this eval set). "
@@ -593,10 +599,10 @@ def tickets_gif(R: dict, cfg: Config, out: Path) -> None:
 
     env = CupDropEnv(robot=cfg.robot, render_size=(160, 160))
     seed_index = R["gif"]["seed_index"]
-    seed, clips = INIT_SETS["eval"][seed_index], []
+    seed, clips = INIT_SETS[cfg.final_set][seed_index], []
     for label, w in R["gif"]["clips"]:
         make = GAUSS if w is None else fixed(np.array(w))  # None: the Gaussian base
-        res = rollout_seeds(make, [seed], [policy_seed("eval", seed_index)], robot=cfg.robot, n_workers=1,
+        res = rollout_seeds(make, [seed], [policy_seed(cfg.final_set, seed_index)], robot=cfg.robot, n_workers=1,
                             record_trajectories=True)
         traj = res.trajectories[0]
         frames = [np.array(f) for f in replay_frames(env, traj, label=label, every=5)]  # writable copies

@@ -415,18 +415,19 @@ def main(cfg: Config) -> None:
         trainers.shutdown()
 
         # 5. Held-out evaluation, once. Base = the scripted TUNED controller that produced the clean demos.
-        scripted = evaluate(partial(KnobController, TUNED_KNOBS[cfg.robot], cfg.robot), "eval",
+        final_set = "search" if cfg.quick else "eval"
+        scripted = evaluate(partial(KnobController, TUNED_KNOBS[cfg.robot], cfg.robot), final_set,
                             robot=cfg.robot, n_workers=cfg.n_workers, ledger=L, category="eval", n=cfg.eval_n)
         L.set_base(id="knobs_tuned_scripted", successes=scripted)
         per_seed_eval, eval_runs, eval_seconds = {}, [], 0.0
         for s in cfg.seeds:
             path = str(work / f"n{n_sel}_f{f_sel}_seed{s}.pt")
             t0 = time.time()
-            res = score(cfg, path, "eval", range(1), L, "eval", n=cfg.eval_n, record=s == base_seed)[0]
+            res = score(cfg, path, final_set, range(1), L, "eval", n=cfg.eval_n, record=s == base_seed)[0]
             per_seed_eval[s] = res
             if s == base_seed:
                 eval_seconds = time.time() - t0
-                eval_runs = [res] + score(cfg, path, "eval", range(1, cfg.pass_k), L, "eval", n=cfg.eval_n)
+                eval_runs = [res] + score(cfg, path, final_set, range(1, cfg.pass_k), L, "eval", n=cfg.eval_n)
         final = per_seed_eval[base_seed]
         L.set_final(successes=final)
         env = CupDropEnv(robot=cfg.robot)

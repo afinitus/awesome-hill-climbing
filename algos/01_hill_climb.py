@@ -107,7 +107,8 @@ class Config:
     n_workers: int = 6
     gif: bool = True
     quick: bool = False
-    QUICK: ClassVar[dict] = {"seeds": (0,), "iterations": 2, "n_dirs": 2, "top_b": 1, "batch": 8, "n_eval": 32}
+    QUICK: ClassVar[dict] = {"seeds": (0,), "iterations": 2, "n_dirs": 2, "top_b": 1, "batch": 8,
+                             "n_eval": 32, "gif": False}
 
 
 def to_knobs(x: np.ndarray) -> dict[str, float]:
@@ -223,7 +224,7 @@ def run_method(method: str, seed: int, cfg: Config, base: EvalResult | None) -> 
         L.set_base(id="knobs_default", successes=base)
         tuning = 0.0 if cfg.quick else TUNING_ROBOT_MIN[method]
         L.robot_steps["search"] += round(tuning * 600)  # 10 Hz: 600 steps per robot-minute
-        final = evaluate(partial(KnobController, to_knobs(best_x), cfg.robot), "eval", robot=cfg.robot,
+        final = evaluate(partial(KnobController, to_knobs(best_x), cfg.robot), "search" if cfg.quick else "eval", robot=cfg.robot,
                          n=cfg.n_eval, n_workers=cfg.n_workers, ledger=L, category="eval")
         L.set_final(successes=final)
         p = mcnemar_exact(base.successes, final.successes)
@@ -410,7 +411,7 @@ def random_baseline(seed: int, cfg: Config, base: EvalResult) -> EvalResult:
                 results_root=QUICK_RESULTS if cfg.quick else DEFAULT_RESULTS_ROOT) as L:
         L.robot_steps["eval"] += base.env_steps
         L.set_base(id="knobs_default", successes=base)
-        final = evaluate(partial(KnobController, to_knobs(x), cfg.robot), "eval", robot=cfg.robot,
+        final = evaluate(partial(KnobController, to_knobs(x), cfg.robot), "search" if cfg.quick else "eval", robot=cfg.robot,
                          n=cfg.n_eval, n_workers=cfg.n_workers, ledger=L, category="eval")
         L.set_final(successes=final)
         L.extra.update(seed=seed, knobs=to_knobs(x), mcnemar_p_vs_base=mcnemar_exact(base.successes, final.successes))
@@ -432,7 +433,8 @@ def main(cfg: Config) -> None:
                   + f"; total {sum(r['robot_min'] for r in runs if r['label'] == f'{m}{cfg.tag}'):.1f}")
         return
     make_default = partial(KnobController, DEFAULT_KNOBS, cfg.robot)
-    base = evaluate(make_default, "eval", robot=cfg.robot, n=cfg.n_eval, n_workers=cfg.n_workers)
+    base = evaluate(make_default, "search" if cfg.quick else "eval", robot=cfg.robot,
+                    n=cfg.n_eval, n_workers=cfg.n_workers)
     print(f"default knobs on eval: {base.summary}")
     if cfg.method == "random":
         finals = [random_baseline(s, cfg, base) for s in cfg.seeds]

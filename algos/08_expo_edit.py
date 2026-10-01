@@ -743,7 +743,8 @@ def main(cfg: Config) -> None:
                 rows[row.method] = row
 
         # 4. Held-out eval, once per run, paired with the base (same env and policy seeds, salt 0).
-        ev = partial(evaluate, init_set="eval", robot=cfg.robot, n_workers=cfg.n_workers, n=cfg.eval_n,
+        final_set = "search" if cfg.quick else "eval"
+        ev = partial(evaluate, init_set=final_set, robot=cfg.robot, n_workers=cfg.n_workers, n=cfg.eval_n,
                      category="eval")
         base_eval = ev(base_policy, ledger=shared, record_trajectories=True)
         base_search = [evaluate(base_policy, "search", robot=cfg.robot, n_workers=cfg.n_workers, salt=k,
@@ -803,8 +804,8 @@ def main(cfg: Config) -> None:
         s["base_support_on_failures"] = {"salts": K, "solved_by_seed": {}}
         if len(fails):
             sup = rollout_seeds(base_policy, [int(base_eval.seeds[i]) for i in fails for _ in range(K)],
-                                [policy_seed("eval", int(i), k) for i in fails for k in range(K)],
-                                robot=cfg.robot, n_workers=cfg.n_workers, init_set="eval", ledger=ctrl_row,
+                                [policy_seed(final_set, int(i), k) for i in fails for k in range(K)],
+                                robot=cfg.robot, n_workers=cfg.n_workers, init_set=final_set, ledger=ctrl_row,
                                 category="eval")
             s["base_support_on_failures"]["solved_by_seed"] = {
                 int(base_eval.seeds[i]): int(k) for i, k in zip(fails, sup.successes.reshape(-1, K).sum(1))}

@@ -1,0 +1,113 @@
+{
+  "reason": "The previous QC target selected by target-pair minimum; acting selected by online-ensemble mean.",
+  "replacement": "Same online-mean candidate argmax for acting and bootstrap; target pair values that candidate.",
+  "old_files": {
+    "qc-cql_s0_so101_20260930-221115.json": "a7eb663f892cee9b7e3ad78ca02aac5245c3b6d937f4715f80a39753d94f74ab",
+    "qc-cql_s1_so101_20260930-221115.json": "42d7d4e53a43184b4a147cc26b5f5d44f744be09ea6108d5b0a842342024a564",
+    "qc-cql_s2_so101_20260930-221115.json": "8559730f43a66b00c8b62db6b49389cc917d01a08edd718ca75e2ba7be625a6f",
+    "qc-random_so101_20260930-221115.json": "2c6264ecd4e6a7e93f0dd919b7a9125898b1f4199390ec1e16c39ab5de65a466",
+    "qc_s0_so101_20260930-221116.json": "6eb19684b8e941e9d91dc2bce94599921cdb4ae13e79591b208870f9ea34fd98",
+    "qc_s1_so101_20260930-221116.json": "bdc6820211f5b8152dcb789af397652cb487f42ba0453005a4b461355e60da51",
+    "qc_s2_so101_20260930-221115.json": "3c87ab17efb374bb1e40239ebac18cdb70e3135ce68ba2df7969bb8917d07bbc",
+    "rlpd_s0_so101_20260930-221116.json": "c1a65ee370c08b0eb69648d6896e19a3501ded79a7e6615c15f3a8be21a202be",
+    "rlpd_s1_so101_20260930-221116.json": "8dcb31a8405497dad3b8b7a69c3c5863aabcfe04704bd2a2ac5f9b431a47065c",
+    "rlpd_s2_so101_20260930-221116.json": "60269e478ab18105e2eff997d89d3459e85308c9f0fad370543890e90427ecd5",
+    "sac_s0_so101_20260930-221116.json": "f8d2f9041842418151f03e7d77f10269eaf24c687394929f9aed64f8c2d6f838",
+    "sac_s1_so101_20260930-221116.json": "99a902bd63ee3cac93c6ccd9cec83a13727407b5d72aa4e5ec7f2c9f6b334a7d",
+    "sac_s2_so101_20260930-221116.json": "f2235261cfa9d4c5a4ad340aaaf68ea34ec34d047b485ce62d25784e9ccce961"
+  },
+  "fresh_training_files_before_accounting": {
+    "qc-cql_s0_so101_20261001-181150.json": "49ff0e8949d68bbcc9c747d832ed16f14a90af935d9b04f4046d0923b0c14301",
+    "qc-cql_s1_so101_20261001-181150.json": "dbf95f3208860f1068bc8675c712c3cad9bd787fda2755a06f026ecd0930b3a9",
+    "qc-cql_s2_so101_20261001-181150.json": "f37c02d81266e1d190f3702daadc26591f7ceaab234f5a1044d885bce118c1cd",
+    "qc-random_so101_20261001-181149.json": "837d8e64c80b0fb414f96c48516eb2c231b3de057e825bfe1c0434afeee5196a",
+    "qc_s0_so101_20261001-181150.json": "97799583e4cc78d69d64f72e87f9498b6ffdb10629d5386a0e1b3bbd0b5cb3a9",
+    "qc_s1_so101_20261001-181150.json": "d4c883649b01e00aa7a97818b71d8b425edca284dffcd355be4fc9575d9d9e5f",
+    "qc_s2_so101_20261001-181150.json": "557845597c052df8bc6c8253f3da9a0911fcb2df62544d26e04216da46911a7c",
+    "rlpd_s0_so101_20261001-181150.json": "fdb8b122209bc86fd921262a73eaf13fc62f8c8605967fe8fafb3d1604196d8e",
+    "rlpd_s1_so101_20261001-181150.json": "dcf0b51245a10395462d4516971662fc92da87c385951d5521c736c3bfbb0a7d",
+    "rlpd_s2_so101_20261001-181150.json": "5be4b9999fc9b8c4ab3e44a866495afa47036e24002c4cc007600a4a2bec8deb",
+    "sac_s0_so101_20261001-181150.json": "1506098041fa40c3020f8d725caec0c3e887952f6713d84f1320a72b0402491a",
+    "sac_s1_so101_20261001-181150.json": "b19c49b71940687ab8a910458bff923ed5f2178146bbf9c96e3a75951136f886",
+    "sac_s2_so101_20261001-181150.json": "31045fa03ee355161e1a517281956d0dd7dc58c802bc994782328ea50d53eac7"
+  },
+  "source_sha256_at_integration": "284b73b431506da250a72006c97627cf8c4e4ba3181c9111bd81b64373aa7c07",
+  "base_checkpoint_sha256": "0a06b909b46479f2ae29068f64233943ff85dc149cfdff5e1c59001bb127aea3",
+  "corrected_qc_seed0_checkpoint_sha256": "913a2a6337c9571d1f11db99d1e8c44b720968bfa54e0ac6cdd2fdb39048676d",
+  "source_provenance": {
+    "raw_git_sha": "Ledger records HEAD at write time, excluding uncommitted edits. Raw git_sha fields are preserved and do not alone reproduce this rerun.",
+    "selector_fix": "The process started with the uncommitted online-mean selector fix already applied.",
+    "post_launch_source_changes": "Chapter 5 changes after launch were historical-cost constants/metadata and their comments, the fresh-cost plot label, and documentation comments; no later training or policy-selection semantics changed.",
+    "reproduction_source": "Use the final reviewed algos/05_rlpd_qchunk.py matching source_sha256_at_integration, not the raw git_sha alone. Its historical charge is added explicitly to the raw run by this migration; plot labels are refreshed from the emitted curves."
+  },
+  "command": "uv run python algos/05_rlpd_qchunk.py --out runs/prelaunch_ch05",
+  "accounting": {
+    "sum_of_old_12_row_train_steps": 2793292,
+    "subtract_12_duplicated_pilot_charges": 2048772,
+    "subtract_3_extra_copies_of_shared_demos": 14997,
+    "subtract_2_extra_copies_of_shared_warmup": 157064,
+    "unique_prior_full_run_train_steps": 572459,
+    "new_prior_search_steps": 0,
+    "prior_demo_human_minutes": 8.331666666666667,
+    "eval": "Old eval remains diagnostic cost in the archived rows, excluded from improvement cost; no eval-driven selection was introduced."
+  },
+  "outcomes": {
+    "qc-cql_s0": {
+      "old": 106,
+      "new": 154
+    },
+    "qc-cql_s1": {
+      "old": 55,
+      "new": 140
+    },
+    "qc-cql_s2": {
+      "old": 107,
+      "new": 141
+    },
+    "qc-random": {
+      "old": 125,
+      "new": 125
+    },
+    "qc_s0": {
+      "old": 239,
+      "new": 238
+    },
+    "qc_s1": {
+      "old": 242,
+      "new": 245
+    },
+    "qc_s2": {
+      "old": 233,
+      "new": 238
+    },
+    "rlpd_s0": {
+      "old": 0,
+      "new": 0
+    },
+    "rlpd_s1": {
+      "old": 9,
+      "new": 9
+    },
+    "rlpd_s2": {
+      "old": 116,
+      "new": 116
+    },
+    "sac_s0": {
+      "old": 6,
+      "new": 6
+    },
+    "sac_s1": {
+      "old": 16,
+      "new": 16
+    },
+    "sac_s2": {
+      "old": 1,
+      "new": 1
+    }
+  },
+  "corrected_training_log": {
+    "path": "corrected_training.log",
+    "sha256": "4cca7b245863a572b7287e9596eb648bd3d15e952d0bc016b5b10e9977a15ac5"
+  },
+  "training_log_redaction": "Removed the single absolute checkout-path prefix from the output location; all measured values and relative output paths are unchanged."
+}

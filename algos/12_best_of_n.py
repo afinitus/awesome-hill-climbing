@@ -528,7 +528,8 @@ def main(cfg: Config) -> None:
         s["latency_ms"] = {str(n): latency_ms(datas[cfg.verifier_seeds[0]]["obs"][:1], n, vpath) for n in cfg.ns}
 
         # 7. Held-out eval, once: the base, the chosen setting for each verifier seed, the random control.
-        ev = partial(evaluate, init_set="eval", robot=cfg.robot, n_workers=cfg.n_workers, n=cfg.eval_n)
+        ev = partial(evaluate, init_set="search" if cfg.quick else "eval", robot=cfg.robot,
+                     n_workers=cfg.n_workers, n=cfg.eval_n)
         base_eval = ev(base_policy, record_trajectories=True)
         finals = {}
         for v in cfg.verifier_seeds:

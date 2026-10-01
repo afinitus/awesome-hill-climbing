@@ -395,13 +395,14 @@
     "status": "verified",
     "severity": "major",
     "evidence": "Primary Table 1 checked against the revised fields: one_line = One-step MeanFlow policy with a dispersive loss, fine-tuned by PPO on a one-step Gaussian chain plus a BC regularizer. Square 0.83 at 1 NFE vs DPPO 0.78 at 20 NFE. Without the BC term (v1 ablation), success collapses to near zero.",
-    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction. Also directly checked version 1 Appendix A.3.2: the BC-removed Square/Transport runs collapse near zero; version 2 makes the Gaussian-chain and one-step low-variance claims.",
     "source": "https://arxiv.org/html/2601.20701",
     "source_sha256": "12c0d1af099a3174de7883f9c5858bb2ac825b75a07fbb27f344b9a98ed1ca7a",
     "fields": {
       "one_line": "One-step MeanFlow policy with a dispersive loss, fine-tuned by PPO on a one-step Gaussian chain plus a BC regularizer. Square 0.83 at 1 NFE vs DPPO 0.78 at 20 NFE. Without the BC term (v1 ablation), success collapses to near zero."
     },
-    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "additional_source": "https://arxiv.org/html/2601.20701v1#A1.SS3.SSS2"
   },
   {
     "id": "C173",

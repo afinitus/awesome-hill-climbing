@@ -651,6 +651,7 @@ def main(cfg: Config) -> None:
     else:
         jobs = [("v1", grid_arm(a, cfg)) for a in cfg.arms] + [("hard", grid_arm(a, cfg)) for a in cfg.hard_arms]
     variants = sorted({v for v, _ in jobs}, key=["v1", "hard"].index)
+    final_sets = {v: "search" if cfg.quick else HELDOUT[v] for v in variants}
     ev = partial(evaluate, robot=cfg.robot, n_workers=cfg.n_workers)
     shared = Ledger("ch07", "shared")  # never written: baselines and analysis rollouts (no selection)
     steering = ("dsrl", "pss", "hybrid", "rfs")  # the headline row picks among these arms' v1 runs
@@ -666,7 +667,7 @@ def main(cfg: Config) -> None:
     # 1. Baselines, fixed in advance: Gaussian base (salt 0 = the paired base), zero ticket, Chapter 3 tickets.
     tickets = ch03_tickets() if "v1" in variants else {}
     for v in variants:
-        hs = HELDOUT[v]
+        hs = final_sets[v]
         g = ev(GAUSS, hs, variant=v, n=cfg.eval_n, ledger=shared, category="eval", record_trajectories=True)
         z = ev(fixed(np.zeros(DIM)), hs, variant=v, n=cfg.eval_n, ledger=shared, category="eval",
                record_trajectories=True)
@@ -691,11 +692,11 @@ def main(cfg: Config) -> None:
     # 2. Hard: group held-out states by how often the Gaussian base solves them (the base's support).
     if "hard" in variants:
         salts = [base_res["hard"].successes] + [
-            ev(GAUSS, "stress", variant="hard", n=cfg.eval_n, salt=s, ledger=shared, category="eval").successes
+            ev(GAUSS, final_sets["hard"], variant="hard", n=cfg.eval_n, salt=s, ledger=shared, category="eval").successes
             for s in range(1, cfg.support_salts)]
         A["support_counts"] = np.sum(salts, 0).tolist()
         # The groups are defined by those tries, so the table's Gaussian column is one more, independent try.
-        fresh = ev(GAUSS, "stress", variant="hard", n=cfg.eval_n, salt=cfg.support_salts, ledger=shared,
+        fresh = ev(GAUSS, final_sets["hard"], variant="hard", n=cfg.eval_n, salt=cfg.support_salts, ledger=shared,
                    category="eval")
         finals["hard", "gauss_fresh"] = fresh.successes
         A["baselines"]["hard"]["gauss_fresh_salt"] = {"salt": cfg.support_salts, **rate(fresh.k, fresh.n)}
@@ -720,7 +721,7 @@ def main(cfg: Config) -> None:
 
     # 4. The training runs, one results JSON each.
     for v, arm in jobs:
-        hs = HELDOUT[v]
+        hs = final_sets[v]
         for seed in cfg.seeds:
             method = f"{arm['method']}{'-hard' if v == 'hard' else ''}_s{seed}"
             with new_ledger(method=method, variant=v) as L:
@@ -772,7 +773,7 @@ def main(cfg: Config) -> None:
             P = Actor(len(mu), DIM, cfg.hidden, mu, sd, zero_init=False).export()
             with new_ledger(method=f"random_actor{'-hard' if v == 'hard' else ''}_s{seed}", variant=v) as L:
                 r = ev(partial(steer_policy, P, basis_for(v, DIM), False, cfg.noise_scale, cfg.res_scale, False),
-                       HELDOUT[v], variant=v, n=cfg.eval_n, ledger=L, category="eval")
+                       final_sets[v], variant=v, n=cfg.eval_n, ledger=L, category="eval")
                 L.robot_steps["eval"] += base_res[v].env_steps
                 L.set_base(id="base_v1_gaussian", successes=base_res[v])
                 L.set_final(successes=r)
@@ -816,7 +817,7 @@ def main(cfg: Config) -> None:
             L.extra["pilot_robot_minutes"] = PILOT_ROBOT_MINUTES
         L.robot_steps["eval"] += base_res["v1"].env_steps + best["eval_steps"]
         L.set_base(id="base_v1_gaussian", successes=base_res["v1"])
-        L.set_final(successes=np.array([ch == "1" for ch in best["eval_successes"]]), init_set="eval")
+        L.set_final(successes=np.array([ch == "1" for ch in best["eval_successes"]]), init_set=final_sets["v1"])
         L.extra.update(note=f"best of {len(dsrl_v1)} v1 noise-steering runs by search score ({best['method']}); "
                             "pays for the training and search rollouts of all of them",
                        pick=best["method"], analysis=A)
