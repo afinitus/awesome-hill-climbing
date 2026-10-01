@@ -104,7 +104,7 @@ Leave the policy's weights alone and spend extra compute at deployment: sample s
 - **[VERITAS](https://arxiv.org/abs/2606.18247)** (Princeton, 2026-06-16) — Gradient-free verifier scores sampled π0 action chunks by distance to a Gemini-drawn 2D end-effector trace; verified successes are distilled back by BC. Reported average steering gains: 12.6% sim, 35% real; BC fine-tuning +9.7% over π0-Bridge in sim. · [code](https://github.com/princeton-prism/veritas)
 - **[ViTaL](https://arxiv.org/abs/2606.14981)** (CMU, 2026-06-12) — Vision picks the mode (latent world model plus VLM reward), then tactile-reward-guided diffusion editing refines contact. Real, visual base policy (appendix): wiping 30 → 90%, pipette 30 → 75%, insertion 40 → 80%. · numbers corrected after an independent re-check against the source
 - **[VeriSpace](https://arxiv.org/abs/2606.10568)** (CASIA, 2026-06-09) — 3D-aware 7B verifier over k=8 VLA samples. SimplerEnv OpenVLA 37.0 → 55.0 vs RoboMonkey 40.5, V-GPS 36.0, MG-Select 39.0.
-- ⭐ **[QGF (Q-Guided Flow)](https://arxiv.org/abs/2606.11087)** (UC Berkeley; Physical Intelligence, 2026-06-09) — Freezes a BC flow policy and IQL critic; each flow step adds grad Q, evaluated at a one-step estimate of the finished action, to the velocity. OGBench sim, charts only: beats all tested test-time methods, slightly edges EDP. · [code](https://github.com/zhouzypaul/qgf)
+- ⭐ **[QGF (Q-Guided Flow)](https://arxiv.org/abs/2606.11087)** (UC Berkeley; Physical Intelligence, 2026-06-09) — Freezes a BC flow policy and IQL critic; each flow step adds grad Q, evaluated at a one-step estimate of the finished action, to the velocity. OGBench sim, charted 20-task mean: beats tested test-time methods, slightly edges EDP. · [code](https://github.com/zhouzypaul/qgf)
 - **[ProbeAct](https://arxiv.org/abs/2606.09740)** (Zhang et al., 2026-06-08) — Training-free runtime loop: feature probe for 3D object positions, kinematic failure state machine, and CBF action filter; lifts OpenVLA-OFT from 69.6% to 74.1% on LIBERO-plus.
 - **[ActProbe](https://arxiv.org/abs/2606.08508)** (Huang et al., 2026-06-07) — Black-box failure detector using temporal consistency error between action chunks and chunk magnitude; +12.7% hypervolume, +9.0% early-detection ROC-AUC on unseen tasks, 2.9x fewer RL fine-tuning interactions. · [code](https://air-embodied-brain.github.io/actprobe)
 - **[TTT-VLA](https://arxiv.org/abs/2606.03127)** (ByteDance Seed, 2026-06-02) — Reward-free test-time latent-prompt tuning uses a state-grounding proxy loss. SimplerEnv WidowX: base pi0.5 51.1%, retrained latent-prompt policy 63.5%, then test-time tuning 67.4% (simulation).
@@ -122,7 +122,7 @@ Leave the policy's weights alone and spend extra compute at deployment: sample s
 
 ## April 2026
 
-- ⭐ **[FASTER](https://arxiv.org/abs/2604.19730)** (Stanford University, 2026-04-21) — A critic predicts, from the raw noise seed, the denoised action's Q-value, so only the best seed gets denoised. pi0.5 on 5 libero_90 tasks vs EXPO: inference FLOPs 37.55 TF → 4.70 TF, success comparable. · [code](https://github.com/alexanderswerdlow/faster)
+- ⭐ **[FASTER](https://arxiv.org/abs/2604.19730)** (Stanford University, 2026-04-21) — A critic predicts action Q-values from raw noise, so only the best seed gets denoised. pi0.5 on five libero_90 tasks versus EXPO: inference FLOPs 37.55 TF → 4.70 TF, comparable success (chart reading). · [code](https://github.com/alexanderswerdlow/faster)
 - **[Rewind-IL](https://arxiv.org/abs/2604.16683)** (Vanderbilt, Waterloo, Sydney, 2026-04-17) — Training-free runtime safeguard for a frozen ACT policy: a chunk-consistency failure detector (TIDE, conformal threshold) triggers a respawn to the latest VLM-verified checkpoint state. Real 6-task average: 66.7 → 80.0% unperturbed, 18.3 → 76.7% under adversarial perturbation.
 
 ## March 2026
@@ -137,7 +137,7 @@ Leave the policy's weights alone and spend extra compute at deployment: sample s
 - **[PhysMem](https://arxiv.org/abs/2602.20323)** (UC San Diego / Stanford, 2026-02-23) — A VLM planner tests physical hypotheses before reusing them as memory, without weight updates. Simulated medium-difficulty brick insertion: 76% success versus 61% free-form memory, 53% no memory and 23% direct experience retrieval.
 - ⭐ **[CoVer](https://arxiv.org/abs/2602.12281)** (Stanford University; NVIDIA Research, 2026-02-12) — Keeps pi0 frozen, samples K instruction rephrasings times M action chunks, and picks one with a CLIP-style contrastive verifier trained on BridgeV2. SIMPLER red-teaming, ID/OOD: pi0 41.5/29.7, pi0 fine-tuned on augmented data 44.0/48.7, pi0 (rephrase) + CoVer 65.5/62.0. · [code](https://github.com/cover-vla/cover-vla)
 - **[VGAS](https://arxiv.org/abs/2602.07399)** (AAII, University of Technology Sydney, 2026-02-07) — A chunk critic with expected-max backup and geometric regularization reranks eight SmolVLA samples. Simulated LIBERO, five demos/task: 39.8% BC to 49.0%; plain Q-chunking scores 37.9%. · [code](https://github.com/Jyugo-15/VGAS)
-- ⭐ **[VLS](https://arxiv.org/abs/2602.03973)** (University of Washington; AI2; University of Oxford; NUS, 2026-02-03) — Training-free: a VLM names task objects, SAM/DINOv2 features plus depth give 3D keypoints, and the VLM writes differentiable per-stage rewards whose gradients steer a frozen diffusion/flow policy's denoising. CALVIN (sim) movable objects: 0.94 vs DynaGuide 0.26, base 0.13. · [code](https://github.com/Vision-Language-Steering/code)
+- ⭐ **[VLS](https://arxiv.org/abs/2602.03973)** (University of Washington; AI2; University of Oxford; NUS, 2026-02-03) — Training-free: a VLM names task objects, SAM/DINOv2 features plus depth give 3D keypoints, and VLM-generated reward gradients steer frozen diffusion/flow denoising. CALVIN (sim) movable objects: 0.94 versus DynaGuide 0.26 and base 0.13 (chart reading). · [code](https://github.com/Vision-Language-Steering/code)
 
 ## January 2026
 
@@ -152,7 +152,7 @@ Leave the policy's weights alone and spend extra compute at deployment: sample s
 
 ## November 2025
 
-- ⭐ **[JITI](https://arxiv.org/abs/2511.22555)** (Jilin University; Microsoft Research Asia, 2025-11-27) — Trains an offline Cal-QL critic on frozen VLA features from labeled demo segments; only when its Q-value jumps from its moving average are N chunks reranked. LIBERO-Elegant, SmolVLA: 49.8 → 67.2 ESR vs 53.8 reranking every step.
+- ⭐ **[JITI](https://arxiv.org/abs/2511.22555)** (Jilin University; Microsoft Research Asia, 2025-11-27) — Trains an offline Cal-QL critic on frozen VLA features; reranks chunks only when Q deviates from its moving average. LIBERO-Elegant, SmolVLA: ESR 49.8 → 67.2, versus 53.8 with guidance every step (chart reading).
 - **[VLA-Pilot](https://arxiv.org/abs/2511.14178)** (CUHK, 2025-11-18) — GPT-4o writes a keypoint scoring function, then evolutionary search with truncated re-noising inside a diffusion VLA's samples. Real DiVLA 0.31 → 0.62.
 
 ## October 2025

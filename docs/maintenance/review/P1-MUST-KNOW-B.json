@@ -1,0 +1,2545 @@
+[
+  {
+    "id": "C263",
+    "title": "FASTER: Value-Guided Sampling for Fast RL",
+    "source_url": "https://arxiv.org/abs/2604.19730",
+    "source_final_url": "https://arxiv.org/html/2604.19730",
+    "source_sha256": "c2bf55d60f45d0f31901d2e571141d4244e31632ca6fba6ac960e0c727360a14",
+    "status": "corrected",
+    "severity": "minor",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current testtime is appropriate unless patched.",
+      "description": "Rendered Figure 6 prints inference FLOPs 37.55 TF and 4.70 TF; body rounds EXPO to 3.75e13. VLA experiment uses five held-out libero_90 tasks with pi0.5 and comparable EXPO success. Raw-noise Q prediction avoids denoising rejected candidates.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C263",
+      "code": "https://github.com/alexanderswerdlow/faster",
+      "paper_links_code": true,
+      "repo_status": 200,
+      "repo_files": [
+        ".env",
+        ".gitignore",
+        ".python-version",
+        "AGENTS.md",
+        "README.md",
+        "assets",
+        "configs",
+        "faster",
+        "pyproject.toml",
+        "scripts",
+        "sitecustomize.py",
+        "train_batch.py",
+        "train_robo.py",
+        "uv.lock"
+      ]
+    },
+    "access_limits": "",
+    "before": {
+      "one_line": "A critic predicts, from the raw noise seed, the denoised action's Q-value, so only the best seed gets denoised. pi0.5 on 5 libero_90 tasks vs EXPO: inference FLOPs 37.55 TF → 4.70 TF, success comparable."
+    },
+    "fields": {
+      "one_line": "A critic predicts action Q-values from raw noise, so only the best seed gets denoised. pi0.5 on five libero_90 tasks versus EXPO: inference FLOPs 37.55 TF → 4.70 TF, comparable success (chart reading)."
+    },
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "figure_sources": [
+      "https://arxiv.org/html/2604.19730v1/ablation_vla_speed.svg"
+    ],
+    "action_status": "applied"
+  },
+  {
+    "id": "C271",
+    "title": "ViVa: A Video-Generative Value Model for Robot Reinforcement Learning",
+    "source_url": "https://arxiv.org/abs/2604.08168",
+    "source_final_url": "https://arxiv.org/html/2604.08168",
+    "source_sha256": "87cc5dc8675e6550de4161d1a61b7e5566c943938df5d8c81e6e5bf358031118",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current reward is appropriate unless patched.",
+      "description": "Method defines the Wan2.2-derived value model and disjoint success/failure return ranges. Real-robot Table 5 gives ViVa 90/70/80 and VLM 70/60/60 after two rounds: means 80.0 and 63.3 across three tasks.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C271",
+      "code": "https://github.com/GigaAI-research/ViVa",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "README.md",
+        "assets",
+        "config",
+        "get_text_embedding.py",
+        "giga_datasets",
+        "inference.py",
+        "requirements.txt",
+        "train.py",
+        "train.sh",
+        "utils",
+        "visualization.py",
+        "viva_dataset.py",
+        "viva_model.py",
+        "viva_utils.py",
+        "wan",
+        "wan_model.py"
+      ],
+      "project": "https://viva-value-model.github.io/",
+      "project_status": 200,
+      "project_links_code": true,
+      "project_github_links": [
+        "https://github.com/GigaAI-research/ViVa",
+        "https://github.com/nerfies/nerfies.github.io"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C267",
+    "title": "GEN-1: Scaling Embodied Foundation Models to Mastery",
+    "source_url": "https://generalistai.com/blog/gen-1",
+    "source_final_url": "https://generalistai.com/blog/gen-1",
+    "source_sha256": "80adfbe458ff1e74ad86d0a60fc0aa017cd79e1de2efe3cd4afc961917c77c9e",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "Official Generalist heading matches and visibly states April 2, 2026.",
+      "affiliation": "Official Generalist AI research post establishes publisher identity.",
+      "family": "Mechanism checked against family definition; current industry is appropriate unless patched.",
+      "description": "Official GEN-1 post identifies 500K+ wearable hours, about one robot hour per task, and five ingredients including RL; linked three-task chart gives whole-system 99 versus 64. No isolated RL ablation or update rule is attributed.",
+      "code": "Blank code field; no claim of implementation availability."
+    },
+    "code_verification": {
+      "id": "C267",
+      "code": "",
+      "code_status": "blank; no release claim"
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C251",
+    "title": "SOLE-R1: Video-Language Reasoning as the Sole Reward for On-Robot Reinforcement Learning",
+    "source_url": "https://arxiv.org/abs/2603.28730",
+    "source_final_url": "https://arxiv.org/html/2603.28730",
+    "source_sha256": "b73dcb09715511bccd43b24e610d86d4a9405cca7d4dad25a42e8366dd596a03",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current reward is appropriate unless patched.",
+      "description": "Method specifies Qwen3-VL-8B reasoning at each step and progress scale -100 to 100. Evaluation paragraph accompanying Figure 3 explicitly counts 24 of 40 tasks at >=50% for SOLE-R1 versus 7 for GPT-5, starting online RL from scratch.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C251",
+      "code": "https://github.com/Philip-MIT/sole-r1-model",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        "README.md",
+        "assets",
+        "model_outputs",
+        "reward_client",
+        "reward_server",
+        "test_videos"
+      ],
+      "project": "https://philip-mit.github.io/sole-r1/",
+      "project_status": 200,
+      "project_links_code": false,
+      "project_github_links": [
+        "https://github.com/philipmit/sole-r1-model"
+      ],
+      "official_project_link_resolved": "https://github.com/philipmit/sole-r1-model",
+      "official_project_link_final_url": "https://github.com/Philip-MIT/sole-r1-model",
+      "official_project_link_status": 200,
+      "provenance": "Primary paper links official project; its code link redirects HTTP 200 to the exact catalog repository."
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C256",
+    "title": "Grounding Sim-to-Real Generalization in Robotic Manipulation: An Empirical Study with Vision-Language-Action Models",
+    "source_url": "https://arxiv.org/abs/2603.22876",
+    "source_final_url": "https://arxiv.org/html/2603.22876",
+    "source_sha256": "ba6c4e7cf983e2d90c9a9668bb28ea57cec5b0f69e6aa2807d82af72c375811e",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current simreal is appropriate unless patched.",
+      "description": "Real-world results table gives SFT 5.6, SFT+RL 33.4, and SFT+RL+DR 42.8. Methods identify simulation-only RoboTwin 2.0 training and binary-success GRPO; the row correctly labels zero-shot physical deployment.",
+      "code": "Blank code field; no claim of implementation availability."
+    },
+    "code_verification": {
+      "id": "C256",
+      "code": "",
+      "code_status": "blank; no release claim"
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C250",
+    "title": "Towards Practical World Model-based Reinforcement Learning for Vision-Language-Action Models",
+    "source_url": "https://arxiv.org/abs/2603.20607",
+    "source_final_url": "https://arxiv.org/html/2603.20607",
+    "source_sha256": "e8a76d8fb2eb42e654058c381ca45e9e366a0cc3aac31956855fd1d21e978153",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current worldmodel is appropriate unless patched.",
+      "description": "Table 2 reports LIBERO 76.8 SFT, 85.9 VLA-MBPO, and 82.6 online RL at matched budget. Method describes Bagel-based multiview prediction and short branches; Appendix D action chunk is 10 and real collection uses 50 policy rollouts per task.",
+      "code": "Blank code field; no claim of implementation availability."
+    },
+    "code_verification": {
+      "id": "C250",
+      "code": "",
+      "code_status": "blank; no release claim"
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C238",
+    "title": "Scaling Sim-to-Real VLA Reinforcement Learning with Generative 3D Worlds",
+    "source_url": "https://arxiv.org/abs/2603.18532",
+    "source_final_url": "https://arxiv.org/html/2603.18532",
+    "source_sha256": "13fdbaa6591e07531514c36ba56f78be0697c52c9a2e833cbaef0291687ad1e1",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current simreal is appropriate unless patched.",
+      "description": "Current v4 abstract and real evaluation report 100 generated scenes, 12 physical scenes with 240 trials, and 21.7 to 75 success. Methods name GPT-4o, EmbodiedGen, ManiSkill 3, PPOFlow, BridgeV2-pretrained pi0; comparison is only to its imitation initialization.",
+      "code": "Blank code field; no claim of implementation availability."
+    },
+    "code_verification": {
+      "id": "C238",
+      "code": "",
+      "code_status": "blank; no release claim"
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C236",
+    "title": "You've Got a Golden Ticket: Improving Generative Robot Policies With A Single Noise Vector",
+    "source_url": "https://arxiv.org/abs/2603.15757",
+    "source_final_url": "https://arxiv.org/html/2603.15757",
+    "source_sha256": "4d8bbaebd65af0de0e0ac2331642305aee5426044ef1273f7e6ed93229c9702f",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current blackbox is appropriate unless patched.",
+      "description": "Hardware experiment reports 80 to 98 block-pick success on 50 held-out episodes. Search uses six tickets and 25 episodes each (150), about 30 minutes. Method freezes weights and uses one black-box-searched noise vector across chunks.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C236",
+      "code": "https://github.com/rai-opensource/lottery_tickets",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        ".gitmodules",
+        "CNAME",
+        "LICENSE",
+        "Lottery_Ticket_Hypothesis_for_Robot_Policies_full.pdf",
+        "README.md",
+        "You_ve_Got_a_Golden_Ticket_arxiv.pdf",
+        "index.html",
+        "media",
+        "pyproject.toml",
+        "src",
+        "uv.lock"
+      ],
+      "project": "https://lottery-tickets.rai-inst.com/",
+      "project_status": 200,
+      "project_links_code": false,
+      "project_github_links": [
+        "https://github.com/bdaiinstitute/lottery_tickets"
+      ],
+      "official_project_link_resolved": "https://github.com/bdaiinstitute/lottery_tickets",
+      "official_project_link_final_url": "https://github.com/rai-opensource/lottery_tickets",
+      "official_project_link_status": 200,
+      "provenance": "Primary paper links official project; its code link redirects HTTP 200 to the exact catalog repository."
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C260",
+    "title": "HandelBot: Real-World Piano Playing via Fast Adaptation of Dexterous Robot Policies",
+    "source_url": "https://arxiv.org/abs/2603.12243",
+    "source_final_url": "https://arxiv.org/html/2603.12243",
+    "source_sha256": "e8738345feb42167f48015bb5e7db8e4f89919177309ce10f5deec4e25fffcb6",
+    "status": "corrected",
+    "severity": "minor",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current simreal is appropriate unless patched.",
+      "description": "Primary Figure3 visually inspected: method81/85/71/85/66 and open-loop32/41/41/63/32 average77.6/41.8. SectionIV-A5 reports maximum validation F1 across training, not a separate held-out evaluation; add this qualifier.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C260",
+      "code": "https://github.com/amberxie88/handelbot",
+      "paper_links_code": true,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "README.md",
+        "agents",
+        "assets",
+        "env.yml",
+        "envs",
+        "images",
+        "music_data",
+        "real",
+        "rl"
+      ]
+    },
+    "access_limits": "",
+    "before": {
+      "one_line": "Freezes the best sim piano rollout as an open-loop trajectory, nudges each finger's lateral joint from MIDI key errors, then adds bounded residual RL rewarded by MIDI. Real, 5-song mean key-press F1: 77.6 vs open-loop sim 41.8."
+    },
+    "fields": {
+      "one_line": "Freezes a sim piano rollout, corrects lateral finger joints from MIDI errors, then trains bounded residual RL with MIDI rewards. Five real songs: mean best-validation key-press F1 77.6 versus open-loop simulation trajectory 41.8 (chart reading)."
+    },
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "applied"
+  },
+  {
+    "id": "C241",
+    "title": "Simple Recipe Works: Vision-Language-Action Models are Natural Continual Learners with Reinforcement Learning",
+    "source_url": "https://arxiv.org/abs/2603.11653",
+    "source_final_url": "https://arxiv.org/html/2603.11653",
+    "source_sha256": "e07c2913a1ff774136bd5e031ecec1c30905e9da3f0d469b56dcc8824faa3dd0",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Official PDF page 1 affiliation block confirms all listed institutions; PDF used because HTML omits or corrupts parts of the author block.",
+      "family": "Mechanism checked against family definition; current onpolicy is appropriate unless patched.",
+      "description": "LIBERO-Spatial table gives sequential LoRA AVG 81.2/forgetting 0.3 versus full finetuning 7.3/40.9. Method uses rank-32 LoRA, sparse-success GRPO, no replay or continual-learning regularizer. Official PDF page 1 resolves affiliations omitted in HTML.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C241",
+      "code": "https://github.com/UT-Austin-RobIn/continual-vla-rl",
+      "paper_links_code": true,
+      "repo_status": 200,
+      "repo_files": [
+        ".github",
+        ".gitignore",
+        ".pre-commit-config.yaml",
+        "LIBERO",
+        "LICENSE",
+        "README.md",
+        "docker",
+        "examples",
+        "openvla-oft",
+        "pyproject.toml",
+        "ray_utils",
+        "requirements.txt",
+        "requirements",
+        "rlinf",
+        "transformers-openvla-oft"
+      ],
+      "project": "https://ut-austin-robin.github.io/continual-vla-rl/",
+      "project_status": 404,
+      "project_links_code": false,
+      "project_github_links": []
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C259",
+    "title": "Update-Free On-Policy Steering via Verifiers",
+    "source_url": "https://arxiv.org/abs/2603.10282",
+    "source_final_url": "https://arxiv.org/html/2603.10282",
+    "source_sha256": "5e957249c5e6acc2ac42df27827fc03078e05bd50b6ca9d46a16ff415afd32e7",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current testtime is appropriate unless patched.",
+      "description": "Method trains verifiers from labeled deployment rollouts and selects best-of-10 actions. Figure 5 real task cells: base 40/55/30/10/55 and Q-verifier 95/90/80/90/80, yielding 38 and 87; protocol uses 20 trials per task. Chart-reading qualifier retained.",
+      "code": "Blank code field; no claim of implementation availability."
+    },
+    "code_verification": {
+      "id": "C259",
+      "code": "",
+      "code_status": "blank; no release claim"
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C235",
+    "title": "From Prior to Pro: Efficient Skill Mastery via Distribution Contractive RL Finetuning",
+    "source_url": "https://arxiv.org/abs/2603.10263",
+    "source_final_url": "https://arxiv.org/html/2603.10263",
+    "source_sha256": "59060779a387286647df9528b846b4ba0ce4fda5bec1b6022a6f5806b91206a4",
+    "status": "corrected",
+    "severity": "minor",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current residual is appropriate unless patched.",
+      "description": "Real evaluation paragraph specifies 30 trials per checkpoint. Figure 8 BeltAssembly curve was rendered: base 56.67 and endpoint 93.33 near 420 training episodes. Method uses shared-noise residual, frozen BC prior, TD3+BC-style objective and Q-based sample selection. Figure-derived values now carry the CONTRIBUTING-required chart-reading label.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C235",
+      "code": "https://github.com/real-stanford/dice-rl",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "LICENSE",
+        "README.md",
+        "agent",
+        "cfg",
+        "env",
+        "installation",
+        "media",
+        "model",
+        "pyproject.toml",
+        "script",
+        "util"
+      ],
+      "project": "https://zhanyisun.github.io/dice.rl.2026/",
+      "project_status": 200,
+      "project_links_code": false,
+      "project_github_links": [
+        "https://github.com/zhanyisun/dice-rl.git",
+        "https://github.com/zhanyisun/DICE-RL-Robot"
+      ],
+      "official_project_link_resolved": "https://github.com/zhanyisun/dice-rl.git",
+      "official_project_link_final_url": "https://github.com/real-stanford/dice-rl",
+      "official_project_link_status": 200,
+      "provenance": "Primary paper links official project; its code link redirects HTTP 200 to the exact catalog repository."
+    },
+    "access_limits": "",
+    "before": {
+      "one_line": "Freezes a diffusion/flow BC prior as a noise-to-chunk sampler, trains a small residual on the same noise with a TD3+BC-style loss, and runs the best-Q sample. Real UR5 BeltAssembly (30 trials): 56.67% → 93.33% after about 420 episodes."
+    },
+    "fields": {
+      "one_line": "Freezes a diffusion/flow BC prior, trains a residual on the same noise with TD3+BC, then executes the best-Q sample. Real UR5 BeltAssembly, 30 trials/checkpoint: 56.67% → 93.33% after ~420 training episodes (chart reading)."
+    },
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "applied"
+  },
+  {
+    "id": "C247",
+    "title": "PlayWorld: Learning Robot World Models from Autonomous Play",
+    "source_url": "https://arxiv.org/abs/2603.09030",
+    "source_final_url": "https://arxiv.org/html/2603.09030",
+    "source_sha256": "71f4e0f481e19f041c73f2a28885d5ed49bd268ffce3dd9f128dd8ed681707c3",
+    "status": "corrected",
+    "severity": "minor",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current worldmodel is appropriate unless patched.",
+      "description": "Primary Figure9 visually inspected: real towel baseline0.10, PlayWorld peaks0.75 at2000steps then0.50 at4000; human-demo model peaks0.40. Main text confirms30hours autonomous play andDSRL. Explicitly name real evaluation and peak.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C247",
+      "code": "https://github.com/irom-princeton/open-world",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        ".gitmodules",
+        ".python-version",
+        "README.md",
+        "assets",
+        "bash_scripts",
+        "configs",
+        "data",
+        "docs",
+        "external",
+        "openworld",
+        "pyproject.toml",
+        "scripts",
+        "uv.lock",
+        "vidwm"
+      ],
+      "project": "https://robot-playworld.github.io/",
+      "project_status": 200,
+      "project_links_code": true,
+      "project_github_links": [
+        "https://github.com/irom-princeton/open-world",
+        "https://github.com/polaris-evals/polaris-evals.github.io"
+      ]
+    },
+    "access_limits": "",
+    "before": {
+      "one_line": "Fine-tunes a Ctrl-World-style model on 30 hours of unattended, failure-rich robot self-play, then hill-climbs a few-demo diffusion policy inside it with DSRL. Towel folding: 10% → 75% at 2000 steps vs a 40% human-demo-model peak (chart reading)."
+    },
+    "fields": {
+      "one_line": "Trains a video world model on 30 hours of autonomous robot play, then improves a diffusion policy inside it with DSRL. Real towel-folding success peaks at 75% from 10% (2000 steps); human-demo-model peak: 40% (chart reading)."
+    },
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "applied"
+  },
+  {
+    "id": "C244",
+    "title": "Robometer: Scaling General-Purpose Robotic Reward Models via Trajectory Comparisons",
+    "source_url": "https://arxiv.org/abs/2603.02115",
+    "source_final_url": "https://arxiv.org/html/2603.02115",
+    "source_sha256": "85e5ce5eb7a8cea247f792b03ab9b48b07a6178a3950d53d286e7327d664686c",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current reward is appropriate unless patched.",
+      "description": "Method specifies Qwen3-VL-4B and progress/success/preference supervision on RBM-1M. Real DSRL section reports pi0 20 to 85 versus RoboReward 55 in <=45 minutes/10k steps; false-success table shows 0 versus 45.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C244",
+      "code": "https://github.com/robometer/robometer",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "FINETUNE_ROBOMETER.md",
+        "README.md",
+        "assets",
+        "dataset_upload",
+        "eval_commands",
+        "pyproject.toml",
+        "requirements-robodopamine.txt",
+        "robometer",
+        "run_scripts",
+        "scripts",
+        "setup.py",
+        "train.py"
+      ],
+      "project": "https://robometer.github.io/",
+      "project_status": 200,
+      "project_links_code": true,
+      "project_github_links": [
+        "https://github.com/robometer/robometer",
+        "https://github.com/robometer/robometer-policy-learning"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C213",
+    "title": "IG-RFT: An Interaction-Guided RL Framework for VLA Models in Long-Horizon Robotic Manipulation",
+    "source_url": "https://arxiv.org/abs/2602.20715",
+    "source_final_url": "https://arxiv.org/html/2602.20715",
+    "source_sha256": "9ff1a9e52c3d1c205eb9872e6e12727151a5ded9b6d92762eee3f47f52e9aba4",
+    "status": "corrected",
+    "severity": "minor",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current advbc is appropriate unless patched.",
+      "description": "Section V-A4 states 60 teleoperated demonstrations for each task, not 60 across all tasks. Four-task real tables give 18.8 SFT, 40.0 offline and 85.0 final with 20 evaluation trials per task. The weighted flow-matching and intervention stages are correctly described.",
+      "code": "Blank code field; no claim of implementation availability."
+    },
+    "code_verification": {
+      "id": "C213",
+      "code": "",
+      "code_status": "blank; no release claim"
+    },
+    "access_limits": "",
+    "before": {
+      "one_line": "Trains pi0.5 in three stages: SFT on 60 demos, an offline advantage-weighted flow-matching loss from a learned critic, then human-in-the-loop correction rounds with the same weighting. 4 real long-horizon tasks, 20 trials each: 18.8% → 40.0% → 85.0%."
+    },
+    "fields": {
+      "one_line": "Trains pi0.5 with 60 demos per task, offline advantage-weighted flow matching from a learned critic, then human-in-the-loop correction rounds with the same weighting. Four real long-horizon tasks, 20 trials each: 18.8% → 40.0% → 85.0%."
+    },
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "applied"
+  },
+  {
+    "id": "C232",
+    "title": "What Matters for Simulation to Online Reinforcement Learning on Real Robots",
+    "source_url": "https://arxiv.org/abs/2602.20220",
+    "source_final_url": "https://arxiv.org/html/2602.20220",
+    "source_sha256": "83abec5bed7667be9a2e1abd0c0ed5c4d08d3e92b311db969655ce8d7e1bc49f",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current simreal is appropriate unless patched.",
+      "description": "Simulation-to-online SAC ablation supports replay preservation/warmup and optimizer-state restoration. Appendix F gives actor LR 1e-5 and one actor update per 20 critic updates; Figure 9 caption states near-perfect Panda grasp success in roughly ten minutes including hardware overhead.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C232",
+      "code": "https://github.com/yardenas/panda-rl-kit",
+      "paper_links_code": true,
+      "repo_status": 200,
+      "repo_files": [
+        ".dockerignore",
+        ".gitignore",
+        ".gitmodules",
+        "CITATION.cff",
+        "LICENSE",
+        "README.md",
+        "assets",
+        "docker",
+        "external",
+        "fep_rl_experiment",
+        "scripts",
+        "setup"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C226",
+    "title": "TOPReward: Token Probabilities as Hidden Zero-Shot Rewards for Robotics",
+    "source_url": "https://arxiv.org/abs/2602.19313",
+    "source_final_url": "https://arxiv.org/html/2602.19313",
+    "source_sha256": "1099e95b6cca684bc14cf5ec5e35b6d012e3a6f3a811ce2fc9d9bb1b984a7468",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Official PDF page 1 affiliation block confirms all listed institutions; PDF used because HTML omits or corrupts parts of the author block.",
+      "family": "Mechanism checked against family definition; current reward is appropriate unless patched.",
+      "description": "ManiRewardBench progress table gives TOPReward/Qwen3-VL-8B VOC 0.942, same-model GVL 0.316, and Robometer-4B 0.858 on 113 tasks/497 successful episodes. Method uses the completion True-token probability without reward-model training. Official PDF page 1 footnote confirms all four institutions.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C226",
+      "code": "https://github.com/TOPReward/TOPReward",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".env.example",
+        ".gitignore",
+        ".pre-commit-config.yaml",
+        ".python-version",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "Makefile",
+        "NOTICE",
+        "README.md",
+        "configs",
+        "notebooks",
+        "pyproject.toml",
+        "pytest.ini",
+        "tests",
+        "topreward",
+        "uv.lock"
+      ],
+      "project": "https://topreward.github.io/webpage/",
+      "project_status": 200,
+      "project_links_code": true,
+      "project_github_links": [
+        "https://github.com/TOPReward/TOPReward",
+        "https://github.com/nerfies/nerfies.github.io"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C215",
+    "title": "WoVR: World Models as Reliable Simulators for Post-Training VLA Policies with RL",
+    "source_url": "https://arxiv.org/abs/2602.13977",
+    "source_final_url": "https://arxiv.org/html/2602.13977",
+    "source_sha256": "c4463bc8b96355539cbac7543e94980136093b959171f86c54de1ada3cd5921f",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current worldmodel is appropriate unless patched.",
+      "description": "Franka real table gives mean 51.1 baseline, 64.5 WMPO, 80.0 WoVR. Methods use Wan2.2-5B, GRPO, failure-keyframe initialization and policy-aligned world-model refresh. Physical data collection exists; policy RL itself is in-model, as stated.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C215",
+      "code": "https://github.com/RLinf/RLinf",
+      "paper_links_code": true,
+      "repo_status": 200,
+      "repo_files": [
+        ".agents",
+        ".claude",
+        ".dockerignore",
+        ".github",
+        ".gitignore",
+        ".pre-commit-config.yaml",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "DCO",
+        "LICENSE",
+        "README.md",
+        "README.zh-CN.md",
+        "docker",
+        "docs",
+        "evaluations",
+        "examples",
+        "pyproject.toml",
+        "ray_utils",
+        "requirements",
+        "rlinf",
+        "tests",
+        "toolkits"
+      ],
+      "project": "https://wovr-corl.github.io/",
+      "project_status": 200,
+      "project_links_code": false,
+      "project_github_links": [
+        "https://github.com/World4RL/World4RL.github.io"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C212",
+    "title": "Beyond Imitation: Reinforcement Learning-Based Sim-Real Co-Training for VLA Models",
+    "source_url": "https://arxiv.org/abs/2602.12628",
+    "source_final_url": "https://arxiv.org/html/2602.12628",
+    "source_sha256": "7f6824e3c83bc2b3d138ce638319e8fc63a94312baedfb6d72c0c4e185b93737",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current simreal is appropriate unless patched.",
+      "description": "Real four-task pi0.5 table gives SFT co-training 45.9 and RL-Co 66.2. Pipeline combines real/MimicGen demonstration co-training with ManiSkill3 PPO and weighted real-demo BC; physical online RL is excluded.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C212",
+      "code": "https://github.com/RLinf/RLinf",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".agents",
+        ".claude",
+        ".dockerignore",
+        ".github",
+        ".gitignore",
+        ".pre-commit-config.yaml",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "DCO",
+        "LICENSE",
+        "README.md",
+        "README.zh-CN.md",
+        "docker",
+        "docs",
+        "evaluations",
+        "examples",
+        "pyproject.toml",
+        "ray_utils",
+        "requirements",
+        "rlinf",
+        "tests",
+        "toolkits"
+      ],
+      "project": "https://rl-co-training.github.io/",
+      "project_status": 200,
+      "project_links_code": false,
+      "project_github_links": [],
+      "manual_primary_provenance": {
+        "provenance": "Paper/project links RLinf documentation; implementation README explicitly announces Sim-Real Co-Training and cites arXiv:2602.12628. Source tree contains embodied algorithms and task configurations.",
+        "source_url": "https://github.com/RLinf/RLinf"
+      }
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C210",
+    "title": "ALOE: Action-Level Off-Policy Evaluation for Vision-Language-Action Model Post-Training",
+    "source_url": "https://arxiv.org/abs/2602.12691",
+    "source_final_url": "https://arxiv.org/html/2602.12691",
+    "source_sha256": "331041a7a94ae7871e6edcae308ab9a94677a3741e5384872cad5217efdea7fe",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current offpolicy is appropriate unless patched.",
+      "description": "Real final-policy table gives Phone Assembly ALOE 95 and AWR 80 on 60 trials; BC table separately gives 10. Chunk-level pessimistic-ensemble TD evaluation is of the current policy, followed by advantage-weighted flow matching, consistent with offpolicy family.",
+      "code": "Blank code field; no claim of implementation availability."
+    },
+    "code_verification": {
+      "id": "C210",
+      "code": "",
+      "code_status": "blank; no release claim"
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C225",
+    "title": "VLAW: Iterative Co-Improvement of Vision-Language-Action Policy and World Model",
+    "source_url": "https://arxiv.org/abs/2602.12063",
+    "source_final_url": "https://arxiv.org/html/2602.12063",
+    "source_sha256": "91a335749fc20ddb4c7ee4e1c9e89de756a7ad3274093006342bdb4f1139de4b",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current worldmodel is appropriate unless patched.",
+      "description": "Table 2 DROID five-task means are base 0.460, filtered BC iteration 2 0.752, and VLAW iteration 2 0.868. Method collects 50 real trajectories per task per iteration; appendix names strict Qwen3-VL-4B synthetic labels and success-only policy training.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C225",
+      "code": "https://github.com/Robert-gyj/Ctrl-World",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "LICENSE.txt",
+        "config.py",
+        "config_eval.py",
+        "dataset",
+        "dataset_example",
+        "dataset_meta_info",
+        "models",
+        "readme.md",
+        "requirements.txt",
+        "scripts",
+        "synthetic_traj"
+      ],
+      "project": "https://sites.google.com/view/vlaw-arxiv",
+      "project_status": 200,
+      "project_links_code": false,
+      "project_github_links": [],
+      "manual_primary_provenance": {
+        "provenance": "Repository is led by paper author Yanjiang Guo (Robert-gyj); README explicitly says it includes world-model post-training for the VLAW paper, in addition to Ctrl-World. Actual model/training source is present.",
+        "source_url": "https://github.com/Robert-gyj/Ctrl-World"
+      }
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C222",
+    "title": "Scaling Verification Can Be More Effective than Scaling Policy Learning for Vision-Language-Action Alignment (CoVer / CoVer-VLA)",
+    "source_url": "https://arxiv.org/abs/2602.12281",
+    "source_final_url": "https://arxiv.org/html/2602.12281",
+    "source_sha256": "ccb70934c4f71051d786f826255deef5d315b7a3e5a1c7ea968143fa890a2239",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current testtime is appropriate unless patched.",
+      "description": "SIMPLER red-teaming table reports pi0 41.5/29.7, instruction-augmented finetuning 44.0/48.7, and rephrased pi0 with CoVer 65.5/62.0. Method verifies K rephrasings by M action samples with a BridgeV2 contrastive model; frozen policy selection fits testtime.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C222",
+      "code": "https://github.com/cover-vla/cover-vla",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "CoVer_VLA",
+        "INT-ACT",
+        "README.md",
+        "assets",
+        "bridge_verifier",
+        "lerobot_custom",
+        "requirements.txt",
+        "uv.lock"
+      ],
+      "project": "https://cover-vla.github.io",
+      "project_status": 200,
+      "project_links_code": true,
+      "project_github_links": [
+        "https://github.com/cover-vla/cover-vla"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C233",
+    "title": "What Makes Value Learning Efficient in Residual Reinforcement Learning?",
+    "source_url": "https://arxiv.org/abs/2602.10539",
+    "source_final_url": "https://arxiv.org/html/2602.10539",
+    "source_sha256": "98f002d1e8f8e9ebc0ac7f8e4ea6a0e9541eb7bab92b3f10512c6e5878b8e231",
+    "status": "corrected",
+    "severity": "minor",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current residual is appropriate unless patched.",
+      "description": "Rendered Figure 11 PegInsertionSide curve reaches 90% near 0.3M environment steps for DAWN and near 2.3M for Policy Decorator; remove the inconsistent roughly-6x quotient and retain approximate chart values. Method preloads 20K base transitions and adds LayerNorm to the residual SAC critic.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C233",
+      "code": "https://github.com/Guozheng-Ma/DAWN",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        "LICENSE",
+        "README.md",
+        "__init__.py",
+        "assets",
+        "environment.yml",
+        "envs",
+        "nets",
+        "online_dawn"
+      ],
+      "project": "https://guozheng-ma.github.io/DAWN/",
+      "project_status": 404,
+      "project_links_code": false,
+      "project_github_links": [],
+      "manual_primary_provenance": {
+        "provenance": "First-author Guozheng Ma repository names all paper authors and declares the official DAWN implementation; actual networks, environments and online_dawn training source are present. An earlier guessed project URL returning 404 is not the code URL and is not evidence of an unavailable release.",
+        "source_url": "https://github.com/Guozheng-Ma/DAWN"
+      }
+    },
+    "access_limits": "",
+    "before": {
+      "one_line": "Speeds up residual SAC by fixing the critic: prefill the replay buffer with 20K base-policy transitions and add LayerNorm to the critic. ManiSkill sim PegInsertionSide: 90% success about 6x faster than Policy Decorator (~0.3M vs ~2-2.3M env steps, plot reading)."
+    },
+    "fields": {
+      "one_line": "Speeds up residual SAC with 20K base-policy replay transitions and LayerNorm in the critic. ManiSkill sim PegInsertionSide reaches 90% success around 0.3M environment steps versus roughly 2.3M for Policy Decorator (chart reading)."
+    },
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "figure_sources": [
+      "https://arxiv.org/html/2602.10539v1/overall_8tasks.svg"
+    ],
+    "action_status": "applied"
+  },
+  {
+    "id": "C214",
+    "title": "RISE: Self-Improving Robot Policy with Compositional World Model",
+    "source_url": "https://arxiv.org/abs/2602.11075",
+    "source_final_url": "https://arxiv.org/html/2602.11075",
+    "source_sha256": "3a3373221f1ca8d3d5106f8056eced42e478ffd9f0b75a0798b57bd8701ad4bb",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current worldmodel is appropriate unless patched.",
+      "description": "Real dual-arm table gives box closing pi0.5 35, RECAP 60, RISE 95 with 20 evaluation trials per task. Method joins action-conditioned video imagination, pi0.5-based value estimates and advantage-conditioned policy updates.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C214",
+      "code": "https://github.com/OpenDriveLab/RISE",
+      "paper_links_code": true,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "README.md",
+        "deploy",
+        "docs",
+        "dynamics",
+        "install.sh",
+        "policy_and_value",
+        "rise_assets"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C209",
+    "title": "TwinRL (TwinRL-VLA): Digital Twin-Driven Reinforcement Learning for Real-World Robotic Manipulation",
+    "source_url": "https://arxiv.org/abs/2602.09023",
+    "source_final_url": "https://arxiv.org/html/2602.09023",
+    "source_sha256": "1e94e87630934e96a35f91921047d2793b0a2fed5a4d502bece2e87451271c01",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current simreal is appropriate unless patched.",
+      "description": "Real four-task section reports nearly 100% success and at least 30% lower real interaction requirement than HIL-SERL. Pipeline starts Octo-Small from 30 real demos plus twin data, then twin RL and HIL-SERL-style online physical refinement.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C209",
+      "code": "https://github.com/zhourui9813/TwinRL",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "LICENSE",
+        "README.md",
+        "assets",
+        "docs",
+        "examples",
+        "octo",
+        "requirements.txt",
+        "scripts",
+        "serl_launcher",
+        "serl_robot_infra",
+        "third_party",
+        "utils"
+      ],
+      "project": "https://twinrl.github.io/",
+      "project_status": 200,
+      "project_links_code": false,
+      "project_github_links": [],
+      "manual_primary_provenance": {
+        "provenance": "Repository belongs to paper author Rui Zhou; README names the paper and matching authors and calls itself the official repository. Implementation and environment files are present.",
+        "source_url": "https://github.com/zhourui9813/TwinRL"
+      }
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C221",
+    "title": "VLS: Steering Pretrained Robot Policies via Vision-Language Models",
+    "source_url": "https://arxiv.org/abs/2602.03973",
+    "source_final_url": "https://arxiv.org/html/2602.03973",
+    "source_sha256": "6ddd44ee01f8f70a0ab96338e5ac8dfd8fa9ed3ecb87745762dbc731caaf0442",
+    "status": "corrected",
+    "severity": "minor",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current testtime is appropriate unless patched.",
+      "description": "Official PDF page 7 Figure 3 prints movable-object averages VLS 0.94, DynaGuide 0.26, base diffusion policy 0.13. Methods specify VLM object/stage reasoning, SAM/DINOv2/depth 3D keypoints and differentiable reward gradients through frozen-policy denoising.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C221",
+      "code": "https://github.com/Vision-Language-Steering/code",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        ".gitmodules",
+        "LICENSE",
+        "README.md",
+        "ablations",
+        "configs",
+        "core",
+        "environment.yml",
+        "main.py",
+        "patches",
+        "pi05plot.py",
+        "plot_combined.py",
+        "requirements.txt",
+        "scripts",
+        "utils",
+        "vlm_query"
+      ],
+      "project": "https://vision-language-steering.github.io/webpage/",
+      "project_status": 200,
+      "project_links_code": true,
+      "project_github_links": [
+        "https://github.com/Vision-Language-Steering/code",
+        "https://github.com/nerfies/nerfies.github.io"
+      ]
+    },
+    "access_limits": "",
+    "before": {
+      "one_line": "Training-free: a VLM names task objects, SAM/DINOv2 features plus depth give 3D keypoints, and the VLM writes differentiable per-stage rewards whose gradients steer a frozen diffusion/flow policy's denoising. CALVIN (sim) movable objects: 0.94 vs DynaGuide 0.26, base 0.13."
+    },
+    "fields": {
+      "one_line": "Training-free: a VLM names task objects, SAM/DINOv2 features plus depth give 3D keypoints, and VLM-generated reward gradients steer frozen diffusion/flow denoising. CALVIN (sim) movable objects: 0.94 versus DynaGuide 0.26 and base 0.13 (chart reading)."
+    },
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "figure_sources": [
+      "https://arxiv.org/pdf/2602.03973#page=7"
+    ],
+    "action_status": "applied"
+  },
+  {
+    "id": "C228",
+    "title": "RFS: Reinforcement Learning with Residual Flow Steering for Dexterous Manipulation",
+    "source_url": "https://arxiv.org/abs/2602.01789",
+    "source_final_url": "https://arxiv.org/html/2602.01789",
+    "source_sha256": "9a71317ec8ff275e99e73277ce7425c94bf96eeec04f6b1c843c28991ad75e9a",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current residual is appropriate unless patched.",
+      "description": "Table 1 six-task IsaacLab averages are base 0.250, DSRL 0.483, RFS 0.861. Method trains PPO over joint base-flow starting noise and additive action residual; both within-manifold selection and residual deviation are explicit.",
+      "code": "Blank code field; no claim of implementation availability."
+    },
+    "code_verification": {
+      "id": "C228",
+      "code": "",
+      "code_status": "blank; no release claim"
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C208",
+    "title": "Flow Policy Gradients for Robot Control (FPO++)",
+    "source_url": "https://arxiv.org/abs/2602.02481",
+    "source_final_url": "https://arxiv.org/html/2602.02481",
+    "source_sha256": "22130573b2a163cdee5ca1fa461e63f6498d3af8d2de7e032efbd50b7f2ad17f",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current onpolicy is appropriate unless patched.",
+      "description": "Objective exponentiates old minus new flow-matching losses, clipping each tau/noise pair. Figure 8 and caption report Robomimic Can base-policy 10.00 random-noise versus 71.35 zero-noise before any RL; the row correctly distinguishes this ablation from RL gains.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C208",
+      "code": "https://github.com/amazon-far/fpo-control",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        ".gitmodules",
+        "README.md",
+        "isaaclab_experiments",
+        "manipulation_experiments"
+      ],
+      "project": "https://hongsukchoi.github.io/fpo-control",
+      "project_status": 200,
+      "project_links_code": true,
+      "project_github_links": [
+        "https://github.com/amazon-far/fpo-control"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C201",
+    "title": "Q-learning with Adjoint Matching (QAM)",
+    "source_url": "https://arxiv.org/abs/2601.14234",
+    "source_final_url": "https://arxiv.org/html/2601.14234",
+    "source_sha256": "ee23610bc3040b9b5e7e216dab106c1023f74f4a10fd0685eb2ae05c87817777",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current offpolicy is appropriate unless patched.",
+      "description": "Offline 50-task OGBench table means are QAM 44, ReBRAC 40, FQL 36, FBRAC 11. Adjoint matching learns the exponential Q-tilted behavior distribution via critic action gradients while avoiding differentiation through the full sampler.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C201",
+      "code": "https://github.com/ColinQiyangLi/qam",
+      "paper_links_code": true,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "LICENSE",
+        "README.md",
+        "__init__.py",
+        "agents",
+        "assets",
+        "envs",
+        "evaluation.py",
+        "exp_data",
+        "experiments",
+        "log_utils.py",
+        "main.py",
+        "requirements.txt",
+        "utils"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C203",
+    "title": "SOP: A Scalable Online Post-Training System for Vision-Language-Action Models",
+    "source_url": "https://arxiv.org/abs/2601.03044",
+    "source_final_url": "https://arxiv.org/html/2601.03044",
+    "source_sha256": "22b5d7bf9902bafb0593c5c932a580ebe090902c1ebb5456bcb34a96e18bb780",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current hitl is appropriate unless patched.",
+      "description": "Appendix C2 states publication every 25 learner steps. Main setup uses ten AgiBot G1 robots across three task families and pi0.5 initialization. Data-efficiency section contrasts three on-policy hours (0.571 to 0.800) with 80 additional demo hours (0.576 to 0.612).",
+      "code": "Blank code field; no claim of implementation availability."
+    },
+    "code_verification": {
+      "id": "C203",
+      "code": "",
+      "code_status": "blank; no release claim"
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C205",
+    "title": "RoboReward: General-Purpose Vision-Language Reward Models for Robotics",
+    "source_url": "https://arxiv.org/abs/2601.00675",
+    "source_final_url": "https://arxiv.org/html/2601.00675",
+    "source_sha256": "a397e57a3e42cd2280de0bd3cf3559b683bad16fee2fa1e245c0914aba0815d8",
+    "status": "corrected",
+    "severity": "minor",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current reward is appropriate unless patched.",
+      "description": "Real DSRL drawer evaluation reports 20 trials, base 10, RoboReward-8B 80, human reward 90. Reward-accuracy correlation is r=0.83 in simulation; model uses Qwen3-VL with 1-5 rubric and relabeled/clipped negatives. Existing code field points to an official benchmark/models landing page; its official HELM source links dataset/model cards but no implementation repository.",
+      "code": "Incorrectly labeled code link cleared: official benchmark landing page exposes dataset and model cards, not an implementation repository. Model inference examples are available in the linked cards."
+    },
+    "code_verification": {
+      "id": "C205",
+      "code": "https://crfm.stanford.edu/helm/robo-reward-bench",
+      "paper_links_code": true,
+      "kind": "official benchmark/model landing page, not an implementation repository",
+      "landing_source_url": "https://github.com/stanford-crfm/helm/blob/main/helm-frontend/src/components/Landing/RoboRewardLanding.tsx",
+      "landing_links": [
+        "https://huggingface.co/datasets/teetone/RoboReward",
+        "https://huggingface.co/teetone/RoboReward-4B",
+        "https://huggingface.co/teetone/RoboReward-8B"
+      ]
+    },
+    "access_limits": "Official model cards contain inference usage and weights, but the catalog code URL is a benchmark landing page rather than an implementation repository; clearing that field avoids advertising it as code.",
+    "before": {
+      "code": "https://crfm.stanford.edu/helm/robo-reward-bench"
+    },
+    "fields": {
+      "code": ""
+    },
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "applied"
+  },
+  {
+    "id": "C193",
+    "title": "Robo-Dopamine: General Process Reward Modeling for High-Precision Robotic Manipulation",
+    "source_url": "https://arxiv.org/abs/2512.23703",
+    "source_final_url": "https://arxiv.org/html/2512.23703",
+    "source_sha256": "816c7a29e72de4a7dd78668e5b93d699f09eb406434e20126f270eedd99c3570",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current reward is appropriate unless patched.",
+      "description": "Table 8 physical eight-task averages are BC 9.8, sparse-reward ConRFT 68.0, Robo-Dopamine 95.2. Model predicts signed multiview progress differences; these become potential-based shaping, so the row does not mislabel raw scores as the RL reward.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C193",
+      "code": "https://github.com/FlagOpen/Robo-Dopamine",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "LICENSE",
+        "README.md",
+        "assets",
+        "dataset",
+        "eval",
+        "examples",
+        "requirements.txt",
+        "train"
+      ],
+      "project": "https://robo-dopamine.github.io/",
+      "project_status": 200,
+      "project_links_code": true,
+      "project_github_links": [
+        "https://github.com/tanhuajie",
+        "https://github.com/alexchan313/",
+        "https://github.com/FlagOpen/Robo-Dopamine"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C197",
+    "title": "PolaRiS: Scalable Real-to-Sim Evaluations for Generalist Robot Policies",
+    "source_url": "https://arxiv.org/abs/2512.16881",
+    "source_final_url": "https://arxiv.org/html/2512.16881",
+    "source_sha256": "cffcbced60884b682dc7f680fc386516b5f8bfe4b444711484919af5d8f6dc5c",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current worldmodel is appropriate unless patched.",
+      "description": "Real-to-sim method uses 2-5 minutes of monocular scene capture, Gaussian splatting and IsaacSim plus short visual co-training. Main evaluation gives mean Pearson r=0.9 over six unseen scenes; world-model comparison explicitly gives Ctrl-World MMRV 0.22.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C197",
+      "code": "https://github.com/arhanjain/PolaRiS",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        ".gitmodules",
+        ".python-version",
+        "LICENSE",
+        "README.md",
+        "docs",
+        "experiments",
+        "pyproject.toml",
+        "scripts",
+        "src",
+        "third_party",
+        "uv.lock"
+      ],
+      "project": "https://polaris-evals.github.io/",
+      "project_status": 200,
+      "project_links_code": true,
+      "project_github_links": [
+        "https://github.com/arhanjain/PolaRiS/tree/main",
+        "https://github.com/arhanjain/polaris/blob/main/docs/custom_environments.md",
+        "https://github.com/polaris-evals/polaris-evals.github.io"
+      ],
+      "provenance": "Primary paper links root project, which directly links catalog repository/tree/main."
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C195",
+    "title": "Evaluating Gemini Robotics Policies in a Veo World Simulator",
+    "source_url": "https://arxiv.org/abs/2512.10675",
+    "source_final_url": "https://arxiv.org/html/2512.10675",
+    "source_sha256": "a1a264b039f6281bc8866333ffb851ed5f9909bb27e33e1543ea5ac748a63dbb",
+    "status": "corrected",
+    "severity": "minor",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current worldmodel is appropriate unless patched.",
+      "description": "Rendered nominal-correlation Figure shows eight labeled checkpoints A-H, Pearson 0.88 and MMRV 0.03; predicted rates are below physical rates. Method fine-tunes Veo 2 for action-conditioned multiview closed-loop Gemini Robotics On-Device rollouts, scored by human video raters. Figure-derived values now carry the CONTRIBUTING-required chart-reading label.",
+      "code": "Blank code field; no claim of implementation availability."
+    },
+    "code_verification": {
+      "id": "C195",
+      "code": "",
+      "code_status": "blank; no release claim"
+    },
+    "access_limits": "",
+    "before": {
+      "one_line": "Fine-tunes Veo 2 into an action-conditioned multi-view world model, runs Gemini Robotics On-Device checkpoints closed-loop in it, and humans score the videos. Nominal, 8 checkpoints: Pearson 0.88, MMRV 0.03 vs real success, though absolute rates are under-predicted."
+    },
+    "fields": {
+      "one_line": "Runs Gemini Robotics On-Device inside an action-conditioned, multi-view Veo 2 world model; humans score the videos. Eight nominal checkpoints: Pearson 0.88, MMRV 0.03 against real success, with under-predicted absolute rates (chart reading)."
+    },
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "figure_sources": [
+      "https://arxiv.org/html/2512.10675v2/nominal_correlation.png"
+    ],
+    "action_status": "applied"
+  },
+  {
+    "id": "C196",
+    "title": "Steering Vision-Language-Action Models as Anti-Exploration: A Test-Time Scaling Approach (TACO)",
+    "source_url": "https://arxiv.org/abs/2512.02834",
+    "source_final_url": "https://arxiv.org/html/2512.02834",
+    "source_sha256": "6f3dacaf42c03a0a5b0a32a4764c97ea5df6971661399989aeebff9152067e81",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current testtime is appropriate unless patched.",
+      "description": "RoboTwin 2.0 table averages 41 tasks, pi0.5 baseline 59.3 versus TACO 64.0. Method samples M=50 and ranks using Coin Flipping Network pseudo-counts of finetuning features; policy weights stay frozen.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C196",
+      "code": "https://github.com/breez3young/TACO",
+      "paper_links_code": true,
+      "repo_status": 200,
+      "repo_files": [
+        ".DS_Store",
+        "LICENSE",
+        "README.md",
+        "assets",
+        "cfn",
+        "scripts",
+        "third_party"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C189",
+    "title": "Beyond Success: Refining Elegant Robot Manipulation from Mixed-Quality Data via Just-in-Time Intervention",
+    "source_url": "https://arxiv.org/abs/2511.22555",
+    "source_final_url": "https://arxiv.org/html/2511.22555",
+    "source_sha256": "9e88c99e1a1085d879ecc2d0792ec815c90732b1fba12b8f3c9f4e7b35fee81a",
+    "status": "corrected",
+    "severity": "minor",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current testtime is appropriate unless patched.",
+      "description": "Rendered Figure 4 labels mean ESR base 49.8, Full Guidance 53.8, and JITI 67.2, so values are printed plot labels rather than interpolated heights. Method uses segment-labeled Cal-QL over frozen VLA features and deviation from running Q average to trigger best-of-N guidance. Figure-derived values now carry the CONTRIBUTING-required chart-reading label.",
+      "code": "Blank code field; no claim of implementation availability."
+    },
+    "code_verification": {
+      "id": "C189",
+      "code": "",
+      "code_status": "blank; no release claim"
+    },
+    "access_limits": "",
+    "before": {
+      "one_line": "Trains an offline Cal-QL critic on frozen VLA features from labeled demo segments; only when its Q-value jumps from its moving average are N chunks reranked. LIBERO-Elegant, SmolVLA: 49.8 → 67.2 ESR vs 53.8 reranking every step."
+    },
+    "fields": {
+      "one_line": "Trains an offline Cal-QL critic on frozen VLA features; reranks chunks only when Q deviates from its moving average. LIBERO-Elegant, SmolVLA: ESR 49.8 → 67.2, versus 53.8 with guidance every step (chart reading)."
+    },
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "figure_sources": [
+      "https://arxiv.org/html/2511.22555v1/figure4.svg"
+    ],
+    "action_status": "applied"
+  },
+  {
+    "id": "C184",
+    "title": "Reinforcing Action Policies by Prophesying (Prophet / ProphRL: FA-GRPO + FlowScale)",
+    "source_url": "https://arxiv.org/abs/2511.20633",
+    "source_final_url": "https://arxiv.org/html/2511.20633",
+    "source_sha256": "d1879f55a65525ae321a9a62a155af5fd74e3573c6621bb1097b35b81fdc8f74",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current worldmodel is appropriate unless patched.",
+      "description": "Physical UR30e table averages pi0.5-3B 52.1 to 82.1 across three runs of 20 trials after 100 imagined RL updates. Methods name 2B Cosmos initialization, FA-GRPO, FlowScale and majority-vote VLM reward.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C184",
+      "code": "https://github.com/LogosRoboticsGroup/ProphRL",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "LICENSE",
+        "NOTICE",
+        "README.md",
+        "docs",
+        "rl",
+        "world_model"
+      ],
+      "project": "https://LogosRoboticsGroup.github.io/ProphRL",
+      "project_status": 200,
+      "project_links_code": false,
+      "project_github_links": [
+        "https://github.com/LogosRoboticsGroup/ProphRL.git"
+      ],
+      "manual_primary_provenance": {
+        "provenance": "Primary project links this exact repository with optional .git suffix; suffix is a transport spelling, not a different repository. Actual source files present.",
+        "source_url": "https://LogosRoboticsGroup.github.io/ProphRL"
+      }
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C187",
+    "title": "Evolution Strategies at the Hyperscale (EGGROLL: Evolution Guided GeneRal Optimisation via Low-rank Learning)",
+    "source_url": "https://arxiv.org/abs/2511.16652",
+    "source_final_url": "https://arxiv.org/html/2511.16652",
+    "source_sha256": "5a216a635a97b8a1f68b0e119643a7cf6660ee3825517b2b135659c2477444dd",
+    "status": "corrected",
+    "severity": "minor",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current blackbox is appropriate unless patched.",
+      "description": "Rendered Figure 2 prints EGGROLL 91, PPO 34 and OpenES 0.41 normalized throughput. Appendix E specifies one GH200, 8192-dimensional bfloat16 linear layer, batch 1024, and pre-generated perturbations: noise-generation overhead is excluded from this comparison. Figure-derived values now carry the CONTRIBUTING-required chart-reading label.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C187",
+      "code": "https://github.com/ESHyperscale/HyperscaleES",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "Dockerfile",
+        "LICENSE",
+        "README.org",
+        "eggroll.ipynb",
+        "llm_experiments",
+        "pyproject.toml",
+        "src",
+        "tests"
+      ],
+      "project": "https://eshyperscale.github.io/",
+      "project_status": 200,
+      "project_links_code": true,
+      "project_github_links": [
+        "https://github.com/ESHyperscale/HyperscaleES",
+        "https://github.com/ESHyperscale/nano-egg",
+        "https://github.com/ESHyperscale/HyperscaleES",
+        "https://github.com/ESHyperscale/nano-egg",
+        "https://github.com/KellerJordan/modded-nanogpt/tree/master",
+        "https://github.com/ESHyperscale/nano-egg",
+        "https://github.com/bsarkar321/jaxrwkv",
+        "https://github.com/ESHyperscale/HyperscaleES",
+        "https://github.com/bsarkar321/jaxrwkv/commit/6d92566eacc2c8c12a946b3e2a3d832dbc1e63fe"
+      ]
+    },
+    "access_limits": "",
+    "before": {
+      "one_line": "Makes each evolution-strategies perturbation a low-rank A_i B_i^T, so the population shares one big matmul plus cheap per-member corrections. On one GH200 (8192-dim bf16 layer, batch 1024): 91% of max batch-inference throughput vs PPO 34%, OpenES 0.41%."
+    },
+    "fields": {
+      "one_line": "Shares matrix multiplication across low-rank evolution-strategies perturbations. With pre-generated noise, one GH200 benchmark (8192-dimensional bf16 layer, batch 1024) reaches 91% of maximum batch-inference throughput, versus PPO 34% and OpenES 0.41% (chart reading)."
+    },
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "figure_sources": [
+      "https://arxiv.org/html/2511.16652v2/batch_timings_simple.svg"
+    ],
+    "action_status": "applied"
+  },
+  {
+    "id": "C179",
+    "title": "π*0.6: a VLA That Learns From Experience",
+    "source_url": "https://arxiv.org/abs/2511.14759",
+    "source_final_url": "https://arxiv.org/html/2511.14759",
+    "source_sha256": "ebb37d1cf5325f5057a3c37f67cdbca7f7ead3181cd4cca738089e3b4965e037",
+    "status": "corrected",
+    "severity": "minor",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current advbc is appropriate unless patched.",
+      "description": "Rendered Figure 11 gives throughput about 60 versus 30 successes/hour for RECAP and AWR; success bars approximately 96, 91, 75 for RECAP/AWR/PPO. Experimental text explicitly fixes the same data for the comparison. Methods specify distributional value, thresholded n-step advantage text conditions, supervised flow training and optional CFG.",
+      "code": "Blank code field; no claim of implementation availability."
+    },
+    "code_verification": {
+      "id": "C179",
+      "code": "",
+      "code_status": "blank; no release claim"
+    },
+    "access_limits": "",
+    "before": {
+      "one_line": "Fits a distributional value, thresholds n-step advantages into an 'Advantage: positive/negative' text input, and retrains the whole flow VLA supervised; CFG optional. Real T-shirt/shorts laundry, same data: about 2x AWR's throughput; success ~96% vs AWR ~91%, PPO ~75%."
+    },
+    "fields": {
+      "one_line": "Fits a distributional value, binarizes n-step advantages into text conditioning, and supervises the whole flow VLA; CFG is optional. Same-data real laundry: about 2x AWR throughput; success ~96% versus AWR ~91%, PPO ~75% (chart reading)."
+    },
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "figure_sources": [
+      "https://arxiv.org/html/2511.14759v2/figures/experiment2/Laundry_T-Shirts_and_Shorts_throughput_plot.png",
+      "https://arxiv.org/html/2511.14759v2/figures/experiment2/Laundry_T-Shirts_and_Shorts_success_rate_plot.png"
+    ],
+    "action_status": "applied"
+  },
+  {
+    "id": "C186",
+    "title": "Harnessing Bounded-Support Evolution Strategies for Policy Refinement (TD-ES)",
+    "source_url": "https://arxiv.org/abs/2511.09923",
+    "source_final_url": "https://arxiv.org/html/2511.09923",
+    "source_sha256": "7a01c9546e41c242290fcf9a303687d3395b0bdaf9a3fe0e0535fa79b43126ff",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current blackbox is appropriate unless patched.",
+      "description": "Three-task Isaac Lab Franka IQM table gives PPO initialization 67.2, Gaussian ES refinement 73.7 and triangular bounded-support ES 85.0. Method uses antithetic perturbations constrained coordinatewise around the prior weights.",
+      "code": "Blank code field; no claim of implementation availability."
+    },
+    "code_verification": {
+      "id": "C186",
+      "code": "",
+      "code_status": "blank; no release claim"
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C180",
+    "title": "WMPO: World Model-based Policy Optimization for Vision-Language-Action Models",
+    "source_url": "https://arxiv.org/abs/2511.09515",
+    "source_final_url": "https://arxiv.org/html/2511.09515",
+    "source_sha256": "01d46632f892623c115af77a7c4b401badd1204b609190a4cd702247f5b5d464",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current worldmodel is appropriate unless patched.",
+      "description": "MimicGen four-task, 128-rollout table gives SFT 33.6, online GRPO 33.2, DPO 37.3 and WMPO 47.1. Method uses OpenVLA-OFT GRPO inside an action-conditioned pixel model trained on own-policy successes and failures, with VideoMAE success reward.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C180",
+      "code": "https://github.com/WM-PO/WMPO",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "LICENSE",
+        "README.md",
+        "align.json",
+        "assets",
+        "dependencies",
+        "download_hf.py",
+        "examples",
+        "install.sh",
+        "launch_head.sh",
+        "launch_worker.sh",
+        "requirements.txt",
+        "reward_model",
+        "upload_hf.py",
+        "verl"
+      ],
+      "project": "https://wm-po.github.io/",
+      "project_status": 200,
+      "project_links_code": true,
+      "project_github_links": [
+        "https://github.com/WM-PO/WMPO",
+        "https://github.com/eliahuhorwitz/Academic-project-page-template"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C159",
+    "title": "Human-in-the-loop Online Rejection Sampling for Robotic Manipulation (Hi-ORS)",
+    "source_url": "https://arxiv.org/abs/2510.26406",
+    "source_final_url": "https://arxiv.org/html/2510.26406",
+    "source_sha256": "01c4f0991400fb96450af41db09f5d8d923e38e43d4b8088c26755d6958864b4",
+    "status": "corrected",
+    "severity": "minor",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current advbc is appropriate unless patched.",
+      "description": "Figure 4 final physical-task means are Hi-ORS (100+80+80)/3=86.67 and BC (80+70+40)/3=63.33, supporting a 23.3 percentage-point difference, not relative percent. Abstract and training section support about 1.5 physical-training hours. Rejection sampling and reward-weighted flow matching retain human-corrected successes.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C159",
+      "code": "https://github.com/hiors-project/hiors",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "CLAUDE.md",
+        "LICENSE",
+        "README.md",
+        "assets",
+        "config",
+        "docs",
+        "examples",
+        "packages",
+        "pyproject.toml",
+        "serl_launcher",
+        "serl_robot_infra",
+        "start_dobot.sh",
+        "tests",
+        "tools"
+      ],
+      "project": "https://hiors-project.github.io/",
+      "project_status": 200,
+      "project_links_code": true,
+      "project_github_links": [
+        "https://github.com/hiors-project/hiors"
+      ]
+    },
+    "access_limits": "",
+    "before": {
+      "one_line": "Drops the critic: keeps episodes whose return clears a rising threshold, human-corrected successes included, and trains pi0 on them with its flow-matching loss. Three real tasks, two robots: 23.3% average margin over offline BC; about 1.5 h of real training."
+    },
+    "fields": {
+      "one_line": "Keeps episodes above a rising return threshold, including human-corrected successes, and trains pi0 with reward-weighted flow matching. Three real tasks, two robots: 23.3 percentage points over offline BC (chart reading); about 1.5 hours of real training."
+    },
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "figure_sources": [
+      "https://arxiv.org/html/2510.26406v1/main_result.svg"
+    ],
+    "action_status": "applied"
+  },
+  {
+    "id": "C158",
+    "title": "Self-Improving Vision-Language-Action Models with Data Generation via Residual RL (PLD: Probe, Learn, Distill)",
+    "source_url": "https://arxiv.org/abs/2511.00091",
+    "source_final_url": "https://arxiv.org/html/2511.00091",
+    "source_sha256": "95a3134b141bc5ac8490108db5233a156cac1191167d00e81910f11f241380a8",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current residual is appropriate unless patched.",
+      "description": "LIBERO Spatial/Object/Goal mean table gives OpenVLA-OFT 91.8 to 99.2. Real cube data-generation comparison gives PLD 30/30 versus human-demo policy 10/30. Method uses bounded SAC residual recovery after base-policy drift, followed by successful-rollout distillation.",
+      "code": "Blank code field; no claim of implementation availability."
+    },
+    "code_verification": {
+      "id": "C158",
+      "code": "",
+      "code_status": "blank; no release claim"
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C157",
+    "title": "πRL (piRL): Online RL Fine-tuning for Flow-based Vision-Language-Action Models",
+    "source_url": "https://arxiv.org/abs/2510.25889",
+    "source_final_url": "https://arxiv.org/html/2510.25889",
+    "source_sha256": "16b7982ec0aae080dac905d8ac2abcff8a1b5bd17bc2532904ec1d639f8907a4",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current onpolicy is appropriate unless patched.",
+      "description": "Few-shot LIBERO table gives pi0 57.6 to Flow-Noise 97.6, pi0.5 77.1 to Flow-Noise 98.3. Methods derive train-time Flow-Noise and equal-marginal Flow-SDE transition densities for PPO; deployment returns to deterministic flow sampling.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C157",
+      "code": "https://github.com/RLinf/RLinf",
+      "paper_links_code": true,
+      "repo_status": 200,
+      "repo_files": [
+        ".agents",
+        ".claude",
+        ".dockerignore",
+        ".github",
+        ".gitignore",
+        ".pre-commit-config.yaml",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "DCO",
+        "LICENSE",
+        "README.md",
+        "README.zh-CN.md",
+        "docker",
+        "docs",
+        "evaluations",
+        "examples",
+        "pyproject.toml",
+        "ray_utils",
+        "requirements",
+        "rlinf",
+        "tests",
+        "toolkits"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C176",
+    "title": "VT-Refine: Learning Bimanual Assembly with Visuo-Tactile Feedback via Simulation Fine-Tuning",
+    "source_url": "https://arxiv.org/abs/2510.14930",
+    "source_final_url": "https://arxiv.org/html/2510.14930",
+    "source_sha256": "037b8bdf7e1e38effe996c61f1bafa63954f9f1ddeffba98309f99432372ba35",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current simreal is appropriate unless patched.",
+      "description": "Five-part real evaluation rows give visuotactile BC 0.55/0.55/0.65/0.40/0.35 and refined 0.85/0.90/0.95/0.80/0.75: means 0.50 and 0.85. Method uses 30 physical demos per task then sparse-reward DPPO in tactile Isaac Gym twins.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C176",
+      "code": "https://github.com/NVlabs/vt-refine",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        ".gitmodules",
+        "LICENSE",
+        "README.md",
+        "data",
+        "docker",
+        "dppo",
+        "easysim",
+        "easysim-envs"
+      ],
+      "project": "https://binghao-huang.github.io/vt_refine/",
+      "project_status": 200,
+      "project_links_code": true,
+      "project_github_links": [
+        "https://github.com/NVlabs/vt-refine",
+        "https://github.com/NVlabs/vt-refine",
+        "https://github.com/nerfies/nerfies.github.io"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C160",
+    "title": "RL-100: Performant Robotic Manipulation with Real-World Reinforcement Learning",
+    "source_url": "https://arxiv.org/abs/2510.14830",
+    "source_final_url": "https://arxiv.org/pdf/2510.14830",
+    "source_sha256": "e8cecd89a92798104a68e88dbbf832ce75849dfa2dc67554b52972d36d120bc9",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current onpolicy is appropriate unless patched.",
+      "description": "Official full PDF describes 29-400 demos across eight tasks, denoising-step PPO-clip, offline IQL advantages/OPE gating, then online GAE. Physical evaluation reports 1000/1000 successful trials and 100 average versus DP3 67.8. PDF author block confirms all listed institutions.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C160",
+      "code": "https://github.com/Lei-Kun/RL-100",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        ".gitmodules",
+        "INSTALL.md",
+        "LICENSE",
+        "NOTICE",
+        "README.md",
+        "RL-100",
+        "media",
+        "scripts",
+        "third_party",
+        "tools",
+        "visualizer"
+      ],
+      "project": "https://rl-100.github.io/",
+      "project_status": 200,
+      "project_links_code": false,
+      "project_github_links": [],
+      "manual_primary_provenance": {
+        "provenance": "Paper author Kun Lei owns the repository; README names matching authors and explicitly identifies the official RL-100 implementation. Actual diffusion-policy training and task source files present.",
+        "source_url": "https://github.com/Lei-Kun/RL-100"
+      }
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C168",
+    "title": "Ctrl-World: A Controllable Generative World Model for Robot Manipulation",
+    "source_url": "https://arxiv.org/abs/2510.10125",
+    "source_final_url": "https://arxiv.org/html/2510.10125",
+    "source_sha256": "6cfcee56e59702b77e7a2a328aff8e8ccd1689617a13240838455dcadb1fcf54",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current worldmodel is appropriate unless patched.",
+      "description": "Policy-improvement section reports pi0.5-DROID 38.7 to 83.4 on novel instructions/objects exclusively in imagined rollouts, explicitly preserved in the row. World model is a 1.5B multiview video model fine-tuned on DROID; policy uses human-labeled simulated successes.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C168",
+      "code": "https://github.com/Robert-gyj/Ctrl-World",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "LICENSE.txt",
+        "config.py",
+        "config_eval.py",
+        "dataset",
+        "dataset_example",
+        "dataset_meta_info",
+        "models",
+        "readme.md",
+        "requirements.txt",
+        "scripts",
+        "synthetic_traj"
+      ],
+      "project": "https://ctrl-world.github.io",
+      "project_status": 200,
+      "project_links_code": true,
+      "project_github_links": [
+        "https://github.com/Robert-gyj/Ctrl-World"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C162",
+    "title": "RLinf-VLA: A Unified and Efficient Framework for Reinforcement Learning of Vision-Language-Action Models",
+    "source_url": "https://arxiv.org/abs/2510.06710",
+    "source_final_url": "https://arxiv.org/html/2510.06710",
+    "source_sha256": "5bce2cfad1cf07436e4d1b57c258d4c4ec84c8daee6bde18e5ccaf62c02d7b86",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current onpolicy is appropriate unless patched.",
+      "description": "ManiSkill 25-task table reports ID/OOD base 53.91/39.10, GRPO 84.38/75.15 and PPO 96.09/81.93. These are separate training variants. Infrastructure modes are shared/partitioned/pipelined placement with chunk-aware PPO/GRPO.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C162",
+      "code": "https://github.com/RLinf/RLinf",
+      "paper_links_code": true,
+      "repo_status": 200,
+      "repo_files": [
+        ".agents",
+        ".claude",
+        ".dockerignore",
+        ".github",
+        ".gitignore",
+        ".pre-commit-config.yaml",
+        "AGENTS.md",
+        "CLAUDE.md",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "DCO",
+        "LICENSE",
+        "README.md",
+        "README.zh-CN.md",
+        "docker",
+        "docs",
+        "evaluations",
+        "examples",
+        "pyproject.toml",
+        "ray_utils",
+        "requirements",
+        "rlinf",
+        "tests",
+        "toolkits"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C172",
+    "title": "The Three Regimes of Offline-to-Online Reinforcement Learning",
+    "source_url": "https://arxiv.org/abs/2510.01460",
+    "source_final_url": "https://arxiv.org/html/2510.01460",
+    "source_sha256": "d8b019f4e1ac30f843b264442091352571d5f2678bb89c1ae350474a2f7f5700",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current offpolicy is appropriate unless patched.",
+      "description": "Main study counts 45 of 63 predicted offline-to-online comparisons (71%). Decision criterion compares initial policy return and dataset return; preserve a stronger policy through warmup, or reuse stronger offline data. No physical-robot result is claimed.",
+      "code": "Blank code field; no claim of implementation availability."
+    },
+    "code_verification": {
+      "id": "C172",
+      "code": "",
+      "code_status": "blank; no release claim"
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C177",
+    "title": "Open-World Dexterity and Live Demos around the World (DYNA-1i)",
+    "source_url": "https://www.dyna.co/research/open-world-dexterity",
+    "source_final_url": "https://www.dyna.co/research/open-world-dexterity",
+    "source_sha256": "99eea6eeed7dea2b6aa0e17d321e4b72d425bfdaf3f4482634acd9f9575fba84",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "Official Dyna Team post heading matches; publication field exposes December 2025 only, so month precision is retained.",
+      "affiliation": "Official Dyna Robotics research post establishes publisher identity.",
+      "family": "Mechanism checked against family definition; current industry is appropriate unless patched.",
+      "description": "Official Dyna post states tens of hours of office post-training data, and controlled 30-minute shirt-folding trials with 22 office and 20 unseen-venue consecutive successes. The post gives no objective/update rule, a limitation retained in the row.",
+      "code": "Blank code field; no claim of implementation availability."
+    },
+    "code_verification": {
+      "id": "C177",
+      "code": "",
+      "code_status": "blank; no release claim"
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C155",
+    "title": "Evolution Strategies at Scale: LLM Fine-Tuning Beyond Reinforcement Learning",
+    "source_url": "https://arxiv.org/abs/2509.24372",
+    "source_final_url": "https://arxiv.org/html/2509.24372",
+    "source_sha256": "18322dedae2c1ed1889eb824c0b14949acca249a3e6a2d7df4d7ae172a3aff01",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current blackbox is appropriate unless patched.",
+      "description": "Countdown table Qwen2.5-3B reports base 10.0, Dr.GRPO-v 43.8 and ES 60.5. Algorithm uses a population of 30 full-weight Gaussian perturbations and outcome scores without backpropagation; row labels the result language-only.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C155",
+      "code": "https://github.com/VsonicV/es-at-scale",
+      "paper_links_code": true,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "LICENSE.txt",
+        "README.md",
+        "__init__.py",
+        "archive",
+        "assets",
+        "datasets",
+        "es_at_scale",
+        "setup.py"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C142",
+    "title": "Residual Off-Policy RL for Finetuning Behavior Cloning Policies (ResFiT)",
+    "source_url": "https://arxiv.org/abs/2509.19301",
+    "source_final_url": "https://arxiv.org/html/2509.19301",
+    "source_sha256": "82a64a93636e790411cc3956dbb0f16e3c5ccf6958917cf52b1d8e0f23ea7bd8",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current residual is appropriate unless patched.",
+      "description": "Humanoid evaluation reports WoollyBallPnP ACT base 14 to ResFiT 64 after 134 online rollouts. Platform is 29-DoF; method freezes ACT chunk policy and adds per-step TD3-style residual with demo mixing, LayerNorm and n-step targets.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C142",
+      "code": "https://github.com/amazon-far/residual-offpolicy-rl",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "README.md",
+        "THIRD-PARTY",
+        "resfit"
+      ],
+      "project": "https://residual-offpolicy-rl.github.io/",
+      "project_status": 200,
+      "project_links_code": true,
+      "project_github_links": [
+        "https://github.com/amazon-far/residual-offpolicy-rl",
+        "https://github.com/ankile",
+        "https://github.com/residual-assembly/residual-assembly.github.io",
+        "https://github.com/nerfies/nerfies.github.io"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C144",
+    "title": "A Vision-Language-Action-Critic Model for Robotic Real-World Reinforcement Learning (VLAC)",
+    "source_url": "https://arxiv.org/abs/2509.15937",
+    "source_final_url": "https://arxiv.org/html/2509.15937",
+    "source_sha256": "9aabe3a82a73db1163ce76352a5127bdcb1885f0818442a88e85671410375c5d",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current reward is appropriate unless patched.",
+      "description": "Abstract and real learning curves report roughly 30 to roughly 90 success within 200 episodes across four tasks. Method fine-tunes InternVL on temporal-order-derived pairwise progress and completion labels and uses that critic as the reward for real robot PPO.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C144",
+      "code": "https://github.com/InternRobotics/VLAC",
+      "paper_links_code": true,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "LICENSE",
+        "README.md",
+        "data",
+        "evo_vlac",
+        "pyproject.toml"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C140",
+    "title": "SimpleVLA-RL: Scaling VLA Training via Reinforcement Learning",
+    "source_url": "https://arxiv.org/abs/2509.09674",
+    "source_final_url": "https://arxiv.org/html/2509.09674",
+    "source_sha256": "25837ee33a2cd3a6233e3847d9d69c6be9123897c22bed80121a3b6788368a8d",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Official PDF page 1 affiliation block confirms all listed institutions; PDF used because HTML omits or corrupts parts of the author block.",
+      "family": "Mechanism checked against family definition; current onpolicy is appropriate unless patched.",
+      "description": "LIBERO tables give OpenVLA-OFT full-data average 91.0 to 99.1 and one-demo 48.9 to 96.9. Method uses eight rollouts, tokenwise binary-return GRPO, group normalization and removal of all-agree groups. Official PDF page 1 resolves Tsinghua affiliation corrupted in HTML.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C140",
+      "code": "https://github.com/PRIME-RL/SimpleVLA-RL",
+      "paper_links_code": true,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "LICENSE",
+        "README.md",
+        "SETUP.md",
+        "VLA Demo.mp4",
+        "align.json",
+        "copy_overwrite_robotwin2.sh",
+        "examples",
+        "figs",
+        "modified_codes",
+        "pre_collect_robotwin2_seed.sh",
+        "verl"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C148",
+    "title": "RaC: Robot Learning for Long-Horizon Tasks by Scaling Recovery and Correction",
+    "source_url": "https://arxiv.org/abs/2509.07953",
+    "source_final_url": "https://arxiv.org/html/2509.07953",
+    "source_sha256": "56d9beb9ba28b378eca44870a453864b41c43a0d73ba6290f1440cea9ebec46d",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current hitl is appropriate unless patched.",
+      "description": "Shirt-hanging comparison lists RaC 78.3 versus ALOHA Unleashed 75 with five versus estimated 89 data hours. The row correctly labels a cross-paper author estimate. Human takeovers first recover then complete the current subtask and terminate the episode.",
+      "code": "Blank code field; no claim of implementation availability."
+    },
+    "code_verification": {
+      "id": "C148",
+      "code": "",
+      "code_status": "blank; no release claim"
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C134",
+    "title": "Finetuning Deep Reinforcement Learning Policies with Evolutionary Strategies for Control of Underactuated Robots (EvolSAC)",
+    "source_url": "https://arxiv.org/abs/2507.10030",
+    "source_final_url": "https://arxiv.org/html/2507.10030",
+    "source_sha256": "10dbff9939cc6daea572ad61e7a4153a29e26dd912021f8778aade7197b8ac54",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current blackbox is appropriate unless patched.",
+      "description": "Cartpole swing-up table gives ten-agent mean times SAC initialization 2.085 s, EvolSAC 1.135 s and extended SAC 1.565 s after 1000 episodes. Method pretrains SAC on a dense proxy and refines with SNES on the true task fitness.",
+      "code": "Blank code field; no claim of implementation availability."
+    },
+    "code_verification": {
+      "id": "C134",
+      "code": "",
+      "code_status": "blank; no release claim"
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C133",
+    "title": "Reinforcement Learning with Action Chunking (Q-chunking; algorithms QC and QC-FQL)",
+    "source_url": "https://arxiv.org/abs/2507.07969",
+    "source_final_url": "https://arxiv.org/html/2507.07969",
+    "source_sha256": "b81f70dbc44e0721d1af5e84a2d545e3fc0eb14882df9abe8cf0a85287861919",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current offpolicy is appropriate unless patched.",
+      "description": "OGBench 25-task table gives offline/online QC 52/86 and FQL 37/58. Equations define unbiased h-step chunk TD targets and behavior-constrained flow policy learning; current offpolicy classification is consistent.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C133",
+      "code": "https://github.com/ColinQiyangLi/qc",
+      "paper_links_code": true,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "LICENSE",
+        "README.md",
+        "__init__.py",
+        "agents",
+        "assets",
+        "envs",
+        "evaluation.py",
+        "log_utils.py",
+        "main.py",
+        "main_online.py",
+        "plot_data",
+        "requirements.txt",
+        "rlpd_distributions",
+        "rlpd_networks",
+        "utils"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C130",
+    "title": "An Introduction to Zero-Order Optimization Techniques for Robotics",
+    "source_url": "https://arxiv.org/abs/2506.22087",
+    "source_final_url": "https://arxiv.org/html/2506.22087",
+    "source_sha256": "65c8060c421ed529632c9b3f5512f3aa3f6d25d56822e5c5fc211668c8741b7f",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current blackbox is appropriate unless patched.",
+      "description": "Tutorial derives Gaussian perturbation and sample-weighting formulations covering MPPI, CMA-ES and CEM. Four Hydrax control curves show the described MPPI-CMA advantage; row explicitly states plots only and supplies no invented numerical average.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C130",
+      "code": "https://github.com/ajordana/zoo-rob",
+      "paper_links_code": true,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "LICENSE",
+        "README.md",
+        "illustration",
+        "rl",
+        "traj_opt"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  },
+  {
+    "id": "C129",
+    "title": "CUPID: Curating Data your Robot Loves with Influence Functions",
+    "source_url": "https://arxiv.org/abs/2506.19121",
+    "source_final_url": "https://arxiv.org/html/2506.19121",
+    "source_sha256": "702366e411566e7970df648305adeea6766c8de4395c2c032ccea33f0b461bbe",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current advbc is appropriate unless patched.",
+      "description": "Rendered Figure 4 left TuckBox panel is labeled Filter 66%, with base 0, CUPID 84, oracle 88. Method combines demonstration influence functions with evaluation-rollout REINFORCE estimates and retrains after dropping harmful demos; mass-shift scenario is described in real setup.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C129",
+      "code": "https://github.com/agiachris/cupid",
+      "paper_links_code": false,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        ".gitmodules",
+        "LICENSE",
+        "README.md",
+        "conda_environment.yaml",
+        "configs",
+        "diffusion_policy",
+        "eval.py",
+        "eval_action_likelihood_diffusion.py",
+        "eval_action_variance_diffusion.py",
+        "eval_demo_score.py",
+        "eval_demonstration_scores.py",
+        "eval_embeddings.py",
+        "eval_policy_loss_diffusion.py",
+        "eval_rollout_scores.py",
+        "eval_save_episodes.py",
+        "finalize_trak.py",
+        "notebooks",
+        "pyrightconfig.json",
+        "readme",
+        "scripts",
+        "setup.py",
+        "tests",
+        "third_party",
+        "train.py",
+        "train_trak_diffusion.py"
+      ],
+      "project": "https://www.chrisagia.com/",
+      "project_status": 200,
+      "project_links_code": true,
+      "project_github_links": [
+        "https://github.com/agiachris/",
+        "https://github.com/agiachris/",
+        "https://github.com/Mhackiori/J-DAPT",
+        "https://github.com/agiachris/cupid",
+        "https://github.com/robomonkey-vla/RoboMonkey",
+        "https://github.com/yixuanhuang98/Points2Plans",
+        "https://github.com/agiachris/sentinel",
+        "https://github.com/JakobThumm/text2interaction",
+        "https://github.com/AlexanderKhazatsky",
+        "https://github.com/droid-dataset/droid",
+        "https://github.com/google-deepmind/open_x_embodiment",
+        "https://github.com/agiachris/STAP",
+        "https://github.com/taskography",
+        "https://github.com/StanfordVL/MinkowskiEngine",
+        "https://github.com/agiachris/"
+      ],
+      "provenance": "Paper links first-author homepage; it redirects to the author domain and directly links CUPID implementation."
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "figure_sources": [
+      "https://arxiv.org/html/2506.19121v2/franka_image_dp_performance.png"
+    ],
+    "action_status": "no-change"
+  },
+  {
+    "id": "C124",
+    "title": "Scaling Helix: a New State of the Art in Humanoid Logistics",
+    "source_url": "https://www.figure.ai/news/scaling-helix-logistics",
+    "source_final_url": "https://www.figure.ai/news/scaling-helix-logistics",
+    "source_sha256": "67b8e372f1c54e5949d51d1e91000e552ec0a97d546e2c93fa74417a40a247a0",
+    "status": "corrected",
+    "severity": "minor",
+    "field_coverage": {
+      "title_date": "Official Figure heading matches; visible June 07, 2025 and publicationDate/dateTime metadata both verify 2025-06-07.",
+      "affiliation": "Official Figure AI news page establishes publisher identity.",
+      "family": "Mechanism checked against family definition; current industry is appropriate unless patched.",
+      "description": "Official Figure post states three months of iterative improvement, barcode orientation approximately 70 to 95, and 50% larger decoder plus stereo, temporal visual/state history and force inputs. Training discussed is demonstration-based; no RL objective is disclosed. Page heading and publicationDate metadata both specify 7 June 2025; replacing month-only precision with the verified day.",
+      "code": "Blank code field; no claim of implementation availability."
+    },
+    "code_verification": {
+      "id": "C124",
+      "code": "",
+      "code_status": "blank; no release claim"
+    },
+    "access_limits": "",
+    "before": {
+      "date": "2025-06"
+    },
+    "fields": {
+      "date": "2025-06-07"
+    },
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "pending-parent-application"
+  },
+  {
+    "id": "C110",
+    "title": "Diffusion Guidance Is a Controllable Policy Improvement Operator (CFGRL)",
+    "source_url": "https://arxiv.org/abs/2505.23458",
+    "source_final_url": "https://arxiv.org/html/2505.23458",
+    "source_sha256": "024efab4cd657f18adf9d579186d38ebcf379e25908bd7814d1d8f01a8a91bd9",
+    "status": "checked-supported",
+    "severity": "none",
+    "field_coverage": {
+      "title_date": "ArXiv title and v1 date covered by repository-wide fresh API check; primary title identity matched.",
+      "affiliation": "Primary author affiliation block supports the listed institutions.",
+      "family": "Mechanism checked against family definition; current advbc is appropriate unless patched.",
+      "description": "ExORL walker-stand table gives CFGRL 782±8 versus AWR 603±8 with the same IQL critic. Guidance theorem uses a nondecreasing advantage transform; optimality-conditioned flow is trained by BC. OGBench comparisons are mixed against AWR and generally above goal-conditioned BC, matching the cautious row.",
+      "code": "Fresh repository contains implementation files; primary-source linkage/provenance recorded in code_verification."
+    },
+    "code_verification": {
+      "id": "C110",
+      "code": "https://github.com/kvfrans/cfgrl",
+      "paper_links_code": true,
+      "repo_status": 200,
+      "repo_files": [
+        ".gitignore",
+        "README.md",
+        "fig.png",
+        "ogbench",
+        "rlbase"
+      ]
+    },
+    "access_limits": "",
+    "before": {},
+    "fields": {},
+    "coverage_scope": "All requested fields; current primary revision for claims, first-public date for catalog date. Blank code means no implementation release claim, not proof of unavailability.",
+    "action_status": "no-change"
+  }
+]

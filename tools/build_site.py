@@ -92,7 +92,7 @@ def mon_year(d: str) -> str:
     """'2026-03-14' or '2026-03' -> 'Mar 2026'; a bare year stays as is."""
     if len(d) >= 7 and d[4] == "-":
         return f"{MON[int(d[5:7])]} {d[:4]}"
-    return d
+    return d or "Date not stated"
 
 
 def short_month(ym: str) -> str:
@@ -537,7 +537,7 @@ def sec_papers(c: Ctx) -> str:
         code = f' · {ext(p["code"], "code")}' if p.get("code") else ""
         rows.append(
             f'<tr id="p-{e(p["id"])}" data-fam="{e(p["family"])}" data-date="{e(p["date"])}" data-key="{e(p.get("key", "0"))}">'
-            f'<td class="d">{e(p["date"])}</td><td class="t">{star}{ext(p["url"], name)}<span class="ol">{c.t(p["one_line"])}{code}</span></td>'
+            f'<td class="d">{e(p["date"] or "Not stated")}</td><td class="t">{star}{ext(p["url"], name)}<span class="ol">{c.t(p["one_line"])}{code}</span></td>'
             f'<td class="o">{e(ba.org_of(p))}</td><td class="f">{e(c.short(p["family"]))}</td>'
             f'<td class="s"><span class="badge {cls}" title="{e(title)}">{label}</span></td></tr>')
     return f"""<section class="sec" id="papers"><div class="sec-head"><h2>All {len(c.papers)} papers</h2><p class="lede">Every paper and post in the list, newest first. Filter by family or period, or search titles, labs and descriptions. “Checked” and “corrected” record a second pass against the source; they do not mean independent experimental replication.</p></div>

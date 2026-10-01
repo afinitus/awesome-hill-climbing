@@ -51,7 +51,7 @@ Treat the policy, or a few knobs around it, as a vector. Try perturbed copies, s
 
 ## November 2025
 
-- ⭐ **[EGGROLL](https://arxiv.org/abs/2511.16652)** (University of Oxford (FLAIR, WhiRL); Mila; NVIDIA AI Technology Center; NormaCore.dev, 2025-11-20) — Makes each evolution-strategies perturbation a low-rank A_i B_i^T, so the population shares one big matmul plus cheap per-member corrections. On one GH200 (8192-dim bf16 layer, batch 1024): 91% of max batch-inference throughput vs PPO 34%, OpenES 0.41%. · [code](https://github.com/ESHyperscale/HyperscaleES)
+- ⭐ **[EGGROLL](https://arxiv.org/abs/2511.16652)** (University of Oxford (FLAIR, WhiRL); Mila; NVIDIA AI Technology Center; NormaCore.dev, 2025-11-20) — Shares matrix multiplication across low-rank evolution-strategies perturbations. With pre-generated noise, one GH200 benchmark (8192-dimensional bf16 layer, batch 1024) reaches 91% of maximum batch-inference throughput, versus PPO 34% and OpenES 0.41% (chart reading). · [code](https://github.com/ESHyperscale/HyperscaleES)
 - ⭐ **[TD-ES](https://arxiv.org/abs/2511.09923)** (The University of Sydney; NVIDIA, 2025-11-13) — Continues from a PPO checkpoint with antithetic evolution strategies whose bounded triangular per-coordinate noise keeps candidates in a small box around the weights. Sim IQM success, 3 Isaac Lab Franka tasks: PPO 67.2%, Gaussian ES 73.7%, TD-ES 85.0%.
 
 ## September 2025

@@ -70,19 +70,19 @@ Keep the supervised imitation loss, but decide which actions (or which demos) th
 
 ## February 2026
 
-- ⭐ **[IG-RFT](https://arxiv.org/abs/2602.20715)** (Zhejiang University; Torch Kernel, 2026-02-24) — Trains pi0.5 in three stages: SFT on 60 demos, an offline advantage-weighted flow-matching loss from a learned critic, then human-in-the-loop correction rounds with the same weighting. 4 real long-horizon tasks, 20 trials each: 18.8% → 40.0% → 85.0%.
+- ⭐ **[IG-RFT](https://arxiv.org/abs/2602.20715)** (Zhejiang University; Torch Kernel, 2026-02-24) — Trains pi0.5 with 60 demos per task, offline advantage-weighted flow matching from a learned critic, then human-in-the-loop correction rounds with the same weighting. Four real long-horizon tasks, 20 trials each: 18.8% → 40.0% → 85.0%.
 - **[GigaBrain-0.5M* (RAMP)](https://arxiv.org/abs/2602.12099)** (GigaAI, 2026-02-12) — RECAP-style conditioning plus world-model future latents and value. Box Packing about 60 pretrain / 75 AWR / 60 RECAP / 95% RAMP (bar readings).
 - **[RKO (Preference-aligned Diffusion Policy)](https://arxiv.org/abs/2602.09583)** (KTH; INCAR Robotics, 2026-02-10) — Preference fine-tuning of a pretrained diffusion policy on preferred vs dispreferred real cloth-folding demos; RKO merges KTO's per-sample labels with RPO's similarity reweighting. Best in 4/9 settings; Trousers Pref 1: 0.910 vs 0.701 for vanilla DDPM.
 - **[chi0 (kai0)](https://arxiv.org/abs/2602.09021)** (Kinetix AI / OpenDriveLab, 2026-02-09) — Open garment-folding pipeline: model soup plus stage-aware advantage (RECAP-style, eps = 0.3) plus train-deploy alignment on pi0.5. Task A success about 27% → 97% (bar readings, 30 trials). · [code](https://github.com/OpenDriveLab/kai0)
 
 ## November 2025
 
-- ⭐ **[pi*0.6 / RECAP](https://arxiv.org/abs/2511.14759)** (Physical Intelligence, 2025-11-18) — Fits a distributional value, thresholds n-step advantages into an 'Advantage: positive/negative' text input, and retrains the whole flow VLA supervised; CFG optional. Real T-shirt/shorts laundry, same data: about 2x AWR's throughput; success ~96% vs AWR ~91%, PPO ~75%.
+- ⭐ **[pi*0.6 / RECAP](https://arxiv.org/abs/2511.14759)** (Physical Intelligence, 2025-11-18) — Fits a distributional value, binarizes n-step advantages into text conditioning, and supervises the whole flow VLA; CFG is optional. Same-data real laundry: about 2x AWR throughput; success ~96% versus AWR ~91%, PPO ~75% (chart reading).
 - **[ExpReS-VLA](https://arxiv.org/abs/2511.06202)** (CMU, 2025-11-09) — Frozen-feature success/failure buffers, retrieval-augmented LoRA BC and a contrastive loss on failures. Real ID: naive FT 84.7% → 98.0%; OOD: 32% → 98%. · numbers corrected after an independent re-check against the source
 
 ## October 2025
 
-- ⭐ **[Hi-ORS](https://arxiv.org/abs/2510.26406)** (Tsinghua SIGS; Tencent Robotics X, 2025-10-30) — Drops the critic: keeps episodes whose return clears a rising threshold, human-corrected successes included, and trains pi0 on them with its flow-matching loss. Three real tasks, two robots: 23.3% average margin over offline BC; about 1.5 h of real training. · [code](https://github.com/hiors-project/hiors)
+- ⭐ **[Hi-ORS](https://arxiv.org/abs/2510.26406)** (Tsinghua SIGS; Tencent Robotics X, 2025-10-30) — Keeps episodes above a rising return threshold, including human-corrected successes, and trains pi0 with reward-weighted flow matching. Three real tasks, two robots: 23.3 percentage points over offline BC (chart reading); about 1.5 hours of real training. · [code](https://github.com/hiors-project/hiors)
 - **[RM-RL](https://arxiv.org/abs/2510.15189)** (NTU Singapore, 2025-10-16) — Best-of-scene self-imitation plus REINFORCE for a discrete pick-pose correction. Shelf placement 10/10 for pretrained RM-RL vs 5/10 for plain REINFORCE. This is a cross-method comparison, and the pretrained variant uses about 200 extra prior samples. · [code](https://github.com/NTUMARS/RMRL)
 
 ## September 2025

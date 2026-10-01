@@ -350,7 +350,8 @@ def sec_footer(n_papers: int, n_deep: int, n_checked: int, n_res: int, today: dt
 # ---------------------------------------------------------------------------- family pages
 def family_page(f: dict, items: list[dict]) -> str:
     recent = [p for p in items if p["date"] >= RECENT_FROM]
-    older = [p for p in items if p["date"] < RECENT_FROM]
+    older = [p for p in items if p["date"] and p["date"] < RECENT_FROM]
+    undated = [p for p in items if not p["date"]]
     out = [f"# {f['name']}", "",
            "[← Awesome Hill Climbing](../README.md) · [all families](README.md)", "",
            f"*{esc(f['question'])}*", "",
@@ -369,6 +370,9 @@ def family_page(f: dict, items: list[dict]) -> str:
     if older:
         out += ["", f"## Before {month_label(RECENT_FROM)}", ""]
         out += [entry(p) for p in older]
+    if undated:
+        out += ["", "## Publication date not stated", ""]
+        out += [entry(p) for p in undated]
     return "\n".join(out).rstrip() + "\n"
 
 

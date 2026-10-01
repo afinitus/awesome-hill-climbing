@@ -92,7 +92,7 @@ These methods leave the policy alone and build the score it climbs against: a le
 
 ## January 2026
 
-- ⭐ **[RoboReward](https://arxiv.org/abs/2601.00675)** (Stanford University, UC Berkeley, 2026-01-02) — Fine-tunes Qwen3-VL to score rollouts 1-5 on a rubric, adding counterfactual-relabeled and clipped negatives; in sim, reward accuracy tracks RL success (r=0.83). Real WidowX DSRL, open drawer, 20 trials: base 10%, RoboReward 8B 80%, human-reward oracle 90%. · [code](https://crfm.stanford.edu/helm/robo-reward-bench)
+- ⭐ **[RoboReward](https://arxiv.org/abs/2601.00675)** (Stanford University, UC Berkeley, 2026-01-02) — Fine-tunes Qwen3-VL to score rollouts 1-5 on a rubric, adding counterfactual-relabeled and clipped negatives; in sim, reward accuracy tracks RL success (r=0.83). Real WidowX DSRL, open drawer, 20 trials: base 10%, RoboReward 8B 80%, human-reward oracle 90%.
 
 ## December 2025
 
