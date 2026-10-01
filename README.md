@@ -9,6 +9,8 @@
 
 **912 papers and posts** · **679 from the last year** · **122 must-know (⭐)** · **213 tools, courses and benchmarks** · updated **2026-09-30**
 
+**Interactive explainer: [Climbing the Nines](https://afinitus.github.io/awesome-hill-climbing/)**: the hill-climbing loop, the RL ideas underneath, a timeline of the last 12 months, the course results, and a searchable index of every paper.
+
 A pretrained robot policy that works half the time is a demo. One that works 99% of the time is a product. "Hill climbing" is what labs and companies call the loop in between: deploy, measure, find failures, improve, re-measure. This list maps every way people run that loop, the textbook RL ideas each one comes from, and what changed in the last twelve months, down to this week.
 
 ## Contents
