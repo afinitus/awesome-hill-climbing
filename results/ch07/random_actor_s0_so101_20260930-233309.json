@@ -1,0 +1,121 @@
+{
+  "schema": 1,
+  "chapter": "ch07",
+  "method": "random_actor_s0",
+  "robot": "so101",
+  "variant": "v1",
+  "setting": "sim",
+  "base": {
+    "id": "base_v1_gaussian",
+    "sr": 0.50390625,
+    "ci": [
+      0.4430547843724404,
+      0.5646422125672337
+    ],
+    "k": 129,
+    "n": 256,
+    "init_set": "eval"
+  },
+  "final": {
+    "sr": 0.70703125,
+    "ci": [
+      0.6485467873976802,
+      0.7593940504050427
+    ],
+    "k": 181,
+    "n": 256,
+    "init_set": "eval",
+    "init_set_version": "v1"
+  },
+  "budget": {
+    "robot_minutes": {
+      "search": 0.0,
+      "train": 0.0,
+      "eval": 69.26333333333334
+    },
+    "human_minutes": {
+      "demos": 0.0,
+      "labels": 0.0,
+      "takeovers": 0.0,
+      "resets": 0.0,
+      "annotation": 0.0
+    },
+    "compute": {
+      "cpu_hours": 0.004935510277777742,
+      "gpu_hours": 0.0,
+      "wall_minutes": 0.0771095958333414
+    }
+  },
+  "extra": {
+    "note": "untrained actor, random weights, deterministic; no search, no training",
+    "vs_base": {
+      "p": 3.277703497138628e-07,
+      "only_a": 26,
+      "only_b": 78,
+      "diff_ci": [
+        0.12890625,
+        0.27734375
+      ]
+    },
+    "vs_zero": {
+      "p": 0.0659940344557981,
+      "only_a": 28,
+      "only_b": 15,
+      "diff_ci": [
+        -0.1015625,
+        0.0
+      ]
+    }
+  },
+  "git_sha": "e3195bc",
+  "timestamp": "2026-09-30T23:33:09",
+  "config": {
+    "robot": "so101",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "arms": [
+      "dsrl",
+      "pss",
+      "hybrid",
+      "residual"
+    ],
+    "hard_arms": [
+      "pss",
+      "hybrid",
+      "residual"
+    ],
+    "subspace": 0,
+    "hybrid": false,
+    "residual_only": false,
+    "variant": "v1",
+    "pss_k": 8,
+    "noise_scale": 1.5,
+    "res_scale": 0.2,
+    "train_episodes": 512,
+    "episodes_per_round": 64,
+    "utd": 0.5,
+    "eval_every": 128,
+    "hidden": 256,
+    "batch_size": 256,
+    "lr": 0.0003,
+    "actor_lr": 0.0001,
+    "gamma": 0.97,
+    "n_step": 0,
+    "tau": 0.005,
+    "alpha": 0.003,
+    "tune_alpha": false,
+    "warmup_episodes": 128,
+    "search_n": 64,
+    "eval_n": 256,
+    "support_salts": 16,
+    "pss_states": 64,
+    "n_workers": 4,
+    "pilot_costs": true,
+    "media": true,
+    "replot": "",
+    "quick": false
+  }
+}

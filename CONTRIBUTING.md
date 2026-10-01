@@ -85,7 +85,7 @@ Each method is one runnable file, `algos/NN_name.py`, in the style of CleanRL (D
 - **One file, about 150–450 lines,** readable top to bottom. It imports only from `lastmile/` (plus numpy, torch and the like). **No imports between algorithm files**: if two chapters need the same helper, it belongs in `lastmile/`, or it is short enough to copy.
 - **Top docstring:** the learning goal, the base RL idea, the 2025–26 papers it mirrors (with ids from [data/papers.csv](data/papers.csv)), and how to run it.
 - **A `@dataclass Config` at the top,** parsed with `lastmile.common.cli.parse(Config)` so `--help` works. Include `robot: str = "so101"` and `quick: bool = False`, plus a `QUICK: ClassVar[dict]` of overrides.
-- **`--quick` finishes in under 2 minutes** on a laptop (CI runs it). A full run finishes in under 30 minutes unless the docstring says otherwise.
+- **`--quick` finishes in under 2 minutes** on a laptop (CI runs it) and writes only under `runs/chNN_quick/`, never into `results/` or `media/`. A full run finishes in under 30 minutes unless the docstring says otherwise.
 - **Scores come from `evaluate(...)` on named init sets, and costs go through a `Ledger`.** Never write a results JSON by hand. The ledger writes one JSON per method run to `results/chNN/`.
 - **Outputs:** the results JSON, plots in `media/chNN/` (use `lastmile.common.plotting` so success plots show Wilson bands), and a short printed summary with intervals.
 - **Laptop first:** everything runs on a Mac CPU (torch CPU or MPS). Anything that needs NVIDIA is an optional extra.
@@ -128,7 +128,7 @@ if __name__ == "__main__":
     main(parse(Config))
 ```
 
-Runs made with `--quick` still write a results file, with `"quick": true` in its config. The leaderboard leaves those out.
+Runs made with `--quick` write their results file, plots and GIFs under the git-ignored `runs/chNN_quick/`, never into `results/` or `media/`. Their config carries `"quick": true`, and the leaderboard leaves such files out if one ever lands in `results/`.
 
 ## Adding a chapter
 

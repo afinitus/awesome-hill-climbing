@@ -319,7 +319,7 @@ def family_page(f: dict, items: list[dict]) -> str:
     recent = [p for p in items if p["date"] >= RECENT_FROM]
     older = [p for p in items if p["date"] < RECENT_FROM]
     out = [f"# {f['name']}", "",
-           f"[← Awesome Hill Climbing](../README.md) · [all families](README.md)", "",
+           "[← Awesome Hill Climbing](../README.md) · [all families](README.md)", "",
            f"*{esc(f['question'])}*", "",
            esc(f["tagline"]), "",
            f"- **Loop step:** {f['loop_step']}",

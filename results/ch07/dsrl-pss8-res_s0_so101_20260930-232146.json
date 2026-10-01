@@ -1,0 +1,211 @@
+{
+  "schema": 1,
+  "chapter": "ch07",
+  "method": "dsrl-pss8-res_s0",
+  "robot": "so101",
+  "variant": "v1",
+  "setting": "sim",
+  "base": {
+    "id": "base_v1_gaussian",
+    "sr": 0.50390625,
+    "ci": [
+      0.4430547843724404,
+      0.5646422125672337
+    ],
+    "k": 129,
+    "n": 256,
+    "init_set": "eval"
+  },
+  "final": {
+    "sr": 0.89453125,
+    "ci": [
+      0.8508981128612216,
+      0.9264985780458541
+    ],
+    "k": 229,
+    "n": 256,
+    "init_set": "eval",
+    "init_set_version": "v1"
+  },
+  "budget": {
+    "robot_minutes": {
+      "search": 771.7833333333333,
+      "train": 1532.3,
+      "eval": 60.461666666666666
+    },
+    "human_minutes": {
+      "demos": 0.0,
+      "labels": 0.0,
+      "takeovers": 0.0,
+      "resets": 0.0,
+      "annotation": 0.0
+    },
+    "compute": {
+      "cpu_hours": 0.03363430722222224,
+      "gpu_hours": 0.0,
+      "wall_minutes": 0.8617909333332743
+    }
+  },
+  "extra": {
+    "arm": "hybrid",
+    "variant": "v1",
+    "seed": 0,
+    "curve": [
+      {
+        "episodes": 0,
+        "train_minutes": 1.265,
+        "k": 45,
+        "n": 64
+      },
+      {
+        "episodes": 128,
+        "train_minutes": 26.033333333333335,
+        "k": 45,
+        "n": 64
+      },
+      {
+        "episodes": 256,
+        "train_minutes": 54.425,
+        "k": 22,
+        "n": 64
+      },
+      {
+        "episodes": 384,
+        "train_minutes": 80.79666666666667,
+        "k": 53,
+        "n": 64
+      },
+      {
+        "episodes": 512,
+        "train_minutes": 91.88,
+        "k": 60,
+        "n": 64
+      }
+    ],
+    "chosen": 4,
+    "train_rollouts": {
+      "k": 202,
+      "n": 512,
+      "sr": 0.39453125,
+      "ci": [
+        0.3531315368175565,
+        0.4375018669249877
+      ]
+    },
+    "method": "dsrl-pss8-res_s0",
+    "final": {
+      "k": 229,
+      "n": 256,
+      "sr": 0.89453125,
+      "ci": [
+        0.8508981128612216,
+        0.9264985780458541
+      ]
+    },
+    "eval_successes": "0111111111111111111111011111111111111111111111111101111111010111111111011111100111111110111101110111111111111111111111111111101111111111101111110111101111111011111111111110111111111111111111111011111111111011001111111111111111111110111111110111011011011110",
+    "vs_base": {
+      "p": 1.6733702780891284e-21,
+      "only_a": 12,
+      "only_b": 112,
+      "diff_ci": [
+        0.32421875,
+        0.4609375
+      ]
+    },
+    "vs_zero": {
+      "p": 8.215921903007378e-05,
+      "only_a": 21,
+      "only_b": 56,
+      "diff_ci": [
+        0.07421875,
+        0.203125
+      ]
+    },
+    "robot_minutes": {
+      "search": 36.54333333333334,
+      "train": 91.88,
+      "eval": 60.461666666666666
+    },
+    "eval_steps": 12209,
+    "actor_file": "runs/ch07_full/actors/dsrl-pss8-res_s0.npz",
+    "pilot_robot_minutes": {
+      "search": 735.24,
+      "train": 1440.42
+    },
+    "vs_ch03_peek_free": {
+      "p": 0.2288055412343561,
+      "only_a": 23,
+      "only_b": 33,
+      "diff_ci": [
+        -0.01953125,
+        0.09765625
+      ]
+    },
+    "modes": {
+      "cells": {
+        "no grasp": 27,
+        "center/late": 11,
+        "-y/mid": 18,
+        "center/early": 62,
+        "+y/early": 10,
+        "-y/early": 94,
+        "center/mid": 7,
+        "+y/mid": 5,
+        "+y/late": 22
+      },
+      "entropy_bits": 2.3326892788375977,
+      "modes_5pct": 4
+    }
+  },
+  "git_sha": "e3195bc",
+  "timestamp": "2026-09-30T23:21:46",
+  "config": {
+    "robot": "so101",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "arms": [
+      "dsrl",
+      "pss",
+      "hybrid",
+      "residual"
+    ],
+    "hard_arms": [
+      "pss",
+      "hybrid",
+      "residual"
+    ],
+    "subspace": 0,
+    "hybrid": false,
+    "residual_only": false,
+    "variant": "v1",
+    "pss_k": 8,
+    "noise_scale": 1.5,
+    "res_scale": 0.2,
+    "train_episodes": 512,
+    "episodes_per_round": 64,
+    "utd": 0.5,
+    "eval_every": 128,
+    "hidden": 256,
+    "batch_size": 256,
+    "lr": 0.0003,
+    "actor_lr": 0.0001,
+    "gamma": 0.97,
+    "n_step": 0,
+    "tau": 0.005,
+    "alpha": 0.003,
+    "tune_alpha": false,
+    "warmup_episodes": 128,
+    "search_n": 64,
+    "eval_n": 256,
+    "support_salts": 16,
+    "pss_states": 64,
+    "n_workers": 4,
+    "pilot_costs": true,
+    "media": true,
+    "replot": "",
+    "quick": false
+  }
+}

@@ -40,7 +40,7 @@ Papers mirrored (ids from data/papers.csv)
     C445 A Decade of BO for Controller Tuning (2026) and C057 BOpt-GMM: see algos/02b_bo.py.
 
 Run
-    uv run python algos/02_cem_cmaes_pi2.py --quick                  # smoke test, under a minute
+    uv run python algos/02_cem_cmaes_pi2.py --quick                  # smoke test, under a minute; results to runs/ch02_quick/
     uv run python algos/02_cem_cmaes_pi2.py                          # 3 methods + random, 3 seeds + failures
     uv run python algos/02_cem_cmaes_pi2.py --weights cmaes --seeds 0 1 2 3 4
     uv run python algos/02_cem_cmaes_pi2.py --knobs grasp_dx grasp_dy grasp_dz drop_dx --tag=-4k \
@@ -93,7 +93,8 @@ class Config:
     results_root: str = str(DEFAULT_RESULTS_ROOT)
     quick: bool = False
     QUICK: ClassVar[dict] = {"seeds": [0], "generations": 2, "population": 6, "batch": 8, "audit_n": 16,
-                             "failures": False, "eval_n": 32}
+                             "failures": False, "eval_n": 32,  # quick results stay out of results/
+                             "results_root": str(MEDIA.parents[1] / "runs" / "ch02_quick")}
 
 
 # The failure cases: the same loop with one setting changed (see "What went wrong" in docs/chapters/ch02.md).

@@ -40,7 +40,7 @@ Honesty
     hyperparameter tuning that fixed fd_step and the number of iterations (see TUNING below).
 
 Run
-    uv run python algos/01_hill_climb.py --quick                  # smoke test, under 2 minutes; figures to runs/ch01_quick/
+    uv run python algos/01_hill_climb.py --quick                  # smoke test, under 2 minutes; all files to runs/ch01_quick/
     uv run python algos/01_hill_climb.py                          # all three methods x 3 seeds (< 30 min)
     uv run python algos/01_hill_climb.py --method fd --fd-step 0.05 --tag _bigstep   # the failure case
     uv run python algos/01_hill_climb.py --method random          # baseline: a random candidate, no search
@@ -63,12 +63,13 @@ import numpy as np
 
 from lastmile.common.cli import parse
 from lastmile.common.eval import INIT_SETS, EvalResult, format_rate, mcnemar_exact, policy_seed
-from lastmile.common.ledger import Ledger
+from lastmile.common.ledger import DEFAULT_RESULTS_ROOT, Ledger
 from lastmile.common.rollout import evaluate, rollout_seeds
 from lastmile.envs.knob_controller import DEFAULT_KNOBS, KNOB_NAMES, KNOB_SPACE, KnobController, knob_vector
 
 MEDIA = Path(__file__).resolve().parents[1] / "media" / "ch01"
-QUICK_MEDIA = Path(__file__).resolve().parents[1] / "runs" / "ch01_quick"  # --quick never touches media/
+QUICK_MEDIA = Path(__file__).resolve().parents[1] / "runs" / "ch01_quick"  # --quick never touches media/ or results/
+QUICK_RESULTS = QUICK_MEDIA / "results"
 METHODS = ("greedy", "fd", "ars")
 LOW = np.array([k.low for k in KNOB_SPACE])
 SPAN = np.array([k.high - k.low for k in KNOB_SPACE])
@@ -194,7 +195,8 @@ def run_method(method: str, seed: int, cfg: Config, base: EvalResult | None) -> 
     """One search run from DEFAULT_KNOBS, then one held-out evaluation of the iterate it selected."""
     name = f"{method}{cfg.tag}_s{seed}"
     rng = np.random.default_rng(seed)
-    L = Ledger(chapter="ch01", method=name, robot=cfg.robot, config=cfg)
+    L = Ledger(chapter="ch01", method=name, robot=cfg.robot, config=cfg,
+               results_root=QUICK_RESULTS if cfg.quick else DEFAULT_RESULTS_ROOT)
     with L if cfg.heldout else nullcontext(L):  # a --no-heldout (tuning) run writes no results file
         scorer = Scorer(cfg, L)
         x = to_unit(DEFAULT_KNOBS)
@@ -404,7 +406,8 @@ def random_baseline(seed: int, cfg: Config, base: EvalResult) -> EvalResult:
     If this scored as well as the searched knobs, the search would not have done the work.
     """
     x = np.clip(to_unit(DEFAULT_KNOBS) + cfg.sigma * np.random.default_rng(seed).standard_normal(DIM), 0.0, 1.0)
-    with Ledger(chapter="ch01", method=f"random{cfg.tag}_s{seed}", robot=cfg.robot, config=cfg) as L:
+    with Ledger(chapter="ch01", method=f"random{cfg.tag}_s{seed}", robot=cfg.robot, config=cfg,
+                results_root=QUICK_RESULTS if cfg.quick else DEFAULT_RESULTS_ROOT) as L:
         L.robot_steps["eval"] += base.env_steps
         L.set_base(id="knobs_default", successes=base)
         final = evaluate(partial(KnobController, to_knobs(x), cfg.robot), "eval", robot=cfg.robot,

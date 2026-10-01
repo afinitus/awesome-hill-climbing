@@ -1,0 +1,541 @@
+{
+ "_about": "Cross-cutting narrative for the explainer page (site/index.html, built by tools/build_site.py). Written from the September 2026 deep-read of the core papers and fact-checked against them; edit this file by hand to correct or extend it. Paper names here are display names, not data ids.",
+ "written": "2026-09",
+ "thesis": "In 2025-26, last-mile improvement of robot policies is one loop: deploy, measure, find failures, improve, re-measure. The families mostly differ in which step they put effort into and which part of the system they change. Pretrained VLA and BC policies now often start at 40-90% success, so the limit is no longer the optimizer. The limits are the signal (success checks, rewards, advantages, verifiers), trustworthy evaluation, and human and robot time. Most recipes that work keep the large model frozen or tightly anchored and climb with something small: a noise vector, a residual or edit head, a critic, an advantage token, a verifier or a curated data slice. Under the new names, the classic ideas of perturb-and-score search and reward-weighted averaging are still there.",
+ "the_loop": "Every method in this explainer runs some version of this loop.\n\nStep 0, start. Begin from a pretrained policy that already succeeds sometimes: a BC diffusion or flow policy, ACT, or a VLA such as pi0, pi0.5 or OpenVLA-OFT. If it never succeeds (0%), most methods have nothing to climb. SimpleVLA-RL stays at 0 -> 0 on RoboTwin 2.0 from a 0-demo SFT.\n\nStep 1, deploy. Run the policy to collect episodes. They can come from the real robot, a fleet, a GPU simulator, a scanned or generated digital twin (the sim-to-real family), or a learned action-conditioned video world model (the world-model family). Each has a cost: real episodes need resets and supervision, and simulated ones can be wrong in ways the policy will exploit.\n\nStep 2, measure. Turn each episode into a number. The options are a binary success check (a human keypress, a hand-written detector, a classifier), a dense progress or value model (the reward family), or a VLM judge. For comparing checkpoints, you want an evaluator that ranks policies the same way reality does, reported as Pearson r and MMRV against paired real trials (the world-model/evaluation family). Offline action MSE is a poor proxy: SIMPLER found average Pearson r 0.308, vs 0.924 for visual-matching sim.\n\nStep 3, find failures. Locate where and why the policy goes wrong. The tools are dips in a progress model (Dyna), runtime monitors, either calibrated on successful runs (CoRe) or triggered by jumps in the critic's Q (JITI), human takeovers (the HITL family), VLM diagnosis of failed videos (F4R, PDE), and per-stage predicates (Temporal GRPO). This step decides where the next batch of data, search or corrections goes.\n\nStep 4, improve. Apply an update. Each family is a different update operator:\n- black-box search perturbs a small parameter set (gains, a noise vector, a recipe) and keeps what scores better;\n- on-policy PPO/GRPO raises the log-probability of rollouts that beat a baseline;\n- off-policy actor-critic learns Q from every stored transition and pushes actions toward higher Q;\n- residual, edit and steering methods train a small add-on around a frozen base;\n- advantage-weighted or advantage-conditioned BC keeps the supervised loss but chooses what to copy;\n- DAgger-style methods train on human (or machine) corrections at the states the policy actually reaches;\n- test-time search changes no weights: it samples candidates and picks with a verifier or guides the sampler with a critic's gradient.\n\nStep 5, re-measure. Evaluate on held-out episodes and start states that were not used for search or training. Report trial counts and confidence intervals, and track speed, intervention rate and per-task results, not just average success. Then repeat. Many loops also distill what worked back into the base (PLD, VERITAS); Q-Planning instead refits only its critic each round and leaves the policy frozen. Others restart each round from the pretrained checkpoint to avoid drift (RECAP; DEED regressed from 42% to 22% in round 2).\n\nHow the other families plug in:\n- reward and value models serve steps 2-3 for everyone else;\n- world models and twins make steps 1-2 cheap;\n- HITL methods put a person into steps 3-4;\n- industry recipes are mostly this loop built as infrastructure: fleet logging, auto-grading, targeted retraining.",
+ "decision_guide": [
+  {
+   "situation": "You only have a scalar episode score (e.g. binary success), the policy is a frozen diffusion or flow model, and you want a cheap gain before trying RL.",
+   "use": "Black-box random search or CEM over one fixed initial-noise vector (Golden Ticket).",
+   "why": "The search space is tiny (28-1600 dims) and needs no log-probs. On a real Franka pick task, success went 80 -> 98% on 50 held-out episodes after 150 search episodes (~30 min). It can only select behavior the policy already has, so it is also the baseline any RL method should beat."
+  },
+  {
+   "situation": "You are tuning fewer than about 10 controller knobs (PID/LQR gains, impedance, MPC weights), and each real trial is expensive.",
+   "use": "Bayesian optimization (GP surrogate plus logEI or MES), starting from about d+4 initial points.",
+   "why": "Of 110 hardware BO papers reviewed, 57 use vanilla BO and most tune fewer than 10 parameters with tens of episodes (Decade of BO for control). The method is built for micro-data."
+  },
+  {
+   "situation": "A PPO or SAC policy has plateaued in simulation, and what you are graded on is a trajectory-level metric that does not split into per-step rewards.",
+   "use": "A black-box 'stage 2' (SNES, TD-ES) that starts from the gradient-trained checkpoint and uses the exact metric as fitness.",
+   "why": "EvolSAC cut cartpole swing-up time from 2.085 s to 1.135 s, where 1000 more SAC episodes reached only 1.565 s. TD-ES raised aggregate IQM success from 67.2% (PPO) to 85.0% on Isaac Lab Franka tasks (simulation only)."
+  },
+  {
+   "situation": "You have a strong SFT VLA (roughly 10-90% success), a parallel simulator with cheap resets and an automatic success check, and 8x 80GB-class GPUs.",
+   "use": "On-policy PPO with a critic, or GRPO/RLOO, anchored to the pretrained policy: low LR, BC or KL term, no entropy bonus, critic warm-up. For flow VLAs, use Flow-Noise/Flow-SDE or FPO-style ratios.",
+   "why": "piRL took pi0 from 57.6% to 97.6% on few-shot LIBERO. In three controlled comparisons PPO beat GRPO (piRL 96.0 vs 90.0; RLinf-VLA 96.09 vs 84.38 ID). ADEPT: with standard PPO at LR 1e-3, 0/5 seeds reach ADR 50 (all collapse at ADR 20), while the low-LR recipe gets 5/5."
+  },
+  {
+   "situation": "The policy is at or near 0% on the target task.",
+   "use": "Do not run plain RL or noise steering. Get successes first: prompt exploration (PDE), hindsight relabeling (LfH), human corrections or new demos, or change pretraining (TMRL).",
+   "why": "With 0/1 reward and every group failing, the advantage is zero. On LIBERO-PRO Regime 3, action noise stayed at 0 while PDE reached 81.8. Noise steering cannot leave the base's support: from a 1-demo BC base at 33.5% on LIBERO-Long (zero-shot 0%), DSRL stays at 33.5 while MiDAS reaches 91.2."
+  },
+  {
+   "situation": "You are on a real robot with a budget of minutes to hours, and the VLA is too large or too costly to backpropagate RL through.",
+   "use": "Off-policy RL around the frozen or co-trained VLA: an edit policy with argmax-Q selection over proposals (EXPO-FT, Real-Time EXPO-FT), or a small anchored actor on VLA features (RL Token).",
+   "why": "EXPO-FT took pi0.5 from an average of 20.5/30 to 30/30 on 8 real tasks with an average of 19.1 min of online data. Real-Time EXPO-FT went from 42% to 97% on 4 dynamic tasks within a 10 min data cap."
+  },
+  {
+   "situation": "The base policy is roughly right but imprecise (alignment, contact, force, latency drift).",
+   "use": "A bounded, zero-initialized additive residual trained with SAC or TD3: 50/50 demo/online replay, a LayerNorm critic on the summed action, and warm-up rollouts from the base policy.",
+   "why": "ResFiT went from 14% to 64% on a real humanoid task after 134 rollouts (~15 min) and was about 200x more sample-efficient than a PPO residual in sim. DAWN shows that critic warm-up plus LayerNorm is most of what makes residual RL efficient."
+  },
+  {
+   "situation": "The base policy already contains the right behavior but picks it unreliably, and you want to improve it in simulation without learning to exploit simulator bugs.",
+   "use": "Latent-noise steering constrained to the base's support (DSRL, SCORE), or a hybrid of noise steering and a residual (RFS) when a mode switch and a small fix are both needed.",
+   "why": "SCORE raised real success over 8 dexterous tasks from 37.8 to 89.9 with zero real-world RL, vs 59.5 for residual RL. RFS reports that noise-only and residual-only steering fail in opposite ways."
+  },
+  {
+   "situation": "You have success labels per episode and an existing SFT pipeline, and you want to learn from failures and corrections without RL infrastructure.",
+   "use": "Advantage-weighted or advantage-conditioned BC: a value model, n-step advantages, and soft exponential weights or a binary advantage token with CFG. Restart each round from the base checkpoint.",
+   "why": "On one real bimanual robot, Dissecting advantage-guided post-training found continuous weighting at 0.74 vs 0.50 for hard filtering and 0.45 for DAgger (SFT 0.11). In RECAP's ablation, conditioning kept throughput at about 60/hr where AWR reached about 30/hr."
+  },
+  {
+   "situation": "Your demos are mixed-quality or contradictory.",
+   "use": "Curate before climbing: gradient-compatibility or influence scores (RoboDrop, CUPID, QoQ), or cheap smoothness filters.",
+   "why": "RoboDrop raised real success from 35.0% to 67.5% just by removing 17-21 of 90 episodes per task."
+  },
+  {
+   "situation": "The policy fails in specific, repeatable places, and an operator can recognize and fix them.",
+   "use": "HG-DAgger with correction reweighting and RaC rules (recover, then correct, then end the episode). Add robot gating or a learned intervention agent once watching time dominates. Switch to takeover-as-signal (RLIF, preference pairs) when the policy should beat the operator.",
+   "why": "SOP: 3 h of on-policy interaction took Base from 0.571 to 0.800, while 80 more hours of demos took it from 0.576 to 0.612. RaC reached 78.3% on shirt-hanging with 5 h of data."
+  },
+  {
+   "situation": "The policy is stochastic, pass@k is clearly above pass@1, and you cannot or will not retrain it.",
+   "use": "Best-of-N with a verifier trained on your own evaluation rollouts (UF-OPS, SeeQ), gated so it runs only when samples disagree (VLA-ATTC), or one-step critic-gradient guidance (QGF).",
+   "why": "UF-OPS raised the real ALOHA mean from 38% to 87% with best-of-10, using a verifier trained on 60 labeled evaluation rollouts per task. SeeQ took pi0.5 from 35.4% to 66.7% on real long-horizon tasks."
+  },
+  {
+   "situation": "Reward is a sparse success bit on a long multi-stage task.",
+   "use": "A learned progress or value model used as potential-based shaping (gamma*Phi(s') - Phi(s)), not as raw reward, with a held-out ground-truth success check.",
+   "why": "Robo-Dopamine drops from 85.0% to 41.3% without policy-invariant shaping. RynnValue: real DSRL averaged 72.5% vs 48.8% with sparse reward."
+  },
+  {
+   "situation": "You need to compare many checkpoints and real trials are slow and noisy.",
+   "use": "A validated stand-in evaluator: a phone-scan physics twin (PolaRiS) or a learned world model (Veo, RoboWorld). Check its ranking against 5-10 checkpoints with paired real trials before trusting it.",
+   "why": "Veo eval: MMRV 0.03 and Pearson 0.88 over 1600+ real trials. PolaRiS: average r = 0.9. RoboWorld: r = 0.989 with RoboArena. Learned evaluators often get rankings right but absolute rates wrong."
+  },
+  {
+   "situation": "Real rollouts are the bottleneck, and you have a strong SFT policy plus an action-conditioned world model for your robot.",
+   "use": "World-model RL or filtered BC on imagined rollouts: short branches from real states, refitting on the policy's own failures, reliability weighting.",
+   "why": "RISE took real pi0.5 from 30-35% to 85-95% with no physical rollouts during improvement. VLA-MBPO shows full-horizon imagined rollouts falling below the SFT base (52.8 vs 54.6), while 2-chunk branches reach 66.8."
+  },
+  {
+   "situation": "You have a rough simulator of the task, 20-50 real demos and a pretrained VLA, and no budget for real-world RL.",
+   "use": "BC-anchored sim PPO (sim-real co-training, then PPO plus a real-data BC loss). Then rebuild real failures as twins (F4R).",
+   "why": "RL-Co took real pi0.5 from 45.9 to 66.2 with zero real RL. F4R raised real OOD success from 26.25% to 90.0%. TacCoRL shows that with no anchor (beta=0), real success falls below co-training alone (45% vs 55%)."
+  },
+  {
+   "situation": "You pretrain a small actor-critic in simulation and can afford 10-60 minutes of on-robot training.",
+   "use": "The recipe from “What Matters for Sim-to-Online RL”: keep or warm-start replay, update the actor once per 20 critic steps with actor LR 1e-5, and restore optimizer and target state. Optionally shape with the sim value (SGFT) or seed replay from a twin (TwinRL).",
+   "why": "It reports near-perfect Franka vision grasping after about ten minutes of real training. A baseline updating the actor every critic step failed to improve on all robots."
+  }
+ ],
+ "timeline": [
+  {
+   "date": "2025-09",
+   "name": "SimpleVLA-RL",
+   "org": "Tsinghua, Shanghai AI Lab et al.",
+   "family": "onpolicy",
+   "note": "DeepSeek-R1-style GRPO on binary success for a tokenized OpenVLA-OFT. LIBERO 91.0 -> 99.1; from one demo per task, 48.9 -> 96.9; a 0% start stays at 0."
+  },
+  {
+   "date": "2025-09",
+   "name": "Evolution Strategies at Scale (LLM)",
+   "org": "Cognizant AI Lab, MIT, UCLA, UT Austin",
+   "family": "blackbox",
+   "note": "Full-parameter ES with a population of 30. Countdown on Qwen-2.5-3B: ES 60.5 vs Dr.GRPO-v 43.8 at equal sample evaluations. Language only, no robot experiments."
+  },
+  {
+   "date": "2025-09",
+   "name": "ResFiT",
+   "org": "Amazon FAR, Stanford, CMU, UC Berkeley",
+   "family": "residual",
+   "note": "Off-policy per-step residual on a frozen ACT. Real humanoid WoollyBallPnP 14% -> 64% after 134 rollouts; about 200x more sample-efficient than a PPO residual in sim."
+  },
+  {
+   "date": "2025-09",
+   "name": "VLAC",
+   "org": "Shanghai AI Laboratory",
+   "family": "reward",
+   "note": "Pairwise progress critic trained on 4,000+ hours of video drives real PPO. Success goes from about 30% to about 90% within 200 real episodes."
+  },
+  {
+   "date": "2025-10",
+   "name": "piRL",
+   "org": "RLinf team (Tsinghua, PKU, CASIA, CMU et al.)",
+   "family": "onpolicy",
+   "note": "PPO for flow VLAs via Flow-Noise and Flow-SDE likelihoods. Few-shot LIBERO pi0 57.6% -> 97.6%; PPO beats GRPO 96.0 vs 90.0."
+  },
+  {
+   "date": "2025-10",
+   "name": "RL-100",
+   "org": "Shanghai Qi Zhi, SJTU, HKU, Tsinghua et al.",
+   "family": "onpolicy",
+   "note": "DPPO-style offline-then-online PPO on a small diffusion policy on real robots: 1000/1000 trials over 8 tasks, at about 14 h of robot time per task."
+  },
+  {
+   "date": "2025-10",
+   "name": "PLD (Probe, Learn, Distill)",
+   "org": "NVIDIA GEAR, CMU, UC Berkeley, UT Austin",
+   "family": "residual",
+   "note": "Residual SAC specialists on frozen VLAs generate recovery data that is distilled back. LIBERO OpenVLA-OFT 91.8 -> 99.2."
+  },
+  {
+   "date": "2025-10",
+   "name": "Ctrl-World",
+   "org": "Stanford, Tsinghua",
+   "family": "worldmodel",
+   "note": "Controllable multi-view video world model. Success-filtered imagined rollouts lift pi0.5-DROID from 38.7% to 83.4% on novel instructions and objects."
+  },
+  {
+   "date": "2025-11",
+   "name": "pi*0.6 / RECAP",
+   "org": "Physical Intelligence",
+   "family": "advbc",
+   "note": "Value function plus advantage-conditioned supervised retraining plus human corrections. T-shirt ablation on identical data: about 60/hr and 96% vs AWR about 30/hr and 91% and PPO about 22/hr and 75% (chart readings)."
+  },
+  {
+   "date": "2025-11",
+   "name": "WMPO",
+   "org": "HKUST, ByteDance Seed",
+   "family": "worldmodel",
+   "note": "GRPO inside a video world model refit on the policy's own failures. MimicGen with 128 real rollouts: 33.6 -> 47.1, vs 33.2 for online GRPO on the same budget."
+  },
+  {
+   "date": "2025-11",
+   "name": "EGGROLL and TD-ES",
+   "org": "Oxford/Mila/NVIDIA; U. Sydney/NVIDIA",
+   "family": "blackbox",
+   "note": "On a single 8192-dim linear-layer benchmark on one GH200, low-rank ES reaches 91% of batch-inference throughput (PPO 34, OpenES 0.41). TD-ES as a stage 2 after PPO: IQM 67.2% -> 85.0% on Isaac Lab Franka tasks."
+  },
+  {
+   "date": "2025-12",
+   "name": "Veo world-sim evaluation and PolaRiS",
+   "org": "Google DeepMind; UW, Princeton, Berkeley, Stanford et al.",
+   "family": "worldmodel",
+   "note": "Two validated evaluators. Veo: MMRV 0.03 and Pearson 0.88 against 1600+ real trials. PolaRiS phone-scan twin: average Pearson r = 0.9 across 6 unseen scenes."
+  },
+  {
+   "date": "2026-01",
+   "name": "SOP",
+   "org": "AgiBot Research, Shanghai Innovation Institute",
+   "family": "hitl",
+   "note": "Fleet-scale online HG-DAgger for pi0.5 on 10 robots. 3 h of on-policy interaction: 0.571 -> 0.800; 80 more hours of demos: 0.576 -> 0.612."
+  },
+  {
+   "date": "2026-02",
+   "name": "RL-Co",
+   "org": "Tsinghua, HIT, PKU, CMU et al.",
+   "family": "simreal",
+   "note": "Sim PPO plus a real-demo BC anchor for VLAs. Real pi0.5 average 45.9 -> 66.2 with zero real-robot RL."
+  },
+  {
+   "date": "2026-02",
+   "name": "RISE",
+   "org": "CUHK, Kinetix AI, HKU et al.",
+   "family": "worldmodel",
+   "note": "Compositional video world model plus value model drive advantage-conditioned pi0.5 training with no physical rollouts. Real: 35->85%, 30->85%, 35->95% (20 trials each)."
+  },
+  {
+   "date": "2026-02",
+   "name": "CoVer",
+   "org": "Stanford, NVIDIA",
+   "family": "testtime",
+   "note": "Contrastive verifier over rephrasings times action samples on a frozen pi0. SIMPLER red-team ID/OOD 41.5/29.7 -> 65.5/62.0, beating pi0 fine-tuned on the same augmented data (44.0/48.7)."
+  },
+  {
+   "date": "2026-03",
+   "name": "Golden Ticket",
+   "org": "RAI Institute, ASU, Northeastern",
+   "family": "blackbox",
+   "note": "Random search over one constant noise vector for a frozen generative policy. Real Franka pick 80 -> 98% on 50 held-out episodes after 150 search episodes."
+  },
+  {
+   "date": "2026-03",
+   "name": "Robometer",
+   "org": "USC, UT Dallas, MIT, UW, Ai2, NVIDIA",
+   "family": "reward",
+   "note": "General reward model trained with trajectory comparisons on over 1M trajectories. Real DSRL on a frozen pi0: 20% -> 85% in about 40 min, with 0 false-positive successes vs RoboReward's 45."
+  },
+  {
+   "date": "2026-03",
+   "name": "Simple Recipe Works",
+   "org": "UT Austin, UCLA, NTU, Sony AI",
+   "family": "onpolicy",
+   "note": "Sequential GRPO with a rank-32 LoRA forgets little. LIBERO-Spatial AVG 81.2 with forgetting 0.3; full fine-tuning gives AVG 7.3 with forgetting 40.9."
+  },
+  {
+   "date": "2026-04",
+   "name": "Generalist GEN-1",
+   "org": "Generalist AI",
+   "family": "industry",
+   "note": "Pretraining on 500k+ hours of wearable data, then about 1 h of robot data per task plus undisclosed RL. Reports 99% average on 3 charted tasks vs 64% for fine-tuned GEN-0."
+  },
+  {
+   "date": "2026-05",
+   "name": "EXPO-FT",
+   "org": "Stanford",
+   "family": "offpolicy",
+   "note": "Edit policy plus argmax-Q over pi0.5 proposals. 8 real tasks: an average of 20.5/30 -> 30/30, with an average of 19.1 min of online robot data."
+  },
+  {
+   "date": "2026-05",
+   "name": "Siemens factory case study",
+   "org": "Siemens",
+   "family": "industry",
+   "note": "A pure-SFT DAgger-style loop on pi0.5 in a real factory: 2,535 factory episodes plus about 900 lab episodes. Final success 'did not meet expectations'."
+  },
+  {
+   "date": "2026-06",
+   "name": "SCORE",
+   "org": "UW WEIRD Lab, Amazon FAR",
+   "family": "residual",
+   "note": "Support-constrained noise steering trained only in a digital twin. Real success over 8 dexterous tasks 37.8 -> 89.9, with zero real-world RL."
+  },
+  {
+   "date": "2026-06",
+   "name": "ENPIRE",
+   "org": "NVIDIA GEAR, CMU, UC Berkeley",
+   "family": "blackbox",
+   "note": "Coding agents run evolutionary keep-what-works search over training recipes on real robots. Going from 1 to 8 agent/robot pairs cut the time to near-perfect pin insertion (target: 100% over a 50-episode window) from more than 1.5 h to about 40 min."
+  },
+  {
+   "date": "2026-07",
+   "name": "Sunday ACT-2 Preview",
+   "org": "Sunday Robotics",
+   "family": "industry",
+   "note": "99.1% +/- 0.3% SE over 785 laundry attempts in unseen homes. The generalization gap after identical post-training shrinks from 82 to 0 points with full pretraining."
+  },
+  {
+   "date": "2026-07",
+   "name": "RoboWorld and DEED",
+   "org": "KAIST/Config; HIVE Robots/DTU",
+   "family": "worldmodel",
+   "note": "RoboWorld neural evaluator: Pearson r = 0.989 vs the RoboArena leaderboard. Separately, a low-budget RECAP replication (DEED) regressed from 42% to 22% in round 2."
+  },
+  {
+   "date": "2026-08",
+   "name": "Q-Planning",
+   "org": "Georgia Tech",
+   "family": "testtime",
+   "note": "Frozen BC proposals plus a critic refit each round. Real stack-cups 40% -> 90% and insert-wallet 25% -> 80%; full-policy SFT on successes stalled at 55% and 30%."
+  },
+  {
+   "date": "2026-08",
+   "name": "Dyna: deployment is the eval",
+   "org": "Dyna Robotics",
+   "family": "industry",
+   "note": "Fleet logging plus an SOP-step auto-labeler plus targeted retraining. Napkins went from 35/hr at 75% quality (Dyna-1) to 95/hr at 93% (Dyna-2), with no ablation isolating the loop."
+  },
+  {
+   "date": "2026-09",
+   "name": "Dissecting advantage-guided post-training",
+   "org": "SJTU, Xiaomi Robotics",
+   "family": "advbc",
+   "note": "Controlled real-robot ablation from one SFT checkpoint: SFT 0.11, DAgger 0.45, hard filter 0.50, continuous weighting 0.74."
+  },
+  {
+   "date": "2026-09",
+   "name": "Real-Time EXPO-FT, F4R, Decade of BO for control",
+   "org": "Stanford; NTU/XJTU/Dexmal; RWTH/UTN/TUM",
+   "family": "residual",
+   "note": "Real-Time EXPO-FT: pi0.5 42% -> 97% on 4 dynamic tasks in 10 min. F4R failure-driven twins: real OOD 26.25% -> 90.0%. Decade of BO for control counts 110 hardware BO papers."
+  }
+ ],
+ "lessons": [
+  {
+   "lesson": "These methods select and amplify behavior the base policy already has. They rarely create new behavior from nothing. Pick your method according to how often the base succeeds.",
+   "evidence": "SimpleVLA-RL: 0-demo RoboTwin SFT stays at 0 -> 0. PDE: action noise, Robometer and RND all stay at 0 from a 0% start. From a 1-demo BC base at 33.5% on LIBERO-Long (zero-shot 0%), noise steering (DSRL) stays at 33.5, while full-chunk editing (MiDAS) leaves the base's support and reaches 91.2. The Golden Ticket paper notes search can only select or amplify existing behavior."
+  },
+  {
+   "lesson": "Keep the big model frozen or tightly anchored, and train something small. Naive full fine-tuning collapses or forgets.",
+   "evidence": "ADEPT: with standard PPO at LR 1e-3, 0/5 seeds reach ADR 50 (all collapse at ADR 20), while the low-LR recipe gets 5/5. PAC-ACT drops to 72.7% without its KL anchor. Sequential GRPO with LoRA gives AVG 81.2 vs 7.3 with full fine-tuning. FlowDAgger keeps held-out skills at 0.88 vs 0.02 for SFT. TacCoRL with beta=0 falls to 45%, below co-training alone (55%)."
+  },
+  {
+   "lesson": "The bottleneck has moved from the optimizer to the signal. Holding the learner fixed and changing only the reward, value or weighting often matters more than changing the algorithm.",
+   "evidence": "SARM2: same residual RL, and the reward source alone decides whether the loop climbs (Shorts Crumpled 8/12), plateaus (Robometer-FT 5/12) or regresses (sparse 2/12). ViVa value 80.0% vs VLM value 63.3% on the same RECAP pipeline. Dissecting advantage-guided post-training: continuous weights 0.74 vs hard filter 0.50. RoboReward: offline reward accuracy correlates with RL success at r=0.83."
+  },
+  {
+   "lesson": "On real robots, off-policy methods that reuse every transition use far less robot time than on-policy methods. On-policy methods dominate where cheap parallel simulation exists.",
+   "evidence": "ResFiT: 200k vs 40M sim steps against a PPO residual (about 200x). EXPO-FT: an average of 19.1 min of online data per task. AutoSERL: 50/50 in 8-45 min from one demo. By contrast, RL-100 used about 14 h of robot time per task, and FPO++ locomotion used about 147M-197M sim steps."
+  },
+  {
+   "lesson": "On-policy data, meaning the states the current policy actually reaches, beats more offline demos once imitation plateaus.",
+   "evidence": "SOP: 3 h of on-policy interaction 0.571 -> 0.800 vs 80 extra demo hours 0.576 -> 0.612. RL4VLA: SFT plateaued at 0.781 and PPO reached 0.938. PAC-ACT: doubling demos from 800 to 1600 moved BC only from 60% to 66%. VT-Refine (sim, visuo-tactile): going from 30 to 50 demos moved BC only from 0.48 to 0.57, while sim RL from 30 demos took the real policy from 0.50 to 0.85."
+  },
+  {
+   "lesson": "A strong pattern: train on a convenient proxy first, then hill-climb the exact metric in a separate stage.",
+   "evidence": "EvolSAC: SAC on a shaped reward, then SNES on the competition score; swing-up 2.085 s -> 1.135 s where more SAC reached 1.565 s. TD-ES after PPO: IQM 67.2% -> 85.0%. Q-Planning: critic-only rounds on a frozen BC policy reach 90% where full-policy SFT on successes stalls at 55%."
+  },
+  {
+   "lesson": "Any learned judge (reward model, world model, preference loss) gets exploited under optimization. Use shaping, anchors, short horizons and an independent success check.",
+   "evidence": "Robo-Dopamine: raw progress reward drops a 3-task average from 85.0% to 41.3%. Plain DPO on correction pairs collapses to 13% on PACK (FlowPRO). Full-horizon world-model rollouts fall below SFT (VLA-MBPO 52.8 vs 54.6). A demo-trained world model drove PlayWorld's policy to 25%, below its 30% base. GPT-5 as reward: 42% of failures come from hallucinated success, vs 9% for SOLE-R1."
+  },
+  {
+   "lesson": "Human time is the real budget. When and how a correction is collected changes results as much as how many corrections you collect.",
+   "evidence": "TimelyDAgger at a matched expert budget: 42% with immediate takeover vs 78% with takeover at step 80. UniIntervene cut the intervention rate from 34.3% to 14.6% while success rose from 81% to 88%. PAKT reports 62%-86% fewer cumulative interventions than HIL-SERL. Skill-Space Shooting's machine corrector beat matched extra human demos on all 4 tasks."
+  },
+  {
+   "lesson": "Average success hides regressions in speed, behavior modes, individual tasks and task handoffs. Report those too.",
+   "evidence": "RECAP's ablation: AWR keeps 91% success but about 30/hr vs about 60/hr. BMD: residual RL keeps success near 1.00 but only 1.00/24 modes. Uncertainty-gated exploration noise: multi-task PPO collapses individual tasks, and no arm beats the BC baseline of 0.648. Foresight: subtasks reach 98.4/92.2/99.2 but the full task stays at 54.5%. HELP: recovery data made rollouts slow and loopy until segmentation raised throughput (e.g. 25 -> 42 tasks/hr)."
+  },
+  {
+   "lesson": "Small evaluations overstate gains near the ceiling. Separate search from evaluation and report confidence intervals.",
+   "evidence": "EXPO-FT: 30/30 is still consistent with a true success rate of roughly 88-90% at 95% confidence. Golden Ticket: the SimplerEnv 63.0 -> 89.5 figure uses the best of 9 tickets measured on held-out episodes, while picking by search reward gives only +14.8 points. DEED's round-1 gain (32% -> 42%) had overlapping CIs. R2S-Eval notes 20 binary trials cannot separate strong checkpoints."
+  }
+ ],
+ "industry_recipes": [
+  {
+   "org": "Physical Intelligence",
+   "recipe": "pi*0.6 / RECAP. Deploy the VLA, have humans label every episode success or failure, and let teleoperators intervene (their actions are forced to 'positive'). Fit a distributional value on negative steps-to-success and compute n-step advantages (N=50). Binarize them into an 'Advantage: positive/negative' text token, retrain the whole flow VLA with its supervised loss (token dropped 30% of the time for CFG), and restart each round from the pretrained checkpoint. Also RL Token: a small TD3-style actor-critic on a compressed token from the frozen pi0.6, penalized for straying from the VLA's own chunk.",
+   "evidence": "T-shirt folding on identical data: RECAP about 60/hr and 96% vs AWR about 30/hr and 91% vs PPO about 22/hr and 75% (chart readings). Espresso about 11% -> about 92%; 13 hours of continuous espresso operation. RL Token: screw critical-phase success 20% -> 65%.",
+   "disclosed": "Algorithm, ablation and hyperparameters are published (arXiv 2511.14759). No code. Numbers are mostly bar-chart readings, and the text's iteration claims do not clearly match the charts. Human labeling, interventions and resets are heavy, and the authors say the system is not fully autonomous."
+  },
+  {
+   "org": "Dyna Robotics",
+   "recipe": "A learned video progress/reward model (0 to 1; dips mark mistakes) acts as evaluator, failure finder and data filter. Flagged failure states direct targeted recovery-data collection, then retraining (active learning). At customer sites, 'deployment is the eval': fleet-wide logging (>1 TB/day), an auto-labeler that grades each SOP step against the customer's quality bar, human review only for hard cases, and retraining on targeted slices. A separate hardware-health monitor keeps gripper wear from being mistaken for policy regression.",
+   "evidence": "DYNA-1: 850+ napkins in one 24h run with zero interventions at 99.4% success, but only 75% of folds at production grade. Talk: about 80% -> 99.4% across four 24h trials. Din Tai Fung: 35/hr at 75% quality (Dyna-1) -> 95/hr at 93% (Dyna-2). DYNA-1i: about 40 shirts/hour, 20 consecutive folds in unseen venues.",
+   "disclosed": "No update rule, no reward-model accuracy, no RL objective and no ablation isolating the loop. Dyna credits Dyna-2 gains to pretraining, new capabilities, tooling and systems together. The talk's date and trial protocol are unverified."
+  },
+  {
+   "org": "Generalist AI",
+   "recipe": "GEN-1: trained from scratch on 500k+ hours of human wearable interaction data with no robot data in pretraining, then about 1 hour of robot data per task. Five named post-training ingredients: pretraining advances, post-training techniques, learning from experience (RL), multimodal human guidance and inference-time techniques.",
+   "evidence": "99% average on three charted tasks vs 64% for fine-tuned GEN-0 and 19% for GEN-0 from scratch. Box assembly in 12.1 s vs about 34 s for GEN-0 and pi0.",
+   "disclosed": "Closed blog. No algorithm, ablation or trial counts. The 64 -> 99 comparison bundles new pretraining, data, compute and algorithms, so none of it can be credited to RL."
+  },
+  {
+   "org": "Sunday Robotics",
+   "recipe": "ACT-2: pretrain on glove-based sensorized human data, then hill-climb reliability in-house on Memo robots. Run repeatedly, surface failures, post-train so the model learns from recoveries. Proposes the 'Solve' reporting standard: performance, declared scope, adaptation cost.",
+   "evidence": "Laundry: 99.1% +/- 0.3% SE over 785 attempts in unseen homes with one fixed checkpoint and no per-home adaptation. Generalization gap after identical post-training: 82 points with 0% pretraining, 0 with 100% (50 evals each).",
+   "disclosed": "The post-training update rule is undisclosed (deferred to an unpublished technical post). No ablation separates pretraining from the loop. Some garment categories have small samples (n=19, n=7)."
+  },
+  {
+   "org": "Figure AI",
+   "recipe": "Helix logistics: no RL. More in-domain demos plus architecture changes aimed at observed failures (stereo, vision memory, state history, force input, a 50% larger decoder).",
+   "evidence": "Over three months, barcode-orientation success went from about 70% to about 95% and handling time from about 5.0 s to 4.05 s. 10h -> 60h of demos: 6.84 s / 88.2% -> 4.31 s / 94.4%.",
+   "disclosed": "Blog only. Ablations appear in a figure with no trial counts or error bars. It serves as the demos-plus-architecture baseline that post-training loops must beat."
+  },
+  {
+   "org": "Siemens",
+   "recipe": "A pure-SFT loop on pi0.5 via OpenPI in a real factory: teleoperate under constraints, hand-review every episode, re-fine-tune the base on all data, evaluate, collect targeted recovery demos, and relax constraints as a curriculum (a 70% gate per round).",
+   "evidence": "2,535 factory episodes (about 10 h) plus about 900 lab episodes. Final success 'did not meet expectations'. In unconstrained trials, 65% of failed episodes left bag contents on the product.",
+   "disclosed": "A candid 5-page negative result with named root causes (wrist-camera angle, transparent bags, occlusion, contact). No overall success rate is reported."
+  },
+  {
+   "org": "AgiBot",
+   "recipe": "SOP: 10 robots run pi0.5, humans take over on failure, episodes stream to a cloud learner that publishes new weights every 25 steps (HG-DAgger or RECAP as the loss). LWD: a 16-robot fleet logs everything with sparse success labels, and a learner runs off-policy distributional IQL-style RL over offline plus fleet data.",
+   "evidence": "SOP+HG-DAgger: Grocery 0.61 -> 0.94, Laundry 0.58 -> 0.96, Box Assembly 0.70 -> 0.98. LWD over 8 real tasks with about 60 fleet robot-hours: SFT 0.76 -> 0.95 (RECAP 0.85, HG-DAgger 0.85).",
+   "disclosed": "arXiv papers with methods. No code for SOP (project page 404). LWD does not disclose offline buffer size, intervention counts or compute. SOP figure and text disagree on one number (0.895 vs 0.800)."
+  },
+  {
+   "org": "Skild AI",
+   "recipe": "Physical Self-Play: sparse-reward competitive self-play RL in Isaac Sim (robot soccer, objective 'score', opponents are recent copies of the same policy), transferred to a real humanoid. Pitched as post-training to get past the ceiling of human-data pretraining.",
+   "evidence": "140 simulated years of play, then a real humanoid match shown on video. No metrics.",
+   "disclosed": "No quantitative results, baselines or algorithm. The post does not say the policy was initialized from S1."
+  },
+  {
+   "org": "1X Technologies",
+   "recipe": "A learned action-conditioned video world model with a success-value head, used as a repeatable evaluator to rank checkpoints and architectures before real trials, because real scenes drift and policies degrade over days.",
+   "evidence": "Claims that 70% alignment picks the better of two policies 15 points apart 90% of the time. The 2024 version reports only token-level baselines (GENIE_138M 8.79 CE loss).",
+   "disclosed": "Blogs only. The derivation of the alignment claim is not shown, and there is no published link to real success rates."
+  }
+ ],
+ "classic_inside_modern": "Perturb-and-score search and reward-weighted averaging did not disappear. Most of it now runs as an inner loop inside newer systems.\n\n1) Best-of-N with a verifier is one step of random search. You sample N candidates from the policy, score them and keep the argmax. This is the core of IDQL, V-GPS, UF-OPS, SeeQ, CoVer, RoboMonkey and TACO. EXPO-FT and Real-Time EXPO-FT use the same argmax over base and edited proposals, both for acting and inside the TD target (EMaQ-style). QT-Opt picks actions with CEM over a critic, and VLA-ATTC replaces argmax with a knockout tournament.\n\n2) MPPI/PI2 exponential weighting shows up as 'softmax-Q-weighted averages'. Q-Planning executes a softmax-Q-weighted average of 32-64 proposal chunks, which is one MPPI step. SAILOR does MPPI residual search in a learned world model, and Simulator-in-the-loop cloth refinement runs MPPI in a GPU cloth simulator around the base plan. The Zero-order optimization primer shows MPPI is a natural-gradient step with step size 1/lambda, and that choosing exponential, rank or top-K weights gives MPPI, CMA-ES-like or CEM-like updates.\n\n3) The KL-regularized closed form pi_ref * exp(A/beta) is reward-weighted regression, and PI2's weights are the same softmax. AWR, CRR, ARFM, IG-RFT and the soft exponential weights of Dissecting advantage-guided post-training use it directly. Filtered BC and rejection sampling (Hi-ORS, SOAR, RoboCat) are RWR with 0/1 weights. RECAP and CFGRL reach pi_ref * p(I|A)^w through an advantage token plus classifier-free guidance. QAM trains a flow toward pi_beta * exp(tau*Q).\n\n4) ES-style fitness shaping appears in critic-free policy gradients. GRPO's group z-score, (R - mean)/std, is the same normalization ES at Scale applies to population rewards. ARS divides by return std, and OpenAI-ES and TD-ES use centered ranks. The difference is that GRPO perturbs actions per token or step and needs log-probs, while ES perturbs weights once per episode.\n\n5) Noise-space search is black-box search with the generative policy as the decoder. Golden Ticket runs random search or CEM over one noise vector. Diffusion-ES mutates by re-noising and denoising. DSRL, SCORE, PSS and UniSteer replace search with an RL actor over the same noise space. PSS keeps only the top-k sensitive directions found by finite differences, and INSPO and SDN pick noise without training.\n\n6) Black-box search at the outer level. ENPIRE runs evolutionary keep-what-works search over whole training recipes on real robots, following Eureka's evolutionary search over reward code. Refinery uses a GP plus Bayesian optimization to pick PPO start states. VLA Grounder is compared against the evolutionary prompt optimizer GEPA. CMA-ES-IG learns user preferences from rankings. HandelBot's per-finger refinement is a non-learned, error-driven iterative correction applied before residual RL.\n\n7) Black-box search as a second stage and as the default for small knobs. EvolSAC (SNES) and TD-ES climb the exact metric after SAC or PPO plateaus. BO remains the default for fewer than about 10 real-world knobs: 110 hardware papers, 57 of them vanilla BO (Decade of BO for control).\n\n8) Shooting and tree search with world models. GPC, IRASim, Latent Policy Steering and DreamSteer rank sampled chunks by imagined outcomes (random shooting). VLA-Reasoner, SVA and tau0-VLA use MCTS or beam search with a frozen VLA as the prior.",
+ "family_tree_ascii": "TEXTBOOK RL IDEAS  ->  classic methods  ->  2025-26 methods\n|\n+-- Perturb, score, reweight (finite differences, ES, CEM, CMA-ES, PI2/MPPI, BO, QD)\n|   +-- classic: Aibo gait 2004, PoWER 2008, PI2 2010, IT&E 2014, OpenAI-ES 2017, ARS 2018\n|   +-- 2025-26: ES at Scale, EGGROLL, TD-ES, Golden Ticket, ENPIRE, Decade of BO for control\n|   `-- hidden inside: best-of-N verifiers, CEM/MPPI planners, noise-space search\n|\n+-- Likelihood-ratio policy gradient (REINFORCE -> TRPO/GAE -> PPO; group baselines)\n|   +-- classic: DAPG 2017, DDPO 2023, DPPO and FLaRe 2024\n|   `-- 2025-26: SimpleVLA-RL, piRL, RL-100, RLinf-VLA, FPO++, Temporal GRPO, PDE, ADEPT\n|\n+-- Bellman backups + off-policy replay (Q-learning, SAC, CQL/IQL, RLPD)\n|   +-- classic: DDPGfD 2017, QT-Opt 2018, AWAC/CQL 2020, IQL 2021, RLPD/Cal-QL 2023\n|   +-- classic: SERL and HIL-SERL 2024\n|   +-- 2025-26: Q-chunking, QAM, EXPO-FT, RL Token, LWD, ALOE, RAPolicy, AutoSERL\n|   `-- frozen-base add-ons (residual / edit / latent-noise steering)\n|       +-- classic: Residual RL 2018, PLAS 2020, ResiP and Policy Decorator 2024\n|       `-- 2025-26: DSRL, ResFiT, PLD, RFS, DICE-RL, SCORE, MiDAS, Real-Time EXPO-FT\n|\n+-- KL-regularized improvement as supervised learning (RWR/AWR, filtered BC, CFG)\n|   +-- classic: RWR 2007, AWR 2019, CRR 2020, RoboCat 2023, SOAR 2024\n|   `-- 2025-26: CFGRL, pi*0.6/RECAP, STEAM, CLIFT, DEED, Dissecting advantage-guided post-training; curation CUPID, RoboDrop\n|\n+-- Imitation with on-policy labels (DAgger, HG-DAgger, IWR, RLIF, PVP)\n|   `-- 2025-26: RaC, SOP, FlowPRO, FlowDAgger, HELP, TimelyDAgger, UniIntervene, PAKT\n|\n+-- Greedy selection at test time (argmax Q over samples, guidance, MPC, MCTS)\n|   +-- classic: IDQL 2023, V-GPS 2024, ITPS 2024\n|   `-- 2025-26: RoboMonkey, CoVer, UF-OPS, QGF, FASTER, Q-Planning, SeeQ, CoRe\n|\n+-- Reward shaping and learned judges (potential shaping, preferences, classifiers)\n|   +-- classic: Ng 1999, human preferences 2017, VICE-RAQ 2019, VIP 2022, GVL 2024\n|   `-- 2025-26: VLAC, Robo-Dopamine, RoboReward, Robometer, SOLE-R1, SARM2, SVM, RynnValue\n|\n+-- Model-based RL / Dyna and evaluation (Dreamer, MBPO, real-to-sim twins)\n|   +-- classic: Dyna 1991, DayDreamer 2022, UniSim 2023, SIMPLER 2024\n|   `-- 2025-26: WMPO, Ctrl-World, Veo eval, PolaRiS, WoVR, RISE, VLAW, RoboWorld\n|\n+-- Sim-to-real (domain randomization, digital twins, BC-anchored sim RL)\n|   +-- classic: DR + PPO 2017, RialTo 2024, SGFT 2025-02\n|   `-- 2025-26: VT-Refine, RL-Co, TwinRL, What Matters for Sim-to-Online RL, generative worlds, TacCoRL, F4R\n|\n`-- Industry loops (deploy -> grade -> curate -> retrain, some RL)\n    +-- classic: DAgger 2011, self-play (AlphaGo Zero), 1X World Model 2024\n    `-- 2025-26: DYNA-1 to Dyna-2 flywheel, pi*0.6, GEN-1, Sunday ACT-2, SOP/LWD, Skild",
+ "open_problems": [
+  "Attribution in headline results: GEN-1, Sunday ACT-2 and Dyna-2 bundle new pretraining with the post-training loop, and none ablates the two. Nobody can yet say how much of a 64 -> 99 or 75% -> 93% jump comes from hill climbing.",
+  "The 95-99% regime needs better measurement. 30/30 is consistent with about 88-90%, 20 binary trials cannot separate strong checkpoints, many results are bar-chart readings or single seeds, and some papers change numbers across versions or copy baseline rows. There is no shared, reset-realistic real-robot benchmark with matched budgets and confidence intervals.",
+  "No matched comparison across families: on-policy vs off-policy vs residual vs advantage-weighted BC vs test-time search vs world-model RL at equal human effort and robot time. Most papers compare against their own starting SFT policy or a few in-family baselines.",
+  "How far a policy can be optimized against a learned judge before the judge breaks: no paper in this list measures reward-model, verifier or world-model exploitation adversarially (the 'No Free Checker' survey), and hallucination detectors (HaWMPO, Sword) are only partial.",
+  "Starting from 0% without humans: PDE and LfH use large VLMs and are shown only in simulation or small real tests. Noise steering and search are capped by the base's support, and no simple test tells a practitioner in advance which regime they are in.",
+  "PPO vs GRPO and critic vs critic-free: three controlled studies favor a critic, yet the most-copied VLA recipe is critic-free GRPO. The dependence on policy type, reward density and budget is not understood.",
+  "Critic pretraining and anchoring: Cal-QL, ConRFT and FORCE say calibrated critic pretraining helps, while WSRL, IPE and Q2RL say naive pretraining adds little. It is also unknown how far bounded edits and L2-anchored actors can move from the base policy.",
+  "Regression and forgetting across rounds and tasks: DEED dropped from 42% to 22% in round 2, multi-task PPO collapses individual tasks (Uncertainty-gated exploration noise), ES updates cause forgetting in LLMs, and only PLD shows a distillation flywheel back into the base at scale.",
+  "Objectives beyond success: recovery data can slow policies (HELP), AWR keeps success but halves throughput (RECAP), and RL can collapse onto one behavior mode (BMD). Speed, quality and mode coverage are rarely optimized or reported together.",
+  "Removing the human: value-model and VLM interveners (UniIntervene, Skill-Space Shooting, AutoSERL, FIND) work on specific tasks. Whether they generalize, and what happens when they are confidently wrong, is untested. Most HITL results use one operator.",
+  "Contact, deformables and tactile sensing remain weak points for both video world models (contact hallucination per PolaRiS) and rigid-body twins. Real-sim ranking correlation for checkpoint selection can be as low as r=0.7625 (F4R).",
+  "Whether weight-space ES (ES at Scale, EGGROLL) works on real VLA or diffusion robot policies, where episodes are stochastic and far more expensive than greedy LLM decoding. No robot results exist yet."
+ ],
+ "idea_matrix": {
+  "Perturb and score": {
+   "classic": "Finite differences, ES, CEM, CMA-ES, Bayesian optimization",
+   "core": [
+    "blackbox"
+   ],
+   "some": [
+    "residual",
+    "testtime",
+    "industry"
+   ]
+  },
+  "Reward-weighted averaging": {
+   "classic": "RWR, PI² / MPPI, AWR. Filtered BC is the 0/1 version",
+   "core": [
+    "blackbox",
+    "advbc"
+   ],
+   "some": [
+    "offpolicy",
+    "testtime",
+    "worldmodel"
+   ]
+  },
+  "Likelihood-ratio policy gradient": {
+   "classic": "REINFORCE → TRPO/GAE → PPO; GRPO group baselines",
+   "core": [
+    "onpolicy"
+   ],
+   "some": [
+    "reward",
+    "worldmodel",
+    "simreal"
+   ]
+  },
+  "Bellman backups on replay": {
+   "classic": "Q-learning, DDPG/TD3, SAC, RLPD; chunk critics",
+   "core": [
+    "offpolicy",
+    "residual"
+   ],
+   "some": [
+    "advbc",
+    "hitl",
+    "testtime"
+   ]
+  },
+  "Conservative / in-sample critics": {
+   "classic": "CQL, IQL, Cal-QL, anti-exploration",
+   "core": [
+    "offpolicy"
+   ],
+   "some": [
+    "advbc",
+    "testtime"
+   ]
+  },
+  "Residual learning on a frozen base": {
+   "classic": "Residual RL, ResiP, Policy Decorator; noise steering",
+   "core": [
+    "residual"
+   ],
+   "some": [
+    "offpolicy",
+    "hitl",
+    "simreal"
+   ]
+  },
+  "On-policy labels": {
+   "classic": "DAgger, HG-DAgger, intervention-weighted regression, RLIF",
+   "core": [
+    "hitl"
+   ],
+   "some": [
+    "advbc",
+    "worldmodel",
+    "industry"
+   ]
+  },
+  "Greedy selection & guidance": {
+   "classic": "Best-of-N, V-GPS, classifier-free guidance, MPC/MCTS",
+   "core": [
+    "testtime"
+   ],
+   "some": [
+    "offpolicy",
+    "advbc",
+    "worldmodel"
+   ]
+  },
+  "Reward shaping & learned judges": {
+   "classic": "Potential shaping, preferences, success classifiers, progress models",
+   "core": [
+    "reward"
+   ],
+   "some": [
+    "onpolicy",
+    "offpolicy",
+    "industry"
+   ]
+  },
+  "Model-based RL / Dyna": {
+   "classic": "Dyna, Dreamer, MBPO, action-conditioned video models",
+   "core": [
+    "worldmodel"
+   ],
+   "some": [
+    "testtime",
+    "industry"
+   ]
+  },
+  "Domain randomization & twins": {
+   "classic": "DR + PPO, real-to-sim scans, BC-anchored sim RL",
+   "core": [
+    "simreal"
+   ],
+   "some": [
+    "residual",
+    "worldmodel"
+   ]
+  }
+ }
+}

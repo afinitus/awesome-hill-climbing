@@ -1,0 +1,187 @@
+{
+  "schema": 1,
+  "chapter": "ch07",
+  "method": "dsrl-pss8-res-hard_s2",
+  "robot": "so101",
+  "variant": "hard",
+  "setting": "sim",
+  "base": {
+    "id": "base_v1_gaussian",
+    "sr": 0.29296875,
+    "ci": [
+      0.2406059495949574,
+      0.35145321260231976
+    ],
+    "k": 75,
+    "n": 256,
+    "init_set": "stress"
+  },
+  "final": {
+    "sr": 0.515625,
+    "ci": [
+      0.4546277053336087,
+      0.5761602824250874
+    ],
+    "k": 132,
+    "n": 256,
+    "init_set": "stress",
+    "init_set_version": "v1"
+  },
+  "budget": {
+    "robot_minutes": {
+      "search": 786.9116666666666,
+      "train": 1548.9216666666666,
+      "eval": 88.53333333333333
+    },
+    "human_minutes": {
+      "demos": 0.0,
+      "labels": 0.0,
+      "takeovers": 0.0,
+      "resets": 0.0,
+      "annotation": 0.0
+    },
+    "compute": {
+      "cpu_hours": 0.03760001249999999,
+      "gpu_hours": 0.0,
+      "wall_minutes": 0.9451146312500592
+    }
+  },
+  "extra": {
+    "arm": "hybrid",
+    "variant": "hard",
+    "seed": 2,
+    "curve": [
+      {
+        "episodes": 0,
+        "train_minutes": 1.235,
+        "k": 39,
+        "n": 64
+      },
+      {
+        "episodes": 128,
+        "train_minutes": 29.486666666666668,
+        "k": 39,
+        "n": 64
+      },
+      {
+        "episodes": 256,
+        "train_minutes": 57.70333333333333,
+        "k": 29,
+        "n": 64
+      },
+      {
+        "episodes": 384,
+        "train_minutes": 82.88666666666667,
+        "k": 12,
+        "n": 64
+      },
+      {
+        "episodes": 512,
+        "train_minutes": 108.50166666666667,
+        "k": 30,
+        "n": 64
+      }
+    ],
+    "chosen": 1,
+    "train_rollouts": {
+      "k": 111,
+      "n": 512,
+      "sr": 0.216796875,
+      "ci": [
+        0.1832834802293723,
+        0.25452843722745944
+      ]
+    },
+    "method": "dsrl-pss8-res-hard_s2",
+    "final": {
+      "k": 132,
+      "n": 256,
+      "sr": 0.515625,
+      "ci": [
+        0.4546277053336087,
+        0.5761602824250874
+      ]
+    },
+    "eval_successes": "1001011011111111110111100001011011111001010110000101000000101111100011101111101001011100011000111111010100011110001000011000100011110000111110100100010100011001000011111001111010000000011110000110110100101010101100101101011010011010101001010000111010111010",
+    "vs_base": {
+      "p": 2.427174154689865e-10,
+      "only_a": 14,
+      "only_b": 71,
+      "diff_ci": [
+        0.16015625,
+        0.2890625
+      ]
+    },
+    "vs_zero": {
+      "p": 1.0,
+      "only_a": 0,
+      "only_b": 0,
+      "diff_ci": [
+        0.0,
+        0.0
+      ]
+    },
+    "robot_minutes": {
+      "search": 51.67166666666667,
+      "train": 108.50166666666667,
+      "eval": 88.53333333333333
+    },
+    "eval_steps": 23103,
+    "actor_file": "runs/ch07_full/actors/dsrl-pss8-res-hard_s2.npz",
+    "pilot_robot_minutes": {
+      "search": 735.24,
+      "train": 1440.42
+    }
+  },
+  "git_sha": "e3195bc",
+  "timestamp": "2026-09-30T23:30:39",
+  "config": {
+    "robot": "so101",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "arms": [
+      "dsrl",
+      "pss",
+      "hybrid",
+      "residual"
+    ],
+    "hard_arms": [
+      "pss",
+      "hybrid",
+      "residual"
+    ],
+    "subspace": 0,
+    "hybrid": false,
+    "residual_only": false,
+    "variant": "v1",
+    "pss_k": 8,
+    "noise_scale": 1.5,
+    "res_scale": 0.2,
+    "train_episodes": 512,
+    "episodes_per_round": 64,
+    "utd": 0.5,
+    "eval_every": 128,
+    "hidden": 256,
+    "batch_size": 256,
+    "lr": 0.0003,
+    "actor_lr": 0.0001,
+    "gamma": 0.97,
+    "n_step": 0,
+    "tau": 0.005,
+    "alpha": 0.003,
+    "tune_alpha": false,
+    "warmup_episodes": 128,
+    "search_n": 64,
+    "eval_n": 256,
+    "support_salts": 16,
+    "pss_states": 64,
+    "n_workers": 4,
+    "pilot_costs": true,
+    "media": true,
+    "replot": "",
+    "quick": false
+  }
+}

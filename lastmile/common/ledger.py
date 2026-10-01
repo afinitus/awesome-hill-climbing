@@ -223,7 +223,7 @@ class Ledger:
                     "wall_minutes": self.wall_minutes,
                 },
             },
-            "extra": self.extra,
+            "extra": _portable(self.extra),
             "git_sha": git_sha(),
             "timestamp": datetime.now().isoformat(timespec="seconds"),
             "config": _portable(self.config),

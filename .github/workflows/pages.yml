@@ -1,0 +1,51 @@
+# Builds the explainer page "Climbing the Nines" from data/ and deploys it to GitHub Pages:
+# https://afinitus.github.io/awesome-hill-climbing/
+# The page is regenerated on every push to main, so it never drifts from the list.
+# One-time setup by the maintainer: Settings -> Pages -> Source: "GitHub Actions".
+name: pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+
+      # tools/build_site.py needs only the standard library, so skip installing the course dependencies.
+      - name: Build site/index.html from data/
+        run: uv run --no-project python tools/build_site.py
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

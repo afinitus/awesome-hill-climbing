@@ -28,7 +28,7 @@ Papers mirrored (ids from data/papers.csv)
     C130 Zero-order optimization primer (2025), for the contrast with algos/02_cem_cmaes_pi2.py.
 
 Run
-    uv run python algos/02b_bo.py --quick         # smoke test
+    uv run python algos/02b_bo.py --quick         # smoke test; results to runs/ch02_quick/
     uv run python algos/02b_bo.py                 # BO and Sobol x 3 seeds, then the comparison plots
     uv run python algos/02b_bo.py --acq logei --batch 2 --n-evals 30 --audit-n 10 --audit-every 30 \
         --tag=-hw --no-media                      # a hardware-sized budget: about 80 episodes per seed
@@ -71,7 +71,8 @@ class Config:
     tag: str = ""  # appended to the method name, e.g. "-hw" for a hardware-sized budget (left off the plots)
     results_root: str = str(DEFAULT_RESULTS_ROOT)
     quick: bool = False
-    QUICK: ClassVar[dict] = {"seeds": [0], "n_evals": 10, "batch": 8, "audit_n": 16, "eval_n": 32}
+    QUICK: ClassVar[dict] = {"seeds": [0], "n_evals": 10, "batch": 8, "audit_n": 16, "eval_n": 32,
+                             "results_root": str(MEDIA.parents[1] / "runs" / "ch02_quick")}  # not results/
 
 
 def to_knobs(x: np.ndarray, cfg: Config) -> dict[str, float]:

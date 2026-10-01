@@ -24,7 +24,7 @@ leaderboard:  ## rebuild the README table and media/leaderboard/ plots from resu
 	uv run python tools/leaderboard.py
 
 # Every algorithm file must finish with --quick in under 2 minutes; CI runs the same loop.
-# Quick runs write results files, but the leaderboard leaves them out (config.quick is true).
+# Quick runs write only under runs/chNN_quick/ (git-ignored), never into results/ or media/.
 smoke:  ## run every algos/[0-9]*.py with --quick
 	@files=$$(ls algos/[0-9]*.py 2>/dev/null); \
 	if [ -z "$$files" ]; then echo "no algos/[0-9]*.py files yet; nothing to smoke-test"; exit 0; fi; \

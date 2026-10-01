@@ -60,6 +60,6 @@ jobs:
         run: uv run python tools/build_awesome.py --check
 
       # Runs every algos/[0-9]*.py with --quick and passes when there are none yet.
-      # Quick runs write results files, but the leaderboard ignores them (config.quick is true).
+      # Quick runs write only under runs/chNN_quick/, never into results/ or media/.
       - name: Smoke-test algorithm files
         run: make smoke

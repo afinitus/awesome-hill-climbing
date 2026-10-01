@@ -1,0 +1,187 @@
+{
+  "schema": 1,
+  "chapter": "ch07",
+  "method": "residual-hard_s1",
+  "robot": "so101",
+  "variant": "hard",
+  "setting": "sim",
+  "base": {
+    "id": "base_v1_gaussian",
+    "sr": 0.29296875,
+    "ci": [
+      0.2406059495949574,
+      0.35145321260231976
+    ],
+    "k": 75,
+    "n": 256,
+    "init_set": "stress"
+  },
+  "final": {
+    "sr": 0.73046875,
+    "ci": [
+      0.673001975362034,
+      0.781120844078733
+    ],
+    "k": 187,
+    "n": 256,
+    "init_set": "stress",
+    "init_set_version": "v1"
+  },
+  "budget": {
+    "robot_minutes": {
+      "search": 778.085,
+      "train": 1536.7533333333333,
+      "eval": 77.87833333333333
+    },
+    "human_minutes": {
+      "demos": 0.0,
+      "labels": 0.0,
+      "takeovers": 0.0,
+      "resets": 0.0,
+      "annotation": 0.0
+    },
+    "compute": {
+      "cpu_hours": 0.03362502166666641,
+      "gpu_hours": 0.0,
+      "wall_minutes": 0.819532521533256
+    }
+  },
+  "extra": {
+    "arm": "residual",
+    "variant": "hard",
+    "seed": 1,
+    "curve": [
+      {
+        "episodes": 0,
+        "train_minutes": 0.0,
+        "k": 39,
+        "n": 64
+      },
+      {
+        "episodes": 128,
+        "train_minutes": 26.215,
+        "k": 39,
+        "n": 64
+      },
+      {
+        "episodes": 256,
+        "train_minutes": 52.93666666666667,
+        "k": 28,
+        "n": 64
+      },
+      {
+        "episodes": 384,
+        "train_minutes": 79.37333333333333,
+        "k": 49,
+        "n": 64
+      },
+      {
+        "episodes": 512,
+        "train_minutes": 96.33333333333333,
+        "k": 46,
+        "n": 64
+      }
+    ],
+    "chosen": 3,
+    "train_rollouts": {
+      "k": 171,
+      "n": 512,
+      "sr": 0.333984375,
+      "ci": [
+        0.2945011390870476,
+        0.3759403297669572
+      ]
+    },
+    "method": "residual-hard_s1",
+    "final": {
+      "k": 187,
+      "n": 256,
+      "sr": 0.73046875,
+      "ci": [
+        0.673001975362034,
+        0.781120844078733
+      ]
+    },
+    "eval_successes": "1011011011111111110110101111101111111101110110011101110110111111100101101111101001111001111101111111010100110100101100011101111111110001111111101111001110111111010111111101111111010101011111011011110110111011101000111111011010110011111111110001110110111111",
+    "vs_base": {
+      "p": 8.992106506585248e-27,
+      "only_a": 8,
+      "only_b": 120,
+      "diff_ci": [
+        0.37109375,
+        0.50390625
+      ]
+    },
+    "vs_zero": {
+      "p": 1.0539880077661144e-10,
+      "only_a": 11,
+      "only_b": 66,
+      "diff_ci": [
+        0.15234375,
+        0.27734375
+      ]
+    },
+    "robot_minutes": {
+      "search": 42.845,
+      "train": 96.33333333333333,
+      "eval": 77.87833333333333
+    },
+    "eval_steps": 16710,
+    "actor_file": "runs/ch07_full/actors/residual-hard_s1.npz",
+    "pilot_robot_minutes": {
+      "search": 735.24,
+      "train": 1440.42
+    }
+  },
+  "git_sha": "e3195bc",
+  "timestamp": "2026-09-30T23:32:16",
+  "config": {
+    "robot": "so101",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "arms": [
+      "dsrl",
+      "pss",
+      "hybrid",
+      "residual"
+    ],
+    "hard_arms": [
+      "pss",
+      "hybrid",
+      "residual"
+    ],
+    "subspace": 0,
+    "hybrid": false,
+    "residual_only": false,
+    "variant": "v1",
+    "pss_k": 8,
+    "noise_scale": 1.5,
+    "res_scale": 0.2,
+    "train_episodes": 512,
+    "episodes_per_round": 64,
+    "utd": 0.5,
+    "eval_every": 128,
+    "hidden": 256,
+    "batch_size": 256,
+    "lr": 0.0003,
+    "actor_lr": 0.0001,
+    "gamma": 0.97,
+    "n_step": 0,
+    "tau": 0.005,
+    "alpha": 0.003,
+    "tune_alpha": false,
+    "warmup_episodes": 128,
+    "search_n": 64,
+    "eval_n": 256,
+    "support_salts": 16,
+    "pss_states": 64,
+    "n_workers": 4,
+    "pilot_costs": true,
+    "media": true,
+    "replot": "",
+    "quick": false
+  }
+}

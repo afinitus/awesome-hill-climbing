@@ -1,0 +1,6385 @@
+{
+  "schema": 1,
+  "chapter": "ch08",
+  "method": "expo-b0.1_s0",
+  "robot": "so101",
+  "variant": "v1",
+  "setting": "sim",
+  "base": {
+    "id": "base_v1",
+    "sr": 0.50390625,
+    "ci": [
+      0.4430547843724404,
+      0.5646422125672337
+    ],
+    "k": 129,
+    "n": 256,
+    "init_set": "eval"
+  },
+  "final": {
+    "sr": 0.91015625,
+    "ci": [
+      0.8687976076657988,
+      0.939387070999973
+    ],
+    "k": 233,
+    "n": 256,
+    "init_set": "eval",
+    "init_set_version": "v1"
+  },
+  "budget": {
+    "robot_minutes": {
+      "search": 884.2733333333333,
+      "train": 1500.3916666666667,
+      "eval": 58.37
+    },
+    "human_minutes": {
+      "demos": 0.0,
+      "labels": 0.0,
+      "takeovers": 0.0,
+      "resets": 0.0,
+      "annotation": 0.0
+    },
+    "compute": {
+      "cpu_hours": 2.0239821430555556,
+      "gpu_hours": 0.0,
+      "wall_minutes": 50.814028845833306
+    }
+  },
+  "extra": {
+    "runs": {
+      "expo-b2_s0": {
+        "name": "expo-b2_s0",
+        "beta": 2.0,
+        "seed": 0,
+        "cotrain": false,
+        "wide": 0,
+        "ckpt": "runs/ch08_work/expo-b2_s0.pt",
+        "train_steps": 60000,
+        "search_steps": 69791,
+        "episodes": 416,
+        "updates": 14192,
+        "curve": [
+          {
+            "train_steps": 10048,
+            "k": 33,
+            "n": 64
+          },
+          {
+            "train_steps": 20032,
+            "k": 10,
+            "n": 64
+          },
+          {
+            "train_steps": 30016,
+            "k": 15,
+            "n": 64
+          },
+          {
+            "train_steps": 40000,
+            "k": 3,
+            "n": 64
+          },
+          {
+            "train_steps": 50048,
+            "k": 0,
+            "n": 64
+          },
+          {
+            "train_steps": 60000,
+            "k": 0,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "online": [
+          [
+            7184,
+            0,
+            40
+          ],
+          [
+            12000,
+            0,
+            40
+          ],
+          [
+            19184,
+            0,
+            40
+          ],
+          [
+            24000,
+            0,
+            40
+          ],
+          [
+            31184,
+            0,
+            40
+          ],
+          [
+            36000,
+            0,
+            40
+          ],
+          [
+            43184,
+            0,
+            40
+          ],
+          [
+            48000,
+            0,
+            40
+          ],
+          [
+            55184,
+            0,
+            40
+          ],
+          [
+            60000,
+            0,
+            40
+          ]
+        ],
+        "edited_chosen": [
+          0.8703947368421052,
+          0.7151315789473685,
+          0.593421052631579,
+          0.5782894736842106,
+          0.5269736842105263,
+          0.45592105263157895,
+          0.46381578947368424,
+          0.4361842105263158,
+          0.4230263157894737,
+          0.39671052631578946
+        ],
+        "edit_size": 0.66496078312397,
+        "q_loss_last": 4.820743652999227e-06,
+        "alpha": 0.0014105942981145882,
+        "bc_samples": 0,
+        "wall_s": 595.912132874997,
+        "cpu_s": 594.5919859999999,
+        "edited_chosen_eval": 0.7880345394736842
+      },
+      "expo-b2_s1": {
+        "name": "expo-b2_s1",
+        "beta": 2.0,
+        "seed": 1,
+        "cotrain": false,
+        "wide": 0,
+        "ckpt": "runs/ch08_work/expo-b2_s1.pt",
+        "train_steps": 60000,
+        "search_steps": 65674,
+        "episodes": 416,
+        "updates": 14192,
+        "curve": [
+          {
+            "train_steps": 10048,
+            "k": 25,
+            "n": 64
+          },
+          {
+            "train_steps": 20032,
+            "k": 36,
+            "n": 64
+          },
+          {
+            "train_steps": 30016,
+            "k": 21,
+            "n": 64
+          },
+          {
+            "train_steps": 40000,
+            "k": 13,
+            "n": 64
+          },
+          {
+            "train_steps": 50048,
+            "k": 4,
+            "n": 64
+          },
+          {
+            "train_steps": 60000,
+            "k": 0,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "online": [
+          [
+            7184,
+            0,
+            40
+          ],
+          [
+            12000,
+            0,
+            40
+          ],
+          [
+            19184,
+            0,
+            40
+          ],
+          [
+            24000,
+            0,
+            40
+          ],
+          [
+            31184,
+            0,
+            40
+          ],
+          [
+            36000,
+            0,
+            40
+          ],
+          [
+            43184,
+            0,
+            40
+          ],
+          [
+            48000,
+            0,
+            40
+          ],
+          [
+            55184,
+            0,
+            40
+          ],
+          [
+            60000,
+            0,
+            40
+          ]
+        ],
+        "edited_chosen": [
+          0.8763157894736842,
+          0.6756578947368421,
+          0.6710526315789473,
+          0.5289473684210526,
+          0.6019736842105263,
+          0.5,
+          0.5578947368421052,
+          0.5092105263157894,
+          0.5592105263157895,
+          0.4664473684210526
+        ],
+        "edit_size": 0.6566530311107636,
+        "q_loss_last": 3.591601964217262e-06,
+        "alpha": 0.001410426282094581,
+        "bc_samples": 0,
+        "wall_s": 569.7354912500014,
+        "cpu_s": 568.221854,
+        "edited_chosen_eval": 0.8945567651632971
+      },
+      "expo-b2_s2": {
+        "name": "expo-b2_s2",
+        "beta": 2.0,
+        "seed": 2,
+        "cotrain": false,
+        "wide": 0,
+        "ckpt": "runs/ch08_work/expo-b2_s2.pt",
+        "train_steps": 60000,
+        "search_steps": 75038,
+        "episodes": 416,
+        "updates": 14192,
+        "curve": [
+          {
+            "train_steps": 10048,
+            "k": 8,
+            "n": 64
+          },
+          {
+            "train_steps": 20032,
+            "k": 5,
+            "n": 64
+          },
+          {
+            "train_steps": 30016,
+            "k": 4,
+            "n": 64
+          },
+          {
+            "train_steps": 40000,
+            "k": 1,
+            "n": 64
+          },
+          {
+            "train_steps": 50048,
+            "k": 0,
+            "n": 64
+          },
+          {
+            "train_steps": 60000,
+            "k": 0,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "online": [
+          [
+            7184,
+            0,
+            40
+          ],
+          [
+            12000,
+            0,
+            40
+          ],
+          [
+            19184,
+            0,
+            40
+          ],
+          [
+            24000,
+            0,
+            40
+          ],
+          [
+            31184,
+            0,
+            40
+          ],
+          [
+            36000,
+            0,
+            40
+          ],
+          [
+            43184,
+            0,
+            40
+          ],
+          [
+            48000,
+            0,
+            40
+          ],
+          [
+            55184,
+            0,
+            40
+          ],
+          [
+            60000,
+            0,
+            40
+          ]
+        ],
+        "edited_chosen": [
+          0.8723684210526316,
+          0.8598684210526316,
+          0.6822368421052631,
+          0.6684210526315789,
+          0.7328947368421053,
+          0.6993421052631579,
+          0.7506578947368421,
+          0.6611842105263158,
+          0.7131578947368421,
+          0.6927631578947369
+        ],
+        "edit_size": 0.6417507380247116,
+        "q_loss_last": 2.207575028933206e-06,
+        "alpha": 0.0014096443199083063,
+        "bc_samples": 0,
+        "wall_s": 591.7270803749998,
+        "cpu_s": 590.2242749999999,
+        "edited_chosen_eval": 0.9539473684210527
+      },
+      "expo-b0.2_s0": {
+        "name": "expo-b0.2_s0",
+        "beta": 0.2,
+        "seed": 0,
+        "cotrain": false,
+        "wide": 0,
+        "ckpt": "runs/ch08_work/expo-b0.2_s0.pt",
+        "train_steps": 60018,
+        "search_steps": 23757,
+        "episodes": 1039,
+        "updates": 14240,
+        "curve": [
+          {
+            "train_steps": 10049,
+            "k": 39,
+            "n": 64
+          },
+          {
+            "train_steps": 20002,
+            "k": 47,
+            "n": 64
+          },
+          {
+            "train_steps": 30055,
+            "k": 55,
+            "n": 64
+          },
+          {
+            "train_steps": 40057,
+            "k": 62,
+            "n": 64
+          },
+          {
+            "train_steps": 50009,
+            "k": 63,
+            "n": 64
+          },
+          {
+            "train_steps": 60018,
+            "k": 62,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false
+          ],
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "online": [
+          [
+            11303,
+            41,
+            103
+          ],
+          [
+            20950,
+            56,
+            103
+          ],
+          [
+            28323,
+            68,
+            103
+          ],
+          [
+            33878,
+            83,
+            102
+          ],
+          [
+            39703,
+            82,
+            102
+          ],
+          [
+            44366,
+            89,
+            102
+          ],
+          [
+            48504,
+            96,
+            102
+          ],
+          [
+            52938,
+            97,
+            102
+          ],
+          [
+            56424,
+            96,
+            102
+          ],
+          [
+            60002,
+            101,
+            102
+          ]
+        ],
+        "edited_chosen": [
+          0.5947368421052631,
+          0.6782894736842106,
+          0.65,
+          0.6486842105263158,
+          0.6848684210526316,
+          0.7421052631578947,
+          0.7776315789473685,
+          0.8210526315789474,
+          0.8776315789473684,
+          0.9467105263157894,
+          0.9375
+        ],
+        "edit_size": 0.10112168706953525,
+        "q_loss_last": 0.0009243901919107885,
+        "alpha": 0.001466806165541921,
+        "bc_samples": 0,
+        "wall_s": 540.6174391250024,
+        "cpu_s": 539.301658,
+        "edited_chosen_eval": 0.9986369831894594
+      },
+      "expo-b0.2_s1": {
+        "name": "expo-b0.2_s1",
+        "beta": 0.2,
+        "seed": 1,
+        "cotrain": false,
+        "wide": 0,
+        "ckpt": "runs/ch08_work/expo-b0.2_s1.pt",
+        "train_steps": 60017,
+        "search_steps": 23373,
+        "episodes": 1069,
+        "updates": 14256,
+        "curve": [
+          {
+            "train_steps": 10030,
+            "k": 43,
+            "n": 64
+          },
+          {
+            "train_steps": 20040,
+            "k": 48,
+            "n": 64
+          },
+          {
+            "train_steps": 30047,
+            "k": 58,
+            "n": 64
+          },
+          {
+            "train_steps": 40044,
+            "k": 61,
+            "n": 64
+          },
+          {
+            "train_steps": 50033,
+            "k": 61,
+            "n": 64
+          },
+          {
+            "train_steps": 60017,
+            "k": 60,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          [
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "online": [
+          [
+            11569,
+            48,
+            106
+          ],
+          [
+            18664,
+            73,
+            106
+          ],
+          [
+            25834,
+            75,
+            106
+          ],
+          [
+            31978,
+            84,
+            105
+          ],
+          [
+            37969,
+            82,
+            105
+          ],
+          [
+            42318,
+            96,
+            105
+          ],
+          [
+            46320,
+            101,
+            105
+          ],
+          [
+            51250,
+            92,
+            105
+          ],
+          [
+            55653,
+            96,
+            105
+          ],
+          [
+            60005,
+            99,
+            105
+          ]
+        ],
+        "edited_chosen": [
+          0.5848684210526316,
+          0.6473684210526316,
+          0.655921052631579,
+          0.6664473684210527,
+          0.6828947368421052,
+          0.7131578947368421,
+          0.8361842105263158,
+          0.8730263157894737,
+          0.8703947368421052,
+          0.9276315789473685,
+          0.875
+        ],
+        "edit_size": 0.10064467690885066,
+        "q_loss_last": 0.0011135205538012087,
+        "alpha": 0.0014566466318510296,
+        "bc_samples": 0,
+        "wall_s": 523.5186350000004,
+        "cpu_s": 523.498211,
+        "edited_chosen_eval": 0.9907961343764381
+      },
+      "expo-b0.2_s2": {
+        "name": "expo-b0.2_s2",
+        "beta": 0.2,
+        "seed": 2,
+        "cotrain": false,
+        "wide": 0,
+        "ckpt": "runs/ch08_work/expo-b0.2_s2.pt",
+        "train_steps": 60001,
+        "search_steps": 23889,
+        "episodes": 1022,
+        "updates": 14240,
+        "curve": [
+          {
+            "train_steps": 10049,
+            "k": 33,
+            "n": 64
+          },
+          {
+            "train_steps": 20021,
+            "k": 53,
+            "n": 64
+          },
+          {
+            "train_steps": 30042,
+            "k": 55,
+            "n": 64
+          },
+          {
+            "train_steps": 40038,
+            "k": 60,
+            "n": 64
+          },
+          {
+            "train_steps": 50012,
+            "k": 64,
+            "n": 64
+          },
+          {
+            "train_steps": 60001,
+            "k": 62,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "online": [
+          [
+            10713,
+            48,
+            101
+          ],
+          [
+            19885,
+            51,
+            101
+          ],
+          [
+            26626,
+            73,
+            101
+          ],
+          [
+            33462,
+            76,
+            101
+          ],
+          [
+            39344,
+            81,
+            101
+          ],
+          [
+            43368,
+            92,
+            101
+          ],
+          [
+            47422,
+            95,
+            100
+          ],
+          [
+            51392,
+            93,
+            100
+          ],
+          [
+            56317,
+            89,
+            100
+          ],
+          [
+            59997,
+            96,
+            100
+          ]
+        ],
+        "edited_chosen": [
+          0.5960526315789474,
+          0.6401315789473684,
+          0.6598684210526315,
+          0.6434210526315789,
+          0.7078947368421052,
+          0.7289473684210527,
+          0.7980263157894737,
+          0.8578947368421053,
+          0.868421052631579,
+          0.9085526315789474,
+          0.9375
+        ],
+        "edit_size": 0.10105977926403284,
+        "q_loss_last": 0.001101795735070482,
+        "alpha": 0.0014607818063733318,
+        "bc_samples": 0,
+        "wall_s": 501.133465292005,
+        "cpu_s": 501.08020899999997,
+        "edited_chosen_eval": 0.9936880072137061
+      },
+      "expo-b0.1_s0": {
+        "name": "expo-b0.1_s0",
+        "beta": 0.1,
+        "seed": 0,
+        "cotrain": false,
+        "wide": 0,
+        "ckpt": "runs/ch08_work/expo-b0.1_s0.pt",
+        "train_steps": 60009,
+        "search_steps": 24078,
+        "episodes": 990,
+        "updates": 14256,
+        "curve": [
+          {
+            "train_steps": 10047,
+            "k": 40,
+            "n": 64
+          },
+          {
+            "train_steps": 20060,
+            "k": 53,
+            "n": 64
+          },
+          {
+            "train_steps": 30011,
+            "k": 57,
+            "n": 64
+          },
+          {
+            "train_steps": 40002,
+            "k": 58,
+            "n": 64
+          },
+          {
+            "train_steps": 50055,
+            "k": 62,
+            "n": 64
+          },
+          {
+            "train_steps": 60009,
+            "k": 60,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true
+          ],
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "online": [
+          [
+            10773,
+            41,
+            98
+          ],
+          [
+            18895,
+            59,
+            98
+          ],
+          [
+            25796,
+            68,
+            98
+          ],
+          [
+            31706,
+            71,
+            98
+          ],
+          [
+            37031,
+            79,
+            97
+          ],
+          [
+            43158,
+            73,
+            97
+          ],
+          [
+            47701,
+            88,
+            97
+          ],
+          [
+            52307,
+            84,
+            97
+          ],
+          [
+            56106,
+            89,
+            97
+          ],
+          [
+            59921,
+            90,
+            97
+          ]
+        ],
+        "edited_chosen": [
+          0.5434210526315789,
+          0.5671052631578948,
+          0.5894736842105263,
+          0.6236842105263158,
+          0.6460526315789473,
+          0.6664473684210527,
+          0.7203947368421053,
+          0.7776315789473685,
+          0.8125,
+          0.8677631578947368,
+          0.953125
+        ],
+        "edit_size": 0.05155701786279678,
+        "q_loss_last": 0.001277587450109422,
+        "alpha": 0.0014374665788795128,
+        "bc_samples": 0,
+        "wall_s": 530.8544912500001,
+        "cpu_s": 530.8061530000001,
+        "edited_chosen_eval": 0.9885468861846815
+      },
+      "expo-b0.1_s1": {
+        "name": "expo-b0.1_s1",
+        "beta": 0.1,
+        "seed": 1,
+        "cotrain": false,
+        "wide": 0,
+        "ckpt": "runs/ch08_work/expo-b0.1_s1.pt",
+        "train_steps": 60021,
+        "search_steps": 24566,
+        "episodes": 1069,
+        "updates": 14256,
+        "curve": [
+          {
+            "train_steps": 10038,
+            "k": 37,
+            "n": 64
+          },
+          {
+            "train_steps": 20042,
+            "k": 42,
+            "n": 64
+          },
+          {
+            "train_steps": 30042,
+            "k": 54,
+            "n": 64
+          },
+          {
+            "train_steps": 40047,
+            "k": 61,
+            "n": 64
+          },
+          {
+            "train_steps": 50034,
+            "k": 61,
+            "n": 64
+          },
+          {
+            "train_steps": 60021,
+            "k": 62,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true
+          ],
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "online": [
+          [
+            10937,
+            49,
+            106
+          ],
+          [
+            19790,
+            65,
+            106
+          ],
+          [
+            26443,
+            81,
+            106
+          ],
+          [
+            32318,
+            84,
+            105
+          ],
+          [
+            37648,
+            86,
+            105
+          ],
+          [
+            42519,
+            97,
+            105
+          ],
+          [
+            46841,
+            94,
+            105
+          ],
+          [
+            50851,
+            103,
+            105
+          ],
+          [
+            55241,
+            97,
+            105
+          ],
+          [
+            59941,
+            96,
+            105
+          ]
+        ],
+        "edited_chosen": [
+          0.5421052631578948,
+          0.5986842105263158,
+          0.5986842105263158,
+          0.6019736842105263,
+          0.6401315789473684,
+          0.6835526315789474,
+          0.7578947368421053,
+          0.780921052631579,
+          0.8506578947368421,
+          0.8578947368421053,
+          0.90625
+        ],
+        "edit_size": 0.05137559965252876,
+        "q_loss_last": 0.0012861127217765897,
+        "alpha": 0.0014414099044677462,
+        "bc_samples": 0,
+        "wall_s": 533.2929603750017,
+        "cpu_s": 533.1967260000001,
+        "edited_chosen_eval": 0.9925249169435216
+      },
+      "expo-b0.1_s2": {
+        "name": "expo-b0.1_s2",
+        "beta": 0.1,
+        "seed": 2,
+        "cotrain": false,
+        "wide": 0,
+        "ckpt": "runs/ch08_work/expo-b0.1_s2.pt",
+        "train_steps": 60003,
+        "search_steps": 24394,
+        "episodes": 1009,
+        "updates": 14256,
+        "curve": [
+          {
+            "train_steps": 10035,
+            "k": 42,
+            "n": 64
+          },
+          {
+            "train_steps": 20041,
+            "k": 48,
+            "n": 64
+          },
+          {
+            "train_steps": 30048,
+            "k": 55,
+            "n": 64
+          },
+          {
+            "train_steps": 40035,
+            "k": 56,
+            "n": 64
+          },
+          {
+            "train_steps": 50018,
+            "k": 57,
+            "n": 64
+          },
+          {
+            "train_steps": 60003,
+            "k": 63,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "online": [
+          [
+            10256,
+            49,
+            100
+          ],
+          [
+            18042,
+            64,
+            100
+          ],
+          [
+            25014,
+            69,
+            100
+          ],
+          [
+            31077,
+            76,
+            99
+          ],
+          [
+            36259,
+            84,
+            99
+          ],
+          [
+            41215,
+            83,
+            99
+          ],
+          [
+            46383,
+            85,
+            99
+          ],
+          [
+            50920,
+            91,
+            99
+          ],
+          [
+            55385,
+            85,
+            99
+          ],
+          [
+            59951,
+            90,
+            99
+          ]
+        ],
+        "edited_chosen": [
+          0.5328947368421053,
+          0.5592105263157895,
+          0.5631578947368421,
+          0.5868421052631579,
+          0.6289473684210526,
+          0.6861842105263158,
+          0.7256578947368421,
+          0.7736842105263158,
+          0.7802631578947369,
+          0.8697368421052631,
+          0.875
+        ],
+        "edit_size": 0.050959921218454836,
+        "q_loss_last": 0.0012999933403916657,
+        "alpha": 0.0014340089997227773,
+        "bc_samples": 0,
+        "wall_s": 540.6347409999944,
+        "cpu_s": 540.287648,
+        "edited_chosen_eval": 0.9937670432411375
+      },
+      "expo-b0.05_s0": {
+        "name": "expo-b0.05_s0",
+        "beta": 0.05,
+        "seed": 0,
+        "cotrain": false,
+        "wide": 0,
+        "ckpt": "runs/ch08_work/expo-b0.05_s0.pt",
+        "train_steps": 60043,
+        "search_steps": 25093,
+        "episodes": 1040,
+        "updates": 14256,
+        "curve": [
+          {
+            "train_steps": 10049,
+            "k": 43,
+            "n": 64
+          },
+          {
+            "train_steps": 20053,
+            "k": 49,
+            "n": 64
+          },
+          {
+            "train_steps": 30062,
+            "k": 54,
+            "n": 64
+          },
+          {
+            "train_steps": 40060,
+            "k": 58,
+            "n": 64
+          },
+          {
+            "train_steps": 50035,
+            "k": 58,
+            "n": 64
+          },
+          {
+            "train_steps": 60043,
+            "k": 60,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true
+          ]
+        ],
+        "online": [
+          [
+            11114,
+            45,
+            103
+          ],
+          [
+            19843,
+            61,
+            103
+          ],
+          [
+            26371,
+            74,
+            103
+          ],
+          [
+            32481,
+            79,
+            103
+          ],
+          [
+            37858,
+            86,
+            102
+          ],
+          [
+            42984,
+            86,
+            102
+          ],
+          [
+            47995,
+            92,
+            102
+          ],
+          [
+            52278,
+            92,
+            102
+          ],
+          [
+            56312,
+            95,
+            102
+          ],
+          [
+            60027,
+            101,
+            102
+          ]
+        ],
+        "edited_chosen": [
+          0.5243421052631579,
+          0.5302631578947369,
+          0.5407894736842105,
+          0.5414473684210527,
+          0.5710526315789474,
+          0.6039473684210527,
+          0.6592105263157895,
+          0.7230263157894737,
+          0.7539473684210526,
+          0.8473684210526315,
+          0.8125
+        ],
+        "edit_size": 0.025477518001571296,
+        "q_loss_last": 0.0011792440770659596,
+        "alpha": 0.0014172869102540646,
+        "bc_samples": 0,
+        "wall_s": 522.0396152910034,
+        "cpu_s": 521.7888519999999,
+        "edited_chosen_eval": 0.9908523908523909
+      },
+      "expo-b0.05_s1": {
+        "name": "expo-b0.05_s1",
+        "beta": 0.05,
+        "seed": 1,
+        "cotrain": false,
+        "wide": 0,
+        "ckpt": "runs/ch08_work/expo-b0.05_s1.pt",
+        "train_steps": 60044,
+        "search_steps": 27073,
+        "episodes": 989,
+        "updates": 14272,
+        "curve": [
+          {
+            "train_steps": 10018,
+            "k": 43,
+            "n": 64
+          },
+          {
+            "train_steps": 20030,
+            "k": 45,
+            "n": 64
+          },
+          {
+            "train_steps": 30030,
+            "k": 48,
+            "n": 64
+          },
+          {
+            "train_steps": 40023,
+            "k": 55,
+            "n": 64
+          },
+          {
+            "train_steps": 50050,
+            "k": 58,
+            "n": 64
+          },
+          {
+            "train_steps": 60044,
+            "k": 58,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            false,
+            false,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true
+          ],
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false
+          ]
+        ],
+        "online": [
+          [
+            10061,
+            48,
+            98
+          ],
+          [
+            17178,
+            68,
+            98
+          ],
+          [
+            23934,
+            67,
+            98
+          ],
+          [
+            30042,
+            73,
+            97
+          ],
+          [
+            35332,
+            80,
+            97
+          ],
+          [
+            40038,
+            84,
+            97
+          ],
+          [
+            44621,
+            85,
+            97
+          ],
+          [
+            49330,
+            84,
+            97
+          ],
+          [
+            54859,
+            77,
+            97
+          ],
+          [
+            60032,
+            82,
+            97
+          ]
+        ],
+        "edited_chosen": [
+          0.531578947368421,
+          0.5217105263157895,
+          0.5190789473684211,
+          0.5440789473684211,
+          0.5644736842105263,
+          0.575,
+          0.6375,
+          0.6710526315789473,
+          0.6888157894736842,
+          0.7592105263157894,
+          0.725
+        ],
+        "edit_size": 0.025241821939125657,
+        "q_loss_last": 0.0017787109934724868,
+        "alpha": 0.0014118513126927482,
+        "bc_samples": 0,
+        "wall_s": 529.0545575419965,
+        "cpu_s": 528.8626879999999,
+        "edited_chosen_eval": 0.9886519944979367
+      },
+      "expo-b0.05_s2": {
+        "name": "expo-b0.05_s2",
+        "beta": 0.05,
+        "seed": 2,
+        "cotrain": false,
+        "wide": 0,
+        "ckpt": "runs/ch08_work/expo-b0.05_s2.pt",
+        "train_steps": 60022,
+        "search_steps": 28835,
+        "episodes": 923,
+        "updates": 14256,
+        "curve": [
+          {
+            "train_steps": 10052,
+            "k": 39,
+            "n": 64
+          },
+          {
+            "train_steps": 20058,
+            "k": 40,
+            "n": 64
+          },
+          {
+            "train_steps": 30003,
+            "k": 43,
+            "n": 64
+          },
+          {
+            "train_steps": 40047,
+            "k": 50,
+            "n": 64
+          },
+          {
+            "train_steps": 50035,
+            "k": 61,
+            "n": 64
+          },
+          {
+            "train_steps": 60022,
+            "k": 58,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "online": [
+          [
+            10590,
+            32,
+            91
+          ],
+          [
+            18085,
+            58,
+            91
+          ],
+          [
+            25576,
+            52,
+            91
+          ],
+          [
+            31688,
+            64,
+            91
+          ],
+          [
+            36661,
+            73,
+            91
+          ],
+          [
+            41702,
+            78,
+            91
+          ],
+          [
+            46996,
+            73,
+            91
+          ],
+          [
+            51275,
+            79,
+            90
+          ],
+          [
+            56274,
+            73,
+            90
+          ],
+          [
+            60006,
+            84,
+            90
+          ]
+        ],
+        "edited_chosen": [
+          0.48355263157894735,
+          0.5473684210526316,
+          0.5164473684210527,
+          0.5394736842105263,
+          0.5335526315789474,
+          0.5585526315789474,
+          0.5901315789473685,
+          0.6736842105263158,
+          0.7309210526315789,
+          0.7789473684210526,
+          0.84375
+        ],
+        "edit_size": 0.025423439405858516,
+        "q_loss_last": 0.0017044610795564949,
+        "alpha": 0.0014158171197912702,
+        "bc_samples": 0,
+        "wall_s": 530.4334715000005,
+        "cpu_s": 530.200562,
+        "edited_chosen_eval": 0.9713364385524902
+      },
+      "bon-q-n16_s0": {
+        "name": "bon-q-n16_s0",
+        "beta": 0.0,
+        "seed": 0,
+        "cotrain": false,
+        "wide": 16,
+        "ckpt": "runs/ch08_work/bon-q-n16_s0.pt",
+        "train_steps": 60013,
+        "search_steps": 28227,
+        "episodes": 958,
+        "updates": 14224,
+        "curve": [
+          {
+            "train_steps": 10048,
+            "k": 35,
+            "n": 64
+          },
+          {
+            "train_steps": 20008,
+            "k": 46,
+            "n": 64
+          },
+          {
+            "train_steps": 30010,
+            "k": 50,
+            "n": 64
+          },
+          {
+            "train_steps": 40020,
+            "k": 53,
+            "n": 64
+          },
+          {
+            "train_steps": 50048,
+            "k": 60,
+            "n": 64
+          },
+          {
+            "train_steps": 60013,
+            "k": 59,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "online": [
+          [
+            10587,
+            41,
+            95
+          ],
+          [
+            17865,
+            59,
+            95
+          ],
+          [
+            24502,
+            66,
+            94
+          ],
+          [
+            30567,
+            66,
+            94
+          ],
+          [
+            36192,
+            76,
+            94
+          ],
+          [
+            41215,
+            79,
+            94
+          ],
+          [
+            47064,
+            74,
+            94
+          ],
+          [
+            51795,
+            76,
+            94
+          ],
+          [
+            55880,
+            88,
+            94
+          ],
+          [
+            60013,
+            83,
+            94
+          ]
+        ],
+        "edited_chosen": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "edit_size": 0.0,
+        "q_loss_last": 0.0015307186977006493,
+        "alpha": null,
+        "bc_samples": 0,
+        "wall_s": 482.1573759590028,
+        "cpu_s": 481.770364,
+        "edited_chosen_eval": 0.0
+      },
+      "bon-q-n16_s1": {
+        "name": "bon-q-n16_s1",
+        "beta": 0.0,
+        "seed": 1,
+        "cotrain": false,
+        "wide": 16,
+        "ckpt": "runs/ch08_work/bon-q-n16_s1.pt",
+        "train_steps": 60059,
+        "search_steps": 29980,
+        "episodes": 982,
+        "updates": 14240,
+        "curve": [
+          {
+            "train_steps": 10030,
+            "k": 34,
+            "n": 64
+          },
+          {
+            "train_steps": 20057,
+            "k": 46,
+            "n": 64
+          },
+          {
+            "train_steps": 30010,
+            "k": 49,
+            "n": 64
+          },
+          {
+            "train_steps": 40013,
+            "k": 51,
+            "n": 64
+          },
+          {
+            "train_steps": 50042,
+            "k": 56,
+            "n": 64
+          },
+          {
+            "train_steps": 60059,
+            "k": 54,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true
+          ],
+          [
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            false
+          ]
+        ],
+        "online": [
+          [
+            10026,
+            47,
+            97
+          ],
+          [
+            18150,
+            54,
+            97
+          ],
+          [
+            24600,
+            71,
+            97
+          ],
+          [
+            30547,
+            72,
+            97
+          ],
+          [
+            36268,
+            81,
+            97
+          ],
+          [
+            40971,
+            83,
+            97
+          ],
+          [
+            46180,
+            79,
+            96
+          ],
+          [
+            50960,
+            85,
+            96
+          ],
+          [
+            55841,
+            79,
+            96
+          ],
+          [
+            60059,
+            85,
+            96
+          ]
+        ],
+        "edited_chosen": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "edit_size": 0.0,
+        "q_loss_last": 0.001348096091998741,
+        "alpha": null,
+        "bc_samples": 0,
+        "wall_s": 459.0770627499951,
+        "cpu_s": 458.7813430000001,
+        "edited_chosen_eval": 0.0
+      },
+      "bon-q-n16_s2": {
+        "name": "bon-q-n16_s2",
+        "beta": 0.0,
+        "seed": 2,
+        "cotrain": false,
+        "wide": 16,
+        "ckpt": "runs/ch08_work/bon-q-n16_s2.pt",
+        "train_steps": 60047,
+        "search_steps": 27718,
+        "episodes": 1037,
+        "updates": 14240,
+        "curve": [
+          {
+            "train_steps": 10044,
+            "k": 35,
+            "n": 64
+          },
+          {
+            "train_steps": 20010,
+            "k": 46,
+            "n": 64
+          },
+          {
+            "train_steps": 30027,
+            "k": 53,
+            "n": 64
+          },
+          {
+            "train_steps": 40051,
+            "k": 57,
+            "n": 64
+          },
+          {
+            "train_steps": 50042,
+            "k": 57,
+            "n": 64
+          },
+          {
+            "train_steps": 60047,
+            "k": 58,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            false
+          ],
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false
+          ]
+        ],
+        "online": [
+          [
+            10784,
+            51,
+            103
+          ],
+          [
+            19158,
+            60,
+            102
+          ],
+          [
+            25273,
+            81,
+            102
+          ],
+          [
+            31442,
+            79,
+            102
+          ],
+          [
+            36681,
+            88,
+            102
+          ],
+          [
+            41850,
+            89,
+            102
+          ],
+          [
+            46459,
+            92,
+            102
+          ],
+          [
+            51301,
+            89,
+            102
+          ],
+          [
+            56020,
+            90,
+            102
+          ],
+          [
+            59995,
+            98,
+            102
+          ]
+        ],
+        "edited_chosen": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "edit_size": 0.0,
+        "q_loss_last": 0.0013368654584046452,
+        "alpha": null,
+        "bc_samples": 0,
+        "wall_s": 463.7950224170054,
+        "cpu_s": 463.4986650000001,
+        "edited_chosen_eval": 0.0
+      },
+      "bon-q_s0": {
+        "name": "bon-q_s0",
+        "beta": 0.0,
+        "seed": 0,
+        "cotrain": false,
+        "wide": 0,
+        "ckpt": "runs/ch08_work/bon-q_s0.pt",
+        "train_steps": 60016,
+        "search_steps": 25449,
+        "episodes": 1077,
+        "updates": 14256,
+        "curve": [
+          {
+            "train_steps": 10043,
+            "k": 43,
+            "n": 64
+          },
+          {
+            "train_steps": 20052,
+            "k": 49,
+            "n": 64
+          },
+          {
+            "train_steps": 30059,
+            "k": 56,
+            "n": 64
+          },
+          {
+            "train_steps": 40051,
+            "k": 58,
+            "n": 64
+          },
+          {
+            "train_steps": 50039,
+            "k": 58,
+            "n": 64
+          },
+          {
+            "train_steps": 60016,
+            "k": 58,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            true,
+            true,
+            false,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "online": [
+          [
+            10835,
+            50,
+            107
+          ],
+          [
+            17987,
+            76,
+            106
+          ],
+          [
+            23938,
+            86,
+            106
+          ],
+          [
+            29848,
+            87,
+            106
+          ],
+          [
+            35792,
+            88,
+            106
+          ],
+          [
+            40428,
+            96,
+            106
+          ],
+          [
+            45520,
+            95,
+            106
+          ],
+          [
+            50294,
+            96,
+            106
+          ],
+          [
+            55061,
+            96,
+            106
+          ],
+          [
+            59924,
+            93,
+            106
+          ]
+        ],
+        "edited_chosen": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "edit_size": 0.0,
+        "q_loss_last": 0.0013746573277749119,
+        "alpha": null,
+        "bc_samples": 0,
+        "wall_s": 255.2596518749997,
+        "cpu_s": 255.29424500000005,
+        "edited_chosen_eval": 0.0
+      },
+      "bon-q_s1": {
+        "name": "bon-q_s1",
+        "beta": 0.0,
+        "seed": 1,
+        "cotrain": false,
+        "wide": 0,
+        "ckpt": "runs/ch08_work/bon-q_s1.pt",
+        "train_steps": 60013,
+        "search_steps": 30079,
+        "episodes": 1027,
+        "updates": 14256,
+        "curve": [
+          {
+            "train_steps": 10018,
+            "k": 40,
+            "n": 64
+          },
+          {
+            "train_steps": 20019,
+            "k": 49,
+            "n": 64
+          },
+          {
+            "train_steps": 30044,
+            "k": 48,
+            "n": 64
+          },
+          {
+            "train_steps": 40032,
+            "k": 48,
+            "n": 64
+          },
+          {
+            "train_steps": 50032,
+            "k": 53,
+            "n": 64
+          },
+          {
+            "train_steps": 60013,
+            "k": 55,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true
+          ],
+          [
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            false,
+            false,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "online": [
+          [
+            9825,
+            56,
+            102
+          ],
+          [
+            17482,
+            65,
+            101
+          ],
+          [
+            24167,
+            70,
+            101
+          ],
+          [
+            30641,
+            79,
+            101
+          ],
+          [
+            35789,
+            85,
+            101
+          ],
+          [
+            40428,
+            89,
+            101
+          ],
+          [
+            45748,
+            86,
+            101
+          ],
+          [
+            50310,
+            90,
+            101
+          ],
+          [
+            55270,
+            87,
+            101
+          ],
+          [
+            59997,
+            94,
+            101
+          ]
+        ],
+        "edited_chosen": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "edit_size": 0.0,
+        "q_loss_last": 0.0014669744200073182,
+        "alpha": null,
+        "bc_samples": 0,
+        "wall_s": 244.906834333,
+        "cpu_s": 244.8809990000002,
+        "edited_chosen_eval": 0.0
+      },
+      "bon-q_s2": {
+        "name": "bon-q_s2",
+        "beta": 0.0,
+        "seed": 2,
+        "cotrain": false,
+        "wide": 0,
+        "ckpt": "runs/ch08_work/bon-q_s2.pt",
+        "train_steps": 60028,
+        "search_steps": 26706,
+        "episodes": 993,
+        "updates": 14240,
+        "curve": [
+          {
+            "train_steps": 10043,
+            "k": 40,
+            "n": 64
+          },
+          {
+            "train_steps": 20001,
+            "k": 52,
+            "n": 64
+          },
+          {
+            "train_steps": 30023,
+            "k": 52,
+            "n": 64
+          },
+          {
+            "train_steps": 40032,
+            "k": 58,
+            "n": 64
+          },
+          {
+            "train_steps": 50045,
+            "k": 53,
+            "n": 64
+          },
+          {
+            "train_steps": 60028,
+            "k": 59,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "online": [
+          [
+            9693,
+            51,
+            98
+          ],
+          [
+            17236,
+            65,
+            98
+          ],
+          [
+            23387,
+            75,
+            98
+          ],
+          [
+            29740,
+            73,
+            98
+          ],
+          [
+            35165,
+            79,
+            98
+          ],
+          [
+            40750,
+            81,
+            98
+          ],
+          [
+            45519,
+            85,
+            98
+          ],
+          [
+            50448,
+            85,
+            97
+          ],
+          [
+            55233,
+            86,
+            97
+          ],
+          [
+            59976,
+            83,
+            97
+          ]
+        ],
+        "edited_chosen": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "edit_size": 0.0,
+        "q_loss_last": 0.001719917458947748,
+        "alpha": null,
+        "bc_samples": 0,
+        "wall_s": 218.56281304200093,
+        "cpu_s": 218.66121500000008,
+        "edited_chosen_eval": 0.0
+      },
+      "expo-b0.1-cotrain_s0": {
+        "name": "expo-b0.1-cotrain_s0",
+        "beta": 0.1,
+        "seed": 0,
+        "cotrain": true,
+        "wide": 0,
+        "ckpt": "runs/ch08_work/expo-b0.1-cotrain_s0.pt",
+        "train_steps": 60032,
+        "search_steps": 27890,
+        "episodes": 957,
+        "updates": 14288,
+        "curve": [
+          {
+            "train_steps": 10056,
+            "k": 34,
+            "n": 64
+          },
+          {
+            "train_steps": 20006,
+            "k": 39,
+            "n": 64
+          },
+          {
+            "train_steps": 30058,
+            "k": 45,
+            "n": 64
+          },
+          {
+            "train_steps": 40012,
+            "k": 53,
+            "n": 64
+          },
+          {
+            "train_steps": 50018,
+            "k": 59,
+            "n": 64
+          },
+          {
+            "train_steps": 60032,
+            "k": 59,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          [
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "online": [
+          [
+            11034,
+            33,
+            95
+          ],
+          [
+            20362,
+            43,
+            94
+          ],
+          [
+            26707,
+            64,
+            94
+          ],
+          [
+            32701,
+            69,
+            94
+          ],
+          [
+            38742,
+            68,
+            94
+          ],
+          [
+            43973,
+            73,
+            94
+          ],
+          [
+            48907,
+            79,
+            94
+          ],
+          [
+            52407,
+            86,
+            94
+          ],
+          [
+            56297,
+            85,
+            94
+          ],
+          [
+            59916,
+            86,
+            94
+          ]
+        ],
+        "edited_chosen": [
+          0.5434210526315789,
+          0.5618421052631579,
+          0.5881578947368421,
+          0.5776315789473684,
+          0.6,
+          0.6717105263157894,
+          0.6822368421052631,
+          0.7493421052631579,
+          0.7822368421052631,
+          0.8611842105263158,
+          0.90625
+        ],
+        "edit_size": 0.053132754564285276,
+        "q_loss_last": 0.001453397040721029,
+        "alpha": 0.0014218721855246959,
+        "bc_samples": 21350,
+        "wall_s": 540.6554046660021,
+        "cpu_s": 540.494432,
+        "edited_chosen_eval": 0.9946380697050938
+      },
+      "expo-b0.1-cotrain_s1": {
+        "name": "expo-b0.1-cotrain_s1",
+        "beta": 0.1,
+        "seed": 1,
+        "cotrain": true,
+        "wide": 0,
+        "ckpt": "runs/ch08_work/expo-b0.1-cotrain_s1.pt",
+        "train_steps": 60000,
+        "search_steps": 26834,
+        "episodes": 1048,
+        "updates": 14304,
+        "curve": [
+          {
+            "train_steps": 10039,
+            "k": 23,
+            "n": 64
+          },
+          {
+            "train_steps": 20052,
+            "k": 37,
+            "n": 64
+          },
+          {
+            "train_steps": 30043,
+            "k": 51,
+            "n": 64
+          },
+          {
+            "train_steps": 40051,
+            "k": 56,
+            "n": 64
+          },
+          {
+            "train_steps": 50030,
+            "k": 60,
+            "n": 64
+          },
+          {
+            "train_steps": 60000,
+            "k": 63,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "online": [
+          [
+            11543,
+            42,
+            104
+          ],
+          [
+            22163,
+            44,
+            104
+          ],
+          [
+            29457,
+            65,
+            103
+          ],
+          [
+            35242,
+            85,
+            103
+          ],
+          [
+            40327,
+            84,
+            103
+          ],
+          [
+            44527,
+            93,
+            103
+          ],
+          [
+            48165,
+            99,
+            103
+          ],
+          [
+            51861,
+            99,
+            103
+          ],
+          [
+            56180,
+            93,
+            103
+          ],
+          [
+            59984,
+            98,
+            103
+          ]
+        ],
+        "edited_chosen": [
+          0.5486842105263158,
+          0.6065789473684211,
+          0.5802631578947368,
+          0.6046052631578948,
+          0.6342105263157894,
+          0.7013157894736842,
+          0.7322368421052632,
+          0.7789473684210526,
+          0.8407894736842105,
+          0.8375,
+          0.9285714285714286
+        ],
+        "edit_size": 0.05306341163814068,
+        "q_loss_last": 0.001529940522974357,
+        "alpha": 0.001413945450341616,
+        "bc_samples": 24920,
+        "wall_s": 548.120066042,
+        "cpu_s": 547.896395,
+        "edited_chosen_eval": 0.9951338199513382
+      },
+      "expo-b0.1-cotrain_s2": {
+        "name": "expo-b0.1-cotrain_s2",
+        "beta": 0.1,
+        "seed": 2,
+        "cotrain": true,
+        "wide": 0,
+        "ckpt": "runs/ch08_work/expo-b0.1-cotrain_s2.pt",
+        "train_steps": 60015,
+        "search_steps": 26740,
+        "episodes": 1048,
+        "updates": 14256,
+        "curve": [
+          {
+            "train_steps": 10002,
+            "k": 23,
+            "n": 64
+          },
+          {
+            "train_steps": 20014,
+            "k": 37,
+            "n": 64
+          },
+          {
+            "train_steps": 30023,
+            "k": 53,
+            "n": 64
+          },
+          {
+            "train_steps": 40010,
+            "k": 59,
+            "n": 64
+          },
+          {
+            "train_steps": 50012,
+            "k": 61,
+            "n": 64
+          },
+          {
+            "train_steps": 60015,
+            "k": 63,
+            "n": 64
+          }
+        ],
+        "final_search": [
+          [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true
+          ],
+          [
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        ],
+        "online": [
+          [
+            13068,
+            33,
+            104
+          ],
+          [
+            21777,
+            59,
+            104
+          ],
+          [
+            28964,
+            69,
+            103
+          ],
+          [
+            34336,
+            86,
+            103
+          ],
+          [
+            39404,
+            87,
+            103
+          ],
+          [
+            44056,
+            87,
+            103
+          ],
+          [
+            49044,
+            90,
+            103
+          ],
+          [
+            53036,
+            95,
+            103
+          ],
+          [
+            56580,
+            98,
+            103
+          ],
+          [
+            60003,
+            100,
+            103
+          ]
+        ],
+        "edited_chosen": [
+          0.5276315789473685,
+          0.5572368421052631,
+          0.5605263157894737,
+          0.5914473684210526,
+          0.6105263157894737,
+          0.675,
+          0.7157894736842105,
+          0.7671052631578947,
+          0.8506578947368421,
+          0.8953947368421052,
+          0.921875
+        ],
+        "edit_size": 0.052430893797427415,
+        "q_loss_last": 0.0012006923877634107,
+        "alpha": 0.0014295948626563122,
+        "bc_samples": 25615,
+        "wall_s": 543.0489186249979,
+        "cpu_s": 542.8434139999999,
+        "edited_chosen_eval": 0.9893475366178429
+      }
+    },
+    "configs": {
+      "expo-b2": [
+        "expo-b2_s0",
+        "expo-b2_s1",
+        "expo-b2_s2"
+      ],
+      "expo-b0.2": [
+        "expo-b0.2_s0",
+        "expo-b0.2_s1",
+        "expo-b0.2_s2"
+      ],
+      "expo-b0.1": [
+        "expo-b0.1_s0",
+        "expo-b0.1_s1",
+        "expo-b0.1_s2"
+      ],
+      "expo-b0.05": [
+        "expo-b0.05_s0",
+        "expo-b0.05_s1",
+        "expo-b0.05_s2"
+      ],
+      "bon-q-n16": [
+        "bon-q-n16_s0",
+        "bon-q-n16_s1",
+        "bon-q-n16_s2"
+      ],
+      "bon-q": [
+        "bon-q_s0",
+        "bon-q_s1",
+        "bon-q_s2"
+      ],
+      "expo-b0.1-cotrain": [
+        "expo-b0.1-cotrain_s0",
+        "expo-b0.1-cotrain_s1",
+        "expo-b0.1-cotrain_s2"
+      ]
+    },
+    "controls": {
+      "control: random of 8 proposals": {
+        "expo-b0.1_s0": [
+          116,
+          256
+        ]
+      },
+      "control: random of 16 candidates": {
+        "expo-b0.1_s0": [
+          172,
+          256
+        ],
+        "expo-b0.1_s1": [
+          170,
+          256
+        ],
+        "expo-b0.1_s2": [
+          173,
+          256
+        ]
+      },
+      "control: edit of a random proposal": {
+        "expo-b0.1_s0": [
+          220,
+          256
+        ],
+        "expo-b0.1_s1": [
+          219,
+          256
+        ],
+        "expo-b0.1_s2": [
+          220,
+          256
+        ]
+      }
+    },
+    "control_stats": {
+      "control: random of 8 proposals": {
+        "expo-b0.1_s0": {
+          "mcnemar_p_vs_base": 0.2630539575429353,
+          "mcnemar_p_vs_method": 3.8402956425115606e-28
+        }
+      },
+      "control: random of 16 candidates": {
+        "expo-b0.1_s0": {
+          "mcnemar_p_vs_base": 0.00010057870133965107,
+          "mcnemar_p_vs_method": 3.918121146030225e-12
+        },
+        "expo-b0.1_s1": {
+          "mcnemar_p_vs_base": 0.00021548935986548756,
+          "mcnemar_p_vs_method": 1.3151874833452022e-17
+        },
+        "expo-b0.1_s2": {
+          "mcnemar_p_vs_base": 4.609247371251201e-05,
+          "mcnemar_p_vs_method": 3.33213360770301e-14
+        }
+      },
+      "control: edit of a random proposal": {
+        "expo-b0.1_s0": {
+          "mcnemar_p_vs_base": 1.0428494776914374e-17,
+          "mcnemar_p_vs_method": 0.07245426016254441
+        },
+        "expo-b0.1_s1": {
+          "mcnemar_p_vs_base": 3.844379295661284e-17,
+          "mcnemar_p_vs_method": 9.848878492846323e-05
+        },
+        "expo-b0.1_s2": {
+          "mcnemar_p_vs_base": 4.569610902658239e-17,
+          "mcnemar_p_vs_method": 0.002458900322096724
+        }
+      }
+    },
+    "search_by_config": {
+      "expo-b2": [
+        0,
+        384
+      ],
+      "expo-b0.2": [
+        368,
+        384
+      ],
+      "expo-b0.1": [
+        370,
+        384
+      ],
+      "expo-b0.05": [
+        356,
+        384
+      ],
+      "bon-q-n16": [
+        342,
+        384
+      ],
+      "bon-q": [
+        342,
+        384
+      ],
+      "expo-b0.1-cotrain": [
+        368,
+        384
+      ]
+    },
+    "beta_star": 0.1,
+    "chosen": "expo-b0.1",
+    "base_search": [
+      57,
+      128
+    ],
+    "eval_base": [
+      129,
+      256
+    ],
+    "eval": {
+      "expo-b2": {
+        "per_seed": {
+          "expo-b2_s0": [
+            0,
+            256
+          ],
+          "expo-b2_s1": [
+            3,
+            256
+          ],
+          "expo-b2_s2": [
+            0,
+            256
+          ]
+        },
+        "mcnemar_p": {
+          "expo-b2_s0": 2.938735877055719e-39,
+          "expo-b2_s1": 1.251313736450325e-35,
+          "expo-b2_s2": 2.938735877055719e-39
+        },
+        "diff_ci": {
+          "expo-b2_s0": [
+            -0.56640625,
+            -0.44140625
+          ],
+          "expo-b2_s1": [
+            -0.5546875,
+            -0.4296875
+          ],
+          "expo-b2_s2": [
+            -0.56640625,
+            -0.44140625
+          ]
+        },
+        "paired": {
+          "expo-b2_s0": {
+            "fixed": 0,
+            "broke": 129
+          },
+          "expo-b2_s1": {
+            "fixed": 2,
+            "broke": 128
+          },
+          "expo-b2_s2": {
+            "fixed": 0,
+            "broke": 129
+          }
+        },
+        "pooled": [
+          3,
+          768
+        ]
+      },
+      "expo-b0.2": {
+        "per_seed": {
+          "expo-b0.2_s0": [
+            251,
+            256
+          ],
+          "expo-b0.2_s1": [
+            252,
+            256
+          ],
+          "expo-b0.2_s2": [
+            252,
+            256
+          ]
+        },
+        "mcnemar_p": {
+          "expo-b0.2_s0": 1.881261159055989e-34,
+          "expo-b0.2_s1": 1.0517441830394712e-33,
+          "expo-b0.2_s2": 1.0517441830394712e-33
+        },
+        "diff_ci": {
+          "expo-b0.2_s0": [
+            0.4140625,
+            0.5390625
+          ],
+          "expo-b0.2_s1": [
+            0.4140625,
+            0.546875
+          ],
+          "expo-b0.2_s2": [
+            0.41796875,
+            0.54296875
+          ]
+        },
+        "paired": {
+          "expo-b0.2_s0": {
+            "fixed": 124,
+            "broke": 2
+          },
+          "expo-b0.2_s1": {
+            "fixed": 126,
+            "broke": 3
+          },
+          "expo-b0.2_s2": {
+            "fixed": 126,
+            "broke": 3
+          }
+        },
+        "pooled": [
+          755,
+          768
+        ]
+      },
+      "expo-b0.1": {
+        "per_seed": {
+          "expo-b0.1_s0": [
+            233,
+            256
+          ],
+          "expo-b0.1_s1": [
+            246,
+            256
+          ],
+          "expo-b0.1_s2": [
+            241,
+            256
+          ]
+        },
+        "mcnemar_p": {
+          "expo-b0.1_s0": 3.382436850395309e-25,
+          "expo-b0.1_s1": 1.7558298186482834e-29,
+          "expo-b0.1_s2": 8.992106506585248e-27
+        },
+        "diff_ci": {
+          "expo-b0.1_s0": [
+            0.33984375,
+            0.47265625
+          ],
+          "expo-b0.1_s1": [
+            0.390625,
+            0.5234375
+          ],
+          "expo-b0.1_s2": [
+            0.37109375,
+            0.50390625
+          ]
+        },
+        "paired": {
+          "expo-b0.1_s0": {
+            "fixed": 111,
+            "broke": 7
+          },
+          "expo-b0.1_s1": {
+            "fixed": 123,
+            "broke": 6
+          },
+          "expo-b0.1_s2": {
+            "fixed": 120,
+            "broke": 8
+          }
+        },
+        "pooled": [
+          720,
+          768
+        ]
+      },
+      "expo-b0.05": {
+        "per_seed": {
+          "expo-b0.05_s0": [
+            248,
+            256
+          ],
+          "expo-b0.05_s1": [
+            231,
+            256
+          ],
+          "expo-b0.05_s2": [
+            236,
+            256
+          ]
+        },
+        "mcnemar_p": {
+          "expo-b0.05_s0": 1.2549729328149998e-31,
+          "expo-b0.05_s1": 1.7582222198414876e-22,
+          "expo-b0.05_s2": 5.054905662765795e-26
+        },
+        "diff_ci": {
+          "expo-b0.05_s0": [
+            0.40234375,
+            0.53125
+          ],
+          "expo-b0.05_s1": [
+            0.328125,
+            0.46875
+          ],
+          "expo-b0.05_s2": [
+            0.3515625,
+            0.484375
+          ]
+        },
+        "paired": {
+          "expo-b0.05_s0": {
+            "fixed": 123,
+            "broke": 4
+          },
+          "expo-b0.05_s1": {
+            "fixed": 113,
+            "broke": 11
+          },
+          "expo-b0.05_s2": {
+            "fixed": 114,
+            "broke": 7
+          }
+        },
+        "pooled": [
+          715,
+          768
+        ]
+      },
+      "bon-q-n16": {
+        "per_seed": {
+          "bon-q-n16_s0": [
+            231,
+            256
+          ],
+          "bon-q-n16_s1": [
+            227,
+            256
+          ],
+          "bon-q-n16_s2": [
+            235,
+            256
+          ]
+        },
+        "mcnemar_p": {
+          "bon-q-n16_s0": 5.104513230164562e-22,
+          "bon-q-n16_s1": 3.692334759871404e-20,
+          "bon-q-n16_s2": 4.948110035757513e-24
+        },
+        "diff_ci": {
+          "bon-q-n16_s0": [
+            0.328125,
+            0.46875
+          ],
+          "bon-q-n16_s1": [
+            0.30859375,
+            0.453125
+          ],
+          "bon-q-n16_s2": [
+            0.34375,
+            0.484375
+          ]
+        },
+        "paired": {
+          "bon-q-n16_s0": {
+            "fixed": 114,
+            "broke": 12
+          },
+          "bon-q-n16_s1": {
+            "fixed": 112,
+            "broke": 14
+          },
+          "bon-q-n16_s2": {
+            "fixed": 116,
+            "broke": 10
+          }
+        },
+        "pooled": [
+          693,
+          768
+        ]
+      },
+      "bon-q": {
+        "per_seed": {
+          "bon-q_s0": [
+            239,
+            256
+          ],
+          "bon-q_s1": [
+            231,
+            256
+          ],
+          "bon-q_s2": [
+            230,
+            256
+          ]
+        },
+        "mcnemar_p": {
+          "bon-q_s0": 1.6018659814207945e-27,
+          "bon-q_s1": 1.7582222198414876e-22,
+          "bon-q_s2": 9.245962500366385e-22
+        },
+        "diff_ci": {
+          "bon-q_s0": [
+            0.36328125,
+            0.49609375
+          ],
+          "bon-q_s1": [
+            0.328125,
+            0.46875
+          ],
+          "bon-q_s2": [
+            0.32421875,
+            0.46484375
+          ]
+        },
+        "paired": {
+          "bon-q_s0": {
+            "fixed": 116,
+            "broke": 6
+          },
+          "bon-q_s1": {
+            "fixed": 113,
+            "broke": 11
+          },
+          "bon-q_s2": {
+            "fixed": 113,
+            "broke": 12
+          }
+        },
+        "pooled": [
+          700,
+          768
+        ]
+      },
+      "expo-b0.1-cotrain": {
+        "per_seed": {
+          "expo-b0.1-cotrain_s0": [
+            247,
+            256
+          ],
+          "expo-b0.1-cotrain_s1": [
+            251,
+            256
+          ],
+          "expo-b0.1-cotrain_s2": [
+            247,
+            256
+          ]
+        },
+        "mcnemar_p": {
+          "expo-b0.1-cotrain_s0": 2.4315399222324126e-31,
+          "expo-b0.1-cotrain_s1": 1.1754943508222875e-35,
+          "expo-b0.1-cotrain_s2": 9.200272392390487e-30
+        },
+        "diff_ci": {
+          "expo-b0.1-cotrain_s0": [
+            0.3984375,
+            0.52734375
+          ],
+          "expo-b0.1-cotrain_s1": [
+            0.4140625,
+            0.5390625
+          ],
+          "expo-b0.1-cotrain_s2": [
+            0.39453125,
+            0.52734375
+          ]
+        },
+        "paired": {
+          "expo-b0.1-cotrain_s0": {
+            "fixed": 122,
+            "broke": 4
+          },
+          "expo-b0.1-cotrain_s1": {
+            "fixed": 123,
+            "broke": 1
+          },
+          "expo-b0.1-cotrain_s2": {
+            "fixed": 124,
+            "broke": 6
+          }
+        },
+        "pooled": [
+          745,
+          768
+        ]
+      }
+    },
+    "q_calibration": {
+      "expo-b2": {
+        "mean_pred": -0.006669649854302406,
+        "mean_real": 0.0,
+        "first_decision_pred": -0.017173834145069122,
+        "bins": [
+          [
+            -0.006669649854302406,
+            0.0,
+            9728
+          ]
+        ]
+      },
+      "expo-b0.2": {
+        "mean_pred": 0.8266921639442444,
+        "mean_real": 0.7955797895944411,
+        "first_decision_pred": 0.7886955738067627,
+        "bins": [
+          [
+            3.612646833062172e-05,
+            0.0,
+            160
+          ],
+          [
+            0.1478862464427948,
+            0.0,
+            7
+          ],
+          [
+            0.4410267770290375,
+            0.0,
+            1
+          ],
+          [
+            0.6706793308258057,
+            0.6868406792889984,
+            24
+          ],
+          [
+            0.7694264650344849,
+            0.7308859582859465,
+            236
+          ],
+          [
+            0.8553342223167419,
+            0.8139892754544565,
+            805
+          ],
+          [
+            0.9626471400260925,
+            0.9368145534071365,
+            968
+          ]
+        ]
+      },
+      "expo-b0.1": {
+        "mean_pred": 0.6246656179428101,
+        "mean_real": 0.5955478941392799,
+        "first_decision_pred": 0.7890764474868774,
+        "bins": [
+          [
+            -0.011893201619386673,
+            0.0,
+            771
+          ],
+          [
+            0.16208003461360931,
+            0.0,
+            3
+          ],
+          [
+            0.24948561191558838,
+            0.0,
+            6
+          ],
+          [
+            0.3022213280200958,
+            0.0,
+            2
+          ],
+          [
+            0.4565930962562561,
+            0.09820976760090235,
+            8
+          ],
+          [
+            0.560555100440979,
+            0.33514669569703587,
+            14
+          ],
+          [
+            0.6628631353378296,
+            0.6104591182250368,
+            74
+          ],
+          [
+            0.7609308958053589,
+            0.6888862850972378,
+            320
+          ],
+          [
+            0.8506636023521423,
+            0.8050720732660587,
+            808
+          ],
+          [
+            0.9651157855987549,
+            0.9420904354896422,
+            788
+          ]
+        ]
+      },
+      "expo-b0.05": {
+        "mean_pred": 0.7610836029052734,
+        "mean_real": 0.7524373477440062,
+        "first_decision_pred": 0.7495713233947754,
+        "bins": [
+          [
+            -0.004767976235598326,
+            0.0018635231006791735,
+            250
+          ],
+          [
+            0.15578746795654297,
+            0.0,
+            12
+          ],
+          [
+            0.2406967133283615,
+            0.0,
+            5
+          ],
+          [
+            0.3439350426197052,
+            0.15713562816144375,
+            5
+          ],
+          [
+            0.4629186689853668,
+            0.42381664529976176,
+            8
+          ],
+          [
+            0.5779748558998108,
+            0.6898180700402595,
+            21
+          ],
+          [
+            0.664030134677887,
+            0.6948758937704956,
+            123
+          ],
+          [
+            0.7619509100914001,
+            0.7480530068138501,
+            439
+          ],
+          [
+            0.8509761095046997,
+            0.8328955511438063,
+            733
+          ],
+          [
+            0.9530616402626038,
+            0.9469791172579145,
+            809
+          ]
+        ]
+      },
+      "bon-q-n16": {
+        "mean_pred": 0.5816539525985718,
+        "mean_real": 0.5824898811411608,
+        "first_decision_pred": 0.667371392250061,
+        "bins": [
+          [
+            -0.008986642584204674,
+            0.0,
+            771
+          ],
+          [
+            0.15312522649765015,
+            0.026189271360240626,
+            30
+          ],
+          [
+            0.22025620937347412,
+            0.0,
+            23
+          ],
+          [
+            0.34905770421028137,
+            0.15543663151507567,
+            14
+          ],
+          [
+            0.45486554503440857,
+            0.2045118777913711,
+            40
+          ],
+          [
+            0.5524104237556458,
+            0.5019435597036186,
+            63
+          ],
+          [
+            0.6597750186920166,
+            0.6808725158614081,
+            343
+          ],
+          [
+            0.7464826107025146,
+            0.7467669570483924,
+            488
+          ],
+          [
+            0.8501707315444946,
+            0.860867476364669,
+            575
+          ],
+          [
+            0.9518728852272034,
+            0.9630469433015891,
+            608
+          ]
+        ]
+      },
+      "bon-q": {
+        "mean_pred": 0.6625635027885437,
+        "mean_real": 0.6542852198974577,
+        "first_decision_pred": 0.675689697265625,
+        "bins": [
+          [
+            -0.0018078680150210857,
+            0.0019059444642857142,
+            504
+          ],
+          [
+            0.1409471482038498,
+            0.04379778049927955,
+            43
+          ],
+          [
+            0.250866562128067,
+            0.09069284795504276,
+            21
+          ],
+          [
+            0.34308210015296936,
+            0.32727643253303074,
+            17
+          ],
+          [
+            0.4556949734687805,
+            0.32996136649435875,
+            14
+          ],
+          [
+            0.5572608113288879,
+            0.544335311705603,
+            64
+          ],
+          [
+            0.6641520261764526,
+            0.6850107449743801,
+            330
+          ],
+          [
+            0.7455434203147888,
+            0.7487901001714798,
+            450
+          ],
+          [
+            0.8537901043891907,
+            0.8459829831510862,
+            483
+          ],
+          [
+            0.9706194400787354,
+            0.9476087984357273,
+            814
+          ]
+        ]
+      },
+      "expo-b0.1-cotrain": {
+        "mean_pred": 0.7467495203018188,
+        "mean_real": 0.7429626820998876,
+        "first_decision_pred": 0.734034538269043,
+        "bins": [
+          [
+            -0.0025287277530878782,
+            0.002782541735604168,
+            306
+          ],
+          [
+            0.1875617802143097,
+            0.0,
+            1
+          ],
+          [
+            0.2937183976173401,
+            0.0,
+            2
+          ],
+          [
+            0.3194935917854309,
+            0.4089534687986154,
+            2
+          ],
+          [
+            0.4503035545349121,
+            0.6075362090469832,
+            14
+          ],
+          [
+            0.5530871748924255,
+            0.5975531224872159,
+            27
+          ],
+          [
+            0.6621662378311157,
+            0.6869552580131191,
+            60
+          ],
+          [
+            0.761195182800293,
+            0.7733381560835249,
+            403
+          ],
+          [
+            0.8554384708404541,
+            0.8411024173089957,
+            580
+          ],
+          [
+            0.956941545009613,
+            0.9439260761273763,
+            843
+          ]
+        ]
+      }
+    },
+    "failure_modes": {
+      "base": {
+        "missed_grasp": 102,
+        "off_target": 3,
+        "rim_hit": 4,
+        "slip": 18,
+        "success": 129
+      },
+      "expo-b0.1_s0": {
+        "missed_grasp": 22,
+        "slip": 1,
+        "success": 233
+      }
+    },
+    "base_support_on_failures": {
+      "salts": 16,
+      "solved_by_seed": {
+        "20001": 1,
+        "20027": 8,
+        "20036": 9,
+        "20041": 5,
+        "20048": 8,
+        "20074": 8,
+        "20088": 1,
+        "20106": 10,
+        "20108": 10,
+        "20110": 4,
+        "20114": 5,
+        "20127": 4,
+        "20131": 4,
+        "20132": 8,
+        "20142": 7,
+        "20153": 0,
+        "20156": 4,
+        "20163": 8,
+        "20205": 5,
+        "20234": 7,
+        "20239": 5,
+        "20246": 5,
+        "20252": 8
+      }
+    },
+    "latency_ms": {
+      "1": 0.39704000009805895,
+      "2": 0.7060358401213307,
+      "4": 1.3418233398988377,
+      "8": 2.539916680107126,
+      "16": 4.794958339916775,
+      "32": 10.803732500062324
+    },
+    "cost_steps": {
+      "beta_sweep_total": {
+        "train_steps": 900235,
+        "search_steps": 517795,
+        "cpu_s": 7220.8972810000005
+      },
+      "shared": {
+        "search": 12769,
+        "train": 0,
+        "eval": 24068
+      },
+      "bon-q_s0": {
+        "search": 38218,
+        "train": 60016,
+        "eval": 34801
+      },
+      "bon-q_s1": {
+        "search": 42848,
+        "train": 60013,
+        "eval": 35629
+      },
+      "bon-q_s2": {
+        "search": 39475,
+        "train": 60028,
+        "eval": 35962
+      },
+      "expo-b0.05_s0": {
+        "search": 37862,
+        "train": 60043,
+        "eval": 33497
+      },
+      "expo-b0.05_s1": {
+        "search": 39842,
+        "train": 60044,
+        "eval": 35488
+      },
+      "expo-b0.05_s2": {
+        "search": 41604,
+        "train": 60022,
+        "eval": 35033
+      },
+      "expo-b0.1_s0": {
+        "search": 530564,
+        "train": 900235,
+        "eval": 35022
+      },
+      "expo-b0.1_s1": {
+        "search": 530564,
+        "train": 900235,
+        "eval": 33505
+      },
+      "expo-b0.1_s2": {
+        "search": 530564,
+        "train": 900235,
+        "eval": 34109
+      },
+      "expo-b0.2_s0": {
+        "search": 36526,
+        "train": 60018,
+        "eval": 32680
+      },
+      "expo-b0.2_s1": {
+        "search": 36142,
+        "train": 60017,
+        "eval": 32628
+      },
+      "expo-b0.2_s2": {
+        "search": 36658,
+        "train": 60001,
+        "eval": 32717
+      },
+      "expo-b2_s0": {
+        "search": 82560,
+        "train": 60000,
+        "eval": 62468
+      },
+      "expo-b2_s1": {
+        "search": 78443,
+        "train": 60000,
+        "eval": 62136
+      },
+      "expo-b2_s2": {
+        "search": 87807,
+        "train": 60000,
+        "eval": 62468
+      },
+      "bon-q-n16_s0": {
+        "search": 40996,
+        "train": 60013,
+        "eval": 35689
+      },
+      "bon-q-n16_s1": {
+        "search": 42749,
+        "train": 60059,
+        "eval": 35922
+      },
+      "bon-q-n16_s2": {
+        "search": 40487,
+        "train": 60047,
+        "eval": 35021
+      },
+      "expo-b0.1-cotrain_s0": {
+        "search": 558454,
+        "train": 960267,
+        "eval": 32844
+      },
+      "expo-b0.1-cotrain_s1": {
+        "search": 557398,
+        "train": 960235,
+        "eval": 32034
+      },
+      "expo-b0.1-cotrain_s2": {
+        "search": 557304,
+        "train": 960250,
+        "eval": 32808
+      }
+    },
+    "gif_seed": 20000,
+    "wall_minutes": 50.802332086099945,
+    "role": "chosen",
+    "selected_on_search": true
+  },
+  "git_sha": "e3195bc",
+  "timestamp": "2026-10-01T00:26:34",
+  "config": {
+    "robot": "so101",
+    "betas": [
+      0.0,
+      0.05,
+      0.1,
+      0.2,
+      2.0
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "cotrain": true,
+    "n_props": 8,
+    "wide_n": 16,
+    "n_envs": 16,
+    "train_steps": 60000,
+    "warmup": 1000,
+    "updates_per_tick": 16,
+    "batch": 256,
+    "lr": 0.0003,
+    "hidden": 256,
+    "ensemble": 5,
+    "subset": 2,
+    "gamma": 0.99,
+    "tau": 0.005,
+    "target_entropy": -16.0,
+    "bc_lr": 0.0001,
+    "bc_steps_per_tick": 1,
+    "refresh_every": 100,
+    "curve_points": 6,
+    "final_salts": 2,
+    "search_n": 64,
+    "eval_n": 256,
+    "support_salts": 16,
+    "latency_ns": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "n_workers": 4,
+    "torch_threads": 1,
+    "quick": false
+  }
+}

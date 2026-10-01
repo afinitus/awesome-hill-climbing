@@ -52,10 +52,10 @@ from typing import ClassVar
 
 import numpy as np
 
-from lastmile.common.plotting import optional_media
 from lastmile.common.cli import parse
 from lastmile.common.eval import INIT_SETS, bootstrap_diff, format_rate, mcnemar_exact, policy_seed
 from lastmile.common.ledger import REPO_ROOT, Ledger
+from lastmile.common.plotting import optional_media
 from lastmile.common.rollout import evaluate, rollout_seeds
 
 # torch, policy_flow and matplotlib are imported inside functions: spawned rollout workers re-import

@@ -128,6 +128,12 @@ def parse_rate(d: dict) -> Rate:
                 d.get("init_set_version"))
 
 
+def role_suffix(data: dict) -> str:
+    """Label rows a chapter did not choose as its result, so an ablation never reads like the headline."""
+    role = (data.get("extra") or {}).get("role") if isinstance(data.get("extra"), dict) else None
+    return f" ({role})" if role and role != "chosen" else ""
+
+
 def parse_run(path: Path, data: object) -> Run:
     """Validate one results file; raise ValueError or TypeError if it cannot be used."""
     if not isinstance(data, dict):
@@ -147,7 +153,7 @@ def parse_run(path: Path, data: object) -> Run:
     return Run(
         path=path,
         chapter=str(data["chapter"]),
-        method=str(data["method"]),
+        method=str(data["method"]) + role_suffix(data),
         robot=str(data.get("robot", "so101")),
         variant=str(data.get("variant", "v1")),
         setting=setting,

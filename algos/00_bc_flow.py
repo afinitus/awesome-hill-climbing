@@ -33,8 +33,8 @@ Honesty
 
 Run
     uv run python algos/00_bc_flow.py            # full run, 11-16 min on an M5 Pro with 6 workers
-    uv run python algos/00_bc_flow.py --quick    # smoke test, < 2 min; files go to runs/ch00_quick/
-                                                 # and a results JSON marked quick=true to results/ch00/
+    uv run python algos/00_bc_flow.py --quick    # smoke test, < 2 min; every file (results JSON included)
+                                                 # goes to runs/ch00_quick/
 """
 
 from __future__ import annotations
@@ -337,7 +337,7 @@ def main(cfg: Config) -> None:
     trainers = ProcessPoolExecutor(len(cfg.seeds), mp_context=mp.get_context("spawn"))
     grid_keys = [(n, f) for n in cfg.n_demos for f in cfg.sloppy_fracs]
 
-    with Ledger(chapter="ch00", method="bc_flow", robot=cfg.robot, config=cfg) as L:
+    with Ledger(chapter="ch00", method="bc_flow", robot=cfg.robot, config=cfg, results_root=out / "results") as L:
         # 1. Record one demo pool per pipeline seed; every dataset in the sweep is a prefix of it.
         n_clean = max(n - n_sloppy_of(n, f) for n, f in grid_keys)
         n_sloppy = max(n_sloppy_of(n, f) for n, f in grid_keys)
