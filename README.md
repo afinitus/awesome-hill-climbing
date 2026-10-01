@@ -800,7 +800,7 @@ This repo also hosts **`lastmile`**, an open-source course that implements these
 
 <p><img src="media/env/so101_tuned.gif" width="330" alt="SO-101 picking up the cube and dropping it in the cup"> <img src="media/env/piper_tuned.gif" width="330" alt="AgileX PiPER doing the same task"></p>
 
-**What is in the repo today:** the simulated task on both arms, the evaluation harness (fixed search and held-out start states, Wilson intervals, a cost ledger) and a scripted controller with ten tunable knobs. Tuned, it scores 255/256 on the held-out set; with the deliberately mis-tuned knobs that chapters 1 and 2 start from, it scores 123/256 = 48.0% [42.0%, 54.2%]. Chapters 0, 1, 2, 3 and 12 are available, with notes and results in [docs/chapters/](docs/chapters/).
+**What is in the repo today:** the simulated task on both arms, the evaluation harness (fixed search and held-out start states, Wilson intervals, a cost ledger) and a scripted controller with ten tunable knobs. Tuned, it scores 255/256 on the held-out set; with the deliberately mis-tuned knobs that chapters 1 and 2 start from, it scores 123/256 = 48.0% [42.0%, 54.2%]. Chapters 0, 1, 2, 3, 5, 6, 7, 8 and 12 are available, with notes and results in [docs/chapters/](docs/chapters/).
 
 ```bash
 make setup      # uv venv + dependencies
@@ -815,10 +815,10 @@ make validate   # sanity-check the task with the scripted controller, on both ar
 | 2 | CEM, CMA-ES, PI², BO | Reward-weighted averaging | Zero-order primer, BO review | available |
 | 3 | The golden ticket | Black-box search in noise space | Golden Ticket | available |
 | 4 | PPO/GRPO for a flow policy | Likelihood-ratio PG + anchors | SimpleVLA-RL, πRL, PAC-ACT | planned for v0.3 |
-| 5 | SAC → RLPD → Q-chunking | Bellman backups on replay | Q-chunking, Three Regimes, IPE | planned for v0.2 |
-| 6 | Residual RL | Frozen base + bounded add-on | ResFiT, DAWN, Res-HIL | planned for v0.2 |
-| 7 | DSRL noise steering | RL in latent-noise space | DSRL, SCORE, PSS, RFS | planned for v0.2 |
-| 8 | Propose, edit, select | Edit policy + argmax-Q | EXPO-FT, Real-Time EXPO-FT | planned for v0.2 |
+| 5 | SAC → RLPD → Q-chunking | Bellman backups on replay | Q-chunking, Three Regimes, IPE | available |
+| 6 | Residual RL | Frozen base + bounded add-on | ResFiT, DAWN, Res-HIL | available |
+| 7 | DSRL noise steering | RL in latent-noise space | DSRL, SCORE, PSS, RFS | available |
+| 8 | Propose, edit, select | Edit policy + argmax-Q | EXPO-FT, Real-Time EXPO-FT | available |
 | 9 | Filtered BC, AWR, RECAP-lite | Improvement as supervised learning | π*0.6/RECAP, CFGRL | planned for v0.3 |
 | 10 | DAgger, HG-DAgger, RaC | On-policy labels | RaC, SOP, FlowDAgger | planned for v0.3 |
 | 11 | Rewards & progress models | Shaping and learned judges | Robometer, TOPReward | planned for v0.3 |
@@ -950,28 +950,28 @@ Design contract: [docs/DESIGN.md](docs/DESIGN.md) · course plan: [docs/research
 | ch07 | random_actor-hard_s2 | so101 (hard) | sim | 29.3% [24.1, 35.1] | 48.4% [42.4, 54.5] | +19.1 pp | 0 | 0 | 256 (stress) |
 | ch07 | random_actor-hard_s0 | so101 (hard) | sim | 29.3% [24.1, 35.1] | 47.3% [41.2, 53.4] | +18.0 pp | 0 | 0 | 256 (stress) |
 | ch07 | random_actor-hard_s1 | so101 (hard) | sim | 29.3% [24.1, 35.1] | 45.7% [39.7, 51.8] | +16.4 pp | 0 | 0 | 256 (stress) |
-| ch08 | expo-b0.2_s1 | so101 | sim | 50.4% [44.3, 56.5] | 98.4% [96.1, 99.4] | +48.0 pp | 160.3 | 0 | 256 |
-| ch08 | expo-b0.2_s2 | so101 | sim | 50.4% [44.3, 56.5] | 98.4% [96.1, 99.4] | +48.0 pp | 161.1 | 0 | 256 |
-| ch08 | expo-b0.1-cotrain_s1 | so101 | sim | 50.4% [44.3, 56.5] | 98.0% [95.5, 99.2] | +47.7 pp | 2,529.4 | 0 | 256 |
-| ch08 | expo-b0.2_s0 | so101 | sim | 50.4% [44.3, 56.5] | 98.0% [95.5, 99.2] | +47.7 pp | 160.9 | 0 | 256 |
-| ch08 | expo-b0.05_s0 | so101 | sim | 50.4% [44.3, 56.5] | 96.9% [94.0, 98.4] | +46.5 pp | 163.2 | 0 | 256 |
-| ch08 | expo-b0.1-cotrain_s0 | so101 | sim | 50.4% [44.3, 56.5] | 96.5% [93.5, 98.1] | +46.1 pp | 2,531.2 | 0 | 256 |
-| ch08 | expo-b0.1-cotrain_s2 | so101 | sim | 50.4% [44.3, 56.5] | 96.5% [93.5, 98.1] | +46.1 pp | 2,529.3 | 0 | 256 |
+| ch08 | expo-b0.2_s1 (ablation) | so101 | sim | 50.4% [44.3, 56.5] | 98.4% [96.1, 99.4] | +48.0 pp | 160.3 | 0 | 256 |
+| ch08 | expo-b0.2_s2 (ablation) | so101 | sim | 50.4% [44.3, 56.5] | 98.4% [96.1, 99.4] | +48.0 pp | 161.1 | 0 | 256 |
+| ch08 | expo-b0.1-cotrain_s1 (cotrained-ablation) | so101 | sim | 50.4% [44.3, 56.5] | 98.0% [95.5, 99.2] | +47.7 pp | 2,529.4 | 0 | 256 |
+| ch08 | expo-b0.2_s0 (ablation) | so101 | sim | 50.4% [44.3, 56.5] | 98.0% [95.5, 99.2] | +47.7 pp | 160.9 | 0 | 256 |
+| ch08 | expo-b0.05_s0 (ablation) | so101 | sim | 50.4% [44.3, 56.5] | 96.9% [94.0, 98.4] | +46.5 pp | 163.2 | 0 | 256 |
+| ch08 | expo-b0.1-cotrain_s0 (cotrained-ablation) | so101 | sim | 50.4% [44.3, 56.5] | 96.5% [93.5, 98.1] | +46.1 pp | 2,531.2 | 0 | 256 |
+| ch08 | expo-b0.1-cotrain_s2 (cotrained-ablation) | so101 | sim | 50.4% [44.3, 56.5] | 96.5% [93.5, 98.1] | +46.1 pp | 2,529.3 | 0 | 256 |
 | ch08 | expo-b0.1_s1 | so101 | sim | 50.4% [44.3, 56.5] | 96.1% [93.0, 97.9] | +45.7 pp | 2,384.7 | 0 | 256 |
 | ch08 | expo-b0.1_s2 | so101 | sim | 50.4% [44.3, 56.5] | 94.1% [90.6, 96.4] | +43.8 pp | 2,384.7 | 0 | 256 |
-| ch08 | bon-q_s0 | so101 | sim | 50.4% [44.3, 56.5] | 93.4% [89.6, 95.8] | +43.0 pp | 163.7 | 0 | 256 |
-| ch08 | expo-b0.05_s2 | so101 | sim | 50.4% [44.3, 56.5] | 92.2% [88.2, 94.9] | +41.8 pp | 169.4 | 0 | 256 |
-| ch08 | bon-q-n16_s2 | so101 | sim | 50.4% [44.3, 56.5] | 91.8% [87.8, 94.6] | +41.4 pp | 167.6 | 0 | 256 |
+| ch08 | bon-q_s0 (ablation) | so101 | sim | 50.4% [44.3, 56.5] | 93.4% [89.6, 95.8] | +43.0 pp | 163.7 | 0 | 256 |
+| ch08 | expo-b0.05_s2 (ablation) | so101 | sim | 50.4% [44.3, 56.5] | 92.2% [88.2, 94.9] | +41.8 pp | 169.4 | 0 | 256 |
+| ch08 | bon-q-n16_s2 (control) | so101 | sim | 50.4% [44.3, 56.5] | 91.8% [87.8, 94.6] | +41.4 pp | 167.6 | 0 | 256 |
 | ch08 | expo-b0.1_s0 | so101 | sim | 50.4% [44.3, 56.5] | 91.0% [86.9, 93.9] | +40.6 pp | 2,384.7 | 0 | 256 |
-| ch08 | bon-q-n16_s0 | so101 | sim | 50.4% [44.3, 56.5] | 90.2% [86.0, 93.3] | +39.8 pp | 168.3 | 0 | 256 |
-| ch08 | bon-q_s1 | so101 | sim | 50.4% [44.3, 56.5] | 90.2% [86.0, 93.3] | +39.8 pp | 171.4 | 0 | 256 |
-| ch08 | expo-b0.05_s1 | so101 | sim | 50.4% [44.3, 56.5] | 90.2% [86.0, 93.3] | +39.8 pp | 166.5 | 0 | 256 |
-| ch08 | bon-q_s2 | so101 | sim | 50.4% [44.3, 56.5] | 89.8% [85.5, 93.0] | +39.5 pp | 165.8 | 0 | 256 |
-| ch08 | bon-q-n16_s1 | so101 | sim | 50.4% [44.3, 56.5] | 88.7% [84.2, 92.0] | +38.3 pp | 171.3 | 0 | 256 |
-| ch08 | random-pick-8 | so101 | sim | 50.4% [44.3, 56.5] | 45.3% [39.3, 51.4] | -5.1 pp | 0 | 0 | 256 |
-| ch08 | expo-b2_s1 | so101 | sim | 50.4% [44.3, 56.5] | 1.2% [0.4, 3.4] | -49.2 pp | 230.7 | 0 | 256 |
-| ch08 | expo-b2_s0 | so101 | sim | 50.4% [44.3, 56.5] | 0.0% [0.0, 1.5] | -50.4 pp | 237.6 | 0 | 256 |
-| ch08 | expo-b2_s2 | so101 | sim | 50.4% [44.3, 56.5] | 0.0% [0.0, 1.5] | -50.4 pp | 246.3 | 0 | 256 |
+| ch08 | bon-q-n16_s0 (control) | so101 | sim | 50.4% [44.3, 56.5] | 90.2% [86.0, 93.3] | +39.8 pp | 168.3 | 0 | 256 |
+| ch08 | bon-q_s1 (ablation) | so101 | sim | 50.4% [44.3, 56.5] | 90.2% [86.0, 93.3] | +39.8 pp | 171.4 | 0 | 256 |
+| ch08 | expo-b0.05_s1 (ablation) | so101 | sim | 50.4% [44.3, 56.5] | 90.2% [86.0, 93.3] | +39.8 pp | 166.5 | 0 | 256 |
+| ch08 | bon-q_s2 (ablation) | so101 | sim | 50.4% [44.3, 56.5] | 89.8% [85.5, 93.0] | +39.5 pp | 165.8 | 0 | 256 |
+| ch08 | bon-q-n16_s1 (control) | so101 | sim | 50.4% [44.3, 56.5] | 88.7% [84.2, 92.0] | +38.3 pp | 171.3 | 0 | 256 |
+| ch08 | random-pick-8 (control) | so101 | sim | 50.4% [44.3, 56.5] | 45.3% [39.3, 51.4] | -5.1 pp | 0 | 0 | 256 |
+| ch08 | expo-b2_s1 (ablation) | so101 | sim | 50.4% [44.3, 56.5] | 1.2% [0.4, 3.4] | -49.2 pp | 230.7 | 0 | 256 |
+| ch08 | expo-b2_s0 (ablation) | so101 | sim | 50.4% [44.3, 56.5] | 0.0% [0.0, 1.5] | -50.4 pp | 237.6 | 0 | 256 |
+| ch08 | expo-b2_s2 (ablation) | so101 | sim | 50.4% [44.3, 56.5] | 0.0% [0.0, 1.5] | -50.4 pp | 246.3 | 0 | 256 |
 | ch12 | bon-q-n32_s2 | so101 | sim | 50.4% [44.3, 56.5] | 95.7% [92.5, 97.6] | +45.3 pp | 17,775.4 | 0 | 256 |
 | ch12 | bon-q-n32_s0 | so101 | sim | 50.4% [44.3, 56.5] | 94.5% [91.0, 96.7] | +44.1 pp | 17,787.9 | 0 | 256 |
 | ch12 | bon-q-n32_s1 | so101 | sim | 50.4% [44.3, 56.5] | 91.4% [87.3, 94.3] | +41.0 pp | 17,788.0 | 0 | 256 |
