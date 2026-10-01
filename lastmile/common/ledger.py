@@ -21,7 +21,7 @@ from collections import defaultdict
 from collections.abc import Sequence
 from datetime import datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, Self
 
 import numpy as np
 
@@ -192,7 +192,7 @@ class Ledger:
 
     # -- context manager -------------------------------------------------------------
 
-    def __enter__(self) -> Ledger:
+    def __enter__(self) -> Self:
         self._cpu_start = time.process_time()
         self._wall_start = time.perf_counter()
         return self
@@ -225,7 +225,7 @@ class Ledger:
             },
             "extra": _portable(self.extra),
             "git_sha": git_sha(),
-            "timestamp": datetime.now().isoformat(timespec="seconds"),
+            "timestamp": datetime.now().astimezone().isoformat(timespec="seconds"),
             "config": _portable(self.config),
         }
 
@@ -233,7 +233,7 @@ class Ledger:
         """Write the results JSON; a numeric suffix avoids clobbering same-second runs."""
         out_dir = self.results_root / self.chapter
         out_dir.mkdir(parents=True, exist_ok=True)
-        stem = f"{self.method}_{self.robot}_{datetime.now():%Y%m%d-%H%M%S}"
+        stem = f"{self.method}_{self.robot}_{datetime.now().astimezone():%Y%m%d-%H%M%S}"
         path, i = out_dir / f"{stem}.json", 1
         while path.exists():
             path, i = out_dir / f"{stem}-{i}.json", i + 1

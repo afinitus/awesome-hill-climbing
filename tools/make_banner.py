@@ -21,8 +21,8 @@ A = W / H  # the landscape lives on [0, A] x [0, 1] so contours keep their shape
 SIZES = {"banner": (1280, 360), "social-preview": (1280, 640)}  # README banner; GitHub/Twitter link card
 
 THEMES = {
-    "light": dict(bg="#F1F4EE", contour="#A7B4A2", accent="#1C58C0", ink="#17211C", muted="#48564E"),
-    "dark": dict(bg="#0E1411", contour="#33433A", accent="#86A8FF", ink="#E2E9E4", muted="#A5B2AA"),
+    "light": {"bg": "#F1F4EE", "contour": "#A7B4A2", "accent": "#1C58C0", "ink": "#17211C", "muted": "#48564E"},
+    "dark": {"bg": "#0E1411", "contour": "#33433A", "accent": "#86A8FF", "ink": "#E2E9E4", "muted": "#A5B2AA"},
 }
 LEVELS = [0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 0.99]
 LABELS = {0.5: "50%", 0.9: "90%", 0.99: "99%"}
@@ -87,9 +87,9 @@ def svg(theme: str, size: str = "banner") -> str:
     xs, ys = np.linspace(0, A, 360), np.linspace(0, 1, 120)
     gx, gy = np.meshgrid(xs, ys)
     gen = contourpy.contour_generator(gx, gy, field(gx, gy))
-    out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
+    out = [(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
            f'role="img" aria-label="Climbing the Nines: a success-rate landscape drawn as contour lines, with a '
-           f'dashed hill-climbing path from a pretrained policy at about 50% up past the 99% contour.">',
+           f'dashed hill-climbing path from a pretrained policy at about 50% up past the 99% contour.">'),
            f'<rect width="{W}" height="{H}" fill="{c["bg"]}"/>']
     label_at = {}
     for level in LEVELS:

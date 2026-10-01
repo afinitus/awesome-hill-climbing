@@ -6,10 +6,9 @@ episodes the interval is roughly +-12 points, and a curve without it invites ove
 
 from __future__ import annotations
 
-from contextlib import contextmanager
-
 import warnings
 from collections.abc import Sequence
+from contextlib import contextmanager
 from pathlib import Path
 
 import matplotlib as mpl

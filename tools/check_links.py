@@ -34,7 +34,7 @@ def status(url: str) -> tuple[str, str]:
                 continue
             if method == "GET":
                 return url, f"FAIL {e.code}"
-        except Exception as e:  # DNS, TLS, timeout
+        except Exception as e:  # noqa: BLE001 — report per-URL DNS/TLS/timeout failures and continue the batch.
             if method == "GET":
                 return url, f"FAIL {type(e).__name__}"
     return url, "FAIL unknown"

@@ -114,7 +114,7 @@ def join_and(items: list[str]) -> str:
 
 def month_label(d: str) -> str:
     try:
-        return dt.date.fromisoformat((d[:7] + "-01")).strftime("%B %Y")
+        return dt.date.fromisoformat(d[:7] + "-01").strftime("%B %Y")
     except ValueError:
         return d
 
@@ -178,8 +178,8 @@ def sec_new(papers: list[dict], families: dict, today: dt.date, window: int) -> 
     cutoff = (today - dt.timedelta(days=window)).isoformat()
     new = [p for p in papers if len(p["date"]) == 10 and p["date"] >= cutoff]
     out = ["## What's new", "",
-           f"**{len(new)} papers and posts from the last {window} days** ({cutoff} to {today.isoformat()}), newest first. "
-           "Descriptions are on each family page.", ""]
+           (f"**{len(new)} papers and posts from the last {window} days** ({cutoff} to {today.isoformat()}), newest first. "
+           "Descriptions are on each family page."), ""]
     out += [compact(p, families) for p in new] or ["*Nothing in the window.*"]
     return out + [""]
 
@@ -196,8 +196,8 @@ def sec_start_here(by_id: dict) -> list[str]:
 def sec_loop() -> list[str]:
     return [
         "## The hill-climbing loop", "",
-        "Every method here runs some version of one loop. The families differ in which step they spend effort on "
-        "and which part of the system they change.", "",
+        ("Every method here runs some version of one loop. The families differ in which step they spend effort on "
+        "and which part of the system they change."), "",
         "```mermaid",
         "flowchart LR",
         "  S([Start]) --> D[Deploy] --> M[Measure] --> F[Find failures] --> I[Improve] --> R[Re-measure]",
@@ -212,23 +212,23 @@ def sec_loop() -> list[str]:
         "| **Improve** | Apply an update. Each family is a different update operator. | [Black-box search](papers/blackbox.md), [on-policy PG](papers/onpolicy.md), [off-policy critics](papers/offpolicy.md), [residual & steering](papers/residual.md), [weighted BC](papers/advbc.md), [DAgger](papers/hitl.md), [test-time search](papers/testtime.md) |",
         "| **Re-measure** | Held-out start states, trial counts and confidence intervals. Then repeat. | [Evaluation](papers/worldmodel.md), [industry loops](papers/industry.md) |",
         "",
-        "**Measuring the nines.** Near the top, the hard part is knowing whether you climbed. "
+        ("**Measuring the nines.** Near the top, the hard part is knowing whether you climbed. "
         "30/30 successes only shows the true rate is at least **88.6%** (95% Wilson interval). "
         "You need **73** straight successes for a lower bound of 95%, and **381** for 99%. "
         "Report the interval, keep search episodes separate from evaluation episodes, and compare methods on the "
-        "same start states.", "",
-        "Three patterns run through the list: these methods mostly **amplify behavior the base policy already has** "
+        "same start states."), "",
+        ("Three patterns run through the list: these methods mostly **amplify behavior the base policy already has** "
         "(at 0% success there is usually little to climb); many recipes that work **keep the big model frozen or anchored and "
         "train something small** next to it, while others retrain the whole model, sometimes with no anchor when the base "
         "already succeeds often (SimpleVLA-RL); and the bottleneck has moved from the optimizer to **the success signal "
-        "and the evaluation**.", "",
+        "and the evaluation**."), "",
     ]
 
 
 def sec_foundations(found: list[dict]) -> list[str]:
     out = ["## Foundations", "",
-           "Most 2025–26 methods recombine about a dozen textbook ideas. The standard text is "
-           "[Sutton & Barto, *Reinforcement Learning: An Introduction*](http://incompleteideas.net/book/the-book-2nd.html) (free online).", "",
+           ("Most 2025–26 methods recombine about a dozen textbook ideas. The standard text is "
+           "[Sutton & Barto, *Reinforcement Learning: An Introduction*](http://incompleteideas.net/book/the-book-2nd.html) (free online)."), "",
            "| Idea | Core equation | Classic references | Used most by |",
            "| :--- | :--- | :--- | :--- |"]
     for f in found:
@@ -239,8 +239,8 @@ def sec_foundations(found: list[dict]) -> list[str]:
 
 def sec_families(by_fam: dict, fam_meta: list[dict]) -> list[str]:
     out = ["## Papers and posts by family", "",
-           "Each family answers one question. Below are the **must-know** works (⭐) per family; the link under each "
-           "heading opens the full list, newest first.", ""]
+           ("Each family answers one question. Below are the **must-know** works (⭐) per family; the link under each "
+           "heading opens the full list, newest first."), ""]
     for f in fam_meta:
         items = by_fam.get(f["key"], [])
         recent = sum(1 for p in items if p["date"] >= RECENT_FROM)
@@ -275,21 +275,21 @@ def sec_handson(code_released: bool) -> list[str]:
             for n, m, b, p, s in CHAPTERS]
     intro = [
         "## Hands-on: lastmile", "",
-        "This repo also hosts **`lastmile`**, an open-source course that implements these families on one task: "
+        ("This repo also hosts **`lastmile`**, an open-source course that implements these families on one task: "
         "a low-cost **SO-101** arm (the AgileX **PiPER** is supported in simulation too) picks up a cube and drops it "
         "in a cup. One base policy works about half the time; each chapter tries to push it toward 95%+ and reports "
         "what that cost in robot-minutes and human-minutes. Everything runs in MuJoCo on a laptop (no NVIDIA GPU "
         "needed). Each chapter also describes a real-arm step for the SO-101; none has been run on hardware yet, and each "
         "carries a safety note to read first (clear workspace, power switch or e-stop in reach, low speed limits, supervise every run). "
-        "Each hardware step in the chapter notes opens with a safety checklist; read it before you power the arm.", "",
-        "**Benchmark limitation:** CupDrop-v1 scores a drop into the cup at its current position; it can count successes "
+        "Each hardware step in the chapter notes opens with a safety checklist; read it before you power the arm."), "",
+        ("**Benchmark limitation:** CupDrop-v1 scores a drop into the cup at its current position; it can count successes "
         "after the cup was moved or tipped and recovered. These scores do not establish a no-shoving benchmark. "
-        "See the [prelaunch review](docs/maintenance/review/REPORT.md).", "",
+        "See the [prelaunch review](docs/maintenance/review/REPORT.md)."), "",
     ]
     if code_released:
         intro += [
-            '<p><img src="media/env/so101_tuned.gif" width="330" alt="SO-101 picking up the cube and dropping it in the cup">'
-            ' <img src="media/env/piper_tuned.gif" width="330" alt="AgileX PiPER doing the same task"></p>', "",
+            ('<p><img src="media/env/so101_tuned.gif" width="330" alt="SO-101 picking up the cube and dropping it in the cup">'
+            ' <img src="media/env/piper_tuned.gif" width="330" alt="AgileX PiPER doing the same task"></p>'), "",
             "**What is in the repo today:** the simulated task on both arms, the evaluation harness (fixed search and "
             "held-out start states, Wilson intervals, a cost ledger) and a scripted controller with ten tunable knobs. "
             "Tuned, it scores 255/256 on the held-out set; with the deliberately mis-tuned knobs that chapters 1 and 2 "
@@ -305,8 +305,8 @@ def sec_handson(code_released: bool) -> list[str]:
         links = ("Design contract: [docs/DESIGN.md](docs/DESIGN.md) · course plan: "
                  "[docs/research/curriculum.md](docs/research/curriculum.md) · chapter notes: [docs/chapters/](docs/chapters/)")
     else:
-        intro += ["**Status:** the simulator, the evaluation harness and the first chapters are being reviewed and land "
-                  "in this repo next. The plan:", ""]
+        intro += [("**Status:** the simulator, the evaluation harness and the first chapters are being reviewed and land "
+                  "in this repo next. The plan:"), ""]
         links = "Course plan: [docs/research/curriculum.md](docs/research/curriculum.md)"
     out = intro + ["| Ch | Method | Base idea | Mirrors | Status |", "| ---: | :--- | :--- | :--- | :--- |", *rows, "", links, ""]
     if code_released:
@@ -317,22 +317,22 @@ def sec_handson(code_released: bool) -> list[str]:
 def sec_footer(n_papers: int, n_deep: int, n_checked: int, n_res: int, today: dt.date) -> list[str]:
     return [
         "## How this list is made", "",
-        f"The first version (September 2026) came from an agent-assisted literature sweep: many search angles plus rounds "
+        (f"The first version (September 2026) came from an agent-assisted literature sweep: many search angles plus rounds "
         f"of gap-finding (arXiv month by month, citation mining, company blogs and talks). Of the {n_papers} papers "
         f"and posts, {n_checked} are marked `checked` or `corrected` in the catalog, and "
         f"{n_papers - n_deep} are marked `read-once`; these are recorded review statuses, not independent replication. "
         f"The {n_res} resources are also listed from source pages. `tools/arxiv_meta.py` checks every "
         f"arXiv link in the paper list and its first-version date against the arXiv API and flags titles that do not "
         f"match, and `tools/check_links.py` checks the non-arXiv links. The workflow for weekly updates is documented "
-        f"in [docs/maintenance/weekly-sweep.md](docs/maintenance/weekly-sweep.md).", "",
-        "Numbers are as reported by the authors. Some are bar-chart readings or estimates from small trial "
+        f"in [docs/maintenance/weekly-sweep.md](docs/maintenance/weekly-sweep.md)."), "",
+        ("Numbers are as reported by the authors. Some are bar-chart readings or estimates from small trial "
         "counts, and industry numbers are self-reported. Check the paper before citing a number. Research and "
         "drafting were assisted by Claude (Anthropic), which also helped write the lastmile code and chapter notes. "
-        "The pre-launch review and fixes also used Codex (OpenAI).", "",
+        "The pre-launch review and fixes also used Codex (OpenAI)."), "",
         "## Contributing", "",
-        "Add a row to [`data/papers.csv`](data/papers.csv) or [`data/resources.csv`](data/resources.csv), run "
+        ("Add a row to [`data/papers.csv`](data/papers.csv) or [`data/resources.csv`](data/resources.csv), run "
         "`uv run python tools/build_awesome.py`, and open a pull request. A good entry has a concrete one-line "
-        "description: the mechanism, then the headline number with its baseline. See [CONTRIBUTING.md](CONTRIBUTING.md).", "",
+        "description: the mechanism, then the headline number with its baseline. See [CONTRIBUTING.md](CONTRIBUTING.md)."), "",
         "## Citation", "",
         "```bibtex",
         "@misc{awesome-hill-climbing,",
@@ -342,8 +342,8 @@ def sec_footer(n_papers: int, n_deep: int, n_checked: int, n_res: int, today: dt
         "}",
         "```", "",
         "## License", "",
-        "The list and the code are MIT-licensed ([LICENSE](LICENSE)). Robot models under `lastmile/envs/assets/` keep "
-        "their MuJoCo Menagerie licenses (SO-101: Apache-2.0, PiPER: MIT).", "",
+        ("The list and the code are MIT-licensed ([LICENSE](LICENSE)). Robot models under `lastmile/envs/assets/` keep "
+        "their MuJoCo Menagerie licenses (SO-101: Apache-2.0, PiPER: MIT)."), "",
     ]
 
 
@@ -409,23 +409,23 @@ def build() -> dict[Path, str]:
         "# Awesome Hill Climbing [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)", "",
         "<picture>",
         '  <source media="(prefers-color-scheme: dark)" srcset="media/banner-dark.svg">',
-        '  <img src="media/banner-light.svg" width="100%" alt="Climbing the Nines: a success-rate landscape drawn as '
-        'contour lines, with a dashed hill-climbing path from a pretrained policy at 50% up past the 99% contour.">',
+        ('  <img src="media/banner-light.svg" width="100%" alt="Climbing the Nines: a success-rate landscape drawn as '
+        'contour lines, with a dashed hill-climbing path from a pretrained policy at 50% up past the 99% contour.">'),
         "</picture>", "",
-        "> Papers, posts, code and courses on **hill-climbing robot policies**: taking a pretrained or "
+        ("> Papers, posts, code and courses on **hill-climbing robot policies**: taking a pretrained or "
         "imitation-learned policy from ~50% to 95–99%+ success on a real task. RL fine-tuning, residual and steering "
         "policies, advantage-weighted retraining, human corrections, test-time verifiers, reward and world models, "
-        "sim-to-real, and the classic black-box search underneath it all.", "",
-        f"**{len(papers)} papers and posts** · **{n_recent} since {month_label(RECENT_FROM)}** · **{n_key} must-know (⭐)** · "
-        f"**{len(res)} tools, courses and benchmarks** · updated **{today.isoformat()}**", "",
-        *([f"**Interactive explainer: [Climbing the Nines]({meta['site_url']})**: the hill-climbing loop, the RL "
+        "sim-to-real, and the classic black-box search underneath it all."), "",
+        (f"**{len(papers)} papers and posts** · **{n_recent} since {month_label(RECENT_FROM)}** · **{n_key} must-know (⭐)** · "
+        f"**{len(res)} tools, courses and benchmarks** · updated **{today.isoformat()}**"), "",
+        *([(f"**Interactive explainer: [Climbing the Nines]({meta['site_url']})**: the hill-climbing loop, the RL "
            "ideas underneath, a timeline of the last 12 months, the course results, and a searchable index of every "
-           "paper.", ""] if meta.get("site_url") else []),
-        "A pretrained robot policy that works half the time needs more reliable behavior before deployment. "
+           "paper."), ""] if meta.get("site_url") else []),
+        ("A pretrained robot policy that works half the time needs more reliable behavior before deployment. "
         "Even 99% success needs a declared task scope, quality bar, speed and evaluation protocol. "
         "\"Hill climbing\" is what labs and companies call the loop in between: deploy, measure, find failures, improve, "
         "re-measure. This list maps the ways people run that loop, the textbook RL ideas each one comes from, and what "
-        "changed in the last twelve months, down to this week.", "",
+        "changed in the last twelve months, down to this week."), "",
         "## Contents", "",
     ]
     for title, subs in toc:
@@ -448,7 +448,7 @@ def build() -> dict[Path, str]:
     return files
 
 
-LB = re.compile(r"<!-- LEADERBOARD:START -->.*?<!-- LEADERBOARD:END -->", re.S)
+LB = re.compile(r"<!-- LEADERBOARD:START -->.*?<!-- LEADERBOARD:END -->", re.DOTALL)
 
 
 def keep_leaderboard(new: str, old: str) -> str:
