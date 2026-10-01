@@ -302,8 +302,18 @@ def _run_in_pool(shards: list[tuple], n_workers: int) -> list[dict[str, Any]]:
             _, running = wait(running, return_when=FIRST_COMPLETED)
         try:
             futures.append(pool.submit(_run_shard, *shard))
-        except BrokenProcessPool:  # a worker died; the loop below reports which shard killed it
-            break
+        except BrokenProcessPool as exc:
+            # A worker can die *between* submissions after earlier futures succeeded. Breaking here
+            # would then return a prefix of the episodes beside the full seed list: fail the whole
+            # evaluation instead of silently dropping the unsubmitted shards.
+            for future in futures:
+                future.cancel()
+            shutdown_pool()
+            seeds = shard[2]
+            raise RuntimeError(
+                f"rollout worker failed while submitting shard with seeds {seeds[0]}..{seeds[-1]}: "
+                f"{type(exc).__name__}: {exc}"
+            ) from exc
         running.add(futures[-1])
     outputs = []
     for shard, future in zip(shards, futures):

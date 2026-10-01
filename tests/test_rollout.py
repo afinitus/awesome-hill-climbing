@@ -97,3 +97,30 @@ def test_worker_errors_propagate():
         )
     # The pool is still usable afterwards.
     assert evaluate(GreedyPolicy, "search", n=8, n_workers=4, env_factory=DummyEnv).n == 8
+
+
+@pytest.mark.parametrize("completed", [0, 1])
+def test_pool_death_during_submission_never_returns_partial_results(monkeypatch, completed):
+    """Earlier shards may already have succeeded when the pool refuses the next submission."""
+    from concurrent.futures import Future
+    from concurrent.futures.process import BrokenProcessPool
+
+    from lastmile.common import rollout
+
+    class DyingPool:
+        submitted = 0
+
+        def submit(self, fn, *args):
+            if self.submitted == completed:
+                raise BrokenProcessPool("worker died between shards")
+            self.submitted += 1
+            future = Future()
+            future.set_result(fn(*args))
+            return future
+
+    stopped = []
+    monkeypatch.setattr(rollout, "_get_pool", lambda n: DyingPool())
+    monkeypatch.setattr(rollout, "shutdown_pool", lambda: stopped.append(True))
+    with pytest.raises(RuntimeError, match="failed while submitting shard.*worker died"):
+        evaluate(GreedyPolicy, "search", n=4, n_workers=2, shard_size=1, env_factory=DummyEnv)
+    assert stopped == [True]

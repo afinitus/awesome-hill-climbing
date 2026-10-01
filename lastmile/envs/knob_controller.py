@@ -49,8 +49,8 @@ KNOB_NAMES = [k.name for k in KNOB_SPACE]
 # Plausible first guesses, the kind you write after eyeballing the gripper in the viewer: center the gripper
 # frame on the cube "by eye" (about 1 cm off in y, and unaware that the SO-101's fixed jaw wants a small -x
 # offset), close a little high to keep the fingertips off the table, and aim 3 cm short of the cup's center.
-# On SO-101 v1 this gives a bit under 50% success: missed grasps, a few slips and off-target drops, while
-# the successes are clean drops that never touch the cup (tools/validate_env.py prints the measured mix).
+# On SO-101 v1 this gives a bit under 50% success: missed grasps, a few slips and off-target drops.
+# Most successes are clean drops; some move the cup (tools/validate_env.py prints the measured mix).
 # The carry height clears the rim; rim hits start once lift_h goes below about 0.078.
 DEFAULT_KNOBS: dict[str, float] = {
     "grasp_dx": 0.0, "grasp_dy": 0.011, "grasp_dz": 0.005, "approach_h": 0.08, "close_steps": 3,
