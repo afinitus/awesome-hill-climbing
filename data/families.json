@@ -15,7 +15,7 @@
    "Black-box search inside modern methods"
   ],
   "use_when": "Use it when (1) you only have a scalar, trajectory-level score such as success, success times time, or pass/fail, (2) the policy's log-probs are unavailable or expensive (diffusion, flow, action chunks, deterministic controllers, closed APIs), and (3) you can shrink the search to a small space: controller gains, impedance, a noise vector, a residual or last-layer head, a prompt. Pick BO for tens of expensive real trials over a few knobs.",
-  "trend": "Three things changed in the last 12 months. (1) Scale: ES went from 'works for small MLPs' to full-parameter fine-tuning of billion-parameter models. C155 (Sep 2025, ICML 2026) beat tuned PPO/GRPO on Countdown with a population of 30."
+  "trend": "The biggest change is scale: evolution strategies went from small networks to full-parameter fine-tuning of billion-parameter models, and Evolution Strategies at Scale (Qiu et al., Sep 2025, ICML 2026) used a population of 30 to beat grid-tuned PPO and GRPO on the Countdown reasoning task for all seven LLMs it tried (0.5B-8B), a language-model result with no robot experiments. EGGROLL (Nov 2025) made large populations cheap, reaching up to 91% of pure batch-inference throughput with low-rank perturbations. On robots the search space got smaller and smarter: the Golden Ticket (Mar 2026) searches for one fixed initial-noise vector for a frozen diffusion or flow policy and improved 46 of 51 simulated and real tasks, while ENPIRE (Jun 2026) has coding agents search over training recipes using real-robot rollouts. Black-box search is also used as a second stage after gradient training, as in EvolSAC and TD-ES."
  },
  {
   "key": "onpolicy",
@@ -31,8 +31,8 @@
    "Anchoring to the pretrained policy",
    "Signal needs variance"
   ],
-  "use_when": "Use it when you have (1) a pretrained policy that already succeeds sometimes, roughly 10-90%, (2) a simulator or digital twin with cheap resets and an automatic success check, and (3) GPUs for millions of rollouts. It is the right tool for pushing a competent SFT policy past its imitation plateau (RL4VLA: more demos stopped helping at 0.781, PPO reached 0.938).",
-  "trend": "Twelve months ago (2025-05 to 2025-07), the question was whether PPO/GRPO can train a VLA at all. RIPT-VLA, VLA-RL, RL4VLA, TGRPO, ReinFlow and FPO said yes, in simulation. From 2025-09 to 2025-10 this became standard recipes and infrastructure."
+  "use_when": "Use it when you have (1) a pretrained policy that already succeeds sometimes, roughly 10-90%, (2) a simulator or digital twin with cheap resets and an automatic success check, and (3) GPUs for large-scale parallel simulated rollouts. It is the right tool for pushing a competent SFT policy past its imitation plateau: in RL4VLA, SFT plateaued at about 16k demos with 0.781 in-distribution success, and PPO reached 0.938 (appendix Table 1). Do not run it directly on a real arm with a small rollout budget; there, prefer the off-policy, residual or human-in-the-loop families.",
+  "trend": "A year ago (May to July 2025) the open question was whether PPO or GRPO could train a VLA at all: RIPT-VLA, VLA-RL, RL4VLA and TGRPO showed it could in simulation, while ReinFlow and FPO showed how to run PPO-style updates on flow-matching policies. From September to October 2025 this became standard recipes and infrastructure: SimpleVLA-RL applied critic-free GRPO with binary success rewards to OpenVLA-OFT, πRL made PPO work on the pi0 and pi0.5 flow VLAs, and RLinf-VLA provided shared training infrastructure. With LIBERO close to saturated (several methods report about 97-99% average), 2026 work focuses on where the learning signal comes from, avoiding forgetting, and real-world transfer."
  },
  {
   "key": "offpolicy",
@@ -42,7 +42,7 @@
   "tagline": "Learn a Q-function from every transition you have (demos, human corrections, old rollouts, new rollouts), then use it to pick, edit or push the policy's actions toward higher value.",
   "built_on": [
    "Bellman backups and off-policy replay",
-   "Max-entropy actor-critic (SAC) and its real-robot variant RLPD",
+   "Max-entropy actor-critic (SAC) and its offline-data variant RLPD (the engine of SERL and HIL-SERL)",
    "Conservative and in-sample critics",
    "The offline-to-online hand-off",
    "Action-chunk critics",
@@ -50,7 +50,7 @@
    "Humans in the loop"
   ],
   "use_when": "Use this family when you already have a decent policy (roughly 40-80% on one task), each real episode is expensive, and you can get a binary success signal. Off-policy RL reuses every demo, correction and failed rollout, so it usually needs far fewer robot minutes than on-policy PPO/GRPO.",
-  "trend": "Five shifts happened in the last 12 months. (1) The target policy changed. The 2023-24 lineage (RLPD, SERL, HIL-SERL) trained small Gaussian SAC policies from scratch."
+  "trend": "The target policy changed: the 2023-24 lineage (RLPD, SERL, HIL-SERL) trained small task-specific SAC policies, while 2026 work wraps the same off-policy machinery around pretrained flow VLAs such as pi0.5 and pi0.6 (EXPO-FT, RL Token, ALOE, LWD, RAPolicy). Critics increasingly score whole action chunks, following Q-chunking (Jul 2025), and follow-ups such as DQC, AQC and ACH decide how long to commit to a chunk. Other work questions how much offline critic pretraining and offline-data replay really help (WSRL, Three Regimes), and the human-in-the-loop HIL-SERL loop is being automated or scaled: AutoSERL replaces the live intervener with a one-demo scripted corrector, and LWD runs the loop on a 16-robot fleet."
  },
  {
   "key": "residual",
@@ -67,7 +67,7 @@
    "Support versus reach"
   ],
   "use_when": "Use it when you already have a decent base (roughly 20-80% success) that you can't or won't fine-tune: a VLA too big to backprop through with RL, a closed checkpoint that allows only forward calls, or a chunked diffusion or ACT policy whose likelihood is awkward for policy gradients. It also fits when you want the base's generality and recovery behaviors kept intact, and when your budget is minutes to hours of real robot time with sparse success labels.",
-  "trend": "Four shifts in the last 12 months. (1) Bases moved from task-specific diffusion or ACT policies to frozen generalist VLAs (pi0, pi0.5, GR00T, SmolVLA, OpenVLA-OFT). Freezing became the default because full RL fine-tuning of 3B models is costly and erodes recovery behavior (PPS, TRANSIC-style findings)."
+  "trend": "Over the last 12 months, bases moved from task-specific diffusion or ACT policies to frozen generalist VLAs (pi0, pi0.5, GR00T, SmolVLA, OpenVLA-OFT). Freezing is common because RL through a multi-billion-parameter model is costly, and an untouched base keeps behaviors the new task data never exercise, such as recovery from failure (the case PPS makes for steering a frozen base). Real-robot add-ons are usually trained off-policy (ResFiT, DICE-RL, EXPO-FT, MiDAS); ResFiT reports about 200x the sample efficiency of a PPO residual in simulation. The limits of each branch became clearer: noise steering stays inside the base's support (on one-demo LIBERO-Long, DSRL stays at the BC start's 33.5 while MiDAS's residual actor reaches 91.2), and RFS pairs noise steering for global exploration with a residual for local correction. The EXPO line pairs a large proposer with a small editor and picks the argmax-Q action: Real-Time EXPO-FT reports 42% -> 97% on four dynamic real-world tasks with online data capped at 10 minutes."
  },
  {
   "key": "advbc",
@@ -84,7 +84,7 @@
    "Curation: hill-climbing the dataset instead of the loss"
   ],
   "use_when": "Use this family when you have a decent BC or VLA policy (roughly 20-60% success) on a specific task, a way to label episodes success or failure, and ideally a teleop device for takeovers, but you do not want to backprop RL through a large flow or diffusion sampler. Start with curation (RoboDrop, QoQ or CUPID-style audits, or cheap smoothness filters) when your demos are mixed-quality.",
-  "trend": "The big shift came with pi*0.6/RECAP in November 2025. Advantage-weighted BC gave way to advantage-conditioned BC with classifier-free guidance, which fits flow VLAs whose likelihood is awkward to weight, and CFGRL (May 2025) supplied the theory. In the next ten months at least a dozen groups copied or modified the recipe: GigaBrain RAMP, chi0, DexPIE, DEED, ROVE, STEAM, Robo-ValueRL, PACE, DistAL, Facet-0, CLIFT and the LeHome winner."
+  "trend": "The big shift came with pi*0.6/RECAP in November 2025. Advantage-conditioned BC, where the policy is conditioned on a binarized advantage token and classifier-free guidance is optional, suits flow VLAs whose likelihood is awkward to weight, and it joined advantage-weighted BC as a main option; RECAP names CFGRL (May 2025) as the closest prior formulation. In the next ten months at least a dozen groups adopted or adapted the recipe: GigaBrain RAMP, chi0, DexPIE, DEED, ROVE, STEAM, Robo-ValueRL, PACE, DistAL, Facet-0, CLIFT and a prizewinning LeHome Challenge entry (1st in the simulation round, 2nd in the real-world final)."
  },
  {
   "key": "hitl",
@@ -101,12 +101,12 @@
    "Human effort is the budget"
   ],
   "use_when": "Use this family when you have a decent imitation policy (roughly 30% to 80% success) that fails in specific, repeatable places, and a person who can recognize and fix those failures. It is the default last-mile tool when you have no reward function, when the task is long-horizon or contact-rich, and when you want the policy to stay close to its pretrained behavior.",
-  "trend": "Five shifts in the last 12 months. (1) The policy being corrected is now a VLA. pi0/pi0.5, GO-1, Being-H0.5 and Gr-Dexter replace small BC-RNNs, and the loops are built as systems: SOP streams fleet corrections to a cloud learner, and HELP splits operator roles and reports successes per hour."
+  "trend": "Over the last 12 months, the policy being corrected became a VLA: pi0/pi0.5-class models replace small BC-RNNs, and the loops are built as systems. SOP streams fleet corrections to a cloud learner, and HELP splits the human work between a teleoperator and a floor operator who together supervise twelve robots. Methods also get more out of each correction: FlowPRO trains on paired failed and corrected segments with a DPO-style loss, and FlowDAgger maps corrections into a frozen flow policy's noise space instead of retraining it. Machines increasingly take the intervener's role (UniIntervene, Skill-Space Shooting), and how and when a correction is collected is now studied directly (RaC's recover-then-correct rule, TimelyDAgger's takeover timing)."
  },
  {
   "key": "testtime",
   "name": "Test-time search & verifiers",
-  "loop_step": "Improve at deploy time (no weight updates)",
+  "loop_step": "Improve at deploy time (no policy weight updates)",
   "question": "My policy sometimes does the right thing but not reliably. Can I raise its success rate without retraining it, just by choosing better among its own samples at run time?",
   "tagline": "Leave the policy's weights alone and spend extra compute at deployment: sample several candidate actions, score them with a critic, verifier, world model or monitor, and run the best one (or nudge the sampler toward it).",
   "built_on": [
@@ -119,7 +119,7 @@
    "Search, then distill (expert iteration)"
   ],
   "use_when": "Use it when (1) your policy is stochastic (diffusion, flow or sampled tokens) and pass@k is clearly above pass@1, i.e. it sometimes does the right thing, (2) fine-tuning the policy is expensive or risky (a large VLA, a shared checkpoint), and (3) you can afford some extra latency or can batch samples off a shared prefill.",
-  "trend": "Five shifts in the last 12 months. (1) From generic to on-policy verifiers. V-GPS (2024) used a generic offline-RL Q, and RoboMonkey (2025-06) a 7B verifier on synthetic preferences."
+  "trend": "Verifiers moved from generic to policy-specific: V-GPS (2024) reranked samples with a generic offline-RL Q-function and RoboMonkey (2025-06) with a 7B VLM verifier trained on synthetic preferences, while much 2026 work trains a small critic on the deployed policy's own labeled rollouts (UF-OPS, Q-Planning). For flow policies, gradient guidance started to replace sampling many candidates (QGF, Jun 2026), and gating schemes such as VLA-ATTC and JITI spend extra compute only when it looks useful. Runtime failure monitors became part of the steering loop (CoRe, RL2-VLA). Many of these are single-paper results with few real-robot trials per task, and few methods have been compared head to head."
  },
  {
   "key": "reward",
@@ -138,7 +138,7 @@
    "Measuring a reward model before spending robot time"
   ],
   "use_when": "Use this family when success is sparse or expensive to judge and the task is long or multi-stage. Examples: cloth folding, insertion sequences, anything where a rollout that gets 80% of the way looks the same as one that fails at once under a success bit.",
-  "trend": "Four shifts stand out. (1) Scale and generality. Per-task rankers (Rank2Reward, VIP-style) gave way to VLM reward models trained on large pooled datasets: Robo-Dopamine on about 3,400 hours, Robometer on RBM-1M (over 1M trajectories), RynnValue on over 7,000 hours."
+  "trend": "Per-task rankers (Rank2Reward) and pretrained visual-embedding rewards (VIP, trained on Ego4D human video) gave way to VLM reward models trained on large pooled datasets: Robo-Dopamine on over 3,400 hours, Robometer on RBM-1M (over 1M trajectories), RynnValue on over 7,000 hours. Training data now deliberately includes real or synthesized failures, so models can score failed rollouts and not only expert ones (RoboReward's counterfactual relabeling of successful episodes, Robometer's trajectory-comparison loss over failed trajectories). Shaping got more careful: Robo-Dopamine feeds progress in through policy-invariant shaping instead of as raw reward. In RECAP-style loops the value model itself became a lever: with the same RECAP pipeline, ViVa reports 80.0% average real success with its value vs 63.3% with a VLM value. The 'No Free Checker' survey notes that how far a policy can be optimized against a learned robot verifier is still largely unstudied, and that no shared benchmark for verifier exploitability exists yet."
  },
  {
   "key": "worldmodel",
@@ -156,7 +156,7 @@
    "Runtime monitors"
   ],
   "use_when": "Use evaluation infrastructure first, almost always. If you will compare more than a handful of checkpoints, build a twin or learned evaluator and validate it on 5-10 checkpoints with paired real trials (report Pearson r and MMRV) before trusting it.",
-  "trend": "In the last 12 months the family went from 'world models as evaluators' to 'world models as RL environments for VLAs', and then to 'making those environments trustworthy'. (1) Starting in Sept-Nov 2025, World-Env, VLA-RFT, WMPO and ProphRL ran GRPO/PPO for VLAs inside pretrained video generators (Cosmos, OpenSora, Wan, SVD), using learned or VLM success judges. The draw was on-policy RL without resets."
+  "trend": "In the last 12 months the family went from 'world models as evaluators' to 'world models as RL environments for VLAs', and then to 'making those environments trustworthy'. From September to November 2025, World-Env, VLA-RFT and WMPO ran GRPO/PPO-style RL for VLAs inside learned world models, scored by a VLM judge, a learned success classifier or similarity to a reference rollout; the draw was on-policy RL without resets. By February-March 2026 the focus had shifted to hallucination and compounding error: WoVR (keyframe-initialized rollouts, model-policy co-evolution), VLAW and PlayWorld (grounding the model in real policy rollouts or failure-rich play data) and VLA-MBPO (short imagined branches) each target ways an imperfect world model misleads the policy. On real robots, RISE reports 30-35% -> 85-95% (20 trials per task) and WoVR 51.1 -> 80.0 on a Franka, and evaluators were validated at larger scale (Veo against 1600+ real trials; RoboWorld at r = 0.989 with the RoboArena leaderboard)."
  },
  {
   "key": "simreal",
@@ -171,27 +171,27 @@
    "Sim-to-online RL on the real robot",
    "Sim value as a shaping signal",
    "Residual correction on a sim-made base",
-   "Gradient-free and label-light last-mile knobs (the 'other' bucket)"
+   "Gradient-free and label-light last-mile knobs for frozen policies"
   ],
-  "use_when": "Use this family when real-world trial and error is slow, unsafe or needs human resets, and you can build a simulator that gets the coarse task structure right: rigid objects, known geometry, a calibratable controller. Pick by situation.",
-  "trend": "Four shifts in the last 12 months. (1) The simulator changed jobs. Earlier sim-to-real trained small policies from scratch and hoped for zero-shot transfer."
+  "use_when": "Use this family when real-world trial and error is slow, unsafe or needs human resets, and you can build a simulator that gets the coarse task structure right: rigid objects, known geometry, a calibratable controller. With a pretrained BC or VLA policy, a few real demos and a rough simulator, run sim RL with a real-data BC anchor (RL-Co, TacCoRL, DLS); for recurring deployment failures, rebuild the failing scenes in simulation (F4R); for a small actor-critic you can run on hardware for minutes, pretrain in sim and continue online. Avoid it for deformables, fluids or contact physics your simulator cannot fake, or when building the twin costs more than collecting real data.",
+  "trend": "The simulator changed jobs: earlier sim-to-real trained small policies from scratch and hoped for zero-shot transfer, while now it is also a practice gym for already-pretrained BC and VLA policies, often with real demonstrations kept as a BC anchor during sim RL (RL-Co, Feb 2026; TacCoRL; DLS). Building the simulation got cheaper and more automatic, from phone-scanned twins (TwinRL) to generated 3D scenes (Generative 3D Worlds, Mar 2026), which makes it possible to rebuild only the scenes where the real policy failed (F4R, Sep 2026). Sim-real hybrids also matured: TwinRL runs RL in the twin to seed the real replay buffer, and What Matters for Sim-to-Online RL sets out how to continue sim-pretrained SAC on a real robot."
  },
  {
   "key": "industry",
   "name": "Industry recipes & deployment reports",
   "loop_step": "The whole loop",
-  "question": "How do real robot companies actually climb from ~60-80% to 99% on a paying task, and what do they disclose about it?",
+  "question": "How do robot companies say they climb from ~60-80% to 99% on a paying task, and what do they actually disclose?",
   "tagline": "Companies take a big pretrained robot model and push one real task from \"works in a demo\" to \"works all shift\" with deploy, grade, curate and retrain loops, sometimes with RL folded in.",
   "built_on": [
    "On-policy data aggregation (DAgger and its human-gated variant)",
    "Automatic success and progress detection",
    "Policy improvement through supervised learning (advantage-weighted or advantage-conditioned BC)",
-   "Pretraining scale makes local hill-climbing trustworthy",
+   "Broad pretraining as the reason local hill-climbing transfers (a company claim, e.g. ACT-2)",
    "Reliability compounds and evaluation is statistical",
    "Sparse outcome reward plus self-play"
   ],
-  "use_when": "Use these case studies as a template when you have one fixed, economically defined task, a pretrained base policy that already works sometimes (roughly 50-80%), and the ability to run many long evaluation sessions. The order that shows up across companies: (1) define success with the customer's own quality bar and log everything; (2) automate grading and failure localization (progress model or auto-labeler); (3) collect targeted recovery or correction data where the policy actually fails (DAgger-style); (4) if success plateaus or speed matters, add a value function and advantage-weighted or advantage-conditioned retraining in the RECAP style; (5) report streaks, successes per hour and graded quality over hundreds of trials with a declared scope.",
-  "trend": "Four shifts in the last 12 months. (1) RL entered industry recipes in supervised-friendly forms. π*0.6/RECAP (2025-11) showed a value function plus advantage-conditioned retraining beating PPO and AWR on a 4B flow VLA."
+  "use_when": "Use these case studies as a template when you have one fixed, economically defined task, a pretrained base policy that already works sometimes (roughly 50-80%), and the ability to run many long evaluation sessions. A common order, pieced together from partial company disclosures: (1) define success with the customer's own quality bar and log everything; (2) automate grading and failure localization (progress model or auto-labeler); (3) collect targeted recovery or correction data where the policy actually fails (DAgger-style); (4) if success plateaus or speed matters, add a value function and advantage-weighted or advantage-conditioned retraining in the RECAP style; (5) report streaks, successes per hour and graded quality over hundreds of trials with a declared scope.",
+  "trend": "RL entered industry recipes in supervised-friendly forms: π*0.6/RECAP (Nov 2025) used a value function and advantage-conditioned retraining and outperformed PPO and AWR baselines on laundry folding with π0.6 (a Gemma 3 4B backbone plus an 860M action expert), and Generalist lists learning from experience (RL) among GEN-1's ingredients. Large-scale human data is now presented as what makes post-training cheap: GEN-1 is pretrained on over 500,000 hours of wearable-device data and adapted with about an hour of robot data per task, and Sunday pretrains ACT-2 on sensorized human data. Reporting moved toward production metrics, such as ACT-2's 99.1% success over 785 laundry attempts and Dyna-2's 95 napkins per hour with 93% meeting the quality bar, but these posts give few details of the training updates behind the numbers. A Siemens factory case study is a rare published account of the effort and recurring failure modes of an iterative fine-tuning loop on π0.5."
  },
  {
   "key": "generalrl",
@@ -203,6 +203,6 @@
    "Everything in Foundations"
   ],
   "use_when": "Read these when you are choosing an algorithm family or a compute budget, or when a robot paper cites an idea from language-model RL and you want the original.",
-  "trend": "RL for language models and RL for robot policies converged on the same toolkit in 2025-26: critic-free group baselines, KL-anchored fine-tuning from a pretrained model, learned verifiers, and spending compute at test time."
+  "trend": "RL for language models and RL for robot policies increasingly share a toolkit in 2025-26: critic-free group baselines, KL-anchored fine-tuning from a pretrained model, learned verifiers, and spending compute at test time. Real-robot work still leans heavily on off-policy critics (SAC or TD3 with RLPD-style demo mixing), which language-model RL rarely uses."
  }
 ]

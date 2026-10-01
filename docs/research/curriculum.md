@@ -28,6 +28,8 @@ Working repo name: `lastmile`. Tagline: *"One robot, one task, one base policy t
 
 Each chapter lists: learning goal, the base RL idea, the 2025-26 papers it mirrors, a minimal implementation plan, the environment, the compute, the shareable plot or GIF, and the hardware step. "Paper reference" means a number from a paper. "Our target" is a hypothesis the repo has to confirm, not a promise.
 
+> **Safety, for every hardware step below.** A learning policy can move the arm quickly and in unexpected ways, and the servos can pinch. Clear the workspace, keep the arm's power switch or plug (or an e-stop) within reach, start with low speed and a small per-step limit (in LeRobot, `max_relative_target` on the follower, which is off by default), keep your hands out of the workspace while the policy runs (reset only when the arm has stopped), and supervise every run.
+
 ### Ch 1 — Hill climbing with a success counter (finite differences, ARS)
 - **Goal.** Improve a controller when all you can do is run it and count successes.
 - **Base idea.** Perturb, evaluate, step. Gradient ascent on a Gaussian-smoothed objective with antithetic pairs: `g ≈ 1/(Nσ) Σ [R(θ+σε) − R(θ−σε)] ε`. ARS adds three small tricks: divide by the reward standard deviation, keep only the top directions, and normalize states.

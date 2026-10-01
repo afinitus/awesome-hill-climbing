@@ -42,13 +42,13 @@ RECENT_FROM = "2025-09"  # "the last year" for counts and for the month-by-month
 
 # Hand-picked entry points (ids in data/papers.csv) and why each is worth reading first.
 START_HERE = [
-    ("C357", "The industry framing of hill climbing: scale pretraining until in-house gains carry over to unseen homes, then climb reliability in-house. Proposes the \"Solve\" reporting standard."),
-    ("C179", "Advantage-conditioned retraining of a VLA: a value model tags chunks positive or negative, the model is retrained with its supervised loss, and guidance pushes it toward positive."),
-    ("C276", "Off-policy RL around a VLA without backprop through it: propose chunks, apply a small bounded edit, execute the best under a Q-ensemble."),
-    ("C236", "Literal hill climbing: random-search one fixed noise vector for a frozen diffusion or flow policy. The baseline every RL method should beat."),
+    ("C357", "Sunday's framing of hill climbing: scale pretraining until in-house gains carry over to unseen homes, then climb reliability in-house. Proposes the \"Solve\" reporting standard."),
+    ("C179", "Advantage-conditioned retraining of a VLA: a value model tags chunks positive or negative, the model is retrained with its supervised loss on that tag, and at test time it is conditioned on positive (optionally with classifier-free guidance)."),
+    ("C276", "Off-policy RL around a VLA with no RL gradient through it: propose chunks, apply a small bounded edit, execute the best under a Q-ensemble. The VLA itself keeps training on its own supervised loss."),
+    ("C236", "Black-box search (random search, CEM, zeroth-order) for one fixed input-noise vector for a frozen diffusion or flow policy, training no new networks. Simple enough to run before RL: it beat Gaussian noise sampling on 46 of 51 sim and real tasks."),
     ("C324", "Noise-space steering constrained to what the base policy can already do, trained only in a scanned digital twin, transferred with zero real RL."),
-    ("C259", "Train a verifier on your own evaluation rollouts and rerank N samples at deploy time. No weight updates."),
-    ("C435", "A controlled real-robot ablation of the advantage-guided post-training loop: how to build, calibrate and use the advantage."),
+    ("C259", "Train a verifier on your own evaluation rollouts and rerank N samples at deploy time. No policy weight updates."),
+    ("C435", "A controlled study of advantage-guided (RECAP-style) post-training that separates how the advantage is built, calibrated and used, screens each choice with offline diagnostics, then tests the recipe on four real bimanual tasks."),
 ]
 
 RESOURCE_SECTIONS = [
@@ -65,7 +65,7 @@ RESOURCE_SECTIONS = [
 CHAPTERS = [  # (number, method, base idea, papers mirrored, planned release)
     ("0", "The base policy", "Behavior-clone a flow policy from mixed-quality demos", "Rectified flow, ACT, Diffusion Policy", "v0.1"),
     ("1", "Hill climbing & ARS", "Finite differences on a smoothed objective", "Kohl & Stone 2004, ARS, TD-ES", "v0.1"),
-    ("2", "CEM, CMA-ES, PI², BO", "Reward-weighted averaging", "Zero-order primer, BO review", "v0.1"),
+    ("2", "CEM, CMA-ES, PI², BO", "Reward-weighted averaging; BO: a surrogate model", "Zero-order primer, BO review", "v0.1"),
     ("3", "The golden ticket", "Black-box search in noise space", "Golden Ticket", "v0.1"),
     ("4", "PPO/GRPO for a flow policy", "Likelihood-ratio PG + anchors", "SimpleVLA-RL, πRL, PAC-ACT", "v0.3"),
     ("5", "SAC → RLPD → Q-chunking", "Bellman backups on replay", "Q-chunking, Three Regimes, IPE", "v0.2"),
@@ -123,16 +123,27 @@ def name_of(p: dict) -> str:
     return esc(p.get("short") or p["title"])
 
 
+def org_of(p: dict) -> str:
+    """The org field, with a name that an earlier length limit cut off ("University of…") shown as "et al."."""
+    org = p.get("org", "")
+    if not org.endswith("…"):
+        return org
+    head = re.sub(r"[;,][^;,]*…$", "", org)
+    if head == org:  # no separator before the cut: drop the partial last word
+        head = re.sub(r"\s+\S*…$", "", org)
+    return head.rstrip(" ;,") + " et al."
+
+
 def entry(p: dict) -> str:
     """Full list entry: star, linked name, (org, date), blurb, code link."""
     star = "⭐ " if p.get("key") == "1" else ""
-    meta = ", ".join(x for x in [p.get("org", ""), p.get("date", "")] if x)
+    meta = ", ".join(x for x in [org_of(p), p.get("date", "")] if x)
     line = f"- {star}**[{name_of(p)}]({p['url']})**" + (f" ({esc(meta)})" if meta else "")
     if p.get("one_line"):
         line += f" — {esc(p['one_line'])}"
     extras = [f"[code]({p['code']})"] if p.get("code") else []
     if p.get("verified") == "corrected":
-        extras.append("numbers corrected after check")
+        extras.append("numbers corrected after an independent re-check against the source")
     return line + (" · " + " · ".join(extras) if extras else "")
 
 
@@ -140,11 +151,25 @@ def compact(p: dict, families: dict) -> str:
     """One-line changelog entry for What's new."""
     fam = families.get(p.get("family", ""))
     where = f" · [{fam['name']}](papers/{fam['key']}.md)" if fam else ""
-    who = f" ({esc(p['org'])})" if p.get("org") else ""
+    who = f" ({esc(org_of(p))})" if p.get("org") else ""
     star = "⭐ " if p.get("key") == "1" else ""
-    name, full = name_of(p), esc(p["title"])
-    rest = full[len(name):].lstrip(" :—-") if full.lower().startswith(name.lower()) else full
-    title = f": {rest}" if rest and len(rest) < 130 else ""
+    name = name_of(p)
+    full = esc(re.sub(r"\s*\([^()]*\)\s*$", "", p["title"]) or p["title"])  # drop a trailing "(ACRONYM)" alias
+    if " (" in name and not full.lower().startswith(name.lower()):
+        head, alias = name.split(" (", 1)
+        if alias.rstrip(")").lower() in full.lower() or (full.lower().startswith(head.lower()) and len(full) > len(head)):
+            name = head  # "PSS (Principal Steering Subspaces)": the expansion is already in the title
+    if name.endswith("…") and full.startswith(name[:-1].rstrip()):
+        name = full  # the short name is only the title cut off: show the full title once
+    if full.lower().startswith(name.lower()):
+        tail = full[len(name):]
+        if tail.lstrip()[:1] in (":", "—", "-"):
+            rest, sep = tail.lstrip(" :—-"), ": "
+        else:  # "Skill-Space Shooting for ..." reads on; "Compose Your Policies! ..." keeps its punctuation
+            rest, sep = tail.strip(), ("" if tail[:1] in "!?,." else " ")
+    else:
+        rest, sep = full, ": "
+    title = f"{sep}{rest}" if rest and len(rest) < 130 and rest.lower() not in name.lower() else ""
     return f"- `{p['date']}` {star}**[{name}]({p['url']})**{title}{who}{where}"
 
 
@@ -160,11 +185,11 @@ def sec_new(papers: list[dict], families: dict, today: dt.date, window: int) -> 
 
 
 def sec_start_here(by_id: dict) -> list[str]:
-    out = ["## Start here", "", "Seven reads from the last year that together cover most of the field:", ""]
+    out = ["## Start here", "", "Seven reads from the last year to start with:", ""]
     for pid, why in START_HERE:
         p = by_id.get(pid)
         if p:
-            out.append(f"1. **[{name_of(p)}]({p['url']})** ({esc(p.get('org', ''))}, {p.get('date', '')[:7]}) — {why}")
+            out.append(f"1. **[{name_of(p)}]({p['url']})** ({esc(org_of(p))}, {p.get('date', '')[:7]}) — {why}")
     return out + [""]
 
 
@@ -192,16 +217,17 @@ def sec_loop() -> list[str]:
         "You need **73** straight successes for a lower bound of 95%, and **381** for 99%. "
         "Report the interval, keep search episodes separate from evaluation episodes, and compare methods on the "
         "same start states.", "",
-        "Three things hold across the whole list: these methods mostly **amplify behavior the base policy already has** "
-        "(at 0% success there is little to climb); the recipes that work **keep the big model frozen or anchored and "
-        "train something small** next to it; and the bottleneck has moved from the optimizer to **the success signal "
+        "Three patterns run through the list: these methods mostly **amplify behavior the base policy already has** "
+        "(at 0% success there is usually little to climb); many recipes that work **keep the big model frozen or anchored and "
+        "train something small** next to it, while others retrain the whole model, sometimes with no anchor when the base "
+        "already succeeds often (SimpleVLA-RL); and the bottleneck has moved from the optimizer to **the success signal "
         "and the evaluation**.", "",
     ]
 
 
 def sec_foundations(found: list[dict]) -> list[str]:
     out = ["## Foundations", "",
-           "Every 2025–26 method recombines about a dozen textbook ideas. The standard text is "
+           "Most 2025–26 methods recombine about a dozen textbook ideas. The standard text is "
            "[Sutton & Barto, *Reinforcement Learning: An Introduction*](http://incompleteideas.net/book/the-book-2nd.html) (free online).", "",
            "| Idea | Core equation | Classic references | Used most by |",
            "| :--- | :--- | :--- | :--- |"]
@@ -224,7 +250,7 @@ def sec_families(by_fam: dict, fam_meta: list[dict]) -> list[str]:
                 f"{esc(f['tagline'])}", "",
                 f"**Loop step:** {f['loop_step']} · **Built on:** {'; '.join(f['built_on'][:4])}", "",
                 f"**[All {len(items)} entries →](papers/{f['key']}.md)** ({recent} from {month_label(RECENT_FROM)} onward)", ""]
-        out += [entry(p) for p in keys]
+        out += [entry(p) for p in keys] or ["*No ⭐ picks in this family yet; the full list is linked above.*"]
         out.append("")
     return out
 
@@ -237,7 +263,7 @@ def sec_resources(res: list[dict]) -> list[str]:
             continue
         out += [f"### {title}", ""]
         for r in items:
-            org = f" ({esc(r['org'])})" if r.get("org") else ""
+            org = f" ({esc(org_of(r))})" if r.get("org") else ""
             out.append(f"- **[{esc(r['name'])}]({r['url']})**{org} — {esc(r['one_line'])}")
         out.append("")
     return out
@@ -253,7 +279,9 @@ def sec_handson(code_released: bool) -> list[str]:
         "a low-cost **SO-101** arm (the AgileX **PiPER** is supported in simulation too) picks up a cube and drops it "
         "in a cup. One base policy works about half the time; each chapter tries to push it toward 95%+ and reports "
         "what that cost in robot-minutes and human-minutes. Everything runs in MuJoCo on a laptop (no NVIDIA GPU "
-        "needed), and each chapter then gets a real-arm step.", "",
+        "needed). Each chapter also describes a real-arm step for the SO-101; none has been run on hardware yet, and each "
+        "carries a safety note to read first (clear workspace, power switch or e-stop in reach, low speed limits, supervise every run). "
+        "Each hardware step in the chapter notes opens with a safety checklist; read it before you power the arm.", "",
     ]
     if code_released:
         intro += [
@@ -283,19 +311,21 @@ def sec_handson(code_released: bool) -> list[str]:
     return out
 
 
-def sec_footer(n_papers: int, n_deep: int, n_res: int, today: dt.date) -> list[str]:
+def sec_footer(n_papers: int, n_deep: int, n_checked: int, n_res: int, today: dt.date) -> list[str]:
     return [
         "## How this list is made", "",
-        f"The first version (September 2026) came from an agent-assisted literature sweep: 18 search angles plus rounds "
+        f"The first version (September 2026) came from an agent-assisted literature sweep: many search angles plus rounds "
         f"of gap-finding (arXiv month by month, citation mining, company blogs and talks). Of the {n_papers} papers "
-        f"and posts, {n_deep} were read in full into structured notes, and each of those from September 2025 onward "
-        f"was re-checked against its source by a second pass, with corrections applied and flagged. The other "
-        f"{n_papers - n_deep}, mostly from the newest weeks, were read once from the source (`verified = read-once` in "
-        f"the data) and get the full check in later updates. The {n_res} resources were each opened and confirmed. "
-        f"Every arXiv link, title and date is validated against the arXiv API by `tools/arxiv_meta.py`.", "",
+        f"and posts, {n_deep} were read in full into structured notes, and the {n_checked} of those from September 2025 "
+        f"onward were re-checked against their source by a second pass, with corrections applied and flagged. The other "
+        f"{n_papers - n_deep} were read once from the source (`verified = read-once` in the data) and get the full check "
+        f"in later updates. The {n_res} resources were each opened and confirmed. `tools/arxiv_meta.py` checks every "
+        f"arXiv link in the paper list and its first-version date against the arXiv API and flags titles that do not "
+        f"match, and `tools/check_links.py` checks the non-arXiv links. A scheduled agent sweeps for new work every week, "
+        f"following [docs/maintenance/weekly-sweep.md](docs/maintenance/weekly-sweep.md).", "",
         "Numbers are as reported by the authors. Many are bar-chart readings, most real-robot results use 20–60 "
         "trials, and industry numbers are self-reported. Check the paper before citing a number. Research and "
-        "drafting were assisted by Claude (Anthropic).", "",
+        "drafting were assisted by Claude (Anthropic), which also helped write the lastmile code and chapter notes.", "",
         "## Contributing", "",
         "Add a row to [`data/papers.csv`](data/papers.csv) or [`data/resources.csv`](data/resources.csv), run "
         "`uv run python tools/build_awesome.py`, and open a pull request. A good entry has a concrete one-line "
@@ -383,14 +413,14 @@ def build() -> dict[Path, str]:
         "imitation-learned policy from ~50% to 95–99%+ success on a real task. RL fine-tuning, residual and steering "
         "policies, advantage-weighted retraining, human corrections, test-time verifiers, reward and world models, "
         "sim-to-real, and the classic black-box search underneath it all.", "",
-        f"**{len(papers)} papers and posts** · **{n_recent} from the last year** · **{n_key} must-know (⭐)** · "
+        f"**{len(papers)} papers and posts** · **{n_recent} since {month_label(RECENT_FROM)}** · **{n_key} must-know (⭐)** · "
         f"**{len(res)} tools, courses and benchmarks** · updated **{today.isoformat()}**", "",
         *([f"**Interactive explainer: [Climbing the Nines]({meta['site_url']})**: the hill-climbing loop, the RL "
            "ideas underneath, a timeline of the last 12 months, the course results, and a searchable index of every "
            "paper.", ""] if meta.get("site_url") else []),
         "A pretrained robot policy that works half the time is a demo. One that works 99% of the time is a product. "
         "\"Hill climbing\" is what labs and companies call the loop in between: deploy, measure, find failures, improve, "
-        "re-measure. This list maps every way people run that loop, the textbook RL ideas each one comes from, and what "
+        "re-measure. This list maps the ways people run that loop, the textbook RL ideas each one comes from, and what "
         "changed in the last twelve months, down to this week.", "",
         "## Contents", "",
     ]
@@ -405,7 +435,8 @@ def build() -> dict[Path, str]:
     lines += sec_families(by_fam, fam_meta)
     lines += sec_resources(res)
     lines += sec_handson(bool(meta.get("code_released", True)))
-    lines += sec_footer(len(papers), sum(1 for p in papers if p.get("verified") != "read-once"), len(res), today)
+    lines += sec_footer(len(papers), sum(1 for p in papers if p.get("verified") != "read-once"),
+                        sum(1 for p in papers if p.get("verified") in ("checked", "corrected")), len(res), today)
 
     files = {README: "\n".join(lines).rstrip() + "\n", PAPERS_DIR / "README.md": papers_index(fam_meta, by_fam)}
     for f in fam_meta:
