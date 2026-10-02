@@ -7,7 +7,15 @@ import mujoco
 import numpy as np
 import pytest
 
-from lastmile.envs.cupdrop import CUBE_HALF, MAX_DELTA, MAX_LEAD, OBS_KEYS, CupDropEnv, OutcomeTracker, obs_layout
+from lastmile.envs.cupdrop import (
+    CUBE_HALF,
+    MAX_DELTA,
+    MAX_LEAD,
+    OBS_KEYS,
+    CupDropEnv,
+    OutcomeTracker,
+    obs_layout,
+)
 from lastmile.envs.knob_controller import DEFAULT_KNOBS, RELEASE, TUNED_KNOBS, KnobController
 from lastmile.envs.robots import get_robot
 

@@ -70,6 +70,5 @@ def test_optional_media_skips_only_render_failures(capsys):
     with optional_media("a gif"):
         raise RenderUnavailable("no display")
     assert "skipped a gif" in capsys.readouterr().out
-    with pytest.raises(ValueError):
-        with optional_media("a gif"):
-            raise ValueError("a real bug is not swallowed")
+    with pytest.raises(ValueError), optional_media("a gif"):
+        raise ValueError("a real bug is not swallowed")

@@ -410,10 +410,13 @@ def ellipse_gif(runs: dict[str, list[dict]], cfg: Config, dims: tuple[str, str] 
 
 
 def main(cfg: Config) -> None:
+    final_label = "search check" if cfg.quick else "held-out"
+    base_label = "search check" if cfg.quick else "eval"
     names = [*METHODS, BASELINE] if cfg.weights == "all" else [cfg.weights]
     if cfg.failures:
         names += [f for f, (m, _) in FAILURES.items() if m in names]
-    ev = partial(evaluate, init_set="eval", robot=cfg.robot, n_workers=cfg.n_workers, n=cfg.eval_n)
+    ev = partial(evaluate, init_set="search" if cfg.quick else "eval", robot=cfg.robot,
+                 n_workers=cfg.n_workers, n=cfg.eval_n)
     base = ev(partial(KnobController, DEFAULT_KNOBS, cfg.robot)) if cfg.heldout else None
     base_search = evaluate(partial(KnobController, DEFAULT_KNOBS, cfg.robot), "search", robot=cfg.robot,
                            n_workers=cfg.n_workers, n=cfg.audit_n)  # for the plot's reference line only
@@ -435,18 +438,18 @@ def main(cfg: Config) -> None:
                     r["final"] = ev(partial(KnobController, knobs, cfg.robot), ledger=L, category="eval")
                     L.set_final(successes=r["final"])
             k, n = r["best_search"]
-            held = f" -> held-out {r['final'].summary}" if "final" in r else ""
+            held = f" -> {final_label} {r['final'].summary}" if "final" in r else ""
             print(f"{name} seed {seed}: search {format_rate(k, n)}{held} | "
                   f"{L.robot_minutes['search']:.1f} search robot-min, {r['rollouts']} episodes")
             runs.setdefault(name, []).append(r)
 
-    print(f"\nsummary (base on eval: {base.summary if base else 'not scored'})")
+    print(f"\nsummary (base on {base_label}: {base.summary if base else 'not scored'})")
     for name, rs in runs.items():
         if base is None:
             continue
         k, n = sum(r["final"].k for r in rs), sum(r["final"].n for r in rs)
         per_seed = ", ".join(f"{r['final'].k}/{r['final'].n}" for r in rs)
-        print(f"  {name:10s} held-out per seed [{per_seed}]  pooled {format_rate(k, n)}")
+        print(f"  {name:10s} {final_label} per seed [{per_seed}]  pooled {format_rate(k, n)}")
     if cfg.media and not cfg.quick and not cfg.tag and base is not None:  # tagged runs keep the media as is
         plot_curves(runs, cfg)
         if all(m in runs for m in METHODS):

@@ -198,8 +198,8 @@ Field rules:
 - `category` (resources): `code-robot`, `code-rl`, `sim`, `benchmark`, `dataset`, `course`, `book`,
   `tutorial`, `survey`, `talk` or `awesome`.
 - `one_line`, at most 40 words, in this order: the mechanism (what is trained, searched or edited, and on which
-  signal), then the single most telling result **with its baseline and setting**, copied exactly as the source
-  states it, e.g. `... raises success from 52% to 81% over the frozen base on four real-robot tasks.` No hype
+  signal), then the single most telling result **with its baseline and setting**. Preserve the source’s numerical values and paraphrase its
+  explanation, e.g. `... raises success from 52% to 81% over the frozen base on four real-robot tasks.` No hype
   words ("novel", "state-of-the-art", "significantly"), no "we" or "this paper". If the number comes from a
   figure, add "(chart reading)". If the abstract gives no number and you did not read one in the paper, write
   the mechanism and setting only. Read `head -30 data/papers.csv` once to match the house style.

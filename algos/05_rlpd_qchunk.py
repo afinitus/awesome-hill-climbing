@@ -30,10 +30,9 @@ Base idea in plain words
               transition (update-to-data ratio, UTD, of 4).
         QC    no actor at all: the policy is best-of-N from the frozen base. Decode N chunks from
               base_v1, execute argmax_j mean_e Q_e(s, a_j) (mean over all 10 members). The target
-              uses the same best-of-N selection but scores it pessimistically,
-              V(s') = max_j min_pair Q'(s', a'_j) with a'_j ~ base_v1(.|s'): a max over 32 noisy
-              estimates is biased upward, and the random-pair minimum (RLPD/REDQ) offsets that in
-              the bootstrap, where the bias would compound. Same critic as RLPD.
+              selects j* = argmax_j mean_e Q_e(s', a'_j), the same rule as acting, then values that
+              one chunk with V(s') = min_pair Q'(s', a'_{j*}). Selection uses the online critic;
+              pessimistic evaluation uses the target critic (RLPD/REDQ). Same critic as RLPD.
     Offline to online: QC's critic first fits the prior data, then keeps learning from its own
     rollouts. The "three regimes" check compares the base policy's success with the data's. The
     "dip" check: QC-CQL pretrains its critic on the demos alone with a conservative (CQL-style)
@@ -52,11 +51,11 @@ Honesty
     eval, eval_ext and stress. Hyperparameters were fixed after one pilot (seed 0, trained on those
     seeds, scored on `search`); nothing is chosen on `eval`. Two settings were added after the pilot
     without a new pilot: cql_cands (QC-CQL's penalty) and actor_rounds (see PRIOR_STEPS). Every demo, warm-up and online rollout is charged to `train` (demos also to human
-    minutes); pilot rollouts are charged through PRIOR_STEPS. Each method and seed is scored once on
+    minutes); pilot and superseded full-run rollouts are charged through PRIOR_STEPS. Each method and seed is scored once on
     the held-out `eval` set (n=256), paired with base_v1 (same env and policy seeds), McNemar's test.
 
 Run
-    uv run python algos/05_rlpd_qchunk.py            # full run: 71.6 min measured on a shared M5 Pro (4 workers, MPS)
+    uv run python algos/05_rlpd_qchunk.py            # full configuration (4 workers; MPS when available)
     uv run python algos/05_rlpd_qchunk.py --quick    # smoke test, < 1 min (51 s MPS / 55 s CPU); writes only to runs/ch05_quick/
 """
 
@@ -94,10 +93,15 @@ METHODS = ("sac", "rlpd", "qc", "qc-cql")
 # was scored on `search` and fixed the round budgets; the first --quick run showed the entropy bonus
 # inflating SAC's Q. After the pilot, without re-piloting: QC went to 20 rounds while actor_rounds kept
 # SAC/RLPD at the pilot's 10; QC-CQL went to 10 rounds, and cql_cands = 8 (new) restricted its CQL penalty
-# to 8 of the 32 candidates per state (4x fewer critic passes in the penalty). So the full run reproduces the pilot's
-# SAC, RLPD and QC rounds exactly, but not QC-CQL's.
+# to 8 of the 32 candidates per state (4x fewer critic passes in the penalty). The original full run
+# reproduced the pilot's SAC, RLPD and QC rounds. The corrected QC target deliberately changes its trajectory.
 PRIOR_STEPS: dict[str, dict[str, int]] = {"pilot_1": {"search": 44_515, "train": 160_368},
-                                          "first_quick_run": {"search": 20_759, "train": 10_363}}
+                                          "first_quick_run": {"search": 20_759, "train": 10_363},
+                                          "prelaunch_invalid_full_run": {"search": 0, "train": 572_459}}
+# The first full run used a different target-policy argmax. Its development cost is retained:
+# sum the 12 rows' train steps, subtract each row's already-counted pilots, then count each seed's
+# shared demos and warm-up once (not four and three times). See the archived run manifest.
+PRIOR_HUMAN_MINUTES = {"prelaunch_invalid_full_run": {"demos": 4_999 / 600}}
 
 
 @dataclass
@@ -134,7 +138,7 @@ class Config:
     # Smoke test: small enough for CI's CPU-only runners (a 4-member ensemble, UTD 2 for RLPD).
     QUICK: ClassVar[dict] = {"seeds": [0], "n_demos": 4, "warmup_episodes": 16, "rounds": 2, "actor_rounds": 2,
                              "round_episodes": 4, "dip_rounds": 2, "offline_updates": 50, "n_cand": 8, "eval_n": 16,
-                             "ensemble": 4, "utd_rlpd": 2, "batch": 128}
+                             "ensemble": 4, "utd_rlpd": 2, "batch": 128, "final_set": "search"}
 
 
 # ---- Prior data: scripted demos (like base_v1's) and warm-up rollouts of base_v1, cut into chunk decisions.
@@ -369,6 +373,16 @@ class QCPolicy(FlowChunkPolicy):
 # ---- The learner: one critic update rule with switches for SAC, RLPD and QC.
 
 
+def qc_bootstrap_value(online_q: torch.Tensor, target_q: torch.Tensor) -> torch.Tensor:
+    """Select with the acting ensemble mean, then value that same chunk with the target-pair minimum.
+
+    Both inputs have shape [critics, batch, candidates]. Maximizing the target minimum instead would
+    back up a different candidate-selection policy from the one QC actually executes.
+    """
+    chosen = online_q.mean(0).argmax(-1, keepdim=True)
+    return target_q.min(0).values.gather(1, chosen).squeeze(1)
+
+
 class Learner:
     def __init__(self, cfg: Config, method: str, seed: int, dev: str, mu: torch.Tensor, sd: torch.Tensor):
         torch.manual_seed(seed)
@@ -394,10 +408,10 @@ class Learner:
         b = self.batch()
         with torch.no_grad():
             pair = self.rng.choice(self.E, 2, replace=False).tolist()  # min over a random pair (REDQ/RLPD)
-            if self.qc:  # best of the N base candidates at s', each scored pessimistically
+            if self.qc:  # the acting argmax, valued pessimistically by the target critic pair
                 B, N, _ = b["ncand"].shape
-                q = self.q_targ(b["nobs"][:, None].expand(B, N, -1), b["ncand"].float(), pair).min(0).values
-                v = q.max(1).values
+                obs, cand = b["nobs"][:, None].expand(B, N, -1), b["ncand"].float()
+                v = qc_bootstrap_value(self.q(obs, cand), self.q_targ(obs, cand, pair))
             else:
                 a, _ = self.actor.sample(b["nobs"])
                 v = self.q_targ(b["nobs"], a, pair).min(0).values  # no entropy term in the backup (see doc)
@@ -484,6 +498,7 @@ def make_plots(cfg: Config, media, s: dict) -> None:
     labels = {"sac": "SAC + prior data", "rlpd": "RLPD", "qc": "QC (best-of-N, warm-up)",
               "qc-cql": "QC-CQL (demos only, no warm-up)"}
     base = s["eval"]["base"]
+    final_label = "search" if cfg.final_set == "search" else f"held-out {cfg.final_set}"
 
     def pooled_curve(m):
         curves = [s["curves"][m][str(seed)] for seed in cfg.seeds]
@@ -497,9 +512,9 @@ def make_plots(cfg: Config, media, s: dict) -> None:
         x, k, n = pooled_curve(m)
         plotting.success_curve(ax, x, k, n, label=f"{labels[m]}: training rollouts", color=colors[m])
         ev = s["eval"]["pooled"][m]
-        plotting.heldout_point(ax, x[-1] * 1.04, ev[0], ev[1], label=f"{labels[m]}: held-out eval", color=colors[m])
-    ax.axhline(base[0] / base[1], ls="--", color="black", lw=1, label="base_v1, held-out eval")
-    ax.set(xlabel="train robot-minutes (demos + warm-up + online, mean over seeds)", ylabel="success",
+        plotting.heldout_point(ax, x[-1] * 1.04, ev[0], ev[1], label=f"{labels[m]}: {final_label}", color=colors[m])
+    ax.axhline(base[0] / base[1], ls="--", color="black", lw=1, label=f"base_v1, {final_label}")
+    ax.set(xlabel="fresh train robot-minutes (demos + warm-up + online, mean over seeds)", ylabel="success",
            title=f"Learning curves, {len(cfg.seeds)} seeds pooled")
     ax.legend(fontsize=7, loc="center left", bbox_to_anchor=(1.0, 0.5))
     plotting.save_fig(fig, media / "learning_curves.png")
@@ -510,7 +525,7 @@ def make_plots(cfg: Config, media, s: dict) -> None:
             _, k, n = pooled_curve(m)
             r = min(len(k), cfg.dip_rounds)
             plotting.success_curve(ax, range(1, r + 1), k[:r], n[:r], label=labels[m], color=colors[m])
-        ax.axhline(base[0] / base[1], ls="--", color="black", lw=1, label="base_v1, held-out eval")
+        ax.axhline(base[0] / base[1], ls="--", color="black", lw=1, label=f"base_v1, {final_label}")
         ax.set(xlabel="online round (round 1 = the offline critic, before any online update)",
                ylabel="success (training rollouts)", title="Offline to online: is there a dip?")
         ax.legend(fontsize=8, loc="lower right")
@@ -529,7 +544,8 @@ def make_plots(cfg: Config, media, s: dict) -> None:
         xs += 1
     ax.axhline(base[0] / base[1], ls="--", color="black", lw=1, label="base_v1")
     ax.set_xticks(ticks, cfg.methods)
-    ax.set(ylabel="success (eval, n=256 per seed)", ylim=(0, 1.02), title="Held-out eval, one point per seed")
+    ax.set(ylabel=f"success ({cfg.final_set}, n={cfg.eval_n} per seed)", ylim=(0, 1.02),
+           title=f"{final_label.capitalize()}, one point per seed")
     ax.legend(fontsize=8, loc="center left", bbox_to_anchor=(1.0, 0.5))
     plotting.save_fig(fig, media / "eval_per_seed.png")
 
@@ -646,6 +662,10 @@ def main(cfg: Config) -> None:
             for item in prior.values():
                 for c in ("search", "train"):
                     row.robot_steps[c] += item.get(c, 0)
+            if not cfg.quick:
+                for item in PRIOR_HUMAN_MINUTES.values():
+                    for c, minutes in item.items():
+                        row.human_minutes[c] += minutes
             row.robot_steps["eval"] += base_eval.env_steps
             row.set_base(id="base_v1", successes=base_eval)
         for (m, seed), row in rows.items():
@@ -654,6 +674,7 @@ def main(cfg: Config) -> None:
         if rnd_row:
             rnd_row.set_final(successes=rnd_eval)
         s["prior_steps"] = prior
+        s["prior_human_minutes"] = PRIOR_HUMAN_MINUTES if not cfg.quick else {}
 
         s["gif_seed"] = None
         if "qc" in cfg.methods:

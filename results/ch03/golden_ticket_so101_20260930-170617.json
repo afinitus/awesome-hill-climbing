@@ -3476,7 +3476,8 @@
           "norm": 0.0
         }
       ]
-    }
+    },
+    "role": "exploratory: method added after held-out peek"
   },
   "git_sha": "1fa05e6",
   "timestamp": "2026-09-30T17:06:17",

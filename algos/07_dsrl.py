@@ -490,7 +490,7 @@ def ch03_tickets() -> dict[str, np.ndarray]:
 # ---------------------------------------------------------------------------- media
 
 
-def make_plots(A: dict, out: Path) -> None:
+def make_plots(A: dict, out: Path, *, quick: bool = False) -> None:
     import matplotlib.pyplot as plt
 
     from lastmile.common import plotting
@@ -499,6 +499,7 @@ def make_plots(A: dict, out: Path) -> None:
     P = plotting.PALETTE
     colors = {"dsrl": P[0], "pss": P[2], "hybrid": P[1], "residual": P[3], "rfs": P[4]}
     variants = [v for v in ("v1", "hard") if any(r["variant"] == v for r in A["runs"])]
+    final_labels = {v: "search" if quick else f"held-out {HELDOUT[v]}" for v in variants}
 
     # 1. learning curves: search success of the deterministic actor vs train robot-minutes (+ held-out)
     fig, axes = plt.subplots(1, len(variants), figsize=(6.4 * len(variants), 4.4), squeeze=False)
@@ -521,7 +522,7 @@ def make_plots(A: dict, out: Path) -> None:
         for key, ls, name in (("gauss_search", ":", "Gaussian base"), ("zero_search", "--", "zero ticket")):
             ax.axhline(b[key]["sr"], color="0.35", ls=ls, lw=1.1, label=f"{name} (search)")
         ax.set(xlabel="train robot-minutes (per run)", ylabel="success",
-               title=f"{v}: search set (Wilson bands); diamonds = held-out {HELDOUT[v]}")
+               title=f"{v}: search set (Wilson bands); diamonds = {final_labels[v]}")
         ax.legend(fontsize=7.5, loc="lower right")
     plotting.save_fig(fig, out / "learning_curves.png")
 
@@ -549,7 +550,7 @@ def make_plots(A: dict, out: Path) -> None:
             labels.append(arm)
             j += 1
         ax.set(xticks=range(len(labels)), xticklabels=labels, ylim=(0, 1.02), ylabel="success (Wilson 95%)",
-               title=f"{v}: held-out {HELDOUT[v]} (n={A['eval_n']}), one point per seed")
+               title=f"{v}: {final_labels[v]} (n={A['eval_n']}), one point per seed")
         ax.yaxis.set_major_formatter(plt.matplotlib.ticker.PercentFormatter(1.0))
     plotting.save_fig(fig, out / "heldout.png")
 
@@ -565,7 +566,8 @@ def make_plots(A: dict, out: Path) -> None:
                         color=col, capsize=3, label=name)
         ax.set(xticks=range(len(S["groups"])), ylim=(-0.02, 1.02), ylabel="success on those states (Wilson 95%)",
                xticklabels=[f"{g['name']}\n(n={g['n']})" for g in S["groups"]],
-               xlabel=f"hard held-out states by Gaussian successes in {S['salts']} tries (salts 0-{S['salts'] - 1})",
+               xlabel=f"hard {'search' if quick else 'held-out'} states by Gaussian successes in "
+               f"{S['salts']} tries (salts 0-{S['salts'] - 1})",
                title="Steering needs states the base can sometimes solve")
         ax.legend(fontsize=7.5, loc="upper left")
         plotting.save_fig(fig, out / "support_limit.png")
@@ -583,7 +585,8 @@ def make_plots(A: dict, out: Path) -> None:
                width, label=f"{name} ({M[name]['modes_5pct']} cells >= 5%, H = {M[name]['entropy_bits']:.2f} bits)",
                color=colors.get(name, {"gauss": "0.65", "zero": P[4]}.get(name, "#8c6d31")))
     ax.set(xticks=range(len(cells)), xticklabels=cells, ylabel="share of grasped episodes",
-           xlabel="grasp side (EE y offset from cube) / grasp timing", title="Grasp modes on v1 eval")
+           xlabel="grasp side (EE y offset from cube) / grasp timing",
+           title=f"Grasp modes on v1 {'search' if quick else 'eval'}")
     ax.tick_params(axis="x", rotation=30)
     ax.legend(fontsize=7, loc="upper right")
     plotting.save_fig(fig, out / "grasp_modes.png")
@@ -636,7 +639,12 @@ def make_gifs(A: dict, trajs: dict, pick: tuple | None, cfg: Config, out: Path) 
 
 def main(cfg: Config) -> None:
     if cfg.replot:
-        make_plots(json.loads(Path(cfg.replot).read_text())["extra"]["analysis"], MEDIA)
+        saved = json.loads(Path(cfg.replot).read_text())
+        saved_cfg = Config(**saved["config"])
+        single = saved_cfg.subspace > 0 or saved_cfg.hybrid or saved_cfg.residual_only
+        out = REPO_ROOT / "runs" / ("ch07_quick" if saved_cfg.quick else "ch07_arm")
+        media = out / "media" / "ch07" if saved_cfg.quick or single else MEDIA
+        make_plots(saved["extra"]["analysis"], media, quick=saved["final"].get("init_set") == "search")
         return
     torch.set_num_threads(2)
     t0 = time.time()
@@ -651,6 +659,7 @@ def main(cfg: Config) -> None:
     else:
         jobs = [("v1", grid_arm(a, cfg)) for a in cfg.arms] + [("hard", grid_arm(a, cfg)) for a in cfg.hard_arms]
     variants = sorted({v for v, _ in jobs}, key=["v1", "hard"].index)
+    final_sets = {v: "search" if cfg.quick else HELDOUT[v] for v in variants}
     ev = partial(evaluate, robot=cfg.robot, n_workers=cfg.n_workers)
     shared = Ledger("ch07", "shared")  # never written: baselines and analysis rollouts (no selection)
     steering = ("dsrl", "pss", "hybrid", "rfs")  # the headline row picks among these arms' v1 runs
@@ -666,7 +675,7 @@ def main(cfg: Config) -> None:
     # 1. Baselines, fixed in advance: Gaussian base (salt 0 = the paired base), zero ticket, Chapter 3 tickets.
     tickets = ch03_tickets() if "v1" in variants else {}
     for v in variants:
-        hs = HELDOUT[v]
+        hs = final_sets[v]
         g = ev(GAUSS, hs, variant=v, n=cfg.eval_n, ledger=shared, category="eval", record_trajectories=True)
         z = ev(fixed(np.zeros(DIM)), hs, variant=v, n=cfg.eval_n, ledger=shared, category="eval",
                record_trajectories=True)
@@ -691,11 +700,11 @@ def main(cfg: Config) -> None:
     # 2. Hard: group held-out states by how often the Gaussian base solves them (the base's support).
     if "hard" in variants:
         salts = [base_res["hard"].successes] + [
-            ev(GAUSS, "stress", variant="hard", n=cfg.eval_n, salt=s, ledger=shared, category="eval").successes
+            ev(GAUSS, final_sets["hard"], variant="hard", n=cfg.eval_n, salt=s, ledger=shared, category="eval").successes
             for s in range(1, cfg.support_salts)]
         A["support_counts"] = np.sum(salts, 0).tolist()
         # The groups are defined by those tries, so the table's Gaussian column is one more, independent try.
-        fresh = ev(GAUSS, "stress", variant="hard", n=cfg.eval_n, salt=cfg.support_salts, ledger=shared,
+        fresh = ev(GAUSS, final_sets["hard"], variant="hard", n=cfg.eval_n, salt=cfg.support_salts, ledger=shared,
                    category="eval")
         finals["hard", "gauss_fresh"] = fresh.successes
         A["baselines"]["hard"]["gauss_fresh_salt"] = {"salt": cfg.support_salts, **rate(fresh.k, fresh.n)}
@@ -720,7 +729,7 @@ def main(cfg: Config) -> None:
 
     # 4. The training runs, one results JSON each.
     for v, arm in jobs:
-        hs = HELDOUT[v]
+        hs = final_sets[v]
         for seed in cfg.seeds:
             method = f"{arm['method']}{'-hard' if v == 'hard' else ''}_s{seed}"
             with new_ledger(method=method, variant=v) as L:
@@ -772,7 +781,7 @@ def main(cfg: Config) -> None:
             P = Actor(len(mu), DIM, cfg.hidden, mu, sd, zero_init=False).export()
             with new_ledger(method=f"random_actor{'-hard' if v == 'hard' else ''}_s{seed}", variant=v) as L:
                 r = ev(partial(steer_policy, P, basis_for(v, DIM), False, cfg.noise_scale, cfg.res_scale, False),
-                       HELDOUT[v], variant=v, n=cfg.eval_n, ledger=L, category="eval")
+                       final_sets[v], variant=v, n=cfg.eval_n, ledger=L, category="eval")
                 L.robot_steps["eval"] += base_res[v].env_steps
                 L.set_base(id="base_v1_gaussian", successes=base_res[v])
                 L.set_final(successes=r)
@@ -816,7 +825,7 @@ def main(cfg: Config) -> None:
             L.extra["pilot_robot_minutes"] = PILOT_ROBOT_MINUTES
         L.robot_steps["eval"] += base_res["v1"].env_steps + best["eval_steps"]
         L.set_base(id="base_v1_gaussian", successes=base_res["v1"])
-        L.set_final(successes=np.array([ch == "1" for ch in best["eval_successes"]]), init_set="eval")
+        L.set_final(successes=np.array([ch == "1" for ch in best["eval_successes"]]), init_set=final_sets["v1"])
         L.extra.update(note=f"best of {len(dsrl_v1)} v1 noise-steering runs by search score ({best['method']}); "
                             "pays for the training and search rollouts of all of them",
                        pick=best["method"], analysis=A)
@@ -824,11 +833,13 @@ def main(cfg: Config) -> None:
             with optional_media("the DSRL GIFs"):
                 make_gifs(A, trajs, ("v1", best["arm"], best["seed"]), cfg, media)
         L.__exit__(None, None, None)
-        print(f"best-by-search pick: {best['method']} -> eval {format_rate(best['final']['k'], best['final']['n'])}; JSON {L.path}")
+        print(f"best-by-search pick: {best['method']} -> {final_sets['v1']} "
+              f"{format_rate(best['final']['k'], best['final']['n'])}; JSON {L.path}")
     if cfg.media:
-        make_plots(A, media)
+        make_plots(A, media, quick=cfg.quick)
 
-    print("\n=== Chapter 7 summary (held-out; Wilson 95%) ===")
+    final_label = "search" if cfg.quick else "held-out"
+    print(f"\n=== Chapter 7 summary ({final_label}; Wilson 95%) ===")
     for v in variants:
         b = A["baselines"][v]
         print(f"[{v}] Gaussian base {format_rate(b['gauss']['k'], b['gauss']['n'])} | zero ticket "

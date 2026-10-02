@@ -1,0 +1,921 @@
+[
+  {
+    "id": "C020",
+    "status": "rejected",
+    "severity": "none",
+    "source": "https://arxiv.org/abs/1910.00177",
+    "evidence": "Original explicitly labels Hopper-v2 and reports the table values correctly; quoting this task does not claim universal dominance. Optional cross-task caveat is not an error.",
+    "fields": {}
+  },
+  {
+    "id": "N317",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2511.08922",
+    "evidence": "Primary abstract and method distinguish binary loss weighting of diffusion behavior model from separate TD3+BC actor regularization.",
+    "fields": {
+      "one_line": "DIVO (IROS 2025): trains a diffusion behavior model with binary advantage-based loss weights, then regularizes a TD3+BC actor toward diffusion samples with non-negative advantage; reports gains on D4RL locomotion and AntMaze.",
+      "family": "generalrl",
+      "short": "DIVO"
+    }
+  },
+  {
+    "id": "C154",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2509.23829",
+    "evidence": "Primary method uses SAC residual scaled0.1, successful trajectory filtering and augmentation; replace editorial endorsement with mechanism.",
+    "fields": {
+      "one_line": "Freezes a diffusion imitation policy, trains a SAC residual scaled by 0.1 with shaped rewards, then filters successful rollouts, augments them and retrains imitation policies in a simulation data-generation loop."
+    }
+  },
+  {
+    "id": "C399",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2608.15088",
+    "evidence": "Primary Table3 gives ACT99% at0.5h and HIL-SERL100% at5h; different endpoints need disclosure.",
+    "fields": {
+      "org": "Wang et al.",
+      "one_line": "A Monte Carlo chunk critic selects imitation targets from buffer or actor actions by Q. Real USB insertion: ACT QChunk-MCBC reaches 99% in 30 minutes; HIL-SERL peaks at 100% after 5 hours."
+    }
+  },
+  {
+    "id": "C297",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2605.08434",
+    "evidence": "Primary abstract: dual successful/failed action generators share one vision-language backbone; guidance strength adaptive.",
+    "fields": {
+      "one_line": "A failure action head sharing the VLA backbone gives adaptive CFG-style negative guidance during sampling. LIBERO average pi0.5 96.9% → 98.4% (sim only)."
+    }
+  },
+  {
+    "id": "C319",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2606.27163",
+    "evidence": "Primary abstract places competition online round in simulation; real-round section removes advantage conditioning/CFG and uses plain BC.",
+    "fields": {
+      "one_line": "AWR sampling, RECAP conditioning and CFG improve a simulated bimanual SO-ARM101 policy that also predicts value: 79.63%, first of 62 teams. The second-place real final instead uses plain BC."
+    }
+  },
+  {
+    "id": "N055",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2603.16542",
+    "evidence": "Primary abstract names Posterior-Transition Reweighting; retain acceptable existing author byline.",
+    "fields": {
+      "short": "PTR"
+    }
+  },
+  {
+    "id": "N442",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/1707.05300",
+    "evidence": "Primary abstract explicitly says simulated navigation and fine-grained manipulation, initialized with one goal state.",
+    "fields": {
+      "one_line": "Starts from one goal state and adaptively expands training starts outward, forming a reverse curriculum for sparse-reward simulated navigation and fine-grained manipulation (CoRL 2017)."
+    }
+  },
+  {
+    "id": "N303",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2402.02868",
+    "evidence": "Primary abstract calls5K previous neural-model best, not same-model initial score, and says knowledge retention mitigates forgetting.",
+    "fields": {
+      "one_line": "RL fine-tuning can forget pretrained capabilities on states not visited early; knowledge-retention methods mitigate this. NetHack Human Monk exceeds 10K points versus the previous neural-model best of 5K."
+    }
+  },
+  {
+    "id": "N158",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://sergeylevine.substack.com/p/self-improving-robots-and-the-importance",
+    "evidence": "Primary essay conditions the10billion-hours estimate on hypothetical Roomba-scale10million-unit fleet.",
+    "fields": {
+      "one_line": "Levine essay: a Roomba-scale fleet (~10 million service robots) would collect ~10 billion hours of embodied experience a year; offline RL on self-supervised, goal-conditioned tasks is proposed as the way to learn from it."
+    }
+  },
+  {
+    "id": "N186",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://thinkingmachines.ai/blog/on-policy-distillation/",
+    "evidence": "Official Thinking Machines article attributes74.4/1800vs67.6/17920 to Qwen3 report; own9–30x compares extrapolated off-policy SFT.",
+    "fields": {
+      "one_line": "Student samples its trajectories; teacher supplies per-token reverse-KL feedback. Thinking Machines estimates 9–30x lower cost than extrapolated off-policy SFT for raising Qwen3-8B-Base from 60% to 70% on AIME 2024."
+    }
+  },
+  {
+    "id": "N172",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2509.06863",
+    "evidence": "Primary Table1 caption identifies best-configuration floq at about1.8x FQL on hard offline OGBench tasks; numerical scope was missing.",
+    "fields": {
+      "one_line": "Trains a flow-matching Q-function with TD targets; more integration steps increase critic computation. Best configuration reaches about 1.8x FQL on hard OGBench offline tasks, with separate gains in online fine-tuning."
+    }
+  },
+  {
+    "id": "N167",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2510.13786",
+    "evidence": "Primary abstract explicitly distinguishes different recipe asymptotes from efficiency-only effects of selected design details.",
+    "fields": {
+      "one_line": "400k+ GPU-hour study fitting sigmoidal compute-performance curves to LLM RL: recipes differ in asymptote, while details like loss aggregation, normalization and curriculum mainly change compute efficiency; ScaleRL predictably extrapolates to a 100k GPU-hour run."
+    }
+  },
+  {
+    "id": "N326",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2511.03527",
+    "evidence": "Primary abstract says critic-free baselines underperform PPO except short-horizon cases, not outright inability to learn.",
+    "fields": {
+      "one_line": "Benchmarks critic-free GRPO against PPO on classical control: all critic-free baselines underperform PPO except on short-horizon tasks like CartPole; high discount factors mostly help; smaller group sizes outperform larger ones."
+    }
+  },
+  {
+    "id": "N052",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2608.07555",
+    "evidence": "Primary abstract labels operational not checkpoint-selection success and hardened versus shipped promotion rates.",
+    "fields": {
+      "one_line": "LLM controller coordinates recoverable train-evaluate-improve runs. Hardened gates reduce false promotions to 0.001 per run versus 0.005–0.021 with shipped gates; on the one measured lineage, checkpoint selection loses to taking the last checkpoint."
+    }
+  },
+  {
+    "id": "C004",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/1407.3501",
+    "evidence": "Primary results compare compensatory gaits to reference under same damage; report8trial median. Original org truncated.",
+    "fields": {
+      "org": "UPMC/CNRS ISIR; Inria; University of Wyoming",
+      "one_line": "MAP-Elites builds a simulation behavior map; Bayesian optimization searches it on a damaged real hexapod. Compensatory gaits are 3–7x faster than the reference gait under the same damage, found in a median eight trials."
+    }
+  },
+  {
+    "id": "N141",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2609.04552",
+    "evidence": "Primary abstract defines gradient-free Capsule Field memory from verified near-OOD cases, not perturb-and-score search; source specifies full-data baseline and13.9point increase.",
+    "fields": {
+      "family": "testtime",
+      "short": "CFAM",
+      "one_line": "Frozen slow model plus on-device Capsule Field memory adds verified near-OOD successes without gradients. Matches an in-house full-data policy using 40% of its data; memory growth raises mean action success from 74.0% to 87.9%."
+    }
+  },
+  {
+    "id": "C047",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2309.03315",
+    "evidence": "Primary results define return as hit-plus-land score out of2, with1.83 at measured latency and1.33 at half latency.",
+    "fields": {
+      "one_line": "BGS, an ARS-derived search, trains a roughly 1,000-parameter policy in simulation for zero-shot real table tennis. Mean hit-plus-land score: 1.83/2 with measured latency modeled, versus 1.33 at half latency."
+    }
+  },
+  {
+    "id": "C014",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/1810.02890",
+    "evidence": "Primary Figure3 is simulation learning; TableII separately lists real-car HG-DAgger0collisions/0departures, DAgger1/1,BC1/6. Remove ambiguous figure reading and report table with limited sample.",
+    "fields": {
+      "one_line": "Human takeovers supply labels for iterative imitation learning. In the real-car test’s first 5,000 samples, HG-DAgger records no collisions or road departures, versus DAgger’s one each and BC’s one collision and six departures."
+    }
+  },
+  {
+    "id": "N366",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2409.19917",
+    "evidence": "Fresh official GitHub page identifies S2I paper and contains train.py/eval.py; primary abstract names S2I.",
+    "fields": {
+      "code": "https://github.com/Junxix/S2I",
+      "short": "S2I"
+    }
+  },
+  {
+    "id": "C087",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2412.09858",
+    "evidence": "Fresh official GitHub RLDG page contains implementation instructions and hil-serl directory matching paper.",
+    "fields": {
+      "code": "https://github.com/generalist-distillation/RLDG"
+    }
+  },
+  {
+    "id": "C211",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2602.12099",
+    "evidence": "Fresh linked repository exposes GigaBrain0.7 implementation;0.5M* appears as technical-report announcement, without RAMP release. Remove specific-code implication.",
+    "fields": {
+      "code": ""
+    }
+  },
+  {
+    "id": "C332",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2606.17043",
+    "evidence": "Fresh official HABC repository contains README only and explicitly says code will be released soon.",
+    "fields": {
+      "code": ""
+    }
+  },
+  {
+    "id": "N168",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2503.14476",
+    "evidence": "Fresh official DAPO repository identifies ByteDance/Tsinghua paper and released implementation.",
+    "fields": {
+      "code": "https://github.com/BytedTsinghua-SIA/DAPO"
+    }
+  },
+  {
+    "id": "N179",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2510.22512",
+    "evidence": "Fresh arXiv abstract explicitly qualifies logarithmic recursion as in principle; official TRL repository contains implementation.",
+    "fields": {
+      "one_line": "Divide-and-conquer value update for offline goal-conditioned RL built on the triangle inequality; in principle needs O(log T) recursions versus TD's O(T), reducing bias accumulation; best results on long-horizon benchmarks. ICLR 2026.",
+      "code": "https://github.com/aoberai/trl"
+    }
+  },
+  {
+    "id": "N175",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2509.25174",
+    "evidence": "Fresh official XQC repository identifies the same paper and exposes train_parallel.py and implementation.",
+    "fields": {
+      "code": "https://github.com/danielpalenicek/xqc"
+    }
+  },
+  {
+    "id": "C003",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/1011.0686",
+    "evidence": "Primary abstract credits earlier learner-distribution methods; remove origin claim and retain supported five-iteration result.",
+    "fields": {
+      "one_line": "Aggregates expert labels on the learner’s own states and retrains. In Super Tux Kart, the policy almost never fell off after five iterations, while supervised behavior cloning did not improve with more expert data."
+    }
+  },
+  {
+    "id": "N174",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2503.14858",
+    "evidence": "Primary4.2 uses4-layer baseline through64-layer comparison;4.4 extends only Humanoid mazes to1024. Fresh official code repo verified.",
+    "fields": {
+      "one_line": "Scaling contrastive goal-conditioned RL from 4 to 64 layers gives 2–50x gains on simulated tasks without demonstrations or rewards; Humanoid U-Maze improves further up to 1,024 layers.",
+      "code": "https://github.com/wang-kevin3290/scaling-crl"
+    }
+  },
+  {
+    "id": "N188",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2505.24864",
+    "evidence": "Primary4.1–4.2 explicitly report unchanged or decreased pass@128 for some high-baseline math tasks.",
+    "fields": {
+      "one_line": "Prolonged RL adds KL control, reference-policy resets and diverse tasks to DeepSeek-R1-Distill-Qwen-1.5B. Pass@k gains are largest where the base is weak; some high-baseline math tasks show unchanged or lower pass@128."
+    }
+  },
+  {
+    "id": "N177",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2506.04168",
+    "evidence": "Primary abstract limits finding to many algorithms and SHARSA superiority to evaluated methods.",
+    "fields": {
+      "one_line": "Many offline RL methods saturate despite datasets up to 1,000x larger than typical. Horizon-reduction experiments improve scaling on challenging tasks; SHARSA achieves the best asymptotic performance among the evaluated methods."
+    }
+  },
+  {
+    "id": "N143",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2608.27351",
+    "evidence": "Primary study evaluates both ES-to-GRPO and GRPO-to-ES orders; use neutral sequential-combination description.",
+    "fields": {
+      "one_line": "Analyzes ES post-training for LLM reasoning: unlike GRPO (entropy collapse), ES improves Pass@1 and reaches higher Pass@K than GRPO; gains concentrate in a sparse subset of larger-magnitude parameter updates; tests sequential GRPO/ES combinations (adjacent, LLMs)."
+    }
+  },
+  {
+    "id": "N182",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2608.16739",
+    "evidence": "Primary abstract says competitive with or outperform mean-baseline GRPO, not always matches/exceeds.",
+    "fields": {
+      "one_line": "Privileged value functions give critics information hidden from the policy; TETHER mixes value and group-relative baselines. Both improve over standard value baselines and are competitive with or outperform mean-baseline GRPO on tested reasoning tasks."
+    }
+  },
+  {
+    "id": "N068",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2609.10873",
+    "evidence": "Primary abstract reports paired-binomial31.6%admission at2000episodes versus0, but unconditional replay learns better closed-loop; learned-dynamics stress test also included.",
+    "fields": {
+      "one_line": "Audits policy-update admission: paired-binomial checks admit 31.6% of updates at 2,000 episodes/stage versus zero for a range-based gate in synthetic pushing. Unconditional replay learns better closed-loop; evidence remains analytical and simulated."
+    }
+  },
+  {
+    "id": "N252",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2609.15883",
+    "evidence": "Primary title excludes alias; Table1 has OptiFlow48.3/GFP45.6 OGBench means, supporting result instead of internal editorial note.",
+    "fields": {
+      "title": "Learning Multimodal One-step Flow Policy via Value-weighted Optimal Transport",
+      "short": "OptiFlow",
+      "one_line": "Offline RL: state-wise entropic optimal transport couples a value-aware reference flow policy to a one-step policy, prioritizing high-value distillation targets without direct critic maximization; best state-based OGBench average (48.3 vs 45.6 for GFP)."
+    }
+  },
+  {
+    "id": "N060",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2608.24525",
+    "evidence": "Primary abstract names SimLingo comparator and improvements on CARLA driving benchmarks.",
+    "fields": {
+      "one_line": "DAgger uses short-horizon kinematic rollouts to generate driving corrections and time takeovers. In CARLA, improves SimLingo by 5.3 driving-score points on Bench2Drive and raises Fail2Drive OOD success from 55% to 66%."
+    }
+  },
+  {
+    "id": "N176",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2609.02237",
+    "evidence": "Fresh arXiv abstract explicitly says worst-case depth and best prior five-task mean55to64.",
+    "fields": {
+      "one_line": "DCRL: recursively splits trajectory segments into a balanced binary tree, cutting worst-case bootstrap depth from linear to logarithmic; on the five hardest long-horizon OGBench tasks, raises the best prior average score from 55 to 64.",
+      "short": "DCRL"
+    }
+  },
+  {
+    "id": "N294",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/1709.10089",
+    "evidence": "Primary experiment section separates stacking solved from push/slide speedups; mechanisms are demo buffer, Q-filter and demo resets.",
+    "fields": {
+      "one_line": "DDPG + HER plus a demo replay buffer, a Q-filtered behavior-cloning loss and optional resets to demo states; in simulation it learns multi-block stacking where HER and BC alone fail, often outperforming the demonstrator (ICRA 2018)."
+    }
+  },
+  {
+    "id": "C021",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2004.12570",
+    "evidence": "Primary paper affiliation block lists Berkeley, Oxford and Washington; original field truncated.",
+    "fields": {
+      "org": "UC Berkeley; University of Oxford; University of Washington"
+    }
+  },
+  {
+    "id": "N353",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2010.15920",
+    "evidence": "Fresh official RecoveryRL GitHub identifies same paper and implementation files.",
+    "fields": {
+      "code": "https://github.com/abalakrishna123/recovery-rl"
+    }
+  },
+  {
+    "id": "N296",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2010.11944",
+    "evidence": "Fresh official SPiRL GitHub identifies same paper and implementation.",
+    "fields": {
+      "code": "https://github.com/clvrai/spirl"
+    }
+  },
+  {
+    "id": "N295",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2011.10024",
+    "evidence": "Fresh current link is project website and provides no implementation link; remove code label without claiming no code exists anywhere.",
+    "fields": {
+      "code": ""
+    }
+  },
+  {
+    "id": "N297",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2107.10253",
+    "evidence": "Fresh official SkiLD repository identifies same paper; paper experiments use simulated maze, kitchen and Roboverse office.",
+    "fields": {
+      "code": "https://github.com/clvrai/skild",
+      "one_line": "SkiLD: demo-guided RL that follows demonstrated skills learned from offline data rather than primitive actions; substantial gains over prior demo-guided RL on simulated long-horizon maze navigation and robot manipulation."
+    }
+  },
+  {
+    "id": "N166",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2608.02547",
+    "evidence": "Primary abstract includes non-Markovian expressivity and reduced compounding error alongside ensembling and limits dominance to many settings.",
+    "fields": {
+      "one_line": "Experiments attribute action-chunking gains to non-Markovian expressivity, reduced compounding error and implicit ensembling over delays. An explicit delayed-policy ensemble outperforms chunking in many tested settings."
+    }
+  },
+  {
+    "id": "N183",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2607.13274",
+    "evidence": "Primary abstract says among least reliable and remain robust; method is simulator fitted to real plant data. Official repository verified.",
+    "fields": {
+      "one_line": "33,000+ experiments on a simulated PID-gain-tuning task built from real water-treatment-plant data dissect actor-critic design choices; Gaussian policies with pathwise gradients are among the least reliable, bounded distributions with adaptive update schedules stay robust.",
+      "code": "https://github.com/haseebs/deconstruct-ac"
+    }
+  },
+  {
+    "id": "N194",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2607.19408",
+    "evidence": "Primary abstract restricts normalization failure to capable-model regime and says small-population failures can be implementation artifacts.",
+    "fields": {
+      "one_line": "In tested capable 0.5B–7B LLMs, z-score normalization can make binary-reward ES with N=2 fail; removing it improves GSM8K/TREC results. Derives zero-advantage probability and cautions that N=2 is not universally sufficient."
+    }
+  },
+  {
+    "id": "N180",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2602.17616",
+    "evidence": "Primary abstract conditions2.5x speedup on one long-horizon tool-use task at matched synchronous performance.",
+    "fields": {
+      "one_line": "VCPO scales the learning rate by effective sample size and adds a critic-free minimum-variance baseline for stale-rollout policy gradients; stable even 128 steps off-policy, and matches synchronous performance 2.5x faster on a long-horizon tool-use task."
+    }
+  },
+  {
+    "id": "N189",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2601.20802",
+    "evidence": "Primary introduction ties3x discovery gain to test-time adaptation on difficult LiveCodeBench questions.",
+    "fields": {
+      "one_line": "SDPO: LLM conditioned on rich textual feedback (e.g. runtime errors) acts as self-teacher, distilling next-token predictions into the policy; at test time on very hard coding questions, matches best-of-k discovery with ~3x fewer attempts."
+    }
+  },
+  {
+    "id": "N144",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2606.06555",
+    "evidence": "Primary abstract distinguishes PEM from residual-bootstrap implementation RB-PEM; official code repo verified.",
+    "fields": {
+      "one_line": "Probabilistic elite membership (PEM) replaces hard ES rank weights with expected weights under ranking uncertainty. Residual-bootstrap RB-PEM improves COCO bbob-noisy, policy-search and hyperparameter-optimization results in tested noisy, fixed-budget settings.",
+      "code": "https://github.com/sichen-wang/Depth-over-Fidelity_ICML2026"
+    }
+  },
+  {
+    "id": "N185",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2602.02710",
+    "evidence": "Fresh official MaxRL GitHub names same paper and exposes implementation.",
+    "fields": {
+      "code": "https://github.com/tajwarfahim/maxrl"
+    }
+  },
+  {
+    "id": "N311",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2605.10759",
+    "evidence": "Fresh official RAM GitHub names same paper and contains text-to-image experiments.",
+    "fields": {
+      "code": "https://github.com/AndreasBergmeister/ram"
+    }
+  },
+  {
+    "id": "N284",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2410.14868",
+    "evidence": "Primary results identify failure-prediction F1 and policy-update-time comparison against Ensemble-DAgger.",
+    "fields": {
+      "one_line": "Diffusion training loss triggers human queries in robot-gated DAgger; reports 39.0% higher failure-prediction F1 and 20.6% task-completion improvement over evaluated baselines, with 7.8x lower average policy-update time than Ensemble-DAgger."
+    }
+  },
+  {
+    "id": "N428",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2607.14047",
+    "evidence": "Primary abstract and4.3 separate teleop effort comparison from two cumulative-correction collection-success comparison.",
+    "fields": {
+      "one_line": "Language corrections persist in a corrective memory for autonomous data collection. Matches teleoperation episode-collection success at 16% of human working time; separately, two corrections raise real single-attempt collection success from 12.5% to 47.5%."
+    }
+  },
+  {
+    "id": "N216",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2609.13234",
+    "evidence": "Fresh primary arXiv abstract explicitly identifies MuJoCo and2mm per-side stress regime; original omitted simulation.",
+    "fields": {
+      "one_line": "Installer-in-the-loop RL (Q-chunking with Flow Q-Learning, teleop demos plus binary takeovers) for window-unit seating, in MuJoCo sim: at 2 mm per-side clearance, 100% autonomous seating after 3.0 h online training with 12-15 min supervision."
+    }
+  },
+  {
+    "id": "N277",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2606.18328",
+    "evidence": "Primary abstract restricts reported gains to previously unseen tasks; omit unqualified margin.",
+    "fields": {
+      "one_line": "ReSYNC learns RL recovery skills and discovers relational predicates from them to refine an abstract planner; outperforms evaluated baselines on unseen long-horizon tasks across four simulation domains, with a real-robot sim-to-real demonstration."
+    }
+  },
+  {
+    "id": "C296",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2605.27114",
+    "evidence": "Primary abstract and timing results measure collection time per sample rather than total operator effort.",
+    "fields": {
+      "one_line": "MC-dropout uncertainty picks 2 s failure clips from Isaac Lab rollouts for VR correction; success comparable to unguided HITL review at about 40% less collection time per sample, up to +23 pp over BC (sim)."
+    }
+  },
+  {
+    "id": "C456",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2609.14633",
+    "evidence": "Primary framework allows remaining human intervention; abstract says minimal human intervention, not fully replaces. TableII confirms40to58.5.",
+    "fields": {
+      "org": "Jiangnan University",
+      "one_line": "VLM failure monitoring, deterministic recovery and automatic resets reduce human intervention during iterative learning. On four real ViperX tasks, average success rises from 40.0% to 58.5% over five iterations; human help remains available."
+    }
+  },
+  {
+    "id": "C240",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2603.26666",
+    "evidence": "Primary Table2 labels48.9baseline as single-trajectory SFT, with87.4distillation93.4GRPO and93.9teacher.",
+    "fields": {
+      "one_line": "DAgger with a neural teacher: reverse-KL on-policy distillation from an RL-tuned VLA teacher; LIBERO avg of a 1-demo SFT student 48.9 to 87.4 (distill only), 93.4 with GRPO (teacher 93.9). Sim only."
+    }
+  },
+  {
+    "id": "C028",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2109.08273",
+    "evidence": "Primary Table1 lists fewer interventions but more human actions; add distinction to prevent effort conflation.",
+    "fields": {
+      "one_line": "Robot-gated on novelty plus risk; sim peg insertion 73/100 autonomous success vs HG-DAgger 57/100, with fewer training interventions than HG-DAgger but more human-teleoperated actions."
+    }
+  },
+  {
+    "id": "C052",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2311.12996",
+    "evidence": "Primary Table1 average across expertquality levels has103.83/36.75 normalized scores with shared intervention rule.",
+    "fields": {
+      "one_line": "-1 reward on the step before each takeover plus off-policy RL; sim Walker2d normalized score 103.83±4.48 vs HG-DAgger 36.75±4.7 (averaged over three expert levels, same intervention rule), and it improves on suboptimal experts."
+    }
+  },
+  {
+    "id": "C088",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2412.07762",
+    "evidence": "Primary5.7 says SERL/RLPD0/20 at end of50min; not zero throughout training.",
+    "fields": {
+      "one_line": "Drop offline data, warm up with frozen-policy rollouts, then high-UTD RL; real Franka peg insertion 13/20 → 20/20 in 18 min, while SERL/RLPD was at 0/20 after 50 min."
+    }
+  },
+  {
+    "id": "C096",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2502.04327",
+    "evidence": "Primary abstract includes SAC,BRO,PQL and method fits hyperparameters versus UTD; original SAC-style narrower than scope.",
+    "fields": {
+      "one_line": "Fits power laws relating batch size and learning rate to UTD and predicts data/compute trade-offs from small runs; evaluates off-policy value-based RL with SAC, BRO and PQL."
+    }
+  },
+  {
+    "id": "N423",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2511.00139",
+    "evidence": "Primary Table1 gives88.7% average across50real objects, versus rounded90% inabstract; ByteDanceSeed affiliation inheader.",
+    "fields": {
+      "org": "ByteDance Seed",
+      "one_line": "Shared autonomy combines human VR arm control with a tactile DexGrasp-VLA hand policy; collected data and corrective teleoperation train an end-to-end arm-hand VLA. Real pick-and-place across 50 objects: 88.7% success, averaging seen and unseen objects."
+    }
+  },
+  {
+    "id": "N424",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://openreview.net/pdf/3a021b5a28077bf78cf9d0bb88f341b347d85776.pdf",
+    "evidence": "Official OpenReview indexed primary PDF abstract and author block support cooperative multilateral control, Toyota affiliations. DirectPDF blocked403; canonicalpublicPDFid found. Remove unsupported performance elaboration and auditnote.",
+    "fields": {
+      "url": "https://openreview.net/pdf?id=nWiHRy3ZXy",
+      "org": "Toyota Motor Corporation; Toyota Research Institute",
+      "one_line": "Cooperative HG-DAgger uses multilateral control so a human and learned visuomotor policy can correct task failures together without a full control handoff."
+    }
+  },
+  {
+    "id": "N290",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2104.00053",
+    "evidence": "Primary physical-task TableI reports8/10versus2/10, a60percentagepointdifference; labelcountsandbaseline explicitly.",
+    "fields": {
+      "one_line": "LazyDAgger adds asymmetric takeover/release thresholds and noisy supervisor actions to reduce switching. On a physical ABB YuMi fabric task, execution succeeds in 8/10 trials versus SafeDAgger’s 2/10, with 21 versus 53 switches."
+    }
+  },
+  {
+    "id": "C253",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2603.09121",
+    "evidence": "Primary strategy sets target intervention sampling share0.5; official page says Code Coming Soon. TableIcorrectlylabelsround3comparators.",
+    "fields": {
+      "code": "",
+      "one_line": "Arm-plus-hand takeovers for a dexterous VLA (Being-H0.5), with intervention samples reweighted to 50% of the training distribution; Tissue Extraction after three rounds 19/20 vs DAgger* 16/20 vs data-matched offline 15/20."
+    }
+  },
+  {
+    "id": "N441",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2603.08122",
+    "evidence": "Primary TableII gives34%versus15%pi0 mean success acrossfourreal tasks; replace bare multiplier with absolute rates.",
+    "fields": {
+      "one_line": "IMCopilot RL skills assist teleoperation and serve as MoDE-VLA execution primitives; residual expert modules add force and tactile signals to pi0. Mean success across four real tasks is 34% versus pi0’s 15%."
+    }
+  },
+  {
+    "id": "C254",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2603.05504",
+    "evidence": "Primary distributed-generalization section assigns0.42to0.82 to Scene2 with12interactions, not aggregate acrossscenes.",
+    "fields": {
+      "one_line": "Robot-free DAgger-style loop: an iPhone handheld gripper previews the policy's predicted trajectory in AR and streams corrections to online finetuning; in a four-user distributed test, Scene 2 rose 0.42 to 0.82 with 12 corrections."
+    }
+  },
+  {
+    "id": "N090",
+    "status": "rejected",
+    "severity": "none",
+    "source": "https://arxiv.org/abs/2509.20541",
+    "evidence": "Original explicitly compares against always-query feedback budget, as does primary abstract, without claiming superiority to random queries. Additional random baseline is optional.",
+    "fields": {}
+  },
+  {
+    "id": "C242",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2603.04038",
+    "evidence": "Primary TableI mixes two simulated and three real tasks and reports percentages; labelunitandsetting.",
+    "fields": {
+      "one_line": "Force-mismatch trigger plus trajectory-edited residual corrections under impedance control for insertion; average success 77.2% vs 40.0% for the best baseline (Finetune) over two simulated and three real insertion tasks."
+    }
+  },
+  {
+    "id": "N345",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2603.11558",
+    "evidence": "Primary4.3specificvanity-table task;4.1time reduction pertains data collection, not entireworkflow.",
+    "fields": {
+      "one_line": "VLM-driven agent unifying data collection, policy learning and execution; Entangled Action Pairs give self-resetting autonomous collection loops. Reports 25% higher success than baselines on a real long-horizon vanity-table task and 53.7% less human data-collection time."
+    }
+  },
+  {
+    "id": "C123",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2506.16685",
+    "evidence": "Primary real-robot experiment identifies40%basebookflipping and100%afteron-policy delta corrections; addunits.",
+    "fields": {
+      "one_line": "Compliant physical delta corrections train a force-aware residual on a frozen diffusion policy; real book flipping 40% to 100% success with on-policy delta data."
+    }
+  },
+  {
+    "id": "N299",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2210.05178",
+    "evidence": "Fresh official PTR repository names paper and exposes implementation.",
+    "fields": {
+      "code": "https://github.com/Asap7772/PTR"
+    }
+  },
+  {
+    "id": "C043",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2305.03270",
+    "evidence": "Primary affiliation block distinguishes EverydayRobots and RoboticsatGoogle; use both.",
+    "fields": {
+      "org": "Everyday Robots; Robotics at Google"
+    }
+  },
+  {
+    "id": "C030",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2204.02372",
+    "evidence": "Primary Table2 associates0.91versus0.00 with20demoIndiscriminateGrasping row, not allsimgrasping.",
+    "fields": {
+      "one_line": "A guide policy runs the first h steps and RL learns the tail, handing over earlier as success rises; sim indiscriminate grasping with 20 demos: QT-Opt+JSRL 0.91 vs QT-Opt 0.00."
+    }
+  },
+  {
+    "id": "C295",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2605.15157",
+    "evidence": "Independent visual Figure6 check: base(.71+.62+.78)/3=.7033,copilot(.90+.99+.96)/3=.95; full takeover=.88. Section4.1 specifies56DoF and4.4 onehouradditionalcorrections. Metric normalized subgoal score.",
+    "fields": {
+      "one_line": "Shared hand-arm corrections for a 56-DoF bimanual VLA with two 21-DoF hands; one hour of Copilot-mode correction data raises mean normalized subgoal score from about 0.70 to 0.95 across three real tasks."
+    }
+  },
+  {
+    "id": "C336",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2606.08015",
+    "evidence": "Primary abstract labels84.6few-shot SFT,90.7offline,98.4online; affiliationsSJTU/Michigan.",
+    "fields": {
+      "org": "Shanghai Jiao Tong University; University of Michigan",
+      "one_line": "Value-gradient matching at late pi0.5 denoising steps avoids BPTT; LIBERO few-shot-SFT mean 84.6% becomes 90.7% offline and 98.4% after online training."
+    }
+  },
+  {
+    "id": "N310",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2605.30749",
+    "evidence": "Primary abstract claims mitigation with consistentproxyobjective; fresh official FLAG implementation verified.",
+    "fields": {
+      "code": "https://github.com/lgw1226/flag-official",
+      "one_line": "MaxEnt RL for flow policies: augments the state with a flow latent to localize importance sampling, mitigating weight collapse via a provably consistent proxy objective; scales to high-dimensional control (DMC, MyoSuite, MuJoCo)."
+    }
+  },
+  {
+    "id": "N332",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2410.18065",
+    "evidence": "Primary results give87.8vs52.9/37.6 percentages,59%completiontime only successfulsubset,simulation; currentcode linkprojectnoimplementation.",
+    "fields": {
+      "code": "",
+      "one_line": "TAMP decomposes tasks into short segments; BC policies receive RL fine-tuning with a KL penalty. Across nine simulated tasks, average success is 87.8% versus 52.9% for TAMP-gated BC and 37.6% for planner-guided RL."
+    }
+  },
+  {
+    "id": "C074",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2410.21845",
+    "evidence": "Primary Table1 gives29%separateHGDAggerbaseline and100%HILSERLafter1.5h; some taskscycletimesunreported.",
+    "fields": {
+      "one_line": "RLPD with human SpaceMouse corrections and a learned binary reward classifier, trained on real robots. RAM insertion: 100% after 1.5 h vs 29% for a data-matched HG-DAgger baseline; faster cycle times on every timed task."
+    }
+  },
+  {
+    "id": "C141",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2509.25756",
+    "evidence": "Primary abstract separates gated Flow-G from decoded Flow-T; method uses directend-to-endSAC.",
+    "fields": {
+      "one_line": "Treats flow sampling as a residual recurrent computation; GRU-style gated Flow-G or Transformer-decoded Flow-T stabilize direct SAC training. Reports up to 130% improvement on from-scratch MuJoCo HumanoidStandup."
+    }
+  },
+  {
+    "id": "N320",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2510.07730",
+    "evidence": "Fresh official DEAS-FQL repository identifies same paper and OGBench implementation.",
+    "fields": {
+      "code": "https://github.com/csmile-1006/DEAS-FQL"
+    }
+  },
+  {
+    "id": "C137",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2508.02219",
+    "evidence": "Primary Figure5 and hardwaresection identify six real dexterous tasks,40trialseach; qualifier of57%remainsunclear.",
+    "fields": {
+      "one_line": "Behavior cloning on 30–60 demos precedes offline chunked Cal-QL with a Transformer critic. Across six real dexterous-hand grasping tasks, reports 57% average success-rate improvement over SFT; absolute versus relative change is unstated."
+    }
+  },
+  {
+    "id": "C192",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2512.01801",
+    "evidence": "Primary training stages include symmetryaugmentation betweenfilteringandonlineRL;45.7GR3BCbaseline83.3final.",
+    "fields": {
+      "one_line": "Offline distributional chunk critics filter demonstrations, followed by mirror-symmetry augmentation and latent-noise online RL around a frozen base. Real shoe lacing improves from 45.7% for GR-3 behavior cloning to 83.3%."
+    }
+  },
+  {
+    "id": "C206",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2601.07821",
+    "evidence": "Primary method initializes Uni-O4thenonlinePPO; explicit auditnote leakedintoentry;73.1real averageper-task reduction versusUni-O4.",
+    "fields": {
+      "family": "onpolicy",
+      "one_line": "World-model safety critic predicts near-future failures and hands control to an offline-trained recovery policy during PPO-based (Uni-O4) offline-to-online RL; real Franka tasks: 73.1% fewer intervention-requiring failures than Uni-O4 (mean of per-task reductions)."
+    }
+  },
+  {
+    "id": "N306",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2601.10471",
+    "evidence": "Primary author block lists ZhancunMu,PekingUniversityInstituteofArtificialIntelligence; replace surname-as-org.",
+    "fields": {
+      "org": "Peking University"
+    }
+  },
+  {
+    "id": "N208",
+    "status": "rejected",
+    "severity": "none",
+    "source": "https://arxiv.org/abs/2602.00919",
+    "evidence": "Original accurately summarizes five stages and inference detector; omitting more detailed RL mechanism is optional, not a factual defect.",
+    "fields": {}
+  },
+  {
+    "id": "C229",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2602.09580",
+    "evidence": "Fresh official project page displays Code(coming), with no implementation link.",
+    "fields": {
+      "code": ""
+    }
+  },
+  {
+    "id": "N318",
+    "status": "confirmed",
+    "severity": "minor",
+    "source": "https://arxiv.org/abs/2603.13971",
+    "evidence": "Fresh official CGQ GitHub names Chunk-Guided Q-Learning and exposes implementation.",
+    "fields": {
+      "code": "https://github.com/gwanwoosong/cgq"
+    }
+  },
+  {
+    "id": "C281",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2605.05544",
+    "evidence": "Primary abstract distinguishes naive raw-Qselection from normalizedper-horizonadvantage; Table1supports62to96versus52to86.",
+    "fields": {
+      "org": "Peking University; Galbot; University of Toronto",
+      "one_line": "Trains critics for several chunk lengths and picks each state's chunk size by discount-normalized advantage over a per-horizon baseline; OGBench 25-task offline→online success 62→96% vs QC 52→86%."
+    }
+  },
+  {
+    "id": "C191",
+    "status": "confirmed",
+    "severity": "major",
+    "source": "https://arxiv.org/abs/2512.10926",
+    "evidence": "Independent primary PDF2512.10926v2 Figure2 visual check: DQC82,NS68,SHARSA44,QC25,naive36; section5/6andAlgorithm1 distinguish distilled partial-chunk critic from naiveprefixexecution.",
+    "fields": {
+      "one_line": "Long-chunk value backups train a distilled partial-chunk critic for a shorter-output policy. Across six hard offline goal-conditioned OGBench environments, aggregate score is 82 versus n-step 68, SHARSA 44 and Q-chunking 25."
+    }
+  }
+]

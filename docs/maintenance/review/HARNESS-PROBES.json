@@ -1,0 +1,62 @@
+[
+  {
+    "name": "base_v1",
+    "init_set": "eval",
+    "k": 129,
+    "n": 256,
+    "ci": [
+      0.4430547843724404,
+      0.5646422125672337
+    ],
+    "success_with_cup_shift_gt_1cm": [
+      20017,
+      20047,
+      20122
+    ],
+    "successful_episode_with_local_cube_center_below_floor": [],
+    "max_cube_penetration_m": 0.004642836038324784,
+    "episode_successes": "0001111110101011011101010010111111010100001101111000010000011101010101001011001000100011010001001000010001010100110011111111100001101000101001100011110100010111110011010001100111001111000011011001111001110110001001001011000001100111111010011010110001000111"
+  },
+  {
+    "name": "ars_s4",
+    "init_set": "eval",
+    "k": 254,
+    "n": 256,
+    "ci": [
+      0.9719666598432031,
+      0.9978549545557232
+    ],
+    "success_with_cup_shift_gt_1cm": [],
+    "successful_episode_with_local_cube_center_below_floor": [],
+    "max_cube_penetration_m": 0.005705878966773871,
+    "episode_successes": "1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111011111111111111111111111111111111111111111111111111111111111111111111011111111111111111111111111111111"
+  },
+  {
+    "name": "low_carry_adversary",
+    "init_set": "search",
+    "k": 0,
+    "n": 64,
+    "ci": [
+      0.0,
+      0.056626022971156334
+    ],
+    "success_with_cup_shift_gt_1cm": [],
+    "successful_episode_with_local_cube_center_below_floor": [],
+    "max_cube_penetration_m": 0.0012043973632162915,
+    "episode_successes": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "name": "random_action_adversary",
+    "init_set": "search",
+    "k": 0,
+    "n": 64,
+    "ci": [
+      0.0,
+      0.056626022971156334
+    ],
+    "success_with_cup_shift_gt_1cm": [],
+    "successful_episode_with_local_cube_center_below_floor": [],
+    "max_cube_penetration_m": 0.0013768155175082307,
+    "episode_successes": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+]

@@ -14,7 +14,7 @@ Columns of `data/papers.csv`:
 | Column | Meaning |
 |---|---|
 | `id` | Any unique id. Use the next free `N###`. |
-| `date` | First public version, `YYYY-MM-DD` (arXiv v1 date). `make links` fills and checks it for arXiv entries. |
+| `date` | First public version, `YYYY-MM-DD` (arXiv v1 date). `make links` checks it; `tools/arxiv_meta.py` without `--dry-run` can fill missing dates. |
 | `title`, `short` | Full title, and the short name shown in the list (usually the method's name). |
 | `url`, `code` | Canonical link (`https://arxiv.org/abs/<id>` for papers) and the code link if there is one. |
 | `org` | Short affiliation list. Leave blank to get "First-author et al." from arXiv. |
@@ -22,7 +22,7 @@ Columns of `data/papers.csv`:
 | `kind` | `paper`, `blog`, `talk` or `thread`. |
 | `key` | `1` for must-know work (shown with ⭐ on the front page). Use sparingly and say why in the PR. |
 | `verified` | `read-once` for a new entry. Maintainers change it to `checked` or `corrected` after a second pass against the source. |
-| `one_line` | 40 words at most: the mechanism first, then the single most telling result **with its baseline and setting**, copied exactly from the paper. No hype. Say "chart reading" if the number comes from a figure. |
+| `one_line` | 40 words at most: the mechanism first, then the single most telling result **with its baseline and setting**. Preserve the reported numbers and paraphrase the explanation. No hype. Say "chart reading" if the number comes from a figure. |
 
 What belongs: work about improving a robot policy that already exists (RL fine-tuning, residuals, steering, weighted BC, corrections, test-time search, reward and world models used for improvement or evaluation, sim-to-real fine-tuning, black-box search), the classic ideas underneath, and general RL results that robot work builds on. What does not: new pretraining recipes or architectures with no improvement loop, and pure benchmarks of base models.
 
@@ -56,7 +56,7 @@ CI (`.github/workflows/ci.yml`) runs `make test` and `make smoke` on Ubuntu and 
 
 ## The honesty rules
 
-Most last-mile results in the literature are hard to compare because they select on the test set, hide their search budget, or report 30/30 as "100%". These rules exist so our numbers do not have those problems. They apply to code, printed summaries, plots, chapter docs and posts about the repo.
+Last-mile results can be hard to compare when selection protocols, search budgets or trial counts differ or are incompletely reported. These rules make our protocol explicit; historical exceptions are disclosed in the chapter notes and prelaunch review. They apply to code, printed summaries, plots, chapter docs and posts about the repo.
 
 1. **Search and evaluation use disjoint initial states.** Anything you choose (knobs, a noise ticket, a checkpoint, a hyperparameter, N in best-of-N) is chosen on the `search` set only (64 seeds, 10 000–10 063). `eval` (256 seeds) is held out and never used for selection; `eval_ext` (1024) is for final claims. If a chapter also shows a number selected on `eval`, label it *optimistic* and print it next to the held-out one, as Chapter 3 does to show the gap.
 2. **Every success rate has a Wilson 95% interval,** in tables, plots, printed summaries and docs. Use `lastmile.common.eval.wilson` (or `format_rate`), not a normal approximation, which breaks at 0/n and n/n. Reference values:
@@ -69,11 +69,11 @@ Most last-mile results in the literature are hard to compare because they select
    | 57/60 | [86.3, 98.3] |
    | 243/256 | [91.5, 97.0] |
 
-3. **Report single-attempt success next to any pass@k.** pass@k uses simulator resets, so it is the ceiling for selection methods, not a success rate you could deploy.
+3. **Report single-attempt success next to any pass@k.** pass@k uses simulator resets and measures candidate coverage, not a success rate you could deploy. A finite sampled pass@k is not a hard ceiling for selection; see rule 8.
 4. **Include the unsteered and the random-selection baselines.** A search or steering method is compared with the base sampled normally *and* with a randomly chosen candidate (a random ticket, a random pick of N) on the same init set. Without both you cannot tell whether the method did the work or the selection did.
 5. **Count search episodes in the budget.** Every rollout except the final held-out evaluation is improvement budget, charged to `search` or `train` (pass `ledger=L, category="search"` to `evaluate`). Evaluations of the base and the final policy are charged to `eval`. The leaderboard's cost column is search + train, so hidden search shows up as a suspiciously cheap row.
 6. **Show at least one failure per chapter.** A regression, a seed that diverges, a setting where the method does not help: put it in `docs/chapters/chNN.md` with its numbers. A chapter where everything works teaches less and is harder to believe.
-7. **Never write "100%" for real hardware.** Report k/n and the interval: 30/30 means "at least 88.6% with 95% confidence". A lower bound of 95% needs 73 successes in a row, 99% needs 381 (`min_successes_for_lower_bound`). In sim, "95%+" means a point estimate of at least 95% on `eval` (n = 256).
+7. **Never write "100%" for real hardware.** Report k/n and the interval: 30/30 gives a 95% Wilson interval of [88.6%, 100%], not a guarantee of perfect reliability. Under independent trials with constant success probability and a fixed evaluation size, 73/73 gives a lower bound of 95%, and 381/381 gives 99% (`min_successes_for_lower_bound`). Do not keep collecting trials until a desired bound is reached and interpret it as a fixed-sample interval. In sim, "95%+" means a point estimate of at least 95% on `eval` (n = 256).
 8. **Say explicitly that search and steering can only select behavior the base already has.** Tickets (Ch 3), noise-space RL (Ch 7) and best-of-N (Ch 12) reweight what the base can already produce; the base's support is their ceiling (pass@k as k grows without bound, not any finite pass@k). Methods that select again at every step (best-of-N per chunk, a noise actor) can beat any finite pass@k, because they combine good chunks from different samples into one episode, but they cannot solve a start state from which no sequence of base chunks succeeds. Chapters built on selection state this in their docstring and chapter doc.
 
 Two related habits: comparisons between methods use the paired tests in `lastmile.common.eval` (`mcnemar_exact`, `bootstrap_diff`), because common random numbers make runs on the same set paired; and sim results use at least 3 training seeds, reported per seed and pooled.
@@ -116,11 +116,12 @@ class Config:
 
 def main(cfg: Config) -> None:
     with Ledger(chapter="chNN", method="name", robot=cfg.robot, config=cfg) as L:
-        base = evaluate(make_base, init_set="eval", robot=cfg.robot, ledger=L, category="eval")
-        L.set_base(id="base_v1", successes=base.successes)
+        final_set = "search" if cfg.quick else "eval"
+        base = evaluate(make_base, init_set=final_set, robot=cfg.robot, ledger=L, category="eval")
+        L.set_base(id="base_v1", successes=base)
         ...  # search or train here, charging every rollout to "search" or "train"
-        final = evaluate(make_final, init_set="eval", robot=cfg.robot, ledger=L, category="eval")
-        L.set_final(successes=final.successes, init_set="eval")
+        final = evaluate(make_final, init_set=final_set, robot=cfg.robot, ledger=L, category="eval")
+        L.set_final(successes=final)
     print(f"base {base.sr:.1%} {base.ci} -> final {final.sr:.1%} {final.ci}")
 
 

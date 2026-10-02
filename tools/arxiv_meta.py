@@ -35,12 +35,12 @@ def fetch(ids: list[str]) -> dict[str, tuple[str, str, str]]:
                 raise
             time.sleep(10 * 2 ** attempt)
     out = {}
-    for entry in re.findall(r"<entry>(.*?)</entry>", xml, re.S):
+    for entry in re.findall(r"<entry>(.*?)</entry>", xml, re.DOTALL):
         m = re.search(r"<id>https?://arxiv\.org/abs/(\d{4}\.\d{4,5})(v\d+)?</id>", entry)
         if not m:
             continue
         published = re.search(r"<published>(\d{4}-\d{2}-\d{2})", entry).group(1)
-        title = re.sub(r"\s+", " ", re.search(r"<title>(.*?)</title>", entry, re.S).group(1)).strip()
+        title = re.sub(r"\s+", " ", re.search(r"<title>(.*?)</title>", entry, re.DOTALL).group(1)).strip()
         authors = re.findall(r"<name>(.*?)</name>", entry)
         lead = authors[0].split()[-1] if authors else ""
         byline = f"{lead} et al." if len(authors) > 1 else lead

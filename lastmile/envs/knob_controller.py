@@ -4,8 +4,8 @@ This is the "classic robotics" policy of the repo: a phase machine that approach
 carries it over the cup and lets go. It reads only what a real SO-101 setup could measure (cube position
 from a camera, EE position from joint encoders, the cup position, the clock), never the simulator state,
 so the same code could drive the real arm. The cup position is read once, at the start of the episode:
-the script plans its drop point up front and does not chase a cup it has knocked away, so a rim hit is a
-failure rather than a lucky shove.
+the script plans its drop point up front and does not chase a cup it has knocked away. The v1 success
+predicate can still count a relocated cup; latching the target does not rule out a lucky shove.
 
 Its behavior is set by `KNOB_SPACE`: offsets, heights, timings and speed. `DEFAULT_KNOBS` are plausible
 but mis-tuned (roughly half the episodes fail, for several different reasons); `TUNED_KNOBS` are what a
@@ -49,8 +49,8 @@ KNOB_NAMES = [k.name for k in KNOB_SPACE]
 # Plausible first guesses, the kind you write after eyeballing the gripper in the viewer: center the gripper
 # frame on the cube "by eye" (about 1 cm off in y, and unaware that the SO-101's fixed jaw wants a small -x
 # offset), close a little high to keep the fingertips off the table, and aim 3 cm short of the cup's center.
-# On SO-101 v1 this gives a bit under 50% success: missed grasps, a few slips and off-target drops, while
-# the successes are clean drops that never touch the cup (tools/validate_env.py prints the measured mix).
+# On SO-101 v1 this gives a bit under 50% success: missed grasps, a few slips and off-target drops.
+# Most successes are clean drops; some move the cup (tools/validate_env.py prints the measured mix).
 # The carry height clears the rim; rim hits start once lift_h goes below about 0.078.
 DEFAULT_KNOBS: dict[str, float] = {
     "grasp_dx": 0.0, "grasp_dy": 0.011, "grasp_dz": 0.005, "approach_h": 0.08, "close_steps": 3,

@@ -154,7 +154,7 @@ def build_dataset(pool: dict[str, list[dict]], n: int, frac: float):
 
 
 def epochs_for(n_samples: int, steps: int, batch_size: int) -> int:
-    """train_flowchunk counts epochs; we fix gradient steps so small datasets are not under-trained."""
+    """Round a requested update budget up to full epochs (at most one epoch minus one extra update)."""
     return max(1, math.ceil(steps / math.ceil(n_samples / batch_size)))
 
 
@@ -164,22 +164,24 @@ def train_job(obs, chunks, steps: int, seed: int, batch_size: int, lr: float, th
 
     from lastmile.common.policy_flow import ChunkDataset, train_flowchunk
 
+    cpu_start = time.process_time()
     torch.set_num_threads(threads)
     ds = ChunkDataset(obs, chunks)
     epochs = epochs_for(len(ds), steps, batch_size)
     model, losses = train_flowchunk(ds, epochs=epochs, batch_size=batch_size, lr=lr, seed=seed)
     model.save(path)
-    return losses[-1]
+    return {"loss": losses[-1], "cpu_seconds": time.process_time() - cpu_start}
 
 
-def train_all(cfg: Config, pool_exec, datasets: dict, steps: int | dict, tag: str, work: Path) -> dict:
+def train_all(cfg: Config, pool_exec, datasets: dict, steps: int | dict, tag: str, work: Path,
+              ledger: Ledger) -> dict:
     """Train one model per pipeline seed in parallel; `steps` may differ per seed. Returns {seed: path}."""
     paths = {s: str(work / f"{tag}_seed{s}.pt") for s in datasets}
     jobs = [pool_exec.submit(train_job, ds.obs, ds.chunks, steps[s] if isinstance(steps, dict) else steps,
                              s, cfg.batch_size, cfg.lr, cfg.train_threads, paths[s])
             for s, ds in datasets.items()]
     for job in jobs:
-        job.result()
+        ledger.worker_cpu_seconds += job.result()["cpu_seconds"]
     return paths
 
 
@@ -255,6 +257,7 @@ def make_plots(cfg, media, grid, ablation, epoch_abl, chosen, final, eval_runs, 
     from lastmile.common import plotting
 
     plotting.setup()
+    final_label = "search check" if cfg.quick else "held-out eval"
     n_sel, f_sel = chosen
 
     def curve(ax, xs, rows, **kw):  # rows: dicts with pooled "k" and "n" (search estimates)
@@ -265,7 +268,7 @@ def make_plots(cfg, media, grid, ablation, epoch_abl, chosen, final, eval_runs, 
         ns = [n for n in cfg.n_demos if (n, frac) in grid]
         curve(ax, ns, [grid[(n, frac)] for n in ns], label=f"{frac:.0%} sloppy (search)")
     ax.axhspan(*cfg.target, color="0.85", zorder=0, label="target band")
-    plotting.heldout_point(ax, n_sel * 1.1, final.k, final.n, label="base_v1, held-out eval")
+    plotting.heldout_point(ax, n_sel * 1.1, final.k, final.n, label=f"base_v1, {final_label}")
     log2_axis(ax, cfg.n_demos, f"demos (all attempts kept), {cfg.train_steps} gradient steps each")
     ax.set(ylabel="success rate",
            title=f"Calibration on search ({len(cfg.seeds)} seeds x {cfg.search_salts} salts x 64)")
@@ -280,7 +283,7 @@ def make_plots(cfg, media, grid, ablation, epoch_abl, chosen, final, eval_runs, 
         plotting.success_curve(ax, steps, [ablation[s]["pass_k"][0] for s in steps],
                                [ablation[s]["pass_k"][1] for s in steps], label=f"pass@{cfg.pass_k} (search)",
                                marker="s")
-        plotting.heldout_point(ax, cfg.train_steps * 1.1, final.k, final.n, label="base_v1, held-out eval")
+        plotting.heldout_point(ax, cfg.train_steps * 1.1, final.k, final.n, label=f"base_v1, {final_label}")
         ax.axhspan(*cfg.target, color="0.85", zorder=0)
         log2_axis(ax, steps, "gradient steps")
         ax.set(ylabel="success rate", title="Training length (search set)")
@@ -297,7 +300,7 @@ def make_plots(cfg, media, grid, ablation, epoch_abl, chosen, final, eval_runs, 
         lo_hi = np.abs(np.array(wilson(a["k"], a["n"])) - a["sr"])[:, None]
         ax.errorbar([n_sel], [a["sr"]], yerr=lo_hi, fmt="^", capsize=3, color=plotting.PALETTE[2],
                     label=f"n={n_sel} trained {top} steps")
-        plotting.heldout_point(ax, n_sel * 1.1, final.k, final.n, label="base_v1, held-out eval")
+        plotting.heldout_point(ax, n_sel * 1.1, final.k, final.n, label=f"base_v1, {final_label}")
         log2_axis(ax, ns, f"demos ({f_sel:.0%} sloppy, all attempts kept)")
         ax.set(ylabel="success rate", title="More demos of the same mix: it depends on training (search)")
         ax.legend(fontsize=8, loc="lower right")
@@ -306,7 +309,7 @@ def make_plots(cfg, media, grid, ablation, epoch_abl, chosen, final, eval_runs, 
     fig, ax = plt.subplots()
     ks = list(range(1, len(eval_runs) + 1))
     hits = [pass_at_k(eval_runs, k) for k in ks]
-    plotting.success_curve(ax, ks, [h[0] for h in hits], hits[0][1], label="base_v1 pass@k (held-out eval)")
+    plotting.success_curve(ax, ks, [h[0] for h in hits], hits[0][1], label=f"base_v1 pass@k ({final_label})")
     ax.axhline(cfg.min_pass_k, color="0.5", ls="--", lw=1, label=f"headroom target {cfg.min_pass_k:.0%}")
     ax.set_xticks(ks)
     ax.set(xlabel="k (noise draws per start state, sim resets)", ylabel="solved start states",
@@ -320,7 +323,7 @@ def make_plots(cfg, media, grid, ablation, epoch_abl, chosen, final, eval_runs, 
     ax.bar(labels, [modes[m] for m in labels], color=colors)
     for i, m in enumerate(labels):
         ax.text(i, modes[m], str(modes[m]), ha="center", va="bottom")
-    ax.set(ylabel=f"episodes (of {sum(modes.values())})", title="base_v1 outcomes on held-out eval (salt 0)")
+    ax.set(ylabel=f"episodes (of {sum(modes.values())})", title=f"base_v1 outcomes on {final_label} (salt 0)")
     ax.grid(axis="x", visible=False)
     plotting.save_fig(fig, media / "failure_modes.png")
 
@@ -353,7 +356,7 @@ def main(cfg: Config) -> None:
         for n, frac in grid_keys:
             t0 = time.time()
             paths = train_all(cfg, trainers, {s: build_dataset(pools[s], n, frac)[0] for s in cfg.seeds},
-                              cfg.train_steps, f"n{n}_f{frac}", work)
+                              cfg.train_steps, f"n{n}_f{frac}", work, L)
             runs[(n, frac)] = {s: score(cfg, p, "search", range(cfg.search_salts), L, "search")
                                for s, p in paths.items()}
             g = grid[(n, frac)] = summarize(cfg, runs[(n, frac)])
@@ -388,7 +391,7 @@ def main(cfg: Config) -> None:
         ablation = {cfg.train_steps: summarize(cfg, runs[chosen])}
         for steps in cfg.steps_ablation:
             paths = train_all(cfg, trainers, {s: build_dataset(pools[s], n_sel, f_sel)[0] for s in cfg.seeds},
-                              steps, f"abl{steps}", work)
+                              steps, f"abl{steps}", work, L)
             ablation[steps] = summarize(cfg, {s: score(cfg, p, "search", range(cfg.pass_k), L, "search")
                                               for s, p in paths.items()})
         for steps, a in sorted(ablation.items()):
@@ -405,7 +408,7 @@ def main(cfg: Config) -> None:
             for n in [m for m in cfg.n_demos if m != n_sel]:
                 ds = {s: build_dataset(pools[s], n, f_sel)[0] for s in cfg.seeds}
                 steps = {s: epochs[s] * math.ceil(len(ds[s]) / cfg.batch_size) for s in cfg.seeds}
-                paths = train_all(cfg, trainers, ds, steps, f"ep_n{n}_f{f_sel}", work)
+                paths = train_all(cfg, trainers, ds, steps, f"ep_n{n}_f{f_sel}", work, L)
                 runs_n = {s: score(cfg, p, "search", range(cfg.pass_k), L, "search")
                           for s, p in paths.items()}
                 epoch_abl[n] = {**summarize(cfg, runs_n), "epochs": epochs[base_seed], "steps": steps}
@@ -415,18 +418,19 @@ def main(cfg: Config) -> None:
         trainers.shutdown()
 
         # 5. Held-out evaluation, once. Base = the scripted TUNED controller that produced the clean demos.
-        scripted = evaluate(partial(KnobController, TUNED_KNOBS[cfg.robot], cfg.robot), "eval",
+        final_set = "search" if cfg.quick else "eval"
+        scripted = evaluate(partial(KnobController, TUNED_KNOBS[cfg.robot], cfg.robot), final_set,
                             robot=cfg.robot, n_workers=cfg.n_workers, ledger=L, category="eval", n=cfg.eval_n)
         L.set_base(id="knobs_tuned_scripted", successes=scripted)
         per_seed_eval, eval_runs, eval_seconds = {}, [], 0.0
         for s in cfg.seeds:
             path = str(work / f"n{n_sel}_f{f_sel}_seed{s}.pt")
             t0 = time.time()
-            res = score(cfg, path, "eval", range(1), L, "eval", n=cfg.eval_n, record=s == base_seed)[0]
+            res = score(cfg, path, final_set, range(1), L, "eval", n=cfg.eval_n, record=s == base_seed)[0]
             per_seed_eval[s] = res
             if s == base_seed:
                 eval_seconds = time.time() - t0
-                eval_runs = [res] + score(cfg, path, "eval", range(1, cfg.pass_k), L, "eval", n=cfg.eval_n)
+                eval_runs = [res] + score(cfg, path, final_set, range(1, cfg.pass_k), L, "eval", n=cfg.eval_n)
         final = per_seed_eval[base_seed]
         L.set_final(successes=final)
         env = CupDropEnv(robot=cfg.robot)
@@ -533,20 +537,22 @@ def main(cfg: Config) -> None:
         }
 
     rm, c = L.robot_minutes, cluster_ci(eval_runs)
+    final_label = "search check" if cfg.quick else "eval"
+    final_note = "search check" if cfg.quick else "held-out"
     print("\n=== Chapter 0 summary ===")
-    print(f"scripted TUNED (eval):         {scripted.summary}")
-    print(f"base_v1 pass@1 (eval, salt 0): {final.summary}   <- held-out")
+    print(f"scripted TUNED ({final_label}):         {scripted.summary}")
+    print(f"base_v1 pass@1 ({final_label}, salt 0): {final.summary}   <- {final_note}")
     print(f"base_v1 pass@1 mean {cfg.pass_k} salts:  {format_rate(*mean1)}  "
           f"(start-state cluster bootstrap [{100 * c[0]:.1f}, {100 * c[1]:.1f}])")
-    print(f"base_v1 pass@{cfg.pass_k} (eval):         {format_rate(*pk)}  (sim resets: a ceiling)")
+    print(f"base_v1 pass@{cfg.pass_k} ({final_label}):         {format_rate(*pk)}  (sim resets: a ceiling)")
     print("\n".join(f"  pass@{k}: {format_rate(*pass_at_k(eval_runs, k))}" for k in range(1, cfg.pass_k + 1)))
     for s, r in per_seed_eval.items():
-        print(f"  seed {s} eval: {r.summary}{'  <- base_v1 (picked on search)' if s == base_seed else ''}")
-    print(f"  pooled seeds eval: {format_rate(*pooled_eval)}")
+        print(f"  seed {s} {final_label}: {r.summary}{'  <- base_v1 (picked on search)' if s == base_seed else ''}")
+    print(f"  pooled seeds {final_label}: {format_rate(*pooled_eval)}")
     print(f"failure modes: {dict(modes)}")
-    print(f"{cfg.eval_n}-episode eval took {eval_seconds:.1f}s with {cfg.n_workers} workers")
+    print(f"{cfg.eval_n}-episode {final_label} took {eval_seconds:.1f}s with {cfg.n_workers} workers")
     print(f"robot-minutes: search {rm['search']:.1f} (this run {this_run_search:.1f}), train (demos) "
-          f"{rm['train']:.1f}, eval {rm['eval']:.1f}; human demo minutes {L.human_minutes['demos']:.1f}; "
+          f"{rm['train']:.1f}, {final_label} {rm['eval']:.1f}; human demo minutes {L.human_minutes['demos']:.1f}; "
           f"base_v1's own demos {demo_steps / 600:.1f} min")
     print(f"results: {L.path}\ncheckpoint: {ckpt}")
 

@@ -1,0 +1,215 @@
+{
+  "review_date": "2026-10-01",
+  "initial_commit": "efd9e71422f638e631790c8693aa6fe127f9cee8",
+  "main_merged": "f076f75ad65e39c1826b7a2f7ca6c429b2eca618",
+  "environment": {
+    "platform": "macOS-26.4-arm64-arm-64bit",
+    "python": "3.12.13",
+    "mujoco": "3.4.0",
+    "torch": "2.14.0"
+  },
+  "checks": {
+    "make test": {
+      "exit_code": 0,
+      "passed": 136,
+      "seconds": 19.91
+    },
+    "make smoke": {
+      "exit_code": 0,
+      "seconds": 251.75,
+      "scripts": [
+        {
+          "script": "algos/00_bc_flow.py --quick",
+          "seconds": 28.77
+        },
+        {
+          "script": "algos/01_hill_climb.py --quick",
+          "seconds": 16.86
+        },
+        {
+          "script": "algos/02_cem_cmaes_pi2.py --quick",
+          "seconds": 16.46
+        },
+        {
+          "script": "algos/02b_bo.py --quick",
+          "seconds": 8.32
+        },
+        {
+          "script": "algos/03_golden_ticket.py --quick",
+          "seconds": 35.87
+        },
+        {
+          "script": "algos/05_rlpd_qchunk.py --quick",
+          "seconds": 18.84
+        },
+        {
+          "script": "algos/06_residual_td3.py --quick",
+          "seconds": 26.2
+        },
+        {
+          "script": "algos/07_dsrl.py --quick",
+          "seconds": 25.79
+        },
+        {
+          "script": "algos/08_expo_edit.py --quick",
+          "seconds": 43.97
+        },
+        {
+          "script": "algos/12_best_of_n.py --quick",
+          "seconds": 30.61
+        }
+      ],
+      "published_files_changed": [],
+      "published_files_added": []
+    },
+    "tools/validate_env.py --no-media": {
+      "exit_code": 0,
+      "all_targets_pass": true,
+      "so101_full_episode_cpu_seconds": 0.12,
+      "piper_full_episode_cpu_seconds": 0.178
+    },
+    "ruff changed algorithm/harness/audit files": {
+      "exit_code": 0
+    },
+    "saved_artifact_replay": {
+      "base_v1": [
+        129,
+        256
+      ],
+      "ars_s4": [
+        254,
+        256
+      ],
+      "ch03_exploratory": [
+        224,
+        256
+      ],
+      "ch03_public_racing": [
+        219,
+        256
+      ],
+      "corrected_qc_s0": [
+        238,
+        256
+      ]
+    },
+    "browser_visual_qa": {
+      "status": "blocked",
+      "reason": "No browser-control surfaces; native Chrome and Safari returned cgWindowNotFound."
+    },
+    "tools/arxiv_meta.py --dry-run": {
+      "exit_code": 0,
+      "unique_ids": 874,
+      "found": 874,
+      "dates_updated": 0,
+      "title_warnings": 0
+    },
+    "tools/check_links.py": {
+      "exit_code": 0,
+      "total": 555,
+      "ok": 552,
+      "blocked": 3,
+      "failed": 0,
+      "blocked_urls": [
+        "https://doi.org/10.3390/robotics15080147",
+        "https://doi.org/10.36227/techrxiv.176531955.54563920/v1",
+        "https://openreview.net/pdf?id=nWiHRy3ZXy"
+      ]
+    },
+    "ruff check .": {
+      "exit_code": 0
+    },
+    "catalogue_scope": {
+      "papers": 912,
+      "resources": 212,
+      "families": 12,
+      "must_know_verified": 122,
+      "industry_verified": 28,
+      "recent_papers_reviewed": 198,
+      "older_random_sample": 117,
+      "changed_paper_rows": 338,
+      "changed_resource_rows": 63,
+      "inherited_leads_resolved": 373,
+      "unresolved_leads": 0
+    },
+    "P1_manifest_integrity": {
+      "must_know_rows": 122,
+      "industry_rows": 28,
+      "coverage_complete": true,
+      "all_accepted_fields_match_csv": true,
+      "all_descriptions_at_most_40_words": true
+    },
+    "python3 tools/build_awesome.py --check": {
+      "exit_code": 0
+    },
+    "uv run python tools/build_site.py --check": {
+      "exit_code": 0
+    },
+    "Chapter5_full_rerun": {
+      "exit_code": 0,
+      "command": "uv run python algos/05_rlpd_qchunk.py --out runs/prelaunch_ch05",
+      "wall_minutes": 46.619,
+      "qc_by_seed": [
+        238,
+        245,
+        238
+      ],
+      "qc_pooled": [
+        721,
+        768
+      ],
+      "qc_cql_by_seed": [
+        154,
+        140,
+        141
+      ],
+      "qc_cql_pooled": [
+        435,
+        768
+      ],
+      "unchanged_controls_reproduced": true,
+      "active_result_rows": 13,
+      "superseded_rows_archived": 13,
+      "raw_rerun_rows_archived": 13,
+      "prior_full_run_train_steps": 572459,
+      "prior_full_run_human_minutes": 8.331666666666667,
+      "provenance": "docs/maintenance/review/archive/ch05_target_policy_bug/manifest.json",
+      "device": "mps"
+    },
+    "plot_visual_qa": {
+      "status": "passed",
+      "chapter5_plots": 3,
+      "leaderboard_plots": 2,
+      "chapter5_gif_frames": 51
+    },
+    "final_result_reconciliation": {
+      "exit_code": 0,
+      "result_files": 145,
+      "count_objects": 17669,
+      "discordant_tests": 181,
+      "paired_tests": 666,
+      "bootstrap_objects": 666,
+      "bootstrap_unique_distributions": 38,
+      "bootstrap_max_endpoint_count_gap": 1,
+      "explicit_doc_rates": 233,
+      "explicit_doc_intervals": 224,
+      "publication_check": "CH05-PUBLICATION-CHECK.json",
+      "training_log_path_prefix_redacted": true
+    },
+    "quick_mode_figure_labels": {
+      "status": "passed",
+      "figures": 22,
+      "full_mode_labels_unchanged": true,
+      "quick_labels_name_search": true,
+      "evidence": "QUICK-LABEL-CHECK.json"
+    },
+    "GitHub Actions integration commit": {
+      "commit": "935e77ee1356d3b910c49709ab75c5655e51600d",
+      "url": "https://github.com/afinitus/awesome-hill-climbing/actions/runs/36934277611",
+      "macOS": "passed",
+      "Ubuntu": "passed",
+      "scope": "Integration commit before the subsequent display-only quick-mode label fixes. The final label edits are covered by the local checks recorded here."
+    }
+  },
+  "pending": []
+}

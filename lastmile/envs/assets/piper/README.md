@@ -12,7 +12,7 @@ See [CHANGELOG.md](./CHANGELOG.md) for a full history of changes.
 This package contains a simplified robot description (MJCF) of the [AgileX PiPER](https://global.agilex.ai/products/piper). It is derived from the publicly available [model](https://github.com/agilexrobotics/Piper_ros/tree/ros-noetic-no-aloha/src/piper_description/urdf).
 
 <p float="left">
-  <img src="piper.png" width="400">
+  <img src="https://raw.githubusercontent.com/google-deepmind/mujoco_menagerie/4d038b3feae26ec82b46a4d586379114012a8ac7/agilex_piper/piper.png" width="400">
 </p>
 
 ### Derivation steps

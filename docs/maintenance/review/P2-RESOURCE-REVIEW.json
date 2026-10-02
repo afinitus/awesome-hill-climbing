@@ -1,0 +1,3044 @@
+{
+  "review_date": "2026-10-01",
+  "scope": "All 212 current resources plus all 66 resource candidate leads. Source-supported short descriptions checked; this is not a full-paper or full-video read claim.",
+  "current_resources": 212,
+  "lead_dispositions": [
+    {
+      "lead_index": 0,
+      "name": "awesome-vla-wam",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://github.com/DravenALG/awesome-vla-wam",
+      "evidence": "Current README places RL papers within its VLA list rather than in a dedicated RL section; its top-level categories support the revised list description.",
+      "proposed_fields": {
+        "one_line": "Curated VLA and world-action-model research list with latent action models, human action pretraining, robotic agentics, surveys, datasets, benchmarks and hardware; RL papers appear within the VLA list."
+      },
+      "problem_in_lead": "The one_line says the list includes 'RL-for-VLA sections'. The current README has no such section. RL-for-VLA papers (SimpleVLA-RL, VLA-RL, RIPT-VLA) appear only as ordinary bullets inside the flat 'VLA Models' list. The line also leaves out sections the list does have: Robotic Agentics, Policies, Physics Engine, Software and Hardware."
+    },
+    {
+      "lead_index": 1,
+      "name": "Active Real-World Factor-Based Evaluation for Generalist Robot Policies",
+      "status": "confirmed",
+      "severity": "major",
+      "source_url": "https://arxiv.org/abs/2607.14439",
+      "evidence": "Abstract and introduction: 2,331 real evaluations over three tasks; typically 20–40% fewer evaluation trials than random testing. Expressed as trials saved rather than an undefined efficiency percentage.",
+      "proposed_fields": {
+        "one_line": "Sequential experimental design uses a probabilistic surrogate over task factors for real-robot evaluation. Across 2,331 trials on three tasks, the authors report typically needing at least 20-40% fewer trials than random testing."
+      },
+      "problem_in_lead": "'roughly 20-40% more efficient than random testing' restates the paper's claim in different units and drops its 'at least'. The paper says the method typically needs at least 20-40% fewer trials, which it explains as saving 20-40 trials out of a 100-trial budget. That is a cut in trial count, not 'X% more efficient'. The line also omits the scale (2,331 real-world evaluations). Optionally, the org can be filled in: arXiv HTML lists all four authors at the University of Minnesota Twin Cities."
+    },
+    {
+      "lead_index": 2,
+      "name": "BEHAVIOR-1K: A Human-Centered, Embodied AI Benchmark with 1,000 Everyday Activities and Realistic Simulation",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://arxiv.org/abs/2403.09227",
+      "evidence": "Abstract specifies 1,000 everyday activities in 50 scenes including gardens, restaurants and offices, with 9,000+ objects. Household-only wording was too narrow.",
+      "proposed_fields": {
+        "one_line": "Simulation benchmark of 1,000 long-horizon everyday activities across 50 scenes (homes, gardens, restaurants, offices) and 9,000+ annotated objects, built on OmniGibson with rigid, deformable and liquid physics."
+      },
+      "problem_in_lead": "The line calls the 1,000 activities 'household'. The paper calls them 'everyday activities', and its 50 scenes include gardens, restaurants and offices as well as houses. This is a small inaccuracy; the other numbers (1,000 activities, 50 scenes, 9,000+ objects, OmniGibson with rigid/deformable/liquid physics) are correct."
+    },
+    {
+      "lead_index": 3,
+      "name": "awesome-physical-ai",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://github.com/keon/awesome-physical-ai",
+      "evidence": "Current raw README has a placeholder arXiv identifier for CO-RFT. Used existing VLA-RL, FLaRe and SimpleVLA-RL examples instead.",
+      "proposed_fields": {
+        "one_line": "Curated paper list on Physical AI: VLAs, world models, action representations, and learning paradigms including a section on RL for VLA policies (e.g. VLA-RL, FLaRe, SimpleVLA-RL)."
+      },
+      "problem_in_lead": "Low severity. CO-RFT is one of the three examples the one_line names. In the linked list, the CO-RFT entry points to a placeholder link (arxiv.org/abs/2601.XXXXX) and is dated 'arXiv, 2026'. Several neighbouring entries also have placeholder links (HICRA 2601.XXXXX, RL4VLA 2409.XXXXX, TPO and ReinboT 2505.XXXXX). Using a broken entry as a headline example invites criticism. The section's own description, 'RL-based methods for optimizing VLA policies', is accurate. Swapping in an example with a working link fixes it."
+    },
+    {
+      "lead_index": 4,
+      "name": "Critical Interval MSE: Toward Reliable Offline Validation for Robot Manipulation Policies",
+      "status": "confirmed",
+      "severity": "major",
+      "source_url": "https://arxiv.org/abs/2606.29898",
+      "evidence": "Paper distinguishes 27 simulated checkpoints with Spearman −0.87 versus −0.61 from four real-robot tasks supporting the same trend. Correlation setting is now explicit.",
+      "proposed_fields": {
+        "one_line": "Offline validation metric computing action MSE only on task-critical segments, with action alignment; across 27 simulated checkpoints, Spearman -0.87 with rollout success vs -0.61 for raw MSE; real-robot tests on four tasks agree."
+      },
+      "problem_in_lead": "The entry mixes up sim and real. It says Spearman -0.87 is 'with real rollout success', but the paper gets -0.87 vs -0.61 across 27 simulated checkpoints (X-VLA-based variants, Table 1 'Simulation model variants'). The real-robot experiments are separate: four tasks, scored by Elo, and the paper calls them 'consistent with' the simulation results."
+    },
+    {
+      "lead_index": 5,
+      "name": "LIBERO-Plus: In-depth Robustness Analysis of Vision-Language-Action Models",
+      "status": "no-change",
+      "severity": "minor",
+      "source_url": "https://arxiv.org/abs/2510.13626",
+      "evidence": "Already resolved before this review: placeholder affiliation replaced with source-listed institutions.",
+      "problem_in_lead": "The org field holds a leftover placeholder, 'Not confirmed on fetched pages', which would show up publicly in README/site. The paper does list its affiliations. The one_line checks out: 10,030 tasks, 7 factors, 95% to below 30%, language ignored."
+    },
+    {
+      "lead_index": 6,
+      "name": "CaP-X: A Framework for Benchmarking and Improving Coding Agents for Robot Manipulation",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://arxiv.org/abs/2603.22435",
+      "evidence": "Abstract qualifies near-human reliability as achieved on several tasks. Retained the CaP-Gym/CaP-Bench, multi-turn interaction and sim-to-real components without universalizing that result.",
+      "proposed_fields": {
+        "one_line": "Code-as-policy framework: CaP-Gym, CaP-Bench (12 frontier models), training-free CaP-Agent0 using multi-turn interaction and visual differencing to reach near human-level reliability on several tasks, plus CaP-RL with sim2real transfer."
+      },
+      "problem_in_lead": "Overclaim. The entry says CaP-Agent0 achieves 'human-level reliability' with no qualifier. The paper says this only for several manipulation tasks: the API abstract says 'recovers human-level reliability on several manipulation tasks' and the v2 HTML abstract says 'near human-level'. The '12 models', visual differencing and CaP-RL sim-to-real parts are correct."
+    },
+    {
+      "lead_index": 7,
+      "name": "FailBench: How Reliable are VLMs at Judging Robot Task Success?",
+      "status": "confirmed",
+      "severity": "major",
+      "source_url": "https://arxiv.org/abs/2609.03611",
+      "evidence": "Reported benchmark totals: 2,197 attempts, 14 sources, 13 detectors; best mean balanced accuracy 0.77. Contact-rich assembly maximum is exactly 0.60, so below-0.60 wording was inaccurate.",
+      "proposed_fields": {
+        "one_line": "Benchmark of 2,197 manipulation attempts from 14 sources (12 real, 2 sim) for VLM success detection; best of 13 detectors reaches 0.77 mean balanced accuracy, and no model exceeds 0.60 on contact-rich assembly."
+      },
+      "problem_in_lead": "As worded, the one_line credits the best model with 'under 0.60 on contact-heavy assembly'. The paper body says no model exceeds 0.60 there, and the best detector (Gemini 3 Flash) scores exactly 0.60 on that subset (reassemble), so 'under 0.60' is wrong for the best model. Also, 0.77 is the mean (macro) balanced accuracy of the best of 13 detectors."
+    },
+    {
+      "lead_index": 8,
+      "name": "From Rollout to Reset: A Graph-Based Harness for Autonomous Long-Horizon Manipulation Evaluation (HALTER)",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://arxiv.org/abs/2609.19413",
+      "evidence": "Paper reports scene restoration 76% versus AutoEval 52% and operator-time reduction 72% versus manual reset on four Franka tasks. Baselines and metric now identified.",
+      "proposed_fields": {
+        "one_line": "LLM over point-cloud scene graphs scores rollouts, plans resets from atomic reset skills and verifies them; on four long-horizon Franka tasks, 76% scene restoration vs 52% AutoEval, and 72% less operator time than manual reset."
+      },
+      "problem_in_lead": "'72% less operator time' has no baseline. The paper measures it against manual reset. The setting (four long-horizon tasks on a Franka arm) is also missing. The 76% vs 52% AutoEval figure is correct."
+    },
+    {
+      "lead_index": 9,
+      "name": "Faster and Better? Benchmark Bugs and Design Limitations Distort the Evaluation of Vision-Language-Action Acceleration",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://arxiv.org/abs/2609.37771",
+      "evidence": "Paper reports 22 bugs and four design limitations across seven simulated benchmarks. Baseline ranking reversal from last to first is a particular LIBERO-PRO task example.",
+      "proposed_fields": {
+        "one_line": "Audits seven simulated VLA benchmarks (RoboTwin, LIBERO-Plus, VLABench...), finding 22 bugs and 4 design limitations; fixes can reverse acceleration-method rankings, moving the baseline from last to first on one LIBERO-PRO task."
+      },
+      "problem_in_lead": "'Sometimes moving the baseline from last to first' suggests this happened more than once. The paper reports it on one task, LIBERO-PRO Spatial-Task. The other counts (seven benchmarks, 22 bugs, 4 design limitations) are correct."
+    },
+    {
+      "lead_index": 10,
+      "name": "BiGym: A Demo-Driven Mobile Bi-Manual Manipulation Benchmark",
+      "status": "confirmed",
+      "severity": "major",
+      "source_url": "https://github.com/NeuracoreAI/bigym",
+      "evidence": "BiGym paper author block identifies Dyson Robot Learning Lab. Repository hosting by Neuracore does not establish the original paper affiliation.",
+      "proposed_fields": {
+        "org": "Dyson Robot Learning Lab"
+      },
+      "problem_in_lead": "The org attribution is off. The repo is now hosted under the NeuracoreAI GitHub org, but the paper lists one affiliation for all authors: Dyson Robot Learning Lab. Writing 'Neuracore' credits the work to the wrong institution. The URL resolves and is the official repo (the README points to it). The one_line is correct: MuJoCo, 40 tasks, human demos, proprioception plus RGB/depth from 3 cameras, IL and demo-driven RL baselines."
+    },
+    {
+      "lead_index": 11,
+      "name": "EmbodiedSWE: Coding Agents for Long Horizon Dexterous Robotics",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://arxiv.org/abs/2609.27308",
+      "evidence": "Paper author block includes ByteDance Seed alongside Princeton, Yale, CMU and Stanford; retained a non-exhaustive affiliation list.",
+      "proposed_fields": {
+        "org": "Princeton, Yale, ByteDance Seed, CMU, Stanford et al."
+      },
+      "problem_in_lead": "Minor. The org list is accurate but incomplete. It leaves out ByteDance Seed, which is listed first in the paper's affiliations, plus UCLA and UW. Leaving out the first-listed industry affiliation could read as unfair attribution. Adding it with 'et al.' is the smallest fix. The one_line is supported ('up to half an hour of continuous interaction'; a VLA trained only on generated sim demos completes a long-horizon task on a real robot)."
+    },
+    {
+      "lead_index": 12,
+      "name": "EBRL: Asynchronous Embodied RL by Multi-Grained Resource Management",
+      "status": "confirmed",
+      "severity": "major",
+      "source_url": "https://arxiv.org/abs/2609.27547",
+      "evidence": "Abstract and section 6: four simulation benchmarks; throughput 1.30–3.47x; LIBERO-Object/GR00T PPO completes 60 epochs about 2.5x faster than Sync. No public code URL appears in the paper; category retained.",
+      "proposed_fields": {
+        "one_line": "Asynchronous RLinf-based scheduler overlaps rollout and training with CPU/GPU resource allocation. Simulation: 1.30-3.47x rollout throughput over prior systems; LIBERO-Object/GR00T PPO completes 60 epochs ~2.5x faster than a synchronous baseline."
+      },
+      "problem_in_lead": "The 2.5x convergence number is presented as 'versus prior systems'. In the paper body it is a single setting (LIBERO-Object, GR00T, PPO): wall-clock time to 60 epochs compared with a synchronous ('Sync') baseline. The one_line also does not say the results are simulation-only. A secondary issue: the paper has no code link or open-source statement, so the 'Code: general RL and black-box optimization' section (code-rl) is a weak fit. As an embodied/VLA RL training system it fits code-robot better, but it still has no public code."
+    },
+    {
+      "lead_index": 13,
+      "name": "PureJaxRL",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://github.com/luchris429/purejaxrl",
+      "evidence": "README distinguishes about 10x versus single-run CleanRL PyTorch PPO on CartPole/MinAtar from over 1000x against standard PyTorch when many agents run in parallel. Comparison scopes now separate.",
+      "proposed_fields": {
+        "one_line": "End-to-end JAX PPO with environment and training compiled together. README reports 10x over single-run CleanRL PyTorch PPO on CartPole/MinAtar-Breakout, and over 1000x over standard PyTorch RL when parallelizing many agents on GPUs."
+      },
+      "problem_in_lead": "The speedups leave out their setting, and the 1000x baseline is stated more loosely than in the source. The README gives 10x over CleanRL's PyTorch PPO without vectorization, on CartPole and MinAtar-Breakout. It gives 'over 1000x' against 'standard PyTorch RL implementations' when running many agents in parallel on GPUs. Without the toy environments named, readers may take the numbers as general. The org (Oxford FLAIR) is fine: the author's blog says FLAIR."
+    },
+    {
+      "lead_index": 14,
+      "name": "EvoJAX: Hardware-Accelerated Neuroevolution",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://github.com/google/evojax",
+      "evidence": "README compares example runtime on one accelerator (minutes) with CPUs (hours/days). GitHub repository metadata reports archived=true.",
+      "proposed_fields": {
+        "one_line": "JAX neuroevolution toolkit running evolution algorithms, policy networks and vectorized tasks in parallel on GPUs/TPUs; README examples run in minutes on a single accelerator versus hours or days on CPUs. Repo now archived."
+      },
+      "problem_in_lead": "'Experiments finish in minutes instead of hours' drops the baseline and scope. The README says its examples run within minutes on a single accelerator, compared with hours or days on CPUs. The archived status is confirmed (GitHub API archived=true)."
+    },
+    {
+      "lead_index": 15,
+      "name": "LeanRL",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://github.com/meta-pytorch/LeanRL",
+      "evidence": "README describes CleanRL-derived single-file scripts, torch.compile and CUDA graphs. GitHub metadata reports archived=true.",
+      "proposed_fields": {
+        "one_line": "CleanRL-derived single-file PyTorch RL scripts optimized for speed using torch.compile and CUDA graphs (repo now archived)."
+      },
+      "problem_in_lead": "The repo is archived, but the one_line does not say so, unlike the CORL and EvoJAX entries in the same list. The rest of the line is accurate: a CleanRL fork using torch.compile and cudagraphs. The org is fine (meta-pytorch)."
+    },
+    {
+      "lead_index": 16,
+      "name": "Nevergrad",
+      "status": "no-change",
+      "severity": "minor",
+      "source_url": "https://github.com/facebookresearch/nevergrad",
+      "evidence": "Rejected: proposed change is stylistic; current short description accurately describes the toolbox.",
+      "problem_in_lead": "Typo: there is a stray closing parenthesis at the end of the one_line ('optimization).')."
+    },
+    {
+      "lead_index": 17,
+      "name": "rl_games",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://github.com/Denys88/rl_games",
+      "evidence": "README lists PPO, asymmetric actor-critic and SAC with GPU environment support including Isaac Lab and MJLab; replaced a low-information creation date with these supported capabilities.",
+      "proposed_fields": {
+        "one_line": "PyTorch RL library with PPO, asymmetric actor-critic and SAC implementations, supporting vectorized GPU environments including Isaac Lab and MJLab."
+      },
+      "problem_in_lead": "Not wrong, but uninformative. 'RL implementations library; created January 2019' is trivia (the repo was created 2019-01-13). It leaves out why the library matters for robot policies: PPO/SAC with end-to-end GPU pipelines, and its use in Isaac Gym/Isaac Lab and DeXtreme. This is a low-priority quality fix."
+    },
+    {
+      "lead_index": 18,
+      "name": "Robots Need More than VLA and World Models",
+      "status": "confirmed",
+      "severity": "major",
+      "source_url": "https://arxiv.org/abs/2606.06556",
+      "evidence": "Author block identifies Motoniq.ai, Stanford, IIT, ETH Zurich, TU Darmstadt and UCL. No Huawei affiliation appears; removed it.",
+      "proposed_fields": {
+        "org": "Motoniq.ai; Stanford; IIT; ETH Zurich; TU Darmstadt; UCL"
+      },
+      "problem_in_lead": "The org field says one affiliation is Huawei, but the paper does not say that. The paper gives Haitham Bou-Ammar's affiliation as UCL Centre for AI. The field also leaves out Motoniq.ai, which is the affiliation of the first three authors and Mac Schwager's second affiliation."
+    },
+    {
+      "lead_index": 19,
+      "name": "A Survey on Reinforcement Learning of Vision-Language-Action Models for Robotic Manipulation",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://doi.org/10.36227/techrxiv.176531955.54563920/v1",
+      "evidence": "Publisher-deposited Crossref abstract retrieved successfully and supports four axes and action/reward/transition design. Author companion README supports the paper-list description. Removed unsupported 100+ count. Full TechRxiv text remains blocked (403), with CDN PDF inaccessible (DNS/502).",
+      "proposed_fields": {
+        "one_line": "Survey of RL for VLA manipulation along four axes: RL-VLA architecture (action, reward, transition modeling), online/offline/test-time training paradigms, real-world deployment, and benchmarking; companion Awesome-RL-VLA paper list."
+      },
+      "problem_in_lead": "(a) The org field holds the placeholder 'Not confirmed', which would show up in the published list. No affiliations are visible in the Crossref record, and the TechRxiv page and PDF block automated access (403). (b) The one_line says the survey is organized into offline, online and test-time paradigms. The abstract says the taxonomy has four dimensions, and training paradigms are only one of them. (c) The claim that the companion repo curates '100+ papers' is not supported. The Awesome-RL-VLA README has 89 paper rows in its tables. The other entries are 5 base models, 5 datasets/benchmarks and 2 frameworks, which are not papers. The paper text could not be checked for a 100+ figure."
+    },
+    {
+      "lead_index": 20,
+      "name": "Reinforcement Learning for Diffusion Policies in Robotics: A Survey and State-Based Locomotion Reproduction",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://doi.org/10.3390/robotics15080147",
+      "evidence": "MDPI publisher text was readable in the indexed search result, including abstract and sections 1.3/1.6: 84 studies; five technical axes; five DPPO fine-tuning seeds reuse two BC checkpoints; mean gain 1261.2 return. Gaussian PPO also improves. State-based locomotion only. Direct publisher page/PDF remained 403/429.",
+      "proposed_fields": {
+        "one_line": "Scoping review mapping 84 studies with a five-axis taxonomy; in state-based D4RL Hopper, five DPPO fine-tuning seeds gain mean +1261 return over BC initializations. A Gaussian-PPO control also improves, so the gain is not diffusion-specific."
+      },
+      "problem_in_lead": "The numbers are correct: 84 studies, a five-axis taxonomy, and a mean +1261.2 return from DPPO over the BC initializations. But the one_line leaves out the paper's own caveat: a Gaussian-policy PPO control also improved, so the gain was not specific to diffusion. It also leaves out that the result covers 5 seeds of state-based locomotion only. Read alone, it suggests the gain comes from diffusion, which the authors explicitly say it does not. The org field is correct."
+    },
+    {
+      "lead_index": 21,
+      "name": "Robotic Foundation Models for Industrial Control: A Comprehensive Survey and Readiness Assessment Framework",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://arxiv.org/abs/2603.06749",
+      "evidence": "Survey assesses 324 models over 149 industrial-readiness criteria. The 48,276 decisions are LLM-assisted criterion scores validated by experts, not physical trials.",
+      "proposed_fields": {
+        "one_line": "Survey scoring 324 manipulation-capable robot foundation models against 149 industrial-readiness criteria (48,276 LLM-assisted, expert-validated criterion decisions); finds industrial maturity limited and uneven."
+      },
+      "problem_in_lead": "This is a minor clarification. The numbers are exact (324 x 149 = 48,276). But calling them '48,276 evaluations' suggests experts scored each one. The paper says the decisions came from an LLM-assisted pipeline that was checked against expert judgements."
+    },
+    {
+      "lead_index": 22,
+      "name": "Workshop on Agentic Robotics (CoRL 2026)",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://agentic-robotics-workshop.github.io/",
+      "evidence": "Official workshop page gives November 12 in Austin and submission deadline September 30, 2026 at 11:59 PM AoE. Corrected the prior deadline.",
+      "proposed_fields": {
+        "one_line": "CoRL 2026 workshop (Austin, Nov 12) on agents that reason, act and recover on real robots, including self-improvement pipelines and routing corrections to the right abstraction level; submission deadline was September 30, 2026 AoE."
+      },
+      "problem_in_lead": "The submission deadline is wrong. The one_line says submissions closed Sep 27, but the workshop page gives Sep 30, 2026. The phrase 'feedback routing' is also vague; the page's own wording is about routing corrections to the abstraction level where they generalize best. The date (Austin, Nov 12), the org list and the scope are correct."
+    },
+    {
+      "lead_index": 23,
+      "name": "Sporks of AGI: Why the Real Thing is better than the Next Best Thing",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://sergeylevine.substack.com/p/sporks-of-agi",
+      "evidence": "The essay argues real robot data is essential while describing surrogate data as useful supplementation. Reworded as the author’s position and removed unsupported page-level affiliation attribution.",
+      "proposed_fields": {
+        "org": "Sergey Levine",
+        "one_line": "Levine essay arguing surrogate data (simulation, human video, hand-held grippers) cannot replace real robot data for broadly generalizing foundation models, and is best used to supplement rather than substitute real-world experience."
+      },
+      "problem_in_lead": "(a) The org 'UC Berkeley; Physical Intelligence' does not appear anywhere in the source. This is Levine's personal Substack and neither the post nor the About page states an affiliation. (b) Tone and fairness: the one_line leaves out the essay's explicit nuance that surrogate data is still useful as a supplement. As written, it reads as a blanket dismissal of sim, human-video and hand-held data, which overstates his position on a public post."
+    },
+    {
+      "lead_index": 24,
+      "name": "π*0.6 and RECAP: Teaching Robots to Learn From Their Mistakes",
+      "status": "no-change",
+      "severity": "minor",
+      "source_url": "https://federicosarrocco.com/blog/pi-star-06-recap",
+      "evidence": "Rejected: the current third-party page explicitly gives 2.1x, 2.3x and 65% to 90%; the lead allegation is unsupported. Numbers remain attributed to this third-party explainer.",
+      "problem_in_lead": "The explainer does print '2.1x / 2.3x throughput' and 'box assembly 65% -> 90%', but the PI paper's text does not support the exact figures. The paper only says RECAP 'more than doubles' throughput on the hardest tasks and the final box-assembly policy reaches 'about 90%'. The 65% baseline and the 2.1x/2.3x values cannot be found in the primary source (they may come from figures the blog read off), so repeating them risks spreading wrong numbers. Use only claims that both the explainer and the paper support."
+    },
+    {
+      "lead_index": 25,
+      "name": "Unfolding Robotics: The Open-Source Recipe for Teaching a Robot to Fold Your Clothes",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://huggingface.co/spaces/lerobot/robot-folding",
+      "evidence": "Official Space MDX reports 131 hours, OpenArm, SARM, reward-weighted BC, DAgger and RTC. Curated-data fine-tuning uses one-fifth the data; experiment 2.5 improves 40% to 90%, evaluated on 20 rollouts (ten per difficulty).",
+      "proposed_fields": {
+        "one_line": "OpenArm bimanual pi0/pi0.5 recipe using ~131 h teleoperation, SARM curation, reward-weighted BC, DAgger and real-time chunking. Fine-tuning on a curated dataset one-fifth the size raised shirt-folding success from 40% to 90% across 20 real rollouts."
+      },
+      "problem_in_lead": "'+50 points' is ambiguous, because the article also uses a subtask scoring system measured in 'points' (max 1,500 per experiment). The +50 is percentage points of success rate, from 40% to 90%. The 90% also lacks its denominator: 20 real rollouts, 10 per level, with 100% on Level 1 and 80% on Level 2. Curated high-quality data alone gave only +5 (Exp 2.1). The +50 came from curated data combined with RABC and relative actions, starting from a stronger base, so the wording should follow the article's own summary."
+    },
+    {
+      "lead_index": 26,
+      "name": "π0 and π0-FAST: Vision-Language-Action Models for General Robot Control",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://huggingface.co/blog/pi0",
+      "evidence": "Hugging Face authored the LeRobot-port explainer. Its fivefold training-speed claim compares pi0-FAST with diffusion-based VLAs, not an unspecified policy; attributed that comparison to the post.",
+      "proposed_fields": {
+        "org": "Hugging Face",
+        "one_line": "Hugging Face post on the LeRobot port of Physical Intelligence's π0 (flow matching, 50Hz actions) and π0-FAST (DCT+BPE action tokens; 5x faster training than diffusion-based VLAs, per the post), with fine-tuning commands."
+      },
+      "problem_in_lead": "'5x faster training' is missing its baseline; the post's claim is 5x faster than diffusion-based VLAs. The org 'Hugging Face; Physical Intelligence' also suggests PI co-authored the post. The bylines are all Hugging Face (Aubakirova, Montalvo, Shukor, Cadene); PI developed the models but did not write the post."
+    },
+    {
+      "lead_index": 27,
+      "name": "From Generalists to Specialists: A Case for Real-World RL in Robot Manipulation",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://rasc.usc.edu/blog/from-generalists-to-specialists-a-case-for-real-world-rl-in-robot-manipulation/",
+      "evidence": "USC post describes ReWiND and reports a fivefold improvement after one hour of online interaction; retained attribution rather than interpreting this as a specified absolute success-rate change.",
+      "proposed_fields": {
+        "one_line": "USC blog arguing generalist VLAs should specialize via real-world RL; covers ReWiND learned rewards (5x improvement of real-robot policies after 1 hour of online interaction), EXTRACT skill-based RL, and scalable multi-task evaluation."
+      },
+      "problem_in_lead": "Minor: '5x in 1 hour' gives no metric or setting. The source means a 5x improvement of robot policies after 1 hour of online interaction, and the ReWiND paper says this is for real-world pretrained bimanual policies. The rest of the line is accurate: authors Jesse Zhang and Abrar Anwar, USC RASC, Sep 24, 2025; covers EXTRACT and probabilistic matrix-completion evaluation."
+    },
+    {
+      "lead_index": 28,
+      "name": "Algorithms for Reinforcement Learning (Csaba Szepesvari)",
+      "status": "confirmed",
+      "severity": "major",
+      "source_url": "https://sites.ualberta.ca/~szepesva/rlbook.html",
+      "evidence": "Author’s HTML algorithm list contains 34 entries, 16 boldfaced for accompanying pseudocode. Free PDF availability confirmed; corrected counts.",
+      "proposed_fields": {
+        "one_line": "Concise Morgan & Claypool monograph on TD, Monte Carlo, Q-learning, actor-critic, function approximation and exploration; the author's page lists 34 algorithm entries, 16 with pseudocode, and provides a free PDF."
+      },
+      "problem_in_lead": "The count '22 with pseudocode' is wrong. The author's page bolds 16 of its 34 listed algorithm entries as having pseudocode. Also, '34 algorithms' is really 34 list entries, because one entry bundles five methods (R-max, MBIE, OI, delayed-Q, MorMax)."
+    },
+    {
+      "lead_index": 29,
+      "name": "RoboTwin 2.0: A Scalable Data Generator and Benchmark with Strong Domain Randomization for Robust Bimanual Robotic Manipulation",
+      "status": "confirmed",
+      "severity": "major",
+      "source_url": "https://arxiv.org/abs/2506.18088",
+      "evidence": "Paper real-world experiment compares synthetic data plus ten real demonstrations against ten real demonstrations alone. The 367% gain is relative. Task/object counts and ICML 2026 attribution match.",
+      "proposed_fields": {
+        "one_line": "50-task bimanual simulator/data generator with five-axis domain randomization (731 objects, 147 categories). In real-world tests, synthetic data plus ten real demos yields a 367% relative VLA gain over the ten-demo baseline; ICML 2026."
+      },
+      "problem_in_lead": "The one_line says 'synthetic data gives 367% relative VLA gain' but drops the setting and baseline. The 367% is for a VLA trained on synthetic data PLUS 10 real demos, compared with a baseline trained on only those 10 demos, in real-world tests (42.0% vs 9.0%). Synthetic-only training gives 228%. Everything else checks out: ICML 2026 (repo description), 731 instances / 147 categories, five-axis DR, 50 tasks, and the HKU/SJTU affiliations."
+    },
+    {
+      "lead_index": 30,
+      "name": "Robotics benchmarking: where we are, and what comes next",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://huggingface.co/blog/projectsim/robotics-benchmarking-where-we-are-and-what-comes",
+      "evidence": "Official benchmarking post assigns 43% single-skill and 4.4% unseen-combination results to fine-tuned GR00T N1.5 on RoboCasa365. They are model results, not benchmark properties.",
+      "proposed_fields": {
+        "one_line": "Robot-benchmark survey: fine-tuned GR00T N1.5 averages 43% on RoboCasa365 single-skill tasks versus 4.4% on unseen skill combinations. Argues real-to-sim reconstruction can expose policy weaknesses and guide data collection."
+      },
+      "problem_in_lead": "The '43% single skills, 4.4% novel combinations' figures are given without their setting. They are the average success rates of GR00T N1.5 after extra training on 30,000 demos across 300 tasks, evaluated on 50 tasks, as reported in the RoboCasa365 paper the blog cites. Written this way they read like a property of the benchmark itself. Also, 'from YCB to RoboCasa365' understates the scope: the post goes on past RoboCasa365 (VLABench, LIBERO Plus, RoboArena, HumanoidBench, RoboCup@Home and others). Org: the HF byline reads 'projectsim by Kaedim', so 'ProjectSim' is acceptable."
+    },
+    {
+      "lead_index": 31,
+      "name": "XPolicyLab: A Unified Standard and Open Ecosystem for Robot Policy Evaluation and Deployment",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://arxiv.org/abs/2608.09892",
+      "evidence": "Paper reports 42 policies and O(N+M) integration structure. Five-to-two-hour integration saving comes from one controlled case, not all integrations.",
+      "proposed_fields": {
+        "one_line": "Unified observation/action/trajectory schemas and adapters integrate 42 policies, reducing policy-environment integrations from O(NM) to O(N+M). One controlled case reduced integration from over five hours to two; adapters serve RoboTwin, RoboDojo and real robots."
+      },
+      "problem_in_lead": "The '5+ hours to 2' figure has lost its setting. It comes from a controlled study of one representative policy, not a general result. The current wording also attaches the speedup to 'across RoboTwin, RoboDojo and real robots', which is really a separate claim (the same adapters serve all three)."
+    },
+    {
+      "lead_index": 32,
+      "name": "Uncovering and Mitigating Positional Blind Spots in Vision-Language-Action Models",
+      "status": "confirmed",
+      "severity": "major",
+      "source_url": "https://arxiv.org/abs/2608.01573",
+      "evidence": "Paper tests distractor placements in simulated LIBERO/VLA-Arena, not changes in robot location. F1 is 0.678 across five policies; targeted LoRA cuts failure 40–85%.",
+      "proposed_fields": {
+        "one_line": "Grid-based testing locates distractor placements that raise VLA failure: average F1 0.678 across five policies on simulated LIBERO/VLA-Arena. Targeted LoRA fine-tuning cuts failure rates 40-85%."
+      },
+      "problem_in_lead": "The mechanism is described loosely. A 'positional blind spot' is a workspace region where moving a task-irrelevant distractor there sharply raises failure risk, with everything else held fixed. It is not simply a region 'where VLAs fail'. The setting (five VLAs on the LIBERO and VLA-Arena sim benchmarks) is also missing. The numbers themselves are correct."
+    },
+    {
+      "lead_index": 33,
+      "name": "Reinforcement Learning: An Introduction (Second Edition)",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "http://incompleteideas.net/book/the-book-2nd.html",
+      "evidence": "Authors’ page provides PDF, errata, code and slides. Exercise solutions are exchanged for a reader’s contributed solutions rather than freely published as a complete public set.",
+      "proposed_fields": {
+        "one_line": "Sutton and Barto's RL textbook (2nd ed., MIT Press 2018); the authors' page hosts the full PDF, errata, code and teaching slides, and trades official exercise solutions for your own. General RL background."
+      },
+      "problem_in_lead": "Small overclaim: the authors' page does not host exercise solutions. It offers an exchange where you send in your own solutions for a chapter and get the official ones back, and it marks this as currently incomplete. Everything else on the page matches: full PDF, errata, code, slides, MIT Press 2018."
+    },
+    {
+      "lead_index": 34,
+      "name": "Brax",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://github.com/google/brax",
+      "evidence": "README states that only brax/training remains maintained since version 0.13.0. It directs environment use to MuJoCo Playground and physics to MJX/MuJoCo Warp.",
+      "proposed_fields": {
+        "one_line": "Differentiable JAX physics engine with PPO, SAC, ARS, ES and APG trainers on accelerators; since 0.13.0 only brax/training is maintained, with environments via MuJoCo Playground and physics via MJX or MuJoCo Warp."
+      },
+      "problem_in_lead": "Typo: the one_line ends with a double period ('MJX..'). It also merges two separate pieces of README guidance: MuJoCo Playground replaces brax/envs, while MJX or MuJoCo Warp replaces Brax for physics. The content is otherwise accurate."
+    },
+    {
+      "lead_index": 35,
+      "name": "Robocurve: Inspect Robots (open-source real-robot evaluation framework)",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://www.ycombinator.com/companies/robocurve",
+      "evidence": "Official Robocurve website links Inspect Robots. README describes real or simulated benchmarks, LLM/VLA policies and Rerun logs, with alpha status and MIT license; YC page supplies Summer 2026 batch.",
+      "proposed_fields": {
+        "name": "Inspect Robots (Robocurve)",
+        "url": "https://github.com/robocurve/inspect-robots",
+        "one_line": "Open-source (MIT, alpha) evaluation framework from Robocurve (YC S26): define a robotics benchmark once, then run any LLM-agent or VLA policy on a real arm/humanoid or simulator with auditable logs and Rerun visualization."
+      },
+      "problem_in_lead": "The one_line is garbled ('YC S);' is truncated text). The URL is a YC directory page, not the project's official page or repo. The name also calls it real-robot only, but the framework covers real robots and simulators. The 'tested one frontier robotics model' claim is the company's own report and adds nothing."
+    },
+    {
+      "lead_index": 36,
+      "name": "robomimic: A Modular Framework for Robot Learning from Demonstration",
+      "status": "no-change",
+      "severity": "minor",
+      "source_url": "https://github.com/ARISE-Initiative/robomimic",
+      "evidence": "Already resolved: no garbled text remains. Current functional description agrees with README; optional expansion unnecessary.",
+      "problem_in_lead": "The one_line is garbled: there is a stray '(;' where text was cut off. 'Widely used' is also unsupported; the README only says the framework is used across multiple labs."
+    },
+    {
+      "lead_index": 37,
+      "name": "RoboArena: Distributed Real-World Evaluation of Generalist Robot Policies",
+      "status": "confirmed",
+      "severity": "major",
+      "source_url": "https://arxiv.org/abs/2506.18123",
+      "evidence": "Paper author block includes Stanford and omits CMU; replaced unsupported institution. The more-than-600 pairwise evaluations and seven institutions/policies remain supported.",
+      "proposed_fields": {
+        "org": "UC Berkeley; Stanford; UPenn; et al."
+      },
+      "problem_in_lead": "The org field lists CMU, but no author is from CMU. The paper's affiliation list has no CMU."
+    },
+    {
+      "lead_index": 38,
+      "name": "Memory, Benchmark & Robots: A Benchmark for Solving Complex Tasks with Reinforcement Learning (MIKASA-Robo)",
+      "status": "confirmed",
+      "severity": "major",
+      "source_url": "https://arxiv.org/abs/2502.10550",
+      "evidence": "Paper abstract introduces 32 tasks. Later repository release expands to 90 environments and 22,500 oracle trajectories; ICLR 2026 citation and AIRI/MIPT author affiliations confirmed.",
+      "proposed_fields": {
+        "org": "AIRI; MIPT",
+        "one_line": "Memory-intensive ManiSkill manipulation benchmark: the ICLR 2026 paper introduces 32 tasks; the repository's later MIKASA-Robo-VLA release offers 90 language-conditioned tasks and 22,500 PPO/motion-planning oracle trajectories."
+      },
+      "problem_in_lead": "The 90 tasks and 22,500 trajectories come from the repo's later MIKASA-Robo-VLA release, not the linked arXiv paper, which describes 32 tasks. A reader who clicks the link will find 32. The org 'Cognitive AI Systems Lab' does not appear as an affiliation in the paper; it is only the GitHub org name. The paper lists AIRI and MIPT."
+    },
+    {
+      "lead_index": 39,
+      "name": "RoboCasa: Large-Scale Simulation of Everyday Tasks for Generalist Robots",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://arxiv.org/abs/2406.02523",
+      "evidence": "Paper has 2,509 objects: 1,592 from Luma, with others from Objaverse. Revised wording makes clear most, rather than all, are from generative tools.",
+      "proposed_fields": {
+        "one_line": "Kitchen simulation framework with 2,500+ 3D objects across 150+ categories (most from text-to-3D tools), AI-generated textures and 100 evaluation tasks, plus human demos and automated (MimicGen) trajectory generation for generalist robot policies."
+      },
+      "problem_in_lead": "'Thousands of generative-AI-assisted 3D assets' overstates the paper. There are about 2,500 objects in total, of which 1,592 come from a text-to-3D service (fewer than two thousand); the rest come from Objaverse."
+    },
+    {
+      "lead_index": 40,
+      "name": "LIBERO-RECOVER: Beyond Task Success Towards Failure Recovery in Robotic Manipulation Models",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://arxiv.org/abs/2609.05178",
+      "evidence": "Paper’s failure examples include failed grasps, collisions and unintended object movement. Retained the four recovery levels and 1,000+ scenarios without narrowing all grasp failures to drops.",
+      "proposed_fields": {
+        "one_line": "LIBERO-based failure-recovery benchmark: 1,000+ scenarios built from execution failures collected from SOTA VLA/world-action models, across four recovery levels (action retry, action adaptation, object-state, environmental recovery), covering failed grasps, collisions and unintended object movements."
+      },
+      "problem_in_lead": "The source never mentions 'drops' or 'unintended motions'. It lists failed grasps, collisions and unintended object movements. It also says the scenarios come from failures collected from SOTA VLA and world-action models, not from VLAs alone."
+    },
+    {
+      "lead_index": 41,
+      "name": "RoboArena",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://github.com/robo-arena/roboarena",
+      "evidence": "Official README centers distributed real-world DROID policy serving and links a separate DROID simulation-evaluation repository; description now distinguishes them.",
+      "proposed_fields": {
+        "one_line": "Starter code for RoboArena's distributed real-world DROID evaluation: serve a policy through a remote websocket policy server, sanity-check it in simulation via the separate DROID sim-evals repo, and train DROID VLAs with openpi."
+      },
+      "problem_in_lead": "The one_line says the repo's code evaluates policies in simulation. The repo actually serves policies and only points to a separate DROID sim-evals repo for optional checks before submission. RoboArena's evaluation itself is real-world, so the current wording could mislead."
+    },
+    {
+      "lead_index": 42,
+      "name": "RoboPhys-3D: A Comprehensive Embodied World Model Evaluation via 3D Reconstruction",
+      "status": "confirmed",
+      "severity": "major",
+      "source_url": "https://arxiv.org/abs/2608.28718",
+      "evidence": "Abstract separately defines Average Full Score across 50 metrics and task-aligned RoboPhyscore. Human agreement r=0.9761 belongs to RoboPhyscore.",
+      "proposed_fields": {
+        "one_line": "3D-reconstruction-grounded benchmark for embodied world models on RoboTwin 2.0: 50 tasks, 5,000 episodes, 25,000 multi-view videos, 50 metrics; its task-aligned RoboPhyscore agrees with human evaluation (Pearson r=0.9761)."
+      },
+      "problem_in_lead": "'Score correlates with human evaluation at r=0.9761' is ambiguous. The benchmark has two aggregate scores. The r=0.9761 Pearson agreement belongs to RoboPhyscore (the compact, task-aligned score), not the Average Full Score over all 50 metrics, which is how 'score' reads right after '50 metrics'."
+    },
+    {
+      "lead_index": 43,
+      "name": "RoboCasa: Large-Scale Simulation Framework for Generalist Robots",
+      "status": "no-change",
+      "severity": "minor",
+      "source_url": "https://github.com/robocasa/robocasa",
+      "evidence": "Rejected: descriptive resource name is not a factual error; existing description correctly separates latest RoboCasa365 release.",
+      "problem_in_lead": "The name is not the repo's title, and that phrase does not appear anywhere in the source. The repo is titled 'RoboCasa' (README H1). Its GitHub description is 'RoboCasa: Large-Scale Simulation of Everyday Tasks for Generalist Robots', which would duplicate the paper entry's name. The one_line's numbers check out."
+    },
+    {
+      "lead_index": 44,
+      "name": "Training General Robots for Any Task: Physical Intelligence's Karol Hausman and Tobi Springenberg (Training Data podcast)",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://podwise.ai/dashboard/episodes/6713465",
+      "evidence": "Official Sequoia episode transcript directly supports the 13-hour coffee run and more-than-twofold throughput across three tasks. Replaced the gated third-party summary URL with that primary transcript.",
+      "proposed_fields": {
+        "url": "https://sequoiacap.com/podcast/training-general-robots-for-any-task-physical-intelligences-karol-hausman-and-tobi-springenberg/"
+      },
+      "problem_in_lead": "The URL points to podwise.ai, a third-party aggregator that shows an AI-generated summary and redirects to podwise.ai/episodes/6713465. It is not the official page. Sequoia's own episode page has the full transcript. The numbers are also slightly loose: the transcript says throughput rose 'over 2x' on three named tasks, not 'roughly 2x'. The 13-hour figure was one coffee-serving run, not several 'runs'."
+    },
+    {
+      "lead_index": 45,
+      "name": "RoboPapers Ep#61: 1x World Model",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://robopapers.substack.com/p/ep61-1x-world-model",
+      "evidence": "Linked 1X primary post describes text-conditioned future video converted to actions by an inverse-dynamics model. The pipeline still uses robot data for fine-tuning and the inverse model; no data-free claim made.",
+      "proposed_fields": {
+        "one_line": "Podcast with Daniel Ho (1X) about using video-pretrained world models for NEO control: text-conditioned future video is converted into robot actions by an inverse-dynamics model, aiming to generalize beyond teleoperated tasks."
+      },
+      "problem_in_lead": "The line states 'zero-shot home manipulation' as if it were achieved. The source shows a research result with mixed success rates over 30 trials per task, and says dexterous tasks 'remain challenging'. The mechanism is also vague: a world model generates video and a separate inverse dynamics model extracts the actions. 'data-hungry VLA' is the list's own wording about other labs' models; 1X's actual claim is narrower (VLAs need tens of thousands of hours of robot data)."
+    },
+    {
+      "lead_index": 46,
+      "name": "RoboPapers Ep#58: RL-100: Performant Robotic Manipulation with Real-World Reinforcement Learning",
+      "status": "no-change",
+      "severity": "minor",
+      "source_url": "https://robopapers.substack.com/p/ep58-rl-100-performant-robotic-manipulation",
+      "evidence": "Rejected: current line already distinguishes podcast v1 (900/900) from the current paper (1000/1000).",
+      "problem_in_lead": "'900/900 across seven tasks' matches the episode page, which quotes the v1 abstract. The current arXiv version reports 1000/1000 over eight tasks, and the repo's own explainer.json already uses 1000/1000 over 8 tasks. Readers comparing entries will see two different numbers. Label the episode's figures as v1."
+    },
+    {
+      "lead_index": 47,
+      "name": "RoboPapers Ep#86: RISE: Self-Improving Robot Policy with Compositional World Model",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://robopapers.substack.com/p/ep86-rise-self-improving-robot-policy",
+      "evidence": "RISE primary result claims are absolute success-rate differences: over 35 points brick sorting, 45 backpack packing and 35 box closing. Replaced ambiguous percent units.",
+      "proposed_fields": {
+        "one_line": "Jiazhi Yang on RISE: policy updates in a compositional world model rather than real-world RL. Reported real-task gains over prior art: more than 35 percentage points for brick sorting, 45 for backpack packing, 35 for box closing."
+      },
+      "problem_in_lead": "The numbers are given without their baseline or setting. The paper reports absolute gains over prior art on real-world tasks, and brick sorting is 'more than' +35. Written as '+35%', it could be read as a relative gain with no comparison point. The third task (box closing, +35) is also left out."
+    },
+    {
+      "lead_index": 48,
+      "name": "RoboPapers Ep#38: Q Learning is Not Yet Scalable",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://robopapers.substack.com/p/ep38-q-learning-is-not-yet-scalable",
+      "evidence": "Linked paper tests long-horizon simulated OGBench cube, puzzle and humanoid-maze tasks with datasets up to 1000x larger. Description now covers the actual scope and names SHARSA.",
+      "proposed_fields": {
+        "one_line": "Seohong Park on why many offline RL algorithms saturate on long-horizon simulated tasks (OGBench cube, puzzle, humanoid maze) even with 1000x larger datasets, identifying horizon as the barrier; presents horizon-reduction method SHARSA (arXiv 2506.04168)."
+      },
+      "problem_in_lead": "'offline RL plateaus' is stronger than the source. The paper says many existing offline RL algorithms saturate, and SHARSA, itself an offline RL method, does scale. The tasks are simulated OGBench environments (cube-octuple, puzzle-4x5/4x6, humanoidmaze-giant), not only manipulation and not real robots. The line does not say this."
+    },
+    {
+      "lead_index": 49,
+      "name": "Vision-Language-Action in Robotics: A Survey of Datasets, Benchmarks, and Data Engines",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://arxiv.org/abs/2604.23001",
+      "evidence": "Survey’s conclusion emphasizes data engines and evaluation protocols relative to architecture; revised categorical architecture-limit wording to reflect the authors’ argument.",
+      "proposed_fields": {
+        "one_line": "TMLR-accepted data-centric VLA survey covering datasets (embodiment, modality, action space), benchmarks, and data engines (simulation, video reconstruction, task generation); argues future progress depends more on data engines and evaluation protocols than on architecture."
+      },
+      "problem_in_lead": "'argues data infrastructure, not architecture, limits progress' is stronger than the paper. The paper says future progress depends 'less on' architecture and 'more on' data engines and evaluation protocols. It does not say architecture is irrelevant."
+    },
+    {
+      "lead_index": 50,
+      "name": "Cheng Chi: Robotics Beyond Algorithms [ETHZ Robot Learning 2026]",
+      "status": "no-change",
+      "severity": "minor",
+      "source_url": "https://www.youtube.com/watch?v=tvFvIEOBKfM",
+      "evidence": "No change: accessible YouTube metadata supports lecture identity; full talk content not independently transcribed. Candidate is optional descriptive expansion.",
+      "problem_in_lead": "The line does not say what the talk covers. Its claim 'not policy improvement specifically' is an inference the video description does not support. Title, channel and course check out. Replace the line with the content the description actually states."
+    },
+    {
+      "lead_index": 51,
+      "name": "RoboPapers Ep#103: Freeform Preference Learning for Robotic Manipulation",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://robopapers.substack.com/p/ep103-freeform-preference-learning",
+      "evidence": "Paper’s 38-point aggregate comparison includes four real and two simulated tasks, against sparse-reward and binary-preference baselines. Both settings now explicit.",
+      "proposed_fields": {
+        "one_line": "Podcast with Marcel Torné, Anubha Mahajan, Abhijnya Bhat on FPL: natural-language preference axes train a language-conditioned reward model and reward-conditioned policy; +38 points over sparse-reward/binary-preference baselines across four real and two simulated tasks."
+      },
+      "problem_in_lead": "Minor: the +38-point figure and its baseline are correct, but the setting is missing. It is an aggregate over four real-world and two simulated tasks, not a purely real-robot result."
+    },
+    {
+      "lead_index": 52,
+      "name": "Nautilus: From One Prompt to Plug-and-Play Robot Learning",
+      "status": "confirmed",
+      "severity": "major",
+      "source_url": "https://arxiv.org/abs/2605.11665",
+      "evidence": "Paper conclusion promises a future platform release; project page labels main Nautilus code Coming Soon. Public availability claim removed while retaining the documented plugin mechanism.",
+      "proposed_fields": {
+        "one_line": "Agent harness (a Claude Code plugin) that turns a natural-language prompt into reproduction, evaluation, fine-tuning and deployment workflows via typed contracts, generated adapters and containers. Main code not yet public (project page: \"Coming Soon\")."
+      },
+      "problem_in_lead": "The entry calls it an \"open-source agent harness\" and files it under code-robot, but the main Nautilus code is not public yet. The paper says the release is still to come, and the project page marks the code \"Coming Soon\". Only the data-collection part (nautilus-collect, the YufengJin/role-ros2 repo) is linked, and a GitHub search found no Nautilus repo. Everything else in the entry matches the source: title, arXiv v1 dated 2026-05-12, and the mechanism. Leaving org blank is acceptable; the project page lists TU Darmstadt, KIT, FZI, Hessian.AI, Robotics Institute Germany and Honda Research Institute Europe."
+    },
+    {
+      "lead_index": 53,
+      "name": "resfit-pytorch (unofficial ResFiT implementation, WIP)",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://github.com/lucidrains/resfit-pytorch",
+      "evidence": "Unofficial repository remains WIP. Authors’ project and official amazon-far/residual-offpolicy-rl README identify the official implementation, verified HTTP 200.",
+      "proposed_fields": {
+        "one_line": "Unofficial work-in-progress PyTorch implementation of ResFiT (arXiv 2509.19301), residual off-policy RL for behavior-cloned policies. The authors also publish official code at amazon-far/residual-offpolicy-rl."
+      },
+      "problem_in_lead": "The description is accurate, but readers are never told that the authors' official ResFiT code is public. That code is at amazon-far/residual-offpolicy-rl, public since 2025-10-10, with about 156 stars, and the ResFiT paper entry (C142) already uses it as its code link. This unofficial repo is a small single-file package (resfit_pytorch/resfit.py, about 4.9 KB) whose last commit was 2025-09-29, before the official release. Listing only the unofficial WIP repo without pointing to the official one could mislead readers."
+    },
+    {
+      "lead_index": 54,
+      "name": "XLeRobot: Practical Dual-Arm Mobile Home Robot for $660",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://github.com/Vector-Wangel/XLeRobot",
+      "evidence": "README’s approximately $660 figure is the basic laptop-based configuration; printing, tools, shipping and taxes are excluded. Apache-2.0 license verified.",
+      "proposed_fields": {
+        "one_line": "Open-source (Apache-2.0) low-cost dual-arm mobile home robot hardware and software built on LeRobot and SO-101; README lists ~$660 parts cost for the basic config, excluding 3D printing, tools, shipping and taxes."
+      },
+      "problem_in_lead": "\"Advertised at $660\" reads like a purchase price. The README actually gives $660 as the starting parts cost for the Basic configuration, which uses your own laptop and one RGB head camera. That figure excludes 3D printing, tools, shipping and taxes. The separate assembly kit sold through WowRobo is priced differently ($579 worldwide, without battery or IKEA cart). The title is the repo's own name and can stay."
+    },
+    {
+      "lead_index": 55,
+      "name": "vla-rlt: RL Tokens for open-source VLAs (SmolVLA on SO-101)",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://github.com/akashspacesky/vla-rlt",
+      "evidence": "README presents an RLT-inspired community implementation, not an exact official reproduction; describes frozen SmolVLA and SAC residual actions without own performance results.",
+      "proposed_fields": {
+        "one_line": "Unofficial RLT-inspired implementation: frozen SmolVLA, bottleneck RL-token encoder, SAC actor adding regularized delta actions; offline pretrain then online SAC on SO-101, runs on Apple Silicon. No own results.",
+        "org": "akashspacesky"
+      },
+      "problem_in_lead": "Calling it a \"reimplementation\" claims more fidelity than the repo does: its README only says it is \"inspired by\" Physical Intelligence's RLT paper, and the actor is described as an additive delta on the VLA action. The other mechanism details check out against the README: frozen SmolVLA, an RLT encoder producing a 128-dim RL token, a SAC actor with an L2 penalty toward the VLA action, offline pretraining then online SAC on SO-101, Apple Silicon (MPS) support, and no results of its own. Small consistency point: org says \"community\", while other single-maintainer repos in this batch use the GitHub handle (lucidrains, Vector-Wangel)."
+    },
+    {
+      "lead_index": 56,
+      "name": "Isaac GR00T",
+      "status": "no-change",
+      "severity": "minor",
+      "source_url": "https://github.com/NVIDIA/Isaac-GR00T",
+      "evidence": "Already resolved: current resource explicitly separates Apache-2.0 code and NVIDIA Open Model License weights. Current README license section confirms.",
+      "problem_in_lead": "The one_line says the weights are Apache-2.0. They are not. The README's License section and the Hugging Face model card both put the model weights under the NVIDIA Open Model License; only the code is Apache-2.0. Stating the wrong license publicly is a legal risk. One README sentence ('fully commercially licensable under Apache 2.0') contradicts the formal License section, so the list should follow the License section and the model card."
+    },
+    {
+      "lead_index": 57,
+      "name": "COST-HIL: Cost-Aware Human-in-the-Loop Reinforcement Learning for Real-World Dexterous Manipulation",
+      "status": "confirmed",
+      "severity": "major",
+      "source_url": "https://github.com/alexantaluo0/COST-HIL",
+      "evidence": "Repository contains paper/COST_HIL.pdf. Rendered Table 2: HIL-SERL 80.7±2.1 versus COST-HIL 99.9±0.1 success; intervention 30% versus 6% of training steps. Section 5.2 specifies real Zhiyuan Elf G2. Manuscript attribution retained.",
+      "proposed_fields": {
+        "one_line": "Cost-aware HIL-SERL variant with weighted replay and gripper-switch penalties. Repository manuscript reports real Zhiyuan Elf G2 grasp success 99.9% versus 80.7% for HIL-SERL; human-intervened training steps fall from 30% to 6%."
+      },
+      "problem_in_lead": "(1) 'No paper' is false. The repo contains paper/COST_HIL.pdf (authors Guozhong Luo et al.), and the repo description calls it a CVPR submission. It is not on arXiv and has not been peer-reviewed. (2) '80% fewer interventions' changes the metric. The -80% is the intervention rate (percentage of training steps with human intervention, 30% to 6%), not a count of interventions. The paper's own abstract gives a different figure for that: 'reducing human interventions per successful attempt by more than 20%'. (3) The setting is missing: a real Zhiyuan Elf G2 grasping task against HIL-SERL, 3-5 repeats."
+    },
+    {
+      "lead_index": 58,
+      "name": "EXPO: Expressive Policy Optimization",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://github.com/pd-perry/EXPO",
+      "evidence": "Official README supplies EXPO’s JAX/jaxrl/RLPD basis and offline-to-online scripts for D4RL Antmaze, Adroit, Robomimic and MimicGen.",
+      "proposed_fields": {
+        "one_line": "Official JAX code for \"EXPO: Stable Reinforcement Learning with Expressive Policies\" (arXiv 2507.07986), built on jaxrl and RLPD; offline-to-online scripts for D4RL Antmaze, Adroit, Robomimic and MimicGen."
+      },
+      "problem_in_lead": "The one_line ends with an internal audit note ('Known list has this id under a blog title.') that should not be public. It also lists only the D4RL Antmaze and Adroit scripts, but the README also ships Robomimic and MimicGen scripts (train_robo.py). That is the robot-manipulation part most relevant to this list."
+    },
+    {
+      "lead_index": 59,
+      "name": "Low-cost robot arm",
+      "status": "no-change",
+      "severity": "minor",
+      "source_url": "https://github.com/AlexanderKoch-Koch/low_cost_robot",
+      "evidence": "Already resolved: internal note removed; current hardware description agrees with README.",
+      "problem_in_lead": "The one_line ends with an internal note ('no repo description given') that should not be public, and it leaves out what the repo actually provides. The README gives a verifiable description: costs, servos, STL files and the GELLO-inspired leader."
+    },
+    {
+      "lead_index": 60,
+      "name": "FluxVLA Engine: A One-Stop VLA Engineering Platform for Embodied Intelligence",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://arxiv.org/abs/2609.17210",
+      "evidence": "Paper author block includes LimX Dynamics. Abstract supplies official FluxVLA/FluxVLA code URL, verified HTTP 200 with matching project identity.",
+      "proposed_fields": {
+        "org": "LimX Dynamics et al.",
+        "url": "https://github.com/FluxVLA/FluxVLA"
+      },
+      "problem_in_lead": "The org 'FluxVLA' is the project or GitHub org name, not an affiliation. The paper's first listed affiliation is LimX Dynamics, and the project homepage is on limxdynamics.com. The entry is in the code-robot category but links to the arXiv abstract, although a public code repo exists. The one_line itself matches the abstract."
+    },
+    {
+      "lead_index": 61,
+      "name": "Dexbotic: Open-Source Vision-Language-Action Toolbox",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://arxiv.org/abs/2510.23511",
+      "evidence": "Official dexmal/dexbotic repository verified HTTP 200. README describes shared-environment support for VLA policies and author-reported gains from provided pretrained models.",
+      "proposed_fields": {
+        "url": "https://github.com/dexmal/dexbotic",
+        "one_line": "PyTorch VLA toolbox that runs multiple mainstream VLA policies under one environment setup via experiment scripts, plus Dexbotic pretrained models that the authors report improve those policies."
+      },
+      "problem_in_lead": "The entry is in the code-robot category but links to the arXiv abstract rather than the official code repo. The one_line also states 'with stronger pretrained models' as fact without saying stronger than what. This is the authors' own claim and should be attributed to them."
+    },
+    {
+      "lead_index": 62,
+      "name": "Tianshou",
+      "status": "no-change",
+      "severity": "minor",
+      "source_url": "https://github.com/thu-ml/tianshou",
+      "evidence": "Already resolved: stray parenthesis removed. Optional maintainer-support expansion unnecessary.",
+      "problem_in_lead": "Typo: stray closing parenthesis at the end ('thu-ml group).'). The one_line also leaves out the current maintainer support the README states (appliedAI Institute for Europe)."
+    },
+    {
+      "lead_index": 63,
+      "name": "AgiBot World Colosseo: A Large-scale Manipulation Platform for Scalable and Intelligent Embodied Systems",
+      "status": "confirmed",
+      "severity": "major",
+      "source_url": "https://arxiv.org/abs/2503.06669",
+      "evidence": "Abstract distinguishes a 30% dataset-pretraining gain over Open X-Embodiment from GO-1’s 32% comparison with RDT. One million trajectories and 217 tasks confirmed.",
+      "proposed_fields": {
+        "one_line": "Open dataset of 1M+ real-robot trajectories over 217 tasks plus GO-1, a latent-action generalist policy; pretraining on it gives a 30% average gain over Open X-Embodiment, and GO-1 outperforms RDT by 32%."
+      },
+      "problem_in_lead": "The one_line credits the 32%-over-RDT result to pretraining on the dataset. In the paper, 32% is how much the GO-1 model outperforms the RDT approach. The 30% average gain over Open X-Embodiment is the only number the paper ties to pretraining on the dataset, so the line mixes up a dataset result with a model result."
+    },
+    {
+      "lead_index": 64,
+      "name": "mjlab: A Lightweight Framework for GPU-Accelerated Robot Learning",
+      "status": "confirmed",
+      "severity": "minor",
+      "source_url": "https://arxiv.org/abs/2601.22074",
+      "evidence": "Paper author block identifies UC Berkeley and Sorbonne University; GitHub organization mujocolab is the code host rather than the full academic affiliation.",
+      "proposed_fields": {
+        "org": "UC Berkeley; Sorbonne University"
+      },
+      "problem_in_lead": "The org field says \"mujocolab\", which is the name of the GitHub organization that hosts the code, not an affiliation. The arXiv paper lists the authors' affiliations: five of the six are at UC Berkeley and one is at Sorbonne University. The one_line is fine: the paper confirms multi-GPU scaling via torchrunx, and the repo confirms the Apache-2.0 license."
+    },
+    {
+      "lead_index": 65,
+      "name": "AGIBOT WORLD 2026 Theme 3: open real-world robot reinforcement learning dataset",
+      "status": "no-change",
+      "severity": "minor",
+      "source_url": "",
+      "evidence": "Already resolved: dead AGIBOT Theme3 resource was removed in previous P0; no current row to modify.",
+      "problem_in_lead": "The listed official URL does not load right now. On 2026-10-01, curl and WebFetch both got HTTP 500, and the page body says \"We're sorry, the page you're looking for doesn't exist!\" Neighbouring agibot.com newsroom articles (detail/86, 89 and 90) load fine (HTTP 200), and the Wayback Machine has no copy. Search engines still index this URL under the expected title, so the article did exist and may have been taken down or moved. The one_line's content is supported by the indexed snippets of the official article and by press coverage, so only the link needs attention. Re-check the URL just before posting. If it is still broken, link the official dataset instead: https://huggingface.co/datasets/agibot-world/AgiBotWorld2026 (AgiBot's dataset host, CC BY-NC-SA 4.0). That card covers all of AgiBot World 2026 and does not state the Theme 3 numbers."
+    }
+  ],
+  "resource_manifest": [
+    {
+      "index": 0,
+      "name": "Awesome Deep RL",
+      "source_url": "https://github.com/kengz/awesome-deep-rl",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "4d2fd47985725f146db6fc5d22ddec77d52c051316685a6a1bfee5bcdca6f58d"
+    },
+    {
+      "index": 1,
+      "name": "Awesome Learning for Manipulation",
+      "source_url": "https://github.com/Noietch/Awesome-Learning-for-Manipulation",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "b3851144348ef76f77392243479841cd7a75f705db646a3c73263cfd0046bad6"
+    },
+    {
+      "index": 2,
+      "name": "Awesome Real World RL",
+      "source_url": "https://github.com/ugurkanates/awesome-real-world-rl",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "9231ee3d2c8e41563134b70ffb7020f151d17e064a0e73361fb03970b7158e17"
+    },
+    {
+      "index": 3,
+      "name": "Awesome Test-Time Robot Learning",
+      "source_url": "https://github.com/Oliverbansk/Awesome-Test-Time-Robot-Learning",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "2e173a0cdee8e274f4ed3e93a59fb63445ffe6d2c9df76d408b1b931b5edcb15"
+    },
+    {
+      "index": 4,
+      "name": "Awesome-Embodied-AI (wadeKeith)",
+      "source_url": "https://github.com/wadeKeith/Awesome-Embodied-AI",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "e156e8ef05b0f076bce3794af0f100ec1b3cecefd9d62478dbb495577b937cdb"
+    },
+    {
+      "index": 5,
+      "name": "Awesome-Flow-RL-Papers",
+      "source_url": "https://github.com/Tonghe-Zhang/Awesome-Flow-RL-Papers",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "856ba728c5f9b2f16b730930c19046ecdf7daae38ba485b3a0e8c5e1420b0ecf"
+    },
+    {
+      "index": 6,
+      "name": "awesome-model-based-RL (OpenDILab)",
+      "source_url": "https://github.com/opendilab/awesome-model-based-RL",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "b59ddd2ff874861fa2abe579799ce7569aa142eabcfb1cc52f60adc54846b84c"
+    },
+    {
+      "index": 7,
+      "name": "awesome-physical-ai",
+      "source_url": "https://github.com/keon/awesome-physical-ai",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "2b7d185f6d6433de405f7edbe7116829281c08f758bf9081f2d469378a5fe89a",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Curated paper list on Physical AI: VLAs, world models, action representations, and learning paradigms including a section on RL for VLA policies (e.g. VLA-RL, FLaRe, SimpleVLA-RL)."
+          },
+          "severity": "minor",
+          "evidence": "Current raw README has a placeholder arXiv identifier for CO-RFT. Used existing VLA-RL, FLaRe and SimpleVLA-RL examples instead."
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "name": "Awesome-Real2Sim2Real",
+      "source_url": "https://github.com/sun254667/Awesome-Real2Sim2Real",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "26c403887998015c19ae4025b369ba8c94efdee33d9b87e516420bfae8f6d18f"
+    },
+    {
+      "index": 9,
+      "name": "Awesome-RL-VLA: Awesome RL-VLA for Robotic Manipulation",
+      "source_url": "https://github.com/Denghaoyuan123/Awesome-RL-VLA",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "fb3f1158184642d14c495dda4a35c6ea20af33c7ce58994c33268d1c60843001"
+    },
+    {
+      "index": 10,
+      "name": "Awesome-Robotics-Diffusion",
+      "source_url": "https://github.com/showlab/Awesome-Robotics-Diffusion",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "efc5a1f741557784597b98ec77696a37ea66655fc657bb6e8598417dbaf99abb"
+    },
+    {
+      "index": 11,
+      "name": "awesome-vla-wam",
+      "source_url": "https://github.com/DravenALG/awesome-vla-wam",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "e0c8c17471c72e0bf2a4ab4301665fc2756b4061bdd8b57c504f0554bd6ea496",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Curated VLA and world-action-model research list with latent action models, human action pretraining, robotic agentics, surveys, datasets, benchmarks and hardware; RL papers appear within the VLA list."
+          },
+          "severity": "minor",
+          "evidence": "Current README places RL papers within its VLA list rather than in a dedicated RL section; its top-level categories support the revised list description."
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "name": "Awesome-WAM (World Action Models)",
+      "source_url": "https://github.com/OpenMOSS/Awesome-WAM",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "49a2c734db0987a3b481573dac3b7757b9a03f4c8d0b482efb8520e3027ea4ba"
+    },
+    {
+      "index": 13,
+      "name": "Awesome-World-Model-for-Robotics-Policy",
+      "source_url": "https://github.com/NTUMARS/Awesome-World-Model-for-Robotics-Policy",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "deab04c37fd99b0f505ce91358e67ba9eb2b0d1aba3b05b37662701d612c9f3f"
+    },
+    {
+      "index": 14,
+      "name": "Embodied_AI_Paper_List (HCPLab-SYSU)",
+      "source_url": "https://github.com/HCPLab-SYSU/Embodied_AI_Paper_List",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "808caf132ecda1b0020163d435de2c73a215e82302e1a613453ee588f8e803dd"
+    },
+    {
+      "index": 15,
+      "name": "Active Real-World Factor-Based Evaluation for Generalist Robot Policies",
+      "source_url": "https://arxiv.org/abs/2607.14439",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "4f1a1c984f2ef091fddf50b3d21202de362afc5585acc7219b7673ce2972b1b2",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Sequential experimental design uses a probabilistic surrogate over task factors for real-robot evaluation. Across 2,331 trials on three tasks, the authors report typically needing at least 20-40% fewer trials than random testing."
+          },
+          "severity": "major",
+          "evidence": "Abstract and introduction: 2,331 real evaluations over three tasks; typically 20–40% fewer evaluation trials than random testing. Expressed as trials saved rather than an undefined efficiency percentage."
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "name": "AeroManip-VLA: Scalable Vision-Language-Action Learning for Aerial Manipulation with RL-Generated Demonstrations",
+      "source_url": "https://arxiv.org/abs/2609.36915",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "c828daf13214d350d81f3fc4b9c7d9b17de791367f61d1ac226cb14b03249dd9"
+    },
+    {
+      "index": 17,
+      "name": "ArmnetBench v0.1: Parallel Real-World Evaluation of Manipulation Policies on a Low-Cost Arm Farm",
+      "source_url": "https://arxiv.org/abs/2607.24481",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "399aa26226f667cbcca67f1b04afc2a7f7bbb736ba42d27961052cd3e2422189"
+    },
+    {
+      "index": 18,
+      "name": "BEHAVIOR-1K: A Human-Centered, Embodied AI Benchmark with 1,000 Everyday Activities and Realistic Simulation",
+      "source_url": "https://arxiv.org/abs/2403.09227",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "074dd6096e850d1bfaf1536736de433b7fb65ec59ff45ffdb82589a41f58d622",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Simulation benchmark of 1,000 long-horizon everyday activities across 50 scenes (homes, gardens, restaurants, offices) and 9,000+ annotated objects, built on OmniGibson with rigid, deformable and liquid physics."
+          },
+          "severity": "minor",
+          "evidence": "Abstract specifies 1,000 everyday activities in 50 scenes including gardens, restaurants and offices, with 9,000+ objects. Household-only wording was too narrow."
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "name": "Benchmarking Vision-Language-Action Models on SO-101: Failure and Recovery Analysis",
+      "source_url": "https://arxiv.org/abs/2606.08881",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "ed42914b68588d23038b2148d426097866b78cff85399ef83555c168a3c660b4"
+    },
+    {
+      "index": 20,
+      "name": "BiGym: A Demo-Driven Mobile Bi-Manual Manipulation Benchmark",
+      "source_url": "https://github.com/NeuracoreAI/bigym",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "e2ec4023e82251f4c6ec4b28b39d3df27777607825dc424aaef1cbe53d67de6e",
+      "patches": [
+        {
+          "fields": {
+            "org": "Dyson Robot Learning Lab"
+          },
+          "severity": "major",
+          "evidence": "BiGym paper author block identifies Dyson Robot Learning Lab. Repository hosting by Neuracore does not establish the original paper affiliation."
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "name": "CALVIN: A Benchmark for Language-Conditioned Policy Learning for Long-Horizon Robot Manipulation Tasks",
+      "source_url": "https://github.com/mees/calvin",
+      "status": "no-change",
+      "basis": "Official GitHub raw README fetched separately because initial name-keyed cache collided with identically named arXiv resource.",
+      "source_text_sha256": "ba26d9d6f009fa9aa38da4dc31f8664ad6c7981e3c485135cae73532ef2f5047"
+    },
+    {
+      "index": 22,
+      "name": "CALVIN: A Benchmark for Language-Conditioned Policy Learning for Long-Horizon Robot Manipulation Tasks",
+      "source_url": "https://arxiv.org/abs/2112.03227",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "ba26d9d6f009fa9aa38da4dc31f8664ad6c7981e3c485135cae73532ef2f5047"
+    },
+    {
+      "index": 23,
+      "name": "CaP-X: A Framework for Benchmarking and Improving Coding Agents for Robot Manipulation",
+      "source_url": "https://arxiv.org/abs/2603.22435",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "9fa233f3f2c0c1f748dfde08b47c4300cc57f75c705661f7688d6b15b0354ec2",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Code-as-policy framework: CaP-Gym, CaP-Bench (12 frontier models), training-free CaP-Agent0 using multi-turn interaction and visual differencing to reach near human-level reliability on several tasks, plus CaP-RL with sim2real transfer."
+          },
+          "severity": "minor",
+          "evidence": "Abstract qualifies near-human reliability as achieved on several tasks. Retained the CaP-Gym/CaP-Bench, multi-turn interaction and sim-to-real components without universalizing that result."
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "name": "CodeActionBench: Evaluating Agentic Code-as-Policy for Embodied Manipulation",
+      "source_url": "https://arxiv.org/abs/2609.33807",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "8c25ccf8ab6ee1ef35954634fdafa410dcc3eb1f34c3544c89d9ad2ca595e6dc"
+    },
+    {
+      "index": 25,
+      "name": "Critical Interval MSE: Toward Reliable Offline Validation for Robot Manipulation Policies",
+      "source_url": "https://arxiv.org/abs/2606.29898",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "da8747509ef287962a61b549ac963c3cbe852805b393aba2b05f9124bcccb156",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Offline validation metric computing action MSE only on task-critical segments, with action alignment; across 27 simulated checkpoints, Spearman -0.87 with rollout success vs -0.61 for raw MSE; real-robot tests on four tasks agree."
+          },
+          "severity": "major",
+          "evidence": "Paper distinguishes 27 simulated checkpoints with Spearman −0.87 versus −0.61 from four real-robot tasks supporting the same trend. Correlation setting is now explicit."
+        }
+      ]
+    },
+    {
+      "index": 26,
+      "name": "Efficient Evaluation of Multi-Task Robot Policies With Active Experiment Selection",
+      "source_url": "https://arxiv.org/abs/2502.09829",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "6b83b85d69a04b2ce80f0c22d81550dc9fa773cfd55113c60217529a411c8edf"
+    },
+    {
+      "index": 27,
+      "name": "EmbodiedSWE: Coding Agents for Long Horizon Dexterous Robotics",
+      "source_url": "https://arxiv.org/abs/2609.27308",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "3f4f8ca502e903915b27733131ea71dd9d47eb925c3227906a8167e106a5da03",
+      "patches": [
+        {
+          "fields": {
+            "org": "Princeton, Yale, ByteDance Seed, CMU, Stanford et al."
+          },
+          "severity": "minor",
+          "evidence": "Paper author block includes ByteDance Seed alongside Princeton, Yale, CMU and Stanford; retained a non-exhaustive affiliation list."
+        }
+      ]
+    },
+    {
+      "index": 28,
+      "name": "Eva-VLA: Evaluating Vision-Language-Action Models' Robustness Under Real-World Physical Variations",
+      "source_url": "https://arxiv.org/abs/2509.18953",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "86f1c7908bd8bf6bc3072800f40c4e375a8b38d368a866844d03ab10845e933a",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Simulation: black-box optimization finds worst-case object pose, lighting and adversarial scene variations for VLAs; OpenVLA fails over 90% on LIBERO-Long. Training on these generated worst-case scenes improves robustness."
+          },
+          "severity": "minor",
+          "evidence": "Abstract evaluates generated physical variations in LIBERO simulation; explicitly label simulation so the paper title does not imply a real-robot evaluation."
+        }
+      ]
+    },
+    {
+      "index": 29,
+      "name": "FailBench: How Reliable are VLMs at Judging Robot Task Success?",
+      "source_url": "https://arxiv.org/abs/2609.03611",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "00345e5ca74b8957cea008fc51f997c3d11eb81ccdf187562d1efbf3d7d81636",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Benchmark of 2,197 manipulation attempts from 14 sources (12 real, 2 sim) for VLM success detection; best of 13 detectors reaches 0.77 mean balanced accuracy, and no model exceeds 0.60 on contact-rich assembly."
+          },
+          "severity": "major",
+          "evidence": "Reported benchmark totals: 2,197 attempts, 14 sources, 13 detectors; best mean balanced accuracy 0.77. Contact-rich assembly maximum is exactly 0.60, so below-0.60 wording was inaccurate."
+        }
+      ]
+    },
+    {
+      "index": 30,
+      "name": "Faster and Better? Benchmark Bugs and Design Limitations Distort the Evaluation of Vision-Language-Action Acceleration",
+      "source_url": "https://arxiv.org/abs/2609.37771",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "8d18f21323bcea3735ddcd04ec9e9e0044dbad090a97fcf4b5e6e79fd5afd72e",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Audits seven simulated VLA benchmarks (RoboTwin, LIBERO-Plus, VLABench...), finding 22 bugs and 4 design limitations; fixes can reverse acceleration-method rankings, moving the baseline from last to first on one LIBERO-PRO task."
+          },
+          "severity": "minor",
+          "evidence": "Paper reports 22 bugs and four design limitations across seven simulated benchmarks. Baseline ranking reversal from last to first is a particular LIBERO-PRO task example."
+        }
+      ]
+    },
+    {
+      "index": 31,
+      "name": "From Rollout to Reset: A Graph-Based Harness for Autonomous Long-Horizon Manipulation Evaluation (HALTER)",
+      "source_url": "https://arxiv.org/abs/2609.19413",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "1df1cde4a3edd3bf46db12cbe507e8a1f58aaa463436d41fac118fae733a7bdd",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "LLM over point-cloud scene graphs scores rollouts, plans resets from atomic reset skills and verifies them; on four long-horizon Franka tasks, 76% scene restoration vs 52% AutoEval, and 72% less operator time than manual reset."
+          },
+          "severity": "minor",
+          "evidence": "Paper reports scene restoration 76% versus AutoEval 52% and operator-time reduction 72% versus manual reset on four Franka tasks. Baselines and metric now identified."
+        }
+      ]
+    },
+    {
+      "index": 32,
+      "name": "Gymnasium-Robotics",
+      "source_url": "https://github.com/Farama-Foundation/Gymnasium-Robotics",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "f17fa1f8ead709303ea8a9ab7d2d548ea6dd4a970f68731c76fe099f9b7bbe63"
+    },
+    {
+      "index": 33,
+      "name": "H2RBench: A Real-to-Sim Benchmark for Evaluating Human-to-Robot Transfer",
+      "source_url": "https://arxiv.org/abs/2609.24778",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "323ecc7f4dded96fe70592e9aa75af8d4223d80f325ad062534af2953b53575b"
+    },
+    {
+      "index": 34,
+      "name": "How to Better Train VLAs: Lessons Learned From the REAL-I Challenge at ICRA 2026",
+      "source_url": "https://arxiv.org/abs/2609.13679",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "04cf187b92fb9638d33935bed61db2f62f82990baee48692fadfd6f3742e1211"
+    },
+    {
+      "index": 35,
+      "name": "IndustrialVLA-Bench: A Traceable Multi-Axis Evaluation of Open Robot Policy Models",
+      "source_url": "https://arxiv.org/abs/2609.25562",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "912e9f2ac3efc15900a454e0ec0b3a4d9e8d80519ecd3daaf197324b526d9a9a",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Evaluates six VLA/world-action systems with distinct evidence tiers over three seeds on LIBERO, LIBERO-Plus and LIBERO-Para. Clean, robustness and paraphrase scores span 1.58/14.62/31.08 points; only three systems support strict protocol-faithful comparisons."
+          },
+          "severity": "minor",
+          "evidence": "Abstract expressly separates protocol-faithful, near-reproduction and pending-verification entries; only three systems support strict comparisons. Keep all-six spans with this material caveat."
+        }
+      ]
+    },
+    {
+      "index": 36,
+      "name": "Isaac Lab-Arena",
+      "source_url": "https://github.com/isaac-sim/IsaacLab-Arena",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "ee828a0799824e5fc698aaa2bd089c9940c960929b00bf5504d3997280714f7b"
+    },
+    {
+      "index": 37,
+      "name": "LIBERO-MAX: Do Robot Policies Adapt When the World Changes?",
+      "source_url": "https://arxiv.org/abs/2609.36518",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "e57837ce039386b88c6f5f03161e285a3eed5bbfb1d64cdf0551d9bbf7acaf36"
+    },
+    {
+      "index": 38,
+      "name": "LIBERO-Plus: In-depth Robustness Analysis of Vision-Language-Action Models",
+      "source_url": "https://arxiv.org/abs/2510.13626",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "d3f66b2af69b6478f238890841154fc0a4455140ff5439f653d308fb5667ef4a"
+    },
+    {
+      "index": 39,
+      "name": "LIBERO-PRO: Towards Robust and Fair Evaluation of Vision-Language-Action Models Beyond Memorization",
+      "source_url": "https://arxiv.org/abs/2510.03827",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "6931e2a15c19563e9db835fa08e730d063221c92722e69706003a77a73d781ff"
+    },
+    {
+      "index": 40,
+      "name": "LIBERO-RECOVER: Beyond Task Success Towards Failure Recovery in Robotic Manipulation Models",
+      "source_url": "https://arxiv.org/abs/2609.05178",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "d33c61d4c90b35032d2b8f1090319c1b18f234b7ce75c98ca0182992c40f599d",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "LIBERO-based failure-recovery benchmark: 1,000+ scenarios built from execution failures collected from SOTA VLA/world-action models, across four recovery levels (action retry, action adaptation, object-state, environmental recovery), covering failed grasps, collisions and unintended object movements."
+          },
+          "severity": "minor",
+          "evidence": "Paper’s failure examples include failed grasps, collisions and unintended object movement. Retained the four recovery levels and 1,000+ scenarios without narrowing all grasp failures to drops."
+        }
+      ]
+    },
+    {
+      "index": 41,
+      "name": "LIBERO-VPro: Benchmarking Closed-Loop Visual Robustness of Robotic Foundation Models",
+      "source_url": "https://arxiv.org/abs/2609.24350",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "6a181ef2a735f003350f975ab98ef67d53fa9dbad894c190e2e4d8337cc0c9ae"
+    },
+    {
+      "index": 42,
+      "name": "Memory, Benchmark & Robots: A Benchmark for Solving Complex Tasks with Reinforcement Learning (MIKASA-Robo)",
+      "source_url": "https://arxiv.org/abs/2502.10550",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "782ec30ae035fa9e41f6b1274250ef71bf2a02c679820b30e1765f2dcf8fdcc0",
+      "patches": [
+        {
+          "fields": {
+            "org": "AIRI; MIPT",
+            "one_line": "Memory-intensive ManiSkill manipulation benchmark: the ICLR 2026 paper introduces 32 tasks; the repository's later MIKASA-Robo-VLA release offers 90 language-conditioned tasks and 22,500 PPO/motion-planning oracle trajectories."
+          },
+          "severity": "major",
+          "evidence": "Paper abstract introduces 32 tasks. Later repository release expands to 90 environments and 22,500 oracle trajectories; ICLR 2026 citation and AIRI/MIPT author affiliations confirmed."
+        }
+      ]
+    },
+    {
+      "index": 43,
+      "name": "Meta-World",
+      "source_url": "https://github.com/Farama-Foundation/Metaworld",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "10bc56820832c4429586a9b35d95cff338821788d5f75fcf8f9b896c4c8c07ea"
+    },
+    {
+      "index": 44,
+      "name": "OGBench",
+      "source_url": "https://github.com/seohongpark/ogbench",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "5c3ae3aee63a93a19da16c6b2e5fb5a242590c315a99f36a4efae912e1afb47d"
+    },
+    {
+      "index": 45,
+      "name": "REVERSAL-BENCH: A Reversibility Axis and Reset Oracle for Measuring the Reset-Free RL Cliff",
+      "source_url": "https://arxiv.org/abs/2609.17745",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "75c7d620711030a5a7ea1e206d74447a612b84d9a2481d65be865312e3e972ee"
+    },
+    {
+      "index": 46,
+      "name": "RLBench",
+      "source_url": "https://github.com/stepjam/RLBench",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "832b25af0d3b2fb61c99d2d363add2bee5813b25ce5079786bd585c92fcd43b7"
+    },
+    {
+      "index": 47,
+      "name": "RLE-Bench: A Qualifying Exam for Coding Agents as Robot Learning Engineers",
+      "source_url": "https://arxiv.org/abs/2609.34210",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "455cc9e429db5a28c555f7505198ac646553aa2d757be1e64da683052023a6b2"
+    },
+    {
+      "index": 48,
+      "name": "RoboArena",
+      "source_url": "https://github.com/robo-arena/roboarena",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "15e655346c2fd52edb32ee70ef3f7473bf80bb7195957149cd559444a3215107",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Starter code for RoboArena's distributed real-world DROID evaluation: serve a policy through a remote websocket policy server, sanity-check it in simulation via the separate DROID sim-evals repo, and train DROID VLAs with openpi."
+          },
+          "severity": "minor",
+          "evidence": "Official README centers distributed real-world DROID policy serving and links a separate DROID simulation-evaluation repository; description now distinguishes them."
+        }
+      ]
+    },
+    {
+      "index": 49,
+      "name": "RoboArena: Distributed Real-World Evaluation of Generalist Robot Policies",
+      "source_url": "https://arxiv.org/abs/2506.18123",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "38152e9156ecff788cd05626447a11fb073b51a09305fdd6a1f8fab966549374",
+      "patches": [
+        {
+          "fields": {
+            "org": "UC Berkeley; Stanford; UPenn; et al."
+          },
+          "severity": "major",
+          "evidence": "Paper author block includes Stanford and omits CMU; replaced unsupported institution. The more-than-600 pairwise evaluations and seven institutions/policies remain supported."
+        }
+      ]
+    },
+    {
+      "index": 50,
+      "name": "RoboCasa365: A Large-Scale Simulation Framework for Training and Benchmarking Generalist Robots",
+      "source_url": "https://arxiv.org/abs/2603.04356",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "1dc208017ad142c955fcab98c7d720233a588c7160970a8b0823d0f785be6f7c"
+    },
+    {
+      "index": 51,
+      "name": "RoboCasa: Large-Scale Simulation Framework for Generalist Robots",
+      "source_url": "https://github.com/robocasa/robocasa",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "f1d8ab3d040159b47e42da978677478078b5ba85652428e3fc0aff76cd642c1c"
+    },
+    {
+      "index": 52,
+      "name": "RoboCasa: Large-Scale Simulation of Everyday Tasks for Generalist Robots",
+      "source_url": "https://arxiv.org/abs/2406.02523",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "cc893d5cefb2b116748b1905096ad5e394fee915f29f574ff5cce4c37fea2816",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Kitchen simulation framework with 2,500+ 3D objects across 150+ categories (most from text-to-3D tools), AI-generated textures and 100 evaluation tasks, plus human demos and automated (MimicGen) trajectory generation for generalist robot policies."
+          },
+          "severity": "minor",
+          "evidence": "Paper has 2,509 objects: 1,592 from Luma, with others from Objaverse. Revised wording makes clear most, rather than all, are from generative tools."
+        }
+      ]
+    },
+    {
+      "index": 53,
+      "name": "RoboChallenge: Large-scale Real-robot Evaluation of Embodied Policies",
+      "source_url": "https://arxiv.org/abs/2510.17950",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "19a91c476af9af93bcd26a8fcbc13e749be7c4ee317ad7d8d62c4941d823cf41"
+    },
+    {
+      "index": 54,
+      "name": "RoboChrono: A Real Robot Benchmark for Streaming Task Understanding",
+      "source_url": "https://arxiv.org/abs/2609.36605",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "8fbcf39dea231f2f477c65fc42b65c5d28cbd9438715c3bc6812f3548a18fe51",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Benchmark from real-robot and bare-hand human recordings: 39 scenarios, 34,713 instances, seven streaming-understanding tasks and 18 VLMs. GPT-6-Astra scores 98.3% on frame matching versus 68.3% on frame ordering."
+          },
+          "severity": "minor",
+          "evidence": "Abstract says recordings include complementary bare-hand human demonstrations, and identifies GPT-6-Astra for the98.3/68.3scores."
+        }
+      ]
+    },
+    {
+      "index": 55,
+      "name": "Robocurve: Inspect Robots (open-source real-robot evaluation framework)",
+      "source_url": "https://www.ycombinator.com/companies/robocurve",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "791c65faff1a3c0963140c61a4e46caf111b0d935d745dd2f0a6b238b2dc8799",
+      "patches": [
+        {
+          "fields": {
+            "name": "Inspect Robots (Robocurve)",
+            "url": "https://github.com/robocurve/inspect-robots",
+            "one_line": "Open-source (MIT, alpha) evaluation framework from Robocurve (YC S26): define a robotics benchmark once, then run any LLM-agent or VLA policy on a real arm/humanoid or simulator with auditable logs and Rerun visualization."
+          },
+          "severity": "minor",
+          "evidence": "Official Robocurve website links Inspect Robots. README describes real or simulated benchmarks, LLM/VLA policies and Rerun logs, with alpha status and MIT license; YC page supplies Summer 2026 batch."
+        }
+      ]
+    },
+    {
+      "index": 56,
+      "name": "RoboDojo: A Unified Sim-and-Real Benchmark for Comprehensive Evaluation of Generalist Robot Manipulation Policies",
+      "source_url": "https://arxiv.org/abs/2607.04434",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "68016a86a4b97e7d68c770c492cd1d882628b0f69b54f8b3bb3b572945fb37db"
+    },
+    {
+      "index": 57,
+      "name": "robomimic: A Modular Framework for Robot Learning from Demonstration",
+      "source_url": "https://github.com/ARISE-Initiative/robomimic",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "90ca5bd567e5395ee50ec03c6bedddeab56fb67da34c44554c2bf8c96ab0c874"
+    },
+    {
+      "index": 58,
+      "name": "RoboPhys-3D: A Comprehensive Embodied World Model Evaluation via 3D Reconstruction",
+      "source_url": "https://arxiv.org/abs/2608.28718",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "7687754986e821acbeceecdf0d7aea9e26925444f4225c9f12c4a16f74c660ad",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "3D-reconstruction-grounded benchmark for embodied world models on RoboTwin 2.0: 50 tasks, 5,000 episodes, 25,000 multi-view videos, 50 metrics; its task-aligned RoboPhyscore agrees with human evaluation (Pearson r=0.9761)."
+          },
+          "severity": "major",
+          "evidence": "Abstract separately defines Average Full Score across 50 metrics and task-aligned RoboPhyscore. Human agreement r=0.9761 belongs to RoboPhyscore."
+        }
+      ]
+    },
+    {
+      "index": 59,
+      "name": "RoboRecover: Benchmarking Robot Policy Recovery under Execution Deviations",
+      "source_url": "https://arxiv.org/abs/2609.28952",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "e6e2053cc45198e6ab561c63661498a062cb3595f22ae76c545ebf28528c3a18"
+    },
+    {
+      "index": 60,
+      "name": "Robotics benchmarking: where we are, and what comes next",
+      "source_url": "https://huggingface.co/blog/projectsim/robotics-benchmarking-where-we-are-and-what-comes",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "75722d68d6f8ee83e589cc6cb7dc4eeeb2b80afa7b1d7df2bff7aa9ebcf13328",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Robot-benchmark survey: fine-tuned GR00T N1.5 averages 43% on RoboCasa365 single-skill tasks versus 4.4% on unseen skill combinations. Argues real-to-sim reconstruction can expose policy weaknesses and guide data collection."
+          },
+          "severity": "minor",
+          "evidence": "Official benchmarking post assigns 43% single-skill and 4.4% unseen-combination results to fine-tuned GR00T N1.5 on RoboCasa365. They are model results, not benchmark properties."
+        }
+      ]
+    },
+    {
+      "index": 61,
+      "name": "RoboTwin 2.0: A Scalable Data Generator and Benchmark with Strong Domain Randomization for Robust Bimanual Robotic Manipulation",
+      "source_url": "https://arxiv.org/abs/2506.18088",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "926dae09ee7001f1e7955efcb776ef3fa745c6f3edff0bda0a668706db1f5222",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "50-task bimanual simulator/data generator with five-axis domain randomization (731 objects, 147 categories). In real-world tests, synthetic data plus ten real demos yields a 367% relative VLA gain over the ten-demo baseline; ICML 2026."
+          },
+          "severity": "major",
+          "evidence": "Paper real-world experiment compares synthetic data plus ten real demonstrations against ten real demonstrations alone. The 367% gain is relative. Task/object counts and ICML 2026 attribution match."
+        }
+      ]
+    },
+    {
+      "index": 62,
+      "name": "RoboVerse: Towards a Unified Platform, Dataset and Benchmark for Scalable and Generalizable Robot Learning",
+      "source_url": "https://github.com/RoboVerseOrg/RoboVerse",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "f181a5aa035ed3ec7651acbb29c9b3388ac26f55474add046e151e4155777412"
+    },
+    {
+      "index": 63,
+      "name": "Same Trajectory, Contradictory Rewards (ROBORMBENCH): Paraphrase Fragility in Vision Language Reward Models",
+      "source_url": "https://arxiv.org/abs/2609.05401",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "d205fada343f49ea83eab4f3cdacf5cbe6739248436dbd6515f893015d40fb3f"
+    },
+    {
+      "index": 64,
+      "name": "TriWorldBench: A Tri-View Consistency Perspective on Embodied World Models",
+      "source_url": "https://arxiv.org/abs/2609.26314",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "0607fe17d491c905018d96ead8e537826210756f28603af5f8c2898e0825b6a0"
+    },
+    {
+      "index": 65,
+      "name": "Uncovering and Mitigating Positional Blind Spots in Vision-Language-Action Models",
+      "source_url": "https://arxiv.org/abs/2608.01573",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "80b12bc2b9ed317f73dee4587a0ea44f68f5cb2ce0b7f40d575c86665aae78bb",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Grid-based testing locates distractor placements that raise VLA failure: average F1 0.678 across five policies on simulated LIBERO/VLA-Arena. Targeted LoRA fine-tuning cuts failure rates 40-85%."
+          },
+          "severity": "major",
+          "evidence": "Paper tests distractor placements in simulated LIBERO/VLA-Arena, not changes in robot location. F1 is 0.678 across five policies; targeted LoRA cuts failure 40–85%."
+        }
+      ]
+    },
+    {
+      "index": 66,
+      "name": "vla-evaluation-harness",
+      "source_url": "https://github.com/allenai/vla-evaluation-harness",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "2971faf9d078295069742f3d508fb9fce157bded1ca439c0ba629e71a669c20a"
+    },
+    {
+      "index": 67,
+      "name": "VLABench: A Large-Scale Benchmark for Language-Conditioned Robotics Manipulation with Long-Horizon Reasoning Tasks",
+      "source_url": "https://github.com/OpenMOSS/VLABench",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "0ea85237d04209ace4bfd0ed2e6b1df0370522c01d2930f3e4dbfe71fcf310b5"
+    },
+    {
+      "index": 68,
+      "name": "WorldArena 2.0: Extending Embodied World Model Benchmarking on Modality, Functionality and Platform",
+      "source_url": "https://arxiv.org/abs/2605.17912",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "aeaa146c1463a67d0de23d63c3b8cf94477b394e303889b39fa2fd85340fd971"
+    },
+    {
+      "index": 69,
+      "name": "X2Real: an eXtensive simulation benchmark for real-world generalist policies",
+      "source_url": "https://arxiv.org/abs/2609.27449",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "4ee0833f69a3753bb73fd779e2a31564de552c1d644870f989be06acb95884ea"
+    },
+    {
+      "index": 70,
+      "name": "XPolicyLab: A Unified Standard and Open Ecosystem for Robot Policy Evaluation and Deployment",
+      "source_url": "https://arxiv.org/abs/2608.09892",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "6f8848fcc2023f33db00a8732c8126bf56603119ad94d9441702cef1e0f44d35",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Unified observation/action/trajectory schemas and adapters integrate 42 policies, reducing policy-environment integrations from O(NM) to O(N+M). One controlled case reduced integration from over five hours to two; adapters serve RoboTwin, RoboDojo and real robots."
+          },
+          "severity": "minor",
+          "evidence": "Paper reports 42 policies and O(N+M) integration structure. Five-to-two-hour integration saving comes from one controlled case, not all integrations."
+        }
+      ]
+    },
+    {
+      "index": 71,
+      "name": "A Course in Reinforcement Learning (2nd Edition)",
+      "source_url": "https://web.mit.edu/dimitrib/www/RLbook.html",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "984f59efd5399bae8a71ab30a93c17eaee614124a8c42ac84a28b5b4489953b0"
+    },
+    {
+      "index": 72,
+      "name": "Algorithms for Reinforcement Learning (Csaba Szepesvari)",
+      "source_url": "https://sites.ualberta.ca/~szepesva/rlbook.html",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "68c1b732c1ed2b048e4713b1ef9db7f91e08730dfa62ae38827ee0ea5ea2cf8d",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Concise Morgan & Claypool monograph on TD, Monte Carlo, Q-learning, actor-critic, function approximation and exploration; the author's page lists 34 algorithm entries, 16 with pseudocode, and provides a free PDF."
+          },
+          "severity": "major",
+          "evidence": "Author’s HTML algorithm list contains 34 entries, 16 boldfaced for accompanying pseudocode. Free PDF availability confirmed; corrected counts."
+        }
+      ]
+    },
+    {
+      "index": 73,
+      "name": "Deep Reinforcement Learning: From First Principles to Reasoning Models",
+      "source_url": "https://arxiv.org/abs/2608.00133",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "f5a567003df2b95d4a336b9cf4ad931c176397340f980df9bc8d873a34c2c234"
+    },
+    {
+      "index": 74,
+      "name": "Reinforcement Learning: An Introduction (Second Edition)",
+      "source_url": "http://incompleteideas.net/book/the-book-2nd.html",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "0138ca7f8a35fbb2dedcdfbc0df18c9640a0f36a68a5953486319521bc935671",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Sutton and Barto's RL textbook (2nd ed., MIT Press 2018); the authors' page hosts the full PDF, errata, code and teaching slides, and trades official exercise solutions for your own. General RL background."
+          },
+          "severity": "minor",
+          "evidence": "Authors’ page provides PDF, errata, code and slides. Exercise solutions are exchanged for a reader’s contributed solutions rather than freely published as a complete public set."
+        }
+      ]
+    },
+    {
+      "index": 75,
+      "name": "Reinforcement Learning: An Overview",
+      "source_url": "https://arxiv.org/abs/2412.05265",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "9cbcac859dfeacb37ba3f9457b3a53243487cd1d52cecbe3ef87d1504375ba01"
+    },
+    {
+      "index": 76,
+      "name": "Statistical and Algorithmic Foundations of Reinforcement Learning",
+      "source_url": "https://arxiv.org/abs/2507.14444",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "b5a91bee15c532b561a7d5a33c42772f3ddd3928404bea1cb664a8200923d690"
+    },
+    {
+      "index": 77,
+      "name": "Ax: Adaptive Experimentation Platform",
+      "source_url": "https://github.com/facebook/Ax",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "fc0f83c8481d040cab3732445496667123b11402de72002cead40c68c6403cf9"
+    },
+    {
+      "index": 78,
+      "name": "BoTorch: Bayesian Optimization in PyTorch",
+      "source_url": "https://github.com/meta-pytorch/botorch",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "fc5eef993da47704fb95ace55900a7ac55edfedf9c3f6276ae4341f45a2431c1"
+    },
+    {
+      "index": 79,
+      "name": "Brax",
+      "source_url": "https://github.com/google/brax",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "e875c4f38840b4045baf8c631398259d7604fc59a8704c8ab12cc85d82ccc3c6",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Differentiable JAX physics engine with PPO, SAC, ARS, ES and APG trainers on accelerators; since 0.13.0 only brax/training is maintained, with environments via MuJoCo Playground and physics via MJX or MuJoCo Warp."
+          },
+          "severity": "minor",
+          "evidence": "README states that only brax/training remains maintained since version 0.13.0. It directs environment use to MuJoCo Playground and physics to MJX/MuJoCo Warp."
+        }
+      ]
+    },
+    {
+      "index": 80,
+      "name": "CleanRL",
+      "source_url": "https://github.com/vwxyzjn/cleanrl",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "93d54f6db645e7651125b4d8e679b4fb802f2eb9fa076d2458bd0116630f5848"
+    },
+    {
+      "index": 81,
+      "name": "cmaes",
+      "source_url": "https://github.com/CyberAgentAILab/cmaes",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "b9e4733f9a33f1c8982ef6445aa300223c059ca448070830fa4ed0ceb9149d57"
+    },
+    {
+      "index": 82,
+      "name": "CORL: Clean Offline Reinforcement Learning",
+      "source_url": "https://github.com/tinkoff-ai/CORL",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "c50c7487b0827be9e18846be88b7087518620529879e785904baa2e366d6018c"
+    },
+    {
+      "index": 83,
+      "name": "d3rlpy",
+      "source_url": "https://github.com/takuseno/d3rlpy",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "629a5a527ce2f8d3088d511a58d044e6d8fdac3809dccd1794c2aad307949914"
+    },
+    {
+      "index": 84,
+      "name": "EBRL: Asynchronous Embodied RL by Multi-Grained Resource Management",
+      "source_url": "https://arxiv.org/abs/2609.27547",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "3eeb455730e091e8eba60f6520dc2d0e96546e3dfbc5ae3e32a58e2d57910745",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Asynchronous RLinf-based scheduler overlaps rollout and training with CPU/GPU resource allocation. Simulation: 1.30-3.47x rollout throughput over prior systems; LIBERO-Object/GR00T PPO completes 60 epochs ~2.5x faster than a synchronous baseline."
+          },
+          "severity": "major",
+          "evidence": "Abstract and section 6: four simulation benchmarks; throughput 1.30–3.47x; LIBERO-Object/GR00T PPO completes 60 epochs about 2.5x faster than Sync. No public code URL appears in the paper; category retained."
+        }
+      ]
+    },
+    {
+      "index": 85,
+      "name": "EnvPool",
+      "source_url": "https://github.com/sail-sg/envpool",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "51230e899554c1e1097e34e4d563689bf05e6a00cfb5cf10a08351e4259a96b2"
+    },
+    {
+      "index": 86,
+      "name": "EvoJAX: Hardware-Accelerated Neuroevolution",
+      "source_url": "https://github.com/google/evojax",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "d59c083af45c8a2ce1a16626762d2d90ddc7236d79a0a6e1d58057eed3fa73bd",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "JAX neuroevolution toolkit running evolution algorithms, policy networks and vectorized tasks in parallel on GPUs/TPUs; README examples run in minutes on a single accelerator versus hours or days on CPUs. Repo now archived."
+          },
+          "severity": "minor",
+          "evidence": "README compares example runtime on one accelerator (minutes) with CPUs (hours/days). GitHub repository metadata reports archived=true."
+        }
+      ]
+    },
+    {
+      "index": 87,
+      "name": "evosax: Evolution Strategies in JAX",
+      "source_url": "https://github.com/RobertTLange/evosax",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "3741f80316d7e5a9e4b59be58b8701040b09d5539084a0ddd5940ee70182e359"
+    },
+    {
+      "index": 88,
+      "name": "EvoTorch",
+      "source_url": "https://github.com/nnaisense/evotorch",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "59d4c87de2e1ec5a8896d8a577347bc7a0495bc23b87a8071fb37d733bf26217"
+    },
+    {
+      "index": 89,
+      "name": "EvoX",
+      "source_url": "https://github.com/EMI-Group/evox",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "75ece7c948c92303a7f7e8118b28bd891cd46917e02e3ae9fc345f7cd5c3f9fa"
+    },
+    {
+      "index": 90,
+      "name": "Gymnasium",
+      "source_url": "https://github.com/Farama-Foundation/Gymnasium",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "9a07b790f3340a1c5fb000d51e13a133ec09010d0e810f9fcc24c230ee0c757a"
+    },
+    {
+      "index": 91,
+      "name": "jaxrl",
+      "source_url": "https://github.com/ikostrikov/jaxrl",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "e874082c500c8583e856fe073d689debeca81a461723eb9387302a78b675a4c1"
+    },
+    {
+      "index": 92,
+      "name": "LeanRL",
+      "source_url": "https://github.com/meta-pytorch/LeanRL",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "aa4531ea9c5ef51fda6e3f0c7002735338122fc4808986e283fa39725dccdbaf",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "CleanRL-derived single-file PyTorch RL scripts optimized for speed using torch.compile and CUDA graphs (repo now archived)."
+          },
+          "severity": "minor",
+          "evidence": "README describes CleanRL-derived single-file scripts, torch.compile and CUDA graphs. GitHub metadata reports archived=true."
+        }
+      ]
+    },
+    {
+      "index": 93,
+      "name": "Nevergrad",
+      "source_url": "https://github.com/facebookresearch/nevergrad",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "ad5e3b93dace02ae46a629b49ddd62560b680a49be97e0e74c384c11c493a244"
+    },
+    {
+      "index": 94,
+      "name": "openpi-RLT: openpi-based real-robot RL system with RL-token-guided action refinement",
+      "source_url": "https://github.com/Yyshadow/openpi-RLT",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "d3a4c054fb129d22d28724c20c98769ecd1f3772a1c106eac460e5256301557a"
+    },
+    {
+      "index": 95,
+      "name": "Optuna",
+      "source_url": "https://github.com/optuna/optuna",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "3732151ffd3490377c378a84d851e982f9628acc0502caf2ff1150e8f7e09478"
+    },
+    {
+      "index": 96,
+      "name": "PureJaxRL",
+      "source_url": "https://github.com/luchris429/purejaxrl",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "b584b85d9484ad580f3841b1c17881fc64b5c2d2dec72f378ec4eb1b43f91938",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "End-to-end JAX PPO with environment and training compiled together. README reports 10x over single-run CleanRL PyTorch PPO on CartPole/MinAtar-Breakout, and over 1000x over standard PyTorch RL when parallelizing many agents on GPUs."
+          },
+          "severity": "minor",
+          "evidence": "README distinguishes about 10x versus single-run CleanRL PyTorch PPO on CartPole/MinAtar from over 1000x against standard PyTorch when many agents run in parallel. Comparison scopes now separate."
+        }
+      ]
+    },
+    {
+      "index": 97,
+      "name": "pycma",
+      "source_url": "https://github.com/CMA-ES/pycma",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "b83b597e147706ead4cb3a419a18c83b707485c80d2d0e2aca25a818d490f50b"
+    },
+    {
+      "index": 98,
+      "name": "RL Baselines3 Zoo",
+      "source_url": "https://github.com/DLR-RM/rl-baselines3-zoo",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "62e6ef97576b0caa65a2a1647266ba154d95c72b6270ad58d61b22699772052c"
+    },
+    {
+      "index": 99,
+      "name": "rl_games",
+      "source_url": "https://github.com/Denys88/rl_games",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "11c5decb7f0753fea83ddfe647a85673cdff5086d321b456c78be073e10022e3",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "PyTorch RL library with PPO, asymmetric actor-critic and SAC implementations, supporting vectorized GPU environments including Isaac Lab and MJLab."
+          },
+          "severity": "minor",
+          "evidence": "README lists PPO, asymmetric actor-critic and SAC with GPU environment support including Isaac Lab and MJLab; replaced a low-information creation date with these supported capabilities."
+        }
+      ]
+    },
+    {
+      "index": 100,
+      "name": "RSL-RL",
+      "source_url": "https://github.com/leggedrobotics/rsl_rl",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "da27f5ab5407de080430520ac2c85a14bf274890a063098c68e8db65e88c18cf"
+    },
+    {
+      "index": 101,
+      "name": "Sample Factory",
+      "source_url": "https://github.com/alex-petrenko/sample-factory",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "0e16d7e22abfa9c866e57deedb7f2172fafc31645b96798ea78a124315de074b"
+    },
+    {
+      "index": 102,
+      "name": "skrl",
+      "source_url": "https://github.com/Toni-SM/skrl",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "43e47218202a23914ad76f803e34e8af321ef3a66caa435b86c4dd97f965f5a6"
+    },
+    {
+      "index": 103,
+      "name": "Stable-Baselines3",
+      "source_url": "https://github.com/DLR-RM/stable-baselines3",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "ce74914c1c8f87ae0f3600fff866e18b9d9c0b6d64bd23935e8ea930fcfe7ada"
+    },
+    {
+      "index": 104,
+      "name": "Tianshou",
+      "source_url": "https://github.com/thu-ml/tianshou",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "a741d201d53f0699830f9a22a3ac7a50df0e029ac937857d24e766f94695144a"
+    },
+    {
+      "index": 105,
+      "name": "TorchRL",
+      "source_url": "https://github.com/pytorch/rl",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "9a97849162e5a2a97af43d13ebd9fc900cc24d7b2d457077b7b853f91c329612"
+    },
+    {
+      "index": 106,
+      "name": "ACT: Action Chunking with Transformers",
+      "source_url": "https://github.com/tonyzhaozh/act",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "99c286a11665094e981081e4338d45f4267e00f771f0158f994783ecb0d4be4b"
+    },
+    {
+      "index": 107,
+      "name": "AgileX PiPER SDK",
+      "source_url": "https://github.com/agilexrobotics/piper_sdk",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "52866948c260928c33c15ec56dcd043bd733537c42d8ebb30bfa7bbe53203949"
+    },
+    {
+      "index": 108,
+      "name": "ALOHA: A Low-cost Open-source Hardware System for Bimanual Teleoperation",
+      "source_url": "https://github.com/tonyzhaozh/aloha",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "b61b978e80c26d70ebeed670fe6607ef74c741a8a40f103de1db04ad1a40ee70"
+    },
+    {
+      "index": 109,
+      "name": "COST-HIL: Cost-Aware Human-in-the-Loop Reinforcement Learning for Real-World Dexterous Manipulation",
+      "source_url": "https://github.com/alexantaluo0/COST-HIL",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "a51c3af5dce5f5e0b350c8a950b4ff2c110a691ef262c6aad098080d937ee62f",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Cost-aware HIL-SERL variant with weighted replay and gripper-switch penalties. Repository manuscript reports real Zhiyuan Elf G2 grasp success 99.9% versus 80.7% for HIL-SERL; human-intervened training steps fall from 30% to 6%."
+          },
+          "severity": "major",
+          "evidence": "Repository contains paper/COST_HIL.pdf. Rendered Table 2: HIL-SERL 80.7±2.1 versus COST-HIL 99.9±0.1 success; intervention 30% versus 6% of training steps. Section 5.2 specifies real Zhiyuan Elf G2. Manuscript attribution retained."
+        }
+      ]
+    },
+    {
+      "index": 110,
+      "name": "Dexbotic: Open-Source Vision-Language-Action Toolbox",
+      "source_url": "https://arxiv.org/abs/2510.23511",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "c1e27fb89b3fb1b5021554e1a7cc53de481dda05cbb647bd5cc32b79c17f3b13",
+      "patches": [
+        {
+          "fields": {
+            "url": "https://github.com/dexmal/dexbotic",
+            "one_line": "PyTorch VLA toolbox that runs multiple mainstream VLA policies under one environment setup via experiment scripts, plus Dexbotic pretrained models that the authors report improve those policies."
+          },
+          "severity": "minor",
+          "evidence": "Official dexmal/dexbotic repository verified HTTP 200. README describes shared-environment support for VLA policies and author-reported gains from provided pretrained models."
+        }
+      ]
+    },
+    {
+      "index": 111,
+      "name": "EXPO: Expressive Policy Optimization",
+      "source_url": "https://github.com/pd-perry/EXPO",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "9956673238a68bac054a73cf7ee3aae321f9df9bd5d46142dcd0465682e261fd",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Official JAX code for \"EXPO: Stable Reinforcement Learning with Expressive Policies\" (arXiv 2507.07986), built on jaxrl and RLPD; offline-to-online scripts for D4RL Antmaze, Adroit, Robomimic and MimicGen."
+          },
+          "severity": "minor",
+          "evidence": "Official README supplies EXPO’s JAX/jaxrl/RLPD basis and offline-to-online scripts for D4RL Antmaze, Adroit, Robomimic and MimicGen."
+        }
+      ]
+    },
+    {
+      "index": 112,
+      "name": "FluxVLA Engine: A One-Stop VLA Engineering Platform for Embodied Intelligence",
+      "source_url": "https://arxiv.org/abs/2609.17210",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "78ca09ac32740d9f30fd53319347eb32655211a573d278b62bc62514d1eb75dd",
+      "patches": [
+        {
+          "fields": {
+            "org": "LimX Dynamics et al.",
+            "url": "https://github.com/FluxVLA/FluxVLA"
+          },
+          "severity": "minor",
+          "evidence": "Paper author block includes LimX Dynamics. Abstract supplies official FluxVLA/FluxVLA code URL, verified HTTP 200 with matching project identity."
+        }
+      ]
+    },
+    {
+      "index": 113,
+      "name": "GELLO: A General, Low-Cost, and Intuitive Teleoperation Framework for Robot Manipulators",
+      "source_url": "https://github.com/wuphilipp/gello_software",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "a0014fa18ae5969fd6aba417fea8a2f8c4e241b4c84ddd798f1a916ae7181c74"
+    },
+    {
+      "index": 114,
+      "name": "Interbotix ALOHA",
+      "source_url": "https://github.com/Interbotix/aloha",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "8188eb84a7d8114643d99d081a1e79cd3f468222d4bd87d6b177e9fe8efec898"
+    },
+    {
+      "index": 115,
+      "name": "Isaac GR00T",
+      "source_url": "https://github.com/NVIDIA/Isaac-GR00T",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "89c75847f06f7e0c2532ca67759a0869dd21491b386b87abd0e21e70c53082b8"
+    },
+    {
+      "index": 116,
+      "name": "Koch v1.1 low-cost robot arm",
+      "source_url": "https://github.com/jess-moss/koch-v1-1",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "ea25c6ad3194a292dffe099f921d3a4671ef83aa0bd40fe0904df9afb844a688"
+    },
+    {
+      "index": 117,
+      "name": "LeRobot",
+      "source_url": "https://github.com/huggingface/lerobot",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "8370b8a53b8f303ff7d25a216a3637803993b92f1b14f9c1315885d55bfaa0e2"
+    },
+    {
+      "index": 118,
+      "name": "Low-cost robot arm",
+      "source_url": "https://github.com/AlexanderKoch-Koch/low_cost_robot",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "7d04a9f745e62032f94e7592a01410f8af08d6a8e52ee4e287f8b8040dc3a75d"
+    },
+    {
+      "index": 119,
+      "name": "Model-Based RSL RL (rsl_rl_rwm): Robotic World Model and Uncertainty-Aware Robotic World Model code",
+      "source_url": "https://github.com/leggedrobotics/rsl_rl_rwm",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "f8f9c4c310636e89a2ce72d16815d1a82ebe631caa4b019790d9b9d3ae043050"
+    },
+    {
+      "index": 120,
+      "name": "Nautilus: From One Prompt to Plug-and-Play Robot Learning",
+      "source_url": "https://arxiv.org/abs/2605.11665",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "bdc08e1608ac1b361dc35483b5b54f9915a62926703e1ccddbefa6f29cdaa155",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Agent harness (a Claude Code plugin) that turns a natural-language prompt into reproduction, evaluation, fine-tuning and deployment workflows via typed contracts, generated adapters and containers. Main code not yet public (project page: \"Coming Soon\")."
+          },
+          "severity": "major",
+          "evidence": "Paper conclusion promises a future platform release; project page labels main Nautilus code Coming Soon. Public availability claim removed while retaining the documented plugin mechanism."
+        }
+      ]
+    },
+    {
+      "index": 121,
+      "name": "Octo: An Open-Source Generalist Robot Policy",
+      "source_url": "https://github.com/octo-models/octo",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "3beb66442e6ec161baa77400f2ffaf3046061c6b34f5f7ec67848b12376bf761"
+    },
+    {
+      "index": 122,
+      "name": "openpi",
+      "source_url": "https://github.com/Physical-Intelligence/openpi",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "ea515aacfbf354117d4d40cea708a875d0806b43454f3e5aa24bab8ea896936b"
+    },
+    {
+      "index": 123,
+      "name": "pyAgxArm",
+      "source_url": "https://github.com/agilexrobotics/pyAgxArm",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "d3d09efbf562d3ccb755fdc5d4fb1ac67f7f25f38bb7d169b5313302aec297d2"
+    },
+    {
+      "index": 124,
+      "name": "real-time-chunking-kinetix: Simulated experiments for \"Real-Time Execution of Action Chunking Flow Policies\"",
+      "source_url": "https://github.com/Physical-Intelligence/real-time-chunking-kinetix",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "979a75d9ea5909c6bbdf9fd0a29baf4e82ac8856c646a278adc3a969b1b9a809"
+    },
+    {
+      "index": 125,
+      "name": "resfit-pytorch (unofficial ResFiT implementation, WIP)",
+      "source_url": "https://github.com/lucidrains/resfit-pytorch",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "62b97caad81925270c5c2f7679a6135f8c097a64740162f8e74bba3bd9c378f7",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Unofficial work-in-progress PyTorch implementation of ResFiT (arXiv 2509.19301), residual off-policy RL for behavior-cloned policies. The authors also publish official code at amazon-far/residual-offpolicy-rl."
+          },
+          "severity": "minor",
+          "evidence": "Unofficial repository remains WIP. Authors’ project and official amazon-far/residual-offpolicy-rl README identify the official implementation, verified HTTP 200."
+        }
+      ]
+    },
+    {
+      "index": 126,
+      "name": "SO-ARM100 (Standard Open Arm 100 / SO-101)",
+      "source_url": "https://github.com/TheRobotStudio/SO-ARM100",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "0d851c0f84fa8167dbe384cd4dfe5ef1132d8287520b9938fddf3527a66aa097"
+    },
+    {
+      "index": 127,
+      "name": "StarVLA: A Lego-like Codebase for Vision-Language-Action Model Developing",
+      "source_url": "https://github.com/starVLA/starVLA",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "841f2b919e94cf41abe0ab6e6811bc006d078156d43851b41aff6f9057fde06d"
+    },
+    {
+      "index": 128,
+      "name": "Universal Manipulation Interface",
+      "source_url": "https://github.com/real-stanford/universal_manipulation_interface",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "381d94aa14ec3ad52727004d16ebdc8d0ad4297833cbc4888ee67fdb63684d24"
+    },
+    {
+      "index": 129,
+      "name": "vla-rlt: RL Tokens for open-source VLAs (SmolVLA on SO-101)",
+      "source_url": "https://github.com/akashspacesky/vla-rlt",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "d255c600b6850500625a4cbf0702c281a03fe6639d455366b38d2e87ddda635b",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Unofficial RLT-inspired implementation: frozen SmolVLA, bottleneck RL-token encoder, SAC actor adding regularized delta actions; offline pretrain then online SAC on SO-101, runs on Apple Silicon. No own results.",
+            "org": "akashspacesky"
+          },
+          "severity": "minor",
+          "evidence": "README presents an RLT-inspired community implementation, not an exact official reproduction; describes frozen SmolVLA and SAC residual actions without own performance results."
+        }
+      ]
+    },
+    {
+      "index": 130,
+      "name": "VLAb: Your Laboratory for Pretraining VLAs",
+      "source_url": "https://github.com/huggingface/VLAb",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "11c4d00cbb63b7cd5a2587f6ca954a20ae6f78c651fb0e4d4b51a00dd40e85f5"
+    },
+    {
+      "index": 131,
+      "name": "X-VLA: Soft-Prompted Transformer as a Scalable Cross-Embodiment Vision-Language-Action Model (official code)",
+      "source_url": "https://github.com/2toinf/X-VLA",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "01ccea768c796ea67e16276bb10ec9b1a0838f2064954039660fe8d1b985929e"
+    },
+    {
+      "index": 132,
+      "name": "XLeRobot: Practical Dual-Arm Mobile Home Robot for $660",
+      "source_url": "https://github.com/Vector-Wangel/XLeRobot",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "a1f9e2218ecaf2df6bcd6b914709651d09430a6e643b963f791c9ac655657f31",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Open-source (Apache-2.0) low-cost dual-arm mobile home robot hardware and software built on LeRobot and SO-101; README lists ~$660 parts cost for the basic config, excluding 3D printing, tools, shipping and taxes."
+          },
+          "severity": "minor",
+          "evidence": "README’s approximately $660 figure is the basic laptop-based configuration; printing, tools, shipping and taxes are excluded. Apache-2.0 license verified."
+        }
+      ]
+    },
+    {
+      "index": 133,
+      "name": "16-831: Introduction to Robot Learning (CMU, Spring 2026)",
+      "source_url": "https://sites.google.com/view/16-831-cmu/home",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "6690a32cfed330dc815d2ba875b07a51d27f806ee80b2f253f8b196eb80e4847"
+    },
+    {
+      "index": 134,
+      "name": "CS 185/285: Deep Reinforcement Learning (UC Berkeley, Sergey Levine)",
+      "source_url": "https://rail.eecs.berkeley.edu/deeprlcourse/",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "a31bc40ed653f17421296466bf106d81c56b4bd33bbccc96b069c5747ac8c89c"
+    },
+    {
+      "index": 135,
+      "name": "CS 224R: Deep Reinforcement Learning (Stanford, Chelsea Finn)",
+      "source_url": "https://cs224r.stanford.edu/",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "7d493e359779868cc4227b9dc14e4871351e3c56a74a033d89a447d9e4fb8e6f"
+    },
+    {
+      "index": 136,
+      "name": "CS234: Reinforcement Learning (Stanford, Winter 2026)",
+      "source_url": "https://web.stanford.edu/class/cs234/",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "872880c0c21a6d3fd5aae4c34e8beb343341b1b27653a40b7ffd9f5195f23465"
+    },
+    {
+      "index": 137,
+      "name": "DeepMind x UCL RL Lecture Series (2021)",
+      "source_url": "https://www.youtube.com/watch?v=TCCjZe0y4Qc",
+      "status": "no-change",
+      "basis": "Official YouTube title identifies introduction and [1/13]; lecture series identity checked, full lectures not watched.",
+      "source_text_sha256": "f83bc655a00edf1c90797d36fc8df1f582274fe9f2202141cada0b33f67cbcae"
+    },
+    {
+      "index": 138,
+      "name": "Hugging Face Deep Reinforcement Learning Course",
+      "source_url": "https://huggingface.co/learn/deep-rl-course/en/unit0/introduction",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "996e2099b67c3bf29f2438412ce4ee32d27718fe58ba78ade48e04e15dab8b29"
+    },
+    {
+      "index": 139,
+      "name": "Spinning Up in Deep RL",
+      "source_url": "https://spinningup.openai.com/",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "d9752e53b07abef8afb4e62dbee8e9c65e00f6a710c2583e04d63bfa90c6f458"
+    },
+    {
+      "index": 140,
+      "name": "UCL Course on RL (David Silver) - Advanced Topics 2015 (COMPM050/COMPGI13): Reinforcement Learning",
+      "source_url": "https://davidsilver.uk/teaching/",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "8d69f058960e0e62b523f4b6b2afd4d4efc4b1ddaf10ed2c475b9b8b963e7b34"
+    },
+    {
+      "index": 141,
+      "name": "AgiBot World Colosseo: A Large-scale Manipulation Platform for Scalable and Intelligent Embodied Systems",
+      "source_url": "https://arxiv.org/abs/2503.06669",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "32762ca15bb136f4474428a2266259592b03dd8650ed95155813876e4444b894",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Open dataset of 1M+ real-robot trajectories over 217 tasks plus GO-1, a latent-action generalist policy; pretraining on it gives a 30% average gain over Open X-Embodiment, and GO-1 outperforms RDT by 32%."
+          },
+          "severity": "major",
+          "evidence": "Abstract distinguishes a 30% dataset-pretraining gain over Open X-Embodiment from GO-1’s 32% comparison with RDT. One million trajectories and 217 tasks confirmed."
+        }
+      ]
+    },
+    {
+      "index": 142,
+      "name": "DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset",
+      "source_url": "https://arxiv.org/abs/2403.12945",
+      "status": "no-change",
+      "basis": "Linked arXiv abstract and project site say 84 tasks; HTML abstract says 86. Retained 84, matching linked metadata/project source. Remaining numbers agree.",
+      "source_text_sha256": "0d99d868c6407bccb65d6b8c73ae30ce903ac915edef23a703345a6eeef7fe4e"
+    },
+    {
+      "index": 143,
+      "name": "Galaxea Open-World Dataset and G0 Dual-System VLA Model",
+      "source_url": "https://arxiv.org/abs/2509.00576",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "3b5395e4c126d39ddccb6b4682e6ef736384fc3f6a1dc99b1f55b896b54e1646"
+    },
+    {
+      "index": 144,
+      "name": "Minari",
+      "source_url": "https://github.com/Farama-Foundation/Minari",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "956cf7a1c05ea17ccc292598c07d22c9698fb42dd6f17ebb7e1b119d818c6b9c"
+    },
+    {
+      "index": 145,
+      "name": "Open X-Embodiment: Robotic Learning Datasets and RT-X Models",
+      "source_url": "https://arxiv.org/abs/2310.08864",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "9ef685386672dd921c87398544c592b0e1e553f9d33de6eb0180dd76780f6d78"
+    },
+    {
+      "index": 146,
+      "name": "REBOOT: From Failure to Recovery - A Dataset and Benchmark for Precision Assembly",
+      "source_url": "https://arxiv.org/abs/2609.22591",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "be232b92cc950605d1dac5b983de153389fe4a39b5b919ba371c73375f6c369c"
+    },
+    {
+      "index": 147,
+      "name": "RoboMIND 2.0: A Multimodal, Bimanual Mobile Manipulation Dataset for Generalizable Embodied Intelligence",
+      "source_url": "https://arxiv.org/abs/2512.24653",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "ca8f94d2f7c79ef598d7a9ab8b0ee48cfdec7b49355a01e8d84462732d383598"
+    },
+    {
+      "index": 148,
+      "name": "Scalable Behavior Cloning with Open Data, Training, and Evaluation (ABC)",
+      "source_url": "https://arxiv.org/abs/2606.27375",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "8e117906f057e23267ef64696d5427086ef900e74de9918171bbcb747b8b6550"
+    },
+    {
+      "index": 149,
+      "name": "Genesis",
+      "source_url": "https://github.com/Genesis-Embodied-AI/genesis-world",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "21784a0f422d11fd194ebd66d590d83820b39314e546099cc2ea448200e3c18f"
+    },
+    {
+      "index": 150,
+      "name": "gym-hil",
+      "source_url": "https://github.com/huggingface/gym-hil",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "773872ad00e34fd94c9353d92a3dda99beb3c46bd721340218c56fedc06c6f29"
+    },
+    {
+      "index": 151,
+      "name": "Isaac Lab",
+      "source_url": "https://github.com/isaac-sim/IsaacLab",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "75afeff837c288cd59e7f70b92b7b059e66604be296f78a0708a42587a31beba"
+    },
+    {
+      "index": 152,
+      "name": "Isaac Sim",
+      "source_url": "https://github.com/isaac-sim/IsaacSim",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "b8f6b57b21b6422f9b61ffdbca76c8ef6de1a236475c0d2f16098c32b1059a72"
+    },
+    {
+      "index": 153,
+      "name": "legged_gym: Isaac Gym Environments for Legged Robots",
+      "source_url": "https://github.com/leggedrobotics/legged_gym",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "d8c923281d81ebefdbf5013fbd0d89e3735e62ac8a3946615f41b037100a470c"
+    },
+    {
+      "index": 154,
+      "name": "mjlab: A Lightweight Framework for GPU-Accelerated Robot Learning",
+      "source_url": "https://arxiv.org/abs/2601.22074",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "7d5dea15b3112b51d5c029d0e3e020ed6206862a83172e4c56f59800d7de6fb9",
+      "patches": [
+        {
+          "fields": {
+            "org": "UC Berkeley; Sorbonne University"
+          },
+          "severity": "minor",
+          "evidence": "Paper author block identifies UC Berkeley and Sorbonne University; GitHub organization mujocolab is the code host rather than the full academic affiliation."
+        }
+      ]
+    },
+    {
+      "index": 155,
+      "name": "MuJoCo",
+      "source_url": "https://github.com/google-deepmind/mujoco",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "0b3867b2d8532af2651722a0c4436324732a9f1cfb43218528b53b272e5b7e05"
+    },
+    {
+      "index": 156,
+      "name": "MuJoCo Menagerie",
+      "source_url": "https://github.com/google-deepmind/mujoco_menagerie",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "93aae8d19ac8ce1d6e8296d1cb6b7e463225be2791a9d900415f7410d61b9121"
+    },
+    {
+      "index": 157,
+      "name": "MuJoCo Playground",
+      "source_url": "https://github.com/google-deepmind/mujoco_playground",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "8c0f64db7dace624a071b8499cc0b31aef70e2655de4c8db0f26de6fd2e49c2d"
+    },
+    {
+      "index": 158,
+      "name": "MuJoCo Warp (MJWarp)",
+      "source_url": "https://github.com/google-deepmind/mujoco_warp",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "b9980f2e040698e92a74965a6b5d1c37f0dd5b4504184c2d1a5c5a800c4212d7"
+    },
+    {
+      "index": 159,
+      "name": "Newton",
+      "source_url": "https://github.com/newton-physics/newton",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "2fc8659603c3e0244ffb8288cdf91ca6a9067ff2f0ad5d0b8fceaffb72e3a958"
+    },
+    {
+      "index": 160,
+      "name": "robosuite: A Modular Simulation Framework and Benchmark for Robot Learning",
+      "source_url": "https://github.com/ARISE-Initiative/robosuite",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "1d902eb6e44e108f569f8415ad03d7b0c58884cfb3504fa644fca6cefbba4c78"
+    },
+    {
+      "index": 161,
+      "name": "so101_sim: MuJoCo sim environment for SO-100/SO-101 arms",
+      "source_url": "https://github.com/tuul-ai/so101_sim",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "8845adf9c1c337c1967238310acc639f1611cb59c49b876133d394965edc8b62"
+    },
+    {
+      "index": 162,
+      "name": "A Comprehensive Survey on World Models for Embodied AI",
+      "source_url": "https://arxiv.org/abs/2510.16732",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "c6fed5bc4c18e04299fac347ec7a5a3b0a5d4e15bb1a1503fe6eb0d4ee03630c"
+    },
+    {
+      "index": 163,
+      "name": "A Survey of Reinforcement Learning for Large Reasoning Models",
+      "source_url": "https://arxiv.org/abs/2509.08827",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "085ea7b55ec95f69ad14f949a96fc56ae1e70e9eca1ac4701cc019b28a9dc1d0"
+    },
+    {
+      "index": 164,
+      "name": "A Survey on Efficient Vision-Language-Action Models",
+      "source_url": "https://arxiv.org/abs/2510.24795",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "0601f40ee7aaa56ea62ff3006da7d2ecb3a6910fe5ab5ddbba78f77d6b14b6ca"
+    },
+    {
+      "index": 165,
+      "name": "A Survey on Reinforcement Learning of Vision-Language-Action Models for Robotic Manipulation",
+      "source_url": "https://doi.org/10.36227/techrxiv.176531955.54563920/v1",
+      "status": "correction-or-clarification",
+      "basis": "Publisher-deposited Crossref abstract and authors' companion README. Full text inaccessible; narrowed description only claims abstract-supported scope.",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Survey of RL for VLA manipulation along four axes: RL-VLA architecture (action, reward, transition modeling), online/offline/test-time training paradigms, real-world deployment, and benchmarking; companion Awesome-RL-VLA paper list."
+          },
+          "severity": "minor",
+          "evidence": "Publisher-deposited Crossref abstract retrieved successfully and supports four axes and action/reward/transition design. Author companion README supports the paper-list description. Removed unsupported 100+ count. Full TechRxiv text remains blocked (403), with CDN PDF inaccessible (DNS/502)."
+        }
+      ]
+    },
+    {
+      "index": 166,
+      "name": "Do World Models Make Better Robots? A Survey of Evaluation Benchmarks for Predictive Embodied Intelligence",
+      "source_url": "https://arxiv.org/abs/2609.29669",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "0723e4ee4d201a03323020917cb2d7a2007eb1e83ee6194819a45b37a51d76f4"
+    },
+    {
+      "index": 167,
+      "name": "Embodied Robot Manipulation in the Era of Foundation Models: Planning and Learning Perspectives",
+      "source_url": "https://arxiv.org/abs/2512.22983",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "d83622385af44f5a1844c2ba79de6dafe9817dd6bd59e124294f78fabe7b0794"
+    },
+    {
+      "index": 168,
+      "name": "From Human Videos to Robot Manipulation: A Survey on Scalable Vision-Language-Action Learning with Human-Centric Data",
+      "source_url": "https://arxiv.org/abs/2606.00054",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "62080572eff0b54605c80c1abbf7549278233a63f08b0e70d86a2277d115652c"
+    },
+    {
+      "index": 169,
+      "name": "In-Context Learning for Robots: Methods and Applications",
+      "source_url": "https://arxiv.org/abs/2609.36012",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "ed45d449507f96941d801e816b466fd2a192d63b161b15a4d91f284e6877d146"
+    },
+    {
+      "index": 170,
+      "name": "Large VLM-based Vision-Language-Action Models for Robotic Manipulation: A Survey",
+      "source_url": "https://arxiv.org/abs/2508.13073",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "19c929ead864dbde83e1a85d3744b72249bea2e1dff059740ab1340ed8390041"
+    },
+    {
+      "index": 171,
+      "name": "Pure Vision Language Action (VLA) Models: A Comprehensive Survey",
+      "source_url": "https://arxiv.org/abs/2509.19012",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "1f0dd639d8e5cb40fc876f3ef23eba3d9307b5fbc74e2d9615d8b169912724d3"
+    },
+    {
+      "index": 172,
+      "name": "Quo Vadis, World Modeling?",
+      "source_url": "https://arxiv.org/abs/2608.02713",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "d3955563e7e02cf8f9aefbdc9352bf41a1878ef9af92f2f3199f3629cfad28c2"
+    },
+    {
+      "index": 173,
+      "name": "Reinforcement Learning for Diffusion Policies in Robotics: A Survey and State-Based Locomotion Reproduction",
+      "source_url": "https://doi.org/10.3390/robotics15080147",
+      "status": "correction-or-clarification",
+      "basis": "Indexed primary MDPI full text supports abstract and experimental qualification; direct page/PDF blocked.",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Scoping review mapping 84 studies with a five-axis taxonomy; in state-based D4RL Hopper, five DPPO fine-tuning seeds gain mean +1261 return over BC initializations. A Gaussian-PPO control also improves, so the gain is not diffusion-specific."
+          },
+          "severity": "minor",
+          "evidence": "MDPI publisher text was readable in the indexed search result, including abstract and sections 1.3/1.6: 84 studies; five technical axes; five DPPO fine-tuning seeds reuse two BC checkpoints; mean gain 1261.2 return. Gaussian PPO also improves. State-based locomotion only. Direct publisher page/PDF remained 403/429."
+        }
+      ]
+    },
+    {
+      "index": 174,
+      "name": "Robotic Foundation Models for Industrial Control: A Comprehensive Survey and Readiness Assessment Framework",
+      "source_url": "https://arxiv.org/abs/2603.06749",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "abf92baf2f55d0908a8f8a4844084733d2e6a9e5b86360cc36aca8e4f243cd09",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Survey scoring 324 manipulation-capable robot foundation models against 149 industrial-readiness criteria (48,276 LLM-assisted, expert-validated criterion decisions); finds industrial maturity limited and uneven."
+          },
+          "severity": "minor",
+          "evidence": "Survey assesses 324 models over 149 industrial-readiness criteria. The 48,276 decisions are LLM-assisted criterion scores validated by experts, not physical trials."
+        }
+      ]
+    },
+    {
+      "index": 175,
+      "name": "Robotic Manipulation via Imitation Learning: Taxonomy, Evolution, Benchmark, and Challenges",
+      "source_url": "https://arxiv.org/abs/2508.17449",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "807bf94989d6685708f617d6cc5b8724f6d73cc9540a44336ade9ec92015186b"
+    },
+    {
+      "index": 176,
+      "name": "Robots Need More than VLA and World Models",
+      "source_url": "https://arxiv.org/abs/2606.06556",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "ef1ce73507cafac39f167c168a677b17dee2703ffdeb980efc66f02b04eb9822",
+      "patches": [
+        {
+          "fields": {
+            "org": "Motoniq.ai; Stanford; IIT; ETH Zurich; TU Darmstadt; UCL"
+          },
+          "severity": "major",
+          "evidence": "Author block identifies Motoniq.ai, Stanford, IIT, ETH Zurich, TU Darmstadt and UCL. No Huawei affiliation appears; removed it."
+        }
+      ]
+    },
+    {
+      "index": 177,
+      "name": "Self-evolving Embodied AI",
+      "source_url": "https://arxiv.org/abs/2602.04411",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "bc0041364b2aaf605979c3ff079e77443c7fdcad710cf811901940383486a825"
+    },
+    {
+      "index": 178,
+      "name": "Towards a Unified Understanding of Robot Manipulation: A Comprehensive Survey",
+      "source_url": "https://arxiv.org/abs/2510.10903",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "e53744215f416e78cc1601512451fc8bb0c244c80b7e11d4f304beeacd365fd7"
+    },
+    {
+      "index": 179,
+      "name": "Vision Language Action Models in Robotic Manipulation: A Systematic Review",
+      "source_url": "https://arxiv.org/abs/2507.10672",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "85e05d221603aca6f73dd7ede85ed40a2da8d97699321943cad843bde4bfa0dd"
+    },
+    {
+      "index": 180,
+      "name": "Vision-Language-Action in Robotics: A Survey of Datasets, Benchmarks, and Data Engines",
+      "source_url": "https://arxiv.org/abs/2604.23001",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "36767fd72602bae98e506d451325eca134dc540169d0f5c2e058e862ec3fd710",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "TMLR-accepted data-centric VLA survey covering datasets (embodiment, modality, action space), benchmarks, and data engines (simulation, video reconstruction, task generation); argues future progress depends more on data engines and evaluation protocols than on architecture."
+          },
+          "severity": "minor",
+          "evidence": "Survey’s conclusion emphasizes data engines and evaluation protocols relative to architecture; revised categorical architecture-limit wording to reflect the authors’ argument."
+        }
+      ]
+    },
+    {
+      "index": 181,
+      "name": "Vision-Language-Action Models for Robotics: A Review Towards Real-World Applications",
+      "source_url": "https://arxiv.org/abs/2510.07077",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "d1cf5cb01d69148f40330e78e5f9a32654cb5b48c4cf8d79ec9dac6d772eb3f9"
+    },
+    {
+      "index": 182,
+      "name": "World Models for Embodied Intelligence: From Plausible to Controllable to Actionable",
+      "source_url": "https://arxiv.org/abs/2609.16697",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "5b319217dfd5111e3a108cd3810d7267b858273fb45f5877f0e7271a34c4f52e"
+    },
+    {
+      "index": 183,
+      "name": "World Models: A Comprehensive Survey of Architectures, Methodologies, Reasoning Paradigms, and Applications",
+      "source_url": "https://arxiv.org/abs/2606.00133",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "ca5b58ec8f2700b90ff987071635c8f17c8ef16d65540a90c1517d7f47e34ef0"
+    },
+    {
+      "index": 184,
+      "name": "Cheng Chi: Robotics Beyond Algorithms [ETHZ Robot Learning 2026]",
+      "source_url": "https://www.youtube.com/watch?v=tvFvIEOBKfM",
+      "status": "no-change",
+      "basis": "YouTube metadata/lecture identity checked; full transcript not accessed. Existing description is only a lecture-identity summary.",
+      "source_text_sha256": "03ccfc03f992c903c9a0a1087505f47b430f370a6019f992680cfcf9d0ac40ef"
+    },
+    {
+      "index": 185,
+      "name": "Continually Self-Improving Robots Workshop (CSIR 2026, CoRL 2026)",
+      "source_url": "https://csircorl.github.io/website/",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "810899a1905e1e0d76e5be41f99f2fe48eae8137044f14e78d87cf50ccf715f5",
+      "patches": [
+        {
+          "fields": {
+            "org": "UT Austin; Google DeepMind; Tsinghua University; Agility Robotics"
+          },
+          "severity": "minor",
+          "evidence": "Workshop organizer block supplies full Agility Robotics affiliation; replace truncated fragment."
+        }
+      ]
+    },
+    {
+      "index": 186,
+      "name": "Data-Driven Control (ICML 2026 workshop invited talk)",
+      "source_url": "https://icml.cc/virtual/2026/82813",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "f07877a386b692afda5dc6044f74a081ddd880096197b374e20521773d2b76ed"
+    },
+    {
+      "index": 187,
+      "name": "Post-Training for Robotics Foundation Models: From Pretrained Policies to Real-World Mastery (RSS 2026 Workshop + Challenge)",
+      "source_url": "https://posttraining-for-robotics.github.io/",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "69bb0ab4f1a606e8b328c415d5462279f6a11cc3f215e71c509dcfb2e9703e29",
+      "patches": [
+        {
+          "fields": {
+            "org": "Fudan / WorldEngine; USC; Tsinghua; TRI; MIT; UC Berkeley; et al."
+          },
+          "severity": "minor",
+          "evidence": "Workshop organizer block names UC Berkeley and further institutions; replace cut-off UC fragment with supported abbreviated list."
+        }
+      ]
+    },
+    {
+      "index": 188,
+      "name": "Pretrain to Adapt: What Makes a Pretrained Policy Adaptable? (CoRL 2026 Workshop)",
+      "source_url": "https://corl2026-robotcl.github.io/",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "4c69b333757ef58cca4aee51807ef2fc338e31bcf138539e2a8fc183f4a183cb"
+    },
+    {
+      "index": 189,
+      "name": "R2RL: Roadmap to Sample-Efficient Real-World Reinforcement Learning Workshop (CoRL 2026)",
+      "source_url": "https://r2rl-workshop.github.io/",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "8d21ae0b318cf5ae4d889b9e390b9530cd0e0730f002f816a7ee019116265744",
+      "patches": [
+        {
+          "fields": {
+            "org": "University of Washington; USC; Brown; Robotics & AI Institute; et al."
+          },
+          "severity": "minor",
+          "evidence": "Workshop organizer block names Robotics & AI Institute; replace trailingellipsis with explicit etal."
+        }
+      ]
+    },
+    {
+      "index": 190,
+      "name": "RoboPAD: Post-Training Adaptation of Robot Foundation Models (NeurIPS 2026 Workshop)",
+      "source_url": "https://robotpad2026.github.io/",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "d98b56815fcfc08fb1858638bee232131dac49facf1b71c11f39f790b429206a",
+      "patches": [
+        {
+          "fields": {
+            "org": "A*STAR; Inria Paris; NTU; University of Washington; et al."
+          },
+          "severity": "minor",
+          "evidence": "Workshop organizer block names A*STAR, Inria Paris, NTU, UW andothers; remove prose/truncation fromorgfield."
+        }
+      ]
+    },
+    {
+      "index": 191,
+      "name": "RoboPapers (podcast)",
+      "source_url": "https://robopapers.substack.com/",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "b72407de08e73ce42c9df8486cf4286774853918adb01293bc9e35cdc0a899df"
+    },
+    {
+      "index": 192,
+      "name": "RoboPapers Ep#103: Freeform Preference Learning for Robotic Manipulation",
+      "source_url": "https://robopapers.substack.com/p/ep103-freeform-preference-learning",
+      "status": "correction-or-clarification",
+      "basis": "Official episode page plus linked authors' paper/project for technical claims; not an independent full audio transcription.",
+      "source_text_sha256": "b1d3cb2b26e47c03aecabdb3fa6b4e91019f70ff39a0558ea7f59deefac16fe4",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Podcast with Marcel Torné, Anubha Mahajan, Abhijnya Bhat on FPL: natural-language preference axes train a language-conditioned reward model and reward-conditioned policy; +38 points over sparse-reward/binary-preference baselines across four real and two simulated tasks."
+          },
+          "severity": "minor",
+          "evidence": "Paper’s 38-point aggregate comparison includes four real and two simulated tasks, against sparse-reward and binary-preference baselines. Both settings now explicit."
+        }
+      ]
+    },
+    {
+      "index": 193,
+      "name": "RoboPapers Ep#38: Q Learning is Not Yet Scalable",
+      "source_url": "https://robopapers.substack.com/p/ep38-q-learning-is-not-yet-scalable",
+      "status": "correction-or-clarification",
+      "basis": "Official episode page plus linked authors' paper/project for technical claims; not an independent full audio transcription.",
+      "source_text_sha256": "270098cfb4dfff320dab6af024c9868b97432f2b41838f8749ac326d37c3a00a",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Seohong Park on why many offline RL algorithms saturate on long-horizon simulated tasks (OGBench cube, puzzle, humanoid maze) even with 1000x larger datasets, identifying horizon as the barrier; presents horizon-reduction method SHARSA (arXiv 2506.04168)."
+          },
+          "severity": "minor",
+          "evidence": "Linked paper tests long-horizon simulated OGBench cube, puzzle and humanoid-maze tasks with datasets up to 1000x larger. Description now covers the actual scope and names SHARSA."
+        }
+      ]
+    },
+    {
+      "index": 194,
+      "name": "RoboPapers Ep#58: RL-100: Performant Robotic Manipulation with Real-World Reinforcement Learning",
+      "source_url": "https://robopapers.substack.com/p/ep58-rl-100-performant-robotic-manipulation",
+      "status": "no-change",
+      "basis": "Official episode page plus linked authors' paper/project for technical claims; not an independent full audio transcription.",
+      "source_text_sha256": "6773cfb4f142c44851d31ddaf250b98aee173b40cad633f59fd0dd69626d0dfc"
+    },
+    {
+      "index": 195,
+      "name": "RoboPapers Ep#61: 1x World Model",
+      "source_url": "https://robopapers.substack.com/p/ep61-1x-world-model",
+      "status": "correction-or-clarification",
+      "basis": "Official episode page plus linked authors' paper/project for technical claims; not an independent full audio transcription.",
+      "source_text_sha256": "d48b2c09368796d724f0263e8824f1751ec69f5447d0c61ba04e259e33fdb26d",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Podcast with Daniel Ho (1X) about using video-pretrained world models for NEO control: text-conditioned future video is converted into robot actions by an inverse-dynamics model, aiming to generalize beyond teleoperated tasks."
+          },
+          "severity": "minor",
+          "evidence": "Linked 1X primary post describes text-conditioned future video converted to actions by an inverse-dynamics model. The pipeline still uses robot data for fine-tuning and the inverse model; no data-free claim made."
+        }
+      ]
+    },
+    {
+      "index": 196,
+      "name": "RoboPapers Ep#86: RISE: Self-Improving Robot Policy with Compositional World Model",
+      "source_url": "https://robopapers.substack.com/p/ep86-rise-self-improving-robot-policy",
+      "status": "correction-or-clarification",
+      "basis": "Official episode page plus linked authors' paper/project for technical claims; not an independent full audio transcription.",
+      "source_text_sha256": "16436f7861e63de49b62bb7f2cee67cce93023f2693458398fb2ef8647ad5d8b",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "Jiazhi Yang on RISE: policy updates in a compositional world model rather than real-world RL. Reported real-task gains over prior art: more than 35 percentage points for brick sorting, 45 for backpack packing, 35 for box closing."
+          },
+          "severity": "minor",
+          "evidence": "RISE primary result claims are absolute success-rate differences: over 35 points brick sorting, 45 backpack packing and 35 box closing. Replaced ambiguous percent units."
+        }
+      ]
+    },
+    {
+      "index": 197,
+      "name": "Robot Learning at Deployment (Learn@Deploy) - CoRL 2026 Workshop",
+      "source_url": "https://learn-at-deploy.github.io/",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "963b31262954b9610846d340f97b213aabcbcb0053b67ea53b066e6440b1ded5",
+      "patches": [
+        {
+          "fields": {
+            "org": "Brown University; Stanford University; Bosch Center for AI; UT Austin"
+          },
+          "severity": "minor",
+          "evidence": "Workshop organizer block names Bosch Center for AI and UT Austin; replace truncated fragment."
+        }
+      ]
+    },
+    {
+      "index": 198,
+      "name": "Training General Robots for Any Task: Physical Intelligence's Karol Hausman and Tobi Springenberg (Training Data podcast)",
+      "source_url": "https://podwise.ai/dashboard/episodes/6713465",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "011abfd901d3f314ec2663117626bce1095081f1082a1126e7dfb55f7027902b",
+      "patches": [
+        {
+          "fields": {
+            "url": "https://sequoiacap.com/podcast/training-general-robots-for-any-task-physical-intelligences-karol-hausman-and-tobi-springenberg/"
+          },
+          "severity": "minor",
+          "evidence": "Official Sequoia episode transcript directly supports the 13-hour coffee run and more-than-twofold throughput across three tasks. Replaced the gated third-party summary URL with that primary transcript."
+        }
+      ]
+    },
+    {
+      "index": 199,
+      "name": "Workshop on Agentic Robotics (CoRL 2026)",
+      "source_url": "https://agentic-robotics-workshop.github.io/",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "910eeb94151bf15da171c078aae5d4abf1918d2575e2766c8d542cb3131f337d",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "CoRL 2026 workshop (Austin, Nov 12) on agents that reason, act and recover on real robots, including self-improvement pipelines and routing corrections to the right abstraction level; submission deadline was September 30, 2026 AoE."
+          },
+          "severity": "minor",
+          "evidence": "Official workshop page gives November 12 in Austin and submission deadline September 30, 2026 at 11:59 PM AoE. Corrected the prior deadline."
+        }
+      ]
+    },
+    {
+      "index": 200,
+      "name": "Workshop on Learning from Corrections and Interventions (LfC @ CoRL 2026)",
+      "source_url": "https://sites.google.com/view/lfcworkshopcorl2026/home",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "a5bca463b515578d5395582d316bacadf14fe9d1baf96c289ece73855ae5a7e8"
+    },
+    {
+      "index": 201,
+      "name": "A (Long) Peek into Reinforcement Learning",
+      "source_url": "https://lilianweng.github.io/posts/2018-02-19-rl-overview/",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "c2a58b486882386bd99abe9a8b68c8a248ea27213c96701a0de3392e78afb6a8"
+    },
+    {
+      "index": 202,
+      "name": "Flow Matching Guide and Code",
+      "source_url": "https://arxiv.org/abs/2412.06264",
+      "status": "no-change",
+      "basis": "arXiv abstract and official facebookresearch/flow_matching README; arXiv HTML is unavailable."
+    },
+    {
+      "index": 203,
+      "name": "From Generalists to Specialists: A Case for Real-World RL in Robot Manipulation",
+      "source_url": "https://rasc.usc.edu/blog/from-generalists-to-specialists-a-case-for-real-world-rl-in-robot-manipulation/",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "81beb4e3247444a0b479d7028758e7ca8d8faf2eaed587353e8e2694a10e3466",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "USC blog arguing generalist VLAs should specialize via real-world RL; covers ReWiND learned rewards (5x improvement of real-robot policies after 1 hour of online interaction), EXTRACT skill-based RL, and scalable multi-task evaluation."
+          },
+          "severity": "minor",
+          "evidence": "USC post describes ReWiND and reports a fivefold improvement after one hour of online interaction; retained attribution rather than interpreting this as a specified absolute success-rate change."
+        }
+      ]
+    },
+    {
+      "index": 204,
+      "name": "LeRobot v0.6.0: Imagine, Evaluate, Improve",
+      "source_url": "https://huggingface.co/blog/lerobot-release-v060",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "114d698f1067388ac23cc00548591f098417826dd798b96e91f0b444e8a43002"
+    },
+    {
+      "index": 205,
+      "name": "Offline Reinforcement Learning: Tutorial, Review, and Perspectives on Open Problems",
+      "source_url": "https://arxiv.org/abs/2005.01643",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "00f68504408105184d95a334a59c48c05ddacff34c1a9c732e60c7b145d3e3db"
+    },
+    {
+      "index": 206,
+      "name": "Policy Gradient Algorithms",
+      "source_url": "https://lilianweng.github.io/posts/2018-04-08-policy-gradient/",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "6e6d133bb8276172762a8c251148e5fa77e12f407a184c18be19a32a8ac55b43"
+    },
+    {
+      "index": 207,
+      "name": "SO-101 (LeRobot hardware documentation)",
+      "source_url": "https://huggingface.co/docs/lerobot/so101",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "49908e9cb453a2a03264aa0496f6156f8d2001c758b6c03586d7c7983b3a248d"
+    },
+    {
+      "index": 208,
+      "name": "Sporks of AGI: Why the Real Thing is better than the Next Best Thing",
+      "source_url": "https://sergeylevine.substack.com/p/sporks-of-agi",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "e4875c558445d3b6c131174da44fe3eac23ea98881f1dae992609d4ab5bfb884",
+      "patches": [
+        {
+          "fields": {
+            "org": "Sergey Levine",
+            "one_line": "Levine essay arguing surrogate data (simulation, human video, hand-held grippers) cannot replace real robot data for broadly generalizing foundation models, and is best used to supplement rather than substitute real-world experience."
+          },
+          "severity": "minor",
+          "evidence": "The essay argues real robot data is essential while describing surrogate data as useful supplementation. Reworded as the author’s position and removed unsupported page-level affiliation attribution."
+        }
+      ]
+    },
+    {
+      "index": 209,
+      "name": "Unfolding Robotics: The Open-Source Recipe for Teaching a Robot to Fold Your Clothes",
+      "source_url": "https://huggingface.co/spaces/lerobot/robot-folding",
+      "status": "correction-or-clarification",
+      "basis": "Official Hugging Face Space MDX source read after landing HTML contained no article content.",
+      "source_text_sha256": "f92e2ad582c0e13f47dba0eca00d89d87024704c0c8b58ea07de7845f28817a0",
+      "patches": [
+        {
+          "fields": {
+            "one_line": "OpenArm bimanual pi0/pi0.5 recipe using ~131 h teleoperation, SARM curation, reward-weighted BC, DAgger and real-time chunking. Fine-tuning on a curated dataset one-fifth the size raised shirt-folding success from 40% to 90% across 20 real rollouts."
+          },
+          "severity": "minor",
+          "evidence": "Official Space MDX reports 131 hours, OpenArm, SARM, reward-weighted BC, DAgger and RTC. Curated-data fine-tuning uses one-fifth the data; experiment 2.5 improves 40% to 90%, evaluated on 20 rollouts (ten per difficulty)."
+        }
+      ]
+    },
+    {
+      "index": 210,
+      "name": "π*0.6 and RECAP: Teaching Robots to Learn From Their Mistakes",
+      "source_url": "https://federicosarrocco.com/blog/pi-star-06-recap",
+      "status": "no-change",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "3349799ab2b134d4b91448c6772b02ea2cc9a3b56508f6d6028c5e900a209bea"
+    },
+    {
+      "index": 211,
+      "name": "π0 and π0-FAST: Vision-Language-Action Models for General Robot Control",
+      "source_url": "https://huggingface.co/blog/pi0",
+      "status": "correction-or-clarification",
+      "basis": "Official source description/abstract or README; relevant metric and release/license details checked where claimed.",
+      "source_text_sha256": "650d3e18048eaba850533528f0891383bc40431baf36f8e77b9d4f065dd3f80e",
+      "patches": [
+        {
+          "fields": {
+            "org": "Hugging Face",
+            "one_line": "Hugging Face post on the LeRobot port of Physical Intelligence's π0 (flow matching, 50Hz actions) and π0-FAST (DCT+BPE action tokens; 5x faster training than diffusion-based VLAs, per the post), with fine-tuning commands."
+          },
+          "severity": "minor",
+          "evidence": "Hugging Face authored the LeRobot-port explainer. Its fivefold training-speed claim compares pi0-FAST with diffusion-based VLAs, not an unspecified policy; attributed that comparison to the post."
+        }
+      ]
+    }
+  ]
+}

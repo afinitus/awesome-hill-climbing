@@ -1,0 +1,2590 @@
+[
+  {
+    "id": "N078",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Table 2 checked against the revised fields: one_line = Online RL for flow policies: refines the policy's own samples toward a Q-induced energy-based distribution, then flow-matches to them. Matches or beats SAC on 5 of 6 MuJoCo tasks (not Hopper); fits six synthetic 2D multimodal targets without mode collapse.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2609.15123",
+    "source_sha256": "f6b8ddfe4f6ed1efa44d8e07909d02bc23ef6c69d10b50e0f3b2786e7fedb9df",
+    "fields": {
+      "one_line": "Online RL for flow policies: refines the policy's own samples toward a Q-induced energy-based distribution, then flow-matches to them. Matches or beats SAC on 5 of 6 MuJoCo tasks (not Hopper); fits six synthetic 2D multimodal targets without mode collapse."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N040",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: official implementation link and repository files confirmed.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2609.06882",
+    "source_sha256": "c2eca9dcace620ffe8d93f22294b349838e5575315297e988d732b9c9114dffe",
+    "fields": {
+      "code": "https://github.com/mahmoud-selim/NSPG"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://mahmoud-selim.github.io/NSPG/",
+        "status": 200,
+        "final": "https://mahmoud-selim.github.io/NSPG/",
+        "links": [
+          "https://github.com/mahmoud-selim/NSPG"
+        ],
+        "coming_soon": false,
+        "paths": []
+      },
+      {
+        "url": "https://github.com/mahmoud-selim/NSPG",
+        "status": 200,
+        "final": "https://github.com/mahmoud-selim/NSPG",
+        "links": [
+          "https://github.com/Fang-Lin93/DAC",
+          "https://github.com/Fang-Lin93/DAC\\",
+          "https://github.com/Mahmoud-Selim/NSPG",
+          "https://github.com/Mahmoud-Selim/NSPG.git",
+          "https://github.com/collections",
+          "https://github.com/customer-stories",
+          "https://github.com/digital-brain-sh/d4rl",
+          "https://github.com/digital-brain-sh/d4rl\\",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/features",
+          "https://github.com/features/actions",
+          "https://github.com/features/ai/github-app",
+          "https://github.com/features/code-quality",
+          "https://github.com/features/code-review",
+          "https://github.com/features/codespaces",
+          "https://github.com/features/copilot",
+          "https://github.com/features/copilot/copilot-business",
+          "https://github.com/features/issues",
+          "https://github.com/fluidicon.png",
+          "https://github.com/mahmoud-selim/NSPG",
+          "https://github.com/mahmoud-selim/NSPG&quot;,&quot;user_id&quot;:null}}",
+          "https://github.com/mahmoud-selim/NSPG\\",
+          "https://github.com/marketplace"
+        ],
+        "coming_soon": false,
+        "paths": [
+          "/",
+          "agents",
+          "configs",
+          "datasets",
+          "diffusions",
+          "networks",
+          "wrappers",
+          "README.md",
+          "config.py",
+          "env_utils.py",
+          "environment.yml",
+          "evaluation.py",
+          "jax_runtime.py",
+          "logging_utils.py",
+          "main.py",
+          "plots.py",
+          "utils.py",
+          "video.py"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "N009",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: official implementation link and repository files confirmed. Original link does not provide the advertised implementation.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2608.21740",
+    "source_sha256": "cc44a6c5ef497206c879c2b8032b737a901e63b4b5ff602708d7fb74e8fc0e93",
+    "fields": {
+      "code": ""
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://counteralign.airoa.io",
+        "status": 200,
+        "final": "https://counteralign.airoa.io",
+        "links": [],
+        "coming_soon": true,
+        "paths": []
+      }
+    ]
+  },
+  {
+    "id": "C379",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = A VLM relabels low-reward GRPO groups (mean reward <0.8) with a hindsight instruction and reward. LIBERO-PRO OOD: matches GRPO's final score in ~5 vs ~30 steps. Real Franka FR3: 56% vs GRPO's 22% at 160 rollouts.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2607.09042",
+    "source_sha256": "6b4758746b6d6871cc71a1e7aef156acd118707a24df0c66709594f9eef1f05e",
+    "fields": {
+      "one_line": "A VLM relabels low-reward GRPO groups (mean reward <0.8) with a hindsight instruction and reward. LIBERO-PRO OOD: matches GRPO's final score in ~5 vs ~30 steps. Real Franka FR3: 56% vs GRPO's 22% at 160 rollouts."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N015",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Hierarchical post-training: a Qwen2.5-VL-3B planner emits subgoals; an OpenVLA-OFT executor is first aligned to planner subgoals, then improved with online GRPO. LIBERO average 93.5% vs 91.0% for the strongest listed baseline.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2608.05999",
+    "source_sha256": "e08f32668949b2aff716fdd5dd9c0d6427ccc48ea12cbb82388b4bbe405baa41",
+    "fields": {
+      "one_line": "Hierarchical post-training: a Qwen2.5-VL-3B planner emits subgoals; an OpenVLA-OFT executor is first aligned to planner subgoals, then improved with online GRPO. LIBERO average 93.5% vs 91.0% for the strongest listed baseline."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N058",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Token-level PPO post-training of a UAV VLA with dynamic failure memory, a two-stage scene curriculum and stage-specific reference regularization. TravelUAV (AirSim sim): +3.12 to 8.37 pp success over AerialVLA, with total rollouts about 30% of training-set size.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2608.09467",
+    "source_sha256": "0ea58f1c1e76ce6a29845f1481b23a0337cd5c70f1339f9b506a1ab518a9c2cb",
+    "fields": {
+      "one_line": "Token-level PPO post-training of a UAV VLA with dynamic failure memory, a two-stage scene curriculum and stage-specific reference regularization. TravelUAV (AirSim sim): +3.12 to 8.37 pp success over AerialVLA, with total rollouts about 30% of training-set size."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N014",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Demo-free RL in simulation aligns OpenVLA-OFT to a cable-driven parallel robot: PPO on directional primitives, then GRPO with expanded instructions. Held-out directional success 34.25% (after PPO) to 53.50% (after GRPO); move-to-object only 9.75%.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2608.01013",
+    "source_sha256": "2d8e7da3d252c574b193c9781b9513fd0a65e18255abdf154a6dce64ce802fac",
+    "fields": {
+      "one_line": "Demo-free RL in simulation aligns OpenVLA-OFT to a cable-driven parallel robot: PPO on directional primitives, then GRPO with expanded instructions. Held-out directional success 34.25% (after PPO) to 53.50% (after GRPO); move-to-object only 9.75%."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C372",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Table 1 checked against the revised fields: org = MIRAI",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2607.19399",
+    "source_sha256": "3d919bba36594857ee0466e74bd59773be6d01fc8bf4c2c465205e654c718f8e",
+    "fields": {
+      "org": "MIRAI"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C349",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Table 1 checked against the revised fields: org = University of Edinburgh; Honda Research Institute Europe",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2607.06262",
+    "source_sha256": "03d8fb86b71000969d8b8315950b0535f7cedcb2974c6d8a5225235019aff895",
+    "fields": {
+      "org": "University of Edinburgh; Honda Research Institute Europe"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C390",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = HIL-SERL-style RL with a self-evolving success classifier, flow-matching action-chunk actor, and offline fine-tuning on relit replay; real FR3 USB insertion at the 60% point of a composite lighting-shift index: 1.00 vs HIL-SERL 0.50.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2608.03872",
+    "source_sha256": "4b71a669797b66afbfd3428824357e59b151fea58b878e40fd44e461cced1d5c",
+    "fields": {
+      "one_line": "HIL-SERL-style RL with a self-evolving success classifier, flow-matching action-chunk actor, and offline fine-tuning on relit replay; real FR3 USB insertion at the 60% point of a composite lighting-shift index: 1.00 vs HIL-SERL 0.50."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C308",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Table 1 checked against the revised fields: one_line = ConRFT-style Cal-QL + consistency-policy recipe without human interventions, adding an on-policy value-calibration warm-up and value-filtered self-distillation; ManiSkill 6-task sim average FORCE (Octo) 82.3% vs ConRFT without human intervention 71.1%.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2606.26006",
+    "source_sha256": "6657f5cdaf1ef7ee79f553218bcbb3ad7de25168da1d435576b2d6085475c26c",
+    "fields": {
+      "one_line": "ConRFT-style Cal-QL + consistency-policy recipe without human interventions, adding an on-policy value-calibration warm-up and value-filtered self-distillation; ManiSkill 6-task sim average FORCE (Octo) 82.3% vs ConRFT without human intervention 71.1%."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C338",
+    "status": "verified_modified",
+    "severity": "minor",
+    "evidence": "Primary Section4.4 confirms3 policy candidates plus oneBC candidate,10 critics versus DSRL2. Removed unverified approximate project-chart70/90 values rather than introducing a512k reading not present in primary text.",
+    "verification_note": "Primary Section4.4 confirms3 policy candidates plus oneBC candidate,10 critics versus DSRL2. Removed unverified approximate project-chart70/90 values rather than introducing a512k reading not present in primary text.",
+    "source": "https://arxiv.org/html/2606.19656",
+    "source_sha256": "53c15a3a01e7d9b20a783e21a7f0f6f3c44d5d47bda12ab4b45726f6da8c2dff",
+    "fields": {
+      "one_line": "Explores diffusion-policy candidates with critic min-value plus disagreement: three policy samples and one base sample, with ten critics (DSRL normally uses two). Reports sample-efficiency gains on simulated RoboMimic and OpenAI Gym tasks."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C359",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Motion planning for free-space motion; autonomous dense data collection plus offline SAC-based RL only for the contact segment; real 4-task average 96% vs 55% for the strongest baseline.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2607.15982",
+    "source_sha256": "6ac24ab19b9a7360f0f23448078d77dbb17b5029f1e8984865f421222d2630bb",
+    "fields": {
+      "one_line": "Motion planning for free-space motion; autonomous dense data collection plus offline SAC-based RL only for the contact segment; real 4-task average 96% vs 55% for the strongest baseline."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N041",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Fig. 1 checked against the revised fields: short = CFP; one_line = Pretrains only a BC actor offline, then starts online fine-tuning with a fresh critic after a short warm-up on offline data; plugs into existing offline-to-online algorithms; gains on simulated OGBench manipulation, roughly on par on Robomimic.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2608.10473",
+    "source_sha256": "d7431cc25dc550881624d7eb87b9e3f6056acd305d321fed5bd49e22b24271be",
+    "fields": {
+      "short": "CFP",
+      "one_line": "Pretrains only a BC actor offline, then starts online fine-tuning with a fresh critic after a short warm-up on offline data; plugs into existing offline-to-online algorithms; gains on simulated OGBench manipulation, roughly on par on Robomimic."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N196",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary Table 1 checked against the revised fields: one_line = Distributed async RL system for large VLAs: decouples data and weight traffic, four-thread swimlane pipeline, dual-pool VRAM management; higher throughput than RLinf and RL-VLA3 for pi0.5 and OpenVLA-OFT in ManiSkill (16 GPUs).",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2605.13276",
+    "source_sha256": "d1d7249bbd2a58d96931e88855082346a90f193e403c98f1dc16c48b69b075fe",
+    "fields": {
+      "one_line": "Distributed async RL system for large VLAs: decouples data and weight traffic, four-thread swimlane pipeline, dual-pool VRAM management; higher throughput than RLinf and RL-VLA3 for pi0.5 and OpenVLA-OFT in ManiSkill (16 GPUs)."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C275",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Table 1 checked against the revised fields: one_line = Adds a closed-form score-function drift (computed from the velocity field, no extra network) plus learned noise variance to SDE-based flow-policy RL. Robomimic average success 92.5 vs ReinFlow-S 85.9 and DPPO 75.9; 2.4x faster convergence than ReinFlow on D4RL.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2604.10962",
+    "source_sha256": "009cc4f1fb36bd4d8dda98a0fba656141290588a21a1ac3c83037971eb495fe2",
+    "fields": {
+      "one_line": "Adds a closed-form score-function drift (computed from the velocity field, no extra network) plus learned noise variance to SDE-based flow-policy RL. Robomimic average success 92.5 vs ReinFlow-S 85.9 and DPPO 75.9; 2.4x faster convergence than ReinFlow on D4RL."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N013",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = RL fine-tuning for discrete-diffusion VLAs: treats denoising as an MDP and optimizes the sampled path's joint probability; 99.7% on LIBERO, and 61.4% → 92.0% over its SFT backbone on eight RoboTwin 2.0 tasks.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2606.23623",
+    "source_sha256": "456d3f66a45c5a896804ff13f8f325e5542b173393d7577520c7b2e69e85bd9d",
+    "fields": {
+      "one_line": "RL fine-tuning for discrete-diffusion VLAs: treats denoising as an MDP and optimizes the sampled path's joint probability; 99.7% on LIBERO, and 61.4% → 92.0% over its SFT backbone on eight RoboTwin 2.0 tasks."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N201",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Mix-of-Transformers VLA (reasoning, spatial, action experts) with Flow-GSPO: flow matching recast as an SDE and trained with GSPO (Group Sequence Policy Optimization) on action chunks; evaluated on LIBERO and LIBERO-Plus.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2604.17706",
+    "source_sha256": "0366e3fca341a31c1867c8bf7dad2174fb535c82804f2491f2708c513af0705d",
+    "fields": {
+      "one_line": "Mix-of-Transformers VLA (reasoning, spatial, action experts) with Flow-GSPO: flow matching recast as an SDE and trained with GSPO (Group Sequence Policy Optimization) on action chunks; evaluated on LIBERO and LIBERO-Plus."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N047",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = GRPO (value-network-free) fine-tuning of an imitation-pretrained diffusion navigation policy (NavDP) with selective layer updates; Isaac Sim PointGoal unseen-scene success 52.0% to 58.7%, zero-shot transfer to a real Unitree Go2 quadruped.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2603.12868",
+    "source_sha256": "64c2643e8a53712c1573448016ed557402a2f5a4a4b13660929a91c20a6e82b7",
+    "fields": {
+      "one_line": "GRPO (value-network-free) fine-tuning of an imitation-pretrained diffusion navigation policy (NavDP) with selective layer updates; Isaac Sim PointGoal unseen-scene success 52.0% to 58.7%, zero-shot transfer to a real Unitree Go2 quadruped."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C016",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: title = Residual Policy Learning",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/1812.06298",
+    "source_sha256": "4120f0c2ed1284c6d9113e72b582743c9e458793c52a82a21967e2f3baa10040",
+    "fields": {
+      "title": "Residual Policy Learning"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C199",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Table 1 checked against the revised fields: one_line = Test-time GRPO with a pretrained progress critic (VLAC) instead of an oracle reward. LIBERO average 89.2 → 95.8 over the paper's own OpenVLA-OFT baseline; 1-shot SFT 43.6 → 61.3. Original link does not provide the advertised implementation.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2512.14666",
+    "source_sha256": "c0755d85b9c2f18333f5864ee014f74fe65e8b2e3b7b2828c8c14f9069fb0326",
+    "fields": {
+      "code": "",
+      "one_line": "Test-time GRPO with a pretrained progress critic (VLAC) instead of an oracle reward. LIBERO average 89.2 → 95.8 over the paper's own OpenVLA-OFT baseline; 1-shot SFT 43.6 → 61.3."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://github.com/showlab/EVOLVE-VLA",
+        "status": 200,
+        "final": "https://github.com/showlab/EVOLVE-VLA",
+        "links": [
+          "https://github.com/InternRobotics/VLAC",
+          "https://github.com/InternRobotics/VLAC\\",
+          "https://github.com/Lifelong-Robot-Learning/LIBERO",
+          "https://github.com/Lifelong-Robot-Learning/LIBERO\\",
+          "https://github.com/PRIME-RL/SimpleVLA-RL/tree/main",
+          "https://github.com/PRIME-RL/SimpleVLA-RL/tree/main\\",
+          "https://github.com/collections",
+          "https://github.com/customer-stories",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/features",
+          "https://github.com/features/actions",
+          "https://github.com/features/ai/github-app",
+          "https://github.com/features/code-quality",
+          "https://github.com/features/code-review",
+          "https://github.com/features/codespaces",
+          "https://github.com/features/copilot",
+          "https://github.com/features/copilot/copilot-business",
+          "https://github.com/features/issues",
+          "https://github.com/fluidicon.png",
+          "https://github.com/marketplace",
+          "https://github.com/mcp",
+          "https://github.com/open-source/sponsors",
+          "https://github.com/openvla/openvla"
+        ],
+        "coming_soon": true,
+        "paths": [
+          "/",
+          "assets",
+          "README.md",
+          "index.html"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "C202",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary Table 1 checked against the revised fields: one_line = One-step MeanFlow policy with a dispersive loss, fine-tuned by PPO on a one-step Gaussian chain plus a BC regularizer. Square 0.83 at 1 NFE vs DPPO 0.78 at 20 NFE. Without the BC term (v1 ablation), success collapses to near zero.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction. Also directly checked version 1 Appendix A.3.2: the BC-removed Square/Transport runs collapse near zero; version 2 makes the Gaussian-chain and one-step low-variance claims.",
+    "source": "https://arxiv.org/html/2601.20701",
+    "source_sha256": "12c0d1af099a3174de7883f9c5858bb2ac825b75a07fbb27f344b9a98ed1ca7a",
+    "fields": {
+      "one_line": "One-step MeanFlow policy with a dispersive loss, fine-tuned by PPO on a one-step Gaussian chain plus a BC regularizer. Square 0.83 at 1 NFE vs DPPO 0.78 at 20 NFE. Without the BC term (v1 ablation), success collapses to near zero."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "additional_source": "https://arxiv.org/html/2601.20701v1#A1.SS3.SSS2"
+  },
+  {
+    "id": "C173",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Freezes the pi0 decoder; trains a latent flow actor with a CFM-loss ratio proxy, PPO clipping and a Q-ensemble. LIBERO average 87.2 (no plain-pi0 row). One-task ablation, SAC replacing the ratio proxy: 32.4 vs 78.5 (ICRA 2026).",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2510.09976",
+    "source_sha256": "b7754216fb4782cea18b2dd9e72df59976f836dfd28b7d68bf9fc24388326335",
+    "fields": {
+      "one_line": "Freezes the pi0 decoder; trains a latent flow actor with a CFM-loss ratio proxy, PPO clipping and a Q-ensemble. LIBERO average 87.2 (no plain-pi0 row). One-task ablation, SAC replacing the ratio proxy: 32.4 vs 78.5 (ICRA 2026)."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C289",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Stores progress-calibrated successful segments during deployment, retrieves and consistency-filters them into an elite action prior, and injects it into a frozen VLA's action sampler with confidence-adaptive strength. LIBERO-10: pi0.5 92.4% → 94.4%, pi0 81.6% → 84.4%; no weight updates.; org = Xi'an Jiaotong University; One Robotics; Shenzhen University of Advanced Technology; family = testtime",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2605.10094",
+    "source_sha256": "c2b99d33934ab532e519f3e5c25d0c7f915fc3b6700243dad0aed85b126e79e6",
+    "fields": {
+      "one_line": "Stores progress-calibrated successful segments during deployment, retrieves and consistency-filters them into an elite action prior, and injects it into a frozen VLA's action sampler with confidence-adaptive strength. LIBERO-10: pi0.5 92.4% → 94.4%, pi0 81.6% → 84.4%; no weight updates.",
+      "org": "Xi'an Jiaotong University; One Robotics; Shenzhen University of Advanced Technology",
+      "family": "testtime"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C347",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Searches for language instructions that raise a frozen VLA's closed-loop success, distills them into a language feedback policy, and uses a conformalized improvement head to refuse harmful steering; tested with pi0.5 on LIBERO-OOD and a real Franka.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2606.12299",
+    "source_sha256": "f79a96bf8dc382aaf3d18c7c54bdecc0fb0cf8d47541c3ab14d81cc5ce8366f8",
+    "fields": {
+      "one_line": "Searches for language instructions that raise a frozen VLA's closed-loop success, distills them into a language feedback policy, and uses a conformalized improvement head to refuse harmful steering; tested with pi0.5 on LIBERO-OOD and a real Franka."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N419",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: org = Zhejiang University",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2605.27877",
+    "source_sha256": "018476d7ee750cd3c8cab94a0ec419e1765b407721a03b10340bf44566dbffd5",
+    "fields": {
+      "org": "Zhejiang University"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N082",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: short = SteerGenPO",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2606.16572",
+    "source_sha256": "f57452fb59c21297e7eddd3c65528111f55bedcaf9713a258eff14c25cffc851",
+    "fields": {
+      "short": "SteerGenPO"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C009",
+    "status": "verified_modified",
+    "severity": "minor",
+    "evidence": "Primary Figure2 compares700human queries and350/700/1400synthetic. Nearby700label sentence is ambiguous in isolation; revised wording preserves explicit human sample size while separating aggregate synthetic and human comparisons.",
+    "verification_note": "Primary Figure2 compares700human queries and350/700/1400synthetic. Nearby700label sentence is ambiguous in isolation; revised wording preserves explicit human sample size while separating aggregate synthetic and human comparisons.",
+    "source": "https://arxiv.org/html/1706.03741",
+    "source_sha256": "194fbe9d7087430c573357edc48b7597da164604a6041638dc421235529ddd04",
+    "fields": {
+      "one_line": "Fits a Bradley-Terry reward model online from trajectory-clip comparisons. Evaluates 700 human queries on eight MuJoCo tasks; synthetic feedback nearly matches true-reward RL, with human feedback typically slightly less effective."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C006",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Splits a handful of demo videos into steps and scores progress with features selected from a frozen ImageNet Inception network; this staged reward replaces an IMU door sensor for real-robot PI2 door opening, even from human-hand demos.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/1612.06699",
+    "source_sha256": "47586f6b522160ad433fdea9262faf2d3d358ebf24ae741bc6a0c6d3979054e0",
+    "fields": {
+      "one_line": "Splits a handful of demo videos into steps and scores progress with features selected from a frozen ImageNet Inception network; this staged reward replaces an IMU door sensor for real-robot PI2 door opening, even from human-hand demos."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N363",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: short = T-REX",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/1904.06387",
+    "source_sha256": "052719272ddf8f89f10eb7123146088790d2555e43975aa5ebedfb55b5274eca",
+    "fields": {
+      "short": "T-REX",
+      "code": "https://github.com/hiwonjoon/ICML2019-TREX"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://github.com/hiwonjoon/ICML2019-TREX",
+        "status": 200,
+        "final": "https://github.com/hiwonjoon/ICML2019-TREX",
+        "links": [
+          "https://github.com/collections",
+          "https://github.com/customer-stories",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/features",
+          "https://github.com/features/actions",
+          "https://github.com/features/ai/github-app",
+          "https://github.com/features/code-quality",
+          "https://github.com/features/code-review",
+          "https://github.com/features/codespaces",
+          "https://github.com/features/copilot",
+          "https://github.com/features/copilot/copilot-business",
+          "https://github.com/features/issues",
+          "https://github.com/fluidicon.png",
+          "https://github.com/hiwonjoon/ICML2019-TREX",
+          "https://github.com/hiwonjoon/ICML2019-TREX&quot;,&quot;user_id&quot;:null}}",
+          "https://github.com/hiwonjoon/ICML2019-TREX.git",
+          "https://github.com/hiwonjoon/ICML2019-TREX\\",
+          "https://github.com/marketplace",
+          "https://github.com/mcp",
+          "https://github.com/open-source/sponsors",
+          "https://github.com/orgs/community/discussions",
+          "https://github.com/partners",
+          "https://github.com/pricing"
+        ],
+        "coming_soon": false,
+        "paths": [
+          "/",
+          "assets",
+          "atari",
+          "mujoco",
+          "LICENSE",
+          "README.md"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "N431",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: official implementation link and repository files confirmed.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2106.03911",
+    "source_sha256": "6ee53f37595b785c8939d7db1de69f508fff297bc45157ca824c4d5124e80f42",
+    "fields": {
+      "code": "https://github.com/google-research/google-research/tree/master/xirl"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://x-irl.github.io",
+        "status": 200,
+        "final": "https://x-irl.github.io",
+        "links": [
+          "https://github.com/google-research/google-research/tree/master/xirl",
+          "https://github.com/kevinzakka/x-magical"
+        ],
+        "coming_soon": true,
+        "paths": []
+      },
+      {
+        "url": "https://github.com/google-research/google-research/tree/master/xirl",
+        "status": 200,
+        "final": "https://github.com/google-research/google-research/tree/master/xirl",
+        "links": [
+          "https://github.com/collections",
+          "https://github.com/customer-stories",
+          "https://github.com/denisyarats/pytorch_sac",
+          "https://github.com/denisyarats/pytorch_sac\\",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/features",
+          "https://github.com/features/actions",
+          "https://github.com/features/ai/github-app",
+          "https://github.com/features/code-quality",
+          "https://github.com/features/code-review",
+          "https://github.com/features/codespaces",
+          "https://github.com/features/copilot",
+          "https://github.com/features/copilot/copilot-business",
+          "https://github.com/features/issues",
+          "https://github.com/fluidicon.png",
+          "https://github.com/google-research/google-research.git",
+          "https://github.com/google-research/google-research/blob/master/LICENSE",
+          "https://github.com/google-research/google-research/blob/master/LICENSE\\",
+          "https://github.com/google-research/google-research/tree/master/xirl",
+          "https://github.com/google-research/google-research/tree/master/xirl&quot;,&quot;user_id&quot;:null}}",
+          "https://github.com/google-research/google-research/tree/master/xirl\\",
+          "https://github.com/google/ml_collections",
+          "https://github.com/google/ml_collections\\"
+        ],
+        "coming_soon": false,
+        "paths": [
+          "xirl",
+          "xirl/base_configs",
+          "xirl/configs",
+          "xirl/images",
+          "xirl/sac",
+          "xirl/scripts",
+          "xirl/tests/data/processed",
+          "xirl/xirl",
+          "xirl/README.md",
+          "xirl/compute_goal_embedding.py",
+          "xirl/debug_dataset.py",
+          "xirl/generate_plot.py",
+          "xirl/interact_reward.py",
+          "xirl/pretrain.py",
+          "xirl/pretrain_xmagical_cross_embodiment.py",
+          "xirl/pretrain_xmagical_same_embodiment.py",
+          "xirl/requirements.txt",
+          "xirl/rl_xmagical_env_reward.py",
+          "xirl/rl_xmagical_learned_reward.py",
+          "xirl/run.sh",
+          "xirl/train_policy.py",
+          "xirl/utils.py",
+          "xirl/tests",
+          ".circleci",
+          "Algorithms_and_Hardness_for_Learning_Linear_Thresholds_from_Label_Proportions",
+          "CIQA",
+          "COSTAR",
+          "CardBench_zero_shot_cardinality_training",
+          "CoDi",
+          "Domain_Agnostic_Contrastive_Representations_for_Learning_from_Label_Proportions",
+          "EgoSocial",
+          "KNF",
+          "LLP_Bench",
+          "On_Combining_Bags_to_Better_Learn_from_Label_Proportions",
+          "OpenMSD"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "C040",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary Table 3, Table 5 checked against the revised fields: one_line = Fine-tunes Flamingo 3B to answer 'did the robot successfully X?' on video clips; in-domain gear-insertion balanced accuracy 94-96% (bespoke ResNet 98-99%), but it degrades less under camera and distractor shifts; Ego4D remains hard (62%).",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2303.07280",
+    "source_sha256": "dc8808092807d4bb9340b8d8130bec3342852a43249a5eeeeefd19652f4d13e9",
+    "fields": {
+      "one_line": "Fine-tunes Flamingo 3B to answer 'did the robot successfully X?' on video clips; in-domain gear-insertion balanced accuracy 94-96% (bespoke ResNet 98-99%), but it degrades less under camera and distractor shifts; Ego4D remains hard (62%)."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N347",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Fine-tunes a VLM on FailGen's procedurally perturbed sim failures to detect and explain manipulation failures; beats GPT-4o in-context learning by 10.3%; as failure feedback it lifts success in three LLM/VLM pipelines 21.4% on average over GPT-4 models.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2410.00371",
+    "source_sha256": "c85bd47a59995475fa3934bb886e44c37c1437df065d2c62ad41b939db4fd413",
+    "fields": {
+      "one_line": "Fine-tunes a VLM on FailGen's procedurally perturbed sim failures to detect and explain manipulation failures; beats GPT-4o in-context learning by 10.3%; as failure feedback it lifts success in three LLM/VLM pipelines 21.4% on average over GPT-4 models.",
+      "code": "https://github.com/NVlabs/AHA"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://aha-vlm.github.io/",
+        "status": 200,
+        "final": "https://aha-vlm.github.io/",
+        "links": [
+          "https://github.com/NVlabs/AHA/tree/main"
+        ],
+        "coming_soon": false,
+        "paths": []
+      },
+      {
+        "url": "https://github.com/NVlabs/AHA",
+        "status": 200,
+        "final": "https://github.com/NVlabs/AHA",
+        "links": [
+          "https://github.com/MohitShridhar/RLBench.git",
+          "https://github.com/MohitShridhar/RLBench.git\\npython",
+          "https://github.com/NVlabs/AHA",
+          "https://github.com/NVlabs/AHA&quot;,&quot;user_id&quot;:null}}",
+          "https://github.com/NVlabs/AHA.git",
+          "https://github.com/NVlabs/AHA.git\\nconda",
+          "https://github.com/NVlabs/AHA/tree/main/aha/evaluation/REFLECT_Eval_dataset",
+          "https://github.com/NVlabs/AHA/tree/main/aha/evaluation/REFLECT_Eval_dataset\\",
+          "https://github.com/NVlabs/AHA\\",
+          "https://github.com/collections",
+          "https://github.com/customer-stories",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/features",
+          "https://github.com/features/actions",
+          "https://github.com/features/ai/github-app",
+          "https://github.com/features/code-quality",
+          "https://github.com/features/code-review",
+          "https://github.com/features/codespaces",
+          "https://github.com/features/copilot",
+          "https://github.com/features/copilot/copilot-business",
+          "https://github.com/features/issues",
+          "https://github.com/fluidicon.png",
+          "https://github.com/haotian-liu/LLaVA"
+        ],
+        "coming_soon": false,
+        "paths": [
+          "/",
+          "aha",
+          "LICENSE",
+          "README.md",
+          "add_license_header.py",
+          "aha-teaser.gif",
+          "requirements-docs.txt",
+          "update.py"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "C082",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Table 3 checked against the revised fields: one_line = Asks a frozen VLM (Gemini-1.5-Pro) for task progress on shuffled frames, zero- or few-shot; introduces VOC (0.74 on RT-1); one-shot GVL-weighted AWR beat diffusion policy on 4 of 7 real ALOHA tasks (1 tie, 2 losses). Original link does not provide the advertised implementation.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2411.04549",
+    "source_sha256": "f95f0705b53d830140516ab83c94bc9094e3524dd8441cc406d5e3ae9b831fa1",
+    "fields": {
+      "one_line": "Asks a frozen VLM (Gemini-1.5-Pro) for task progress on shuffled frames, zero- or few-shot; introduces VOC (0.74 on RT-1); one-shot GVL-weighted AWR beat diffusion policy on 4 of 7 real ALOHA tasks (1 tie, 2 losses).",
+      "code": ""
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://generative-value-learning.github.io/",
+        "status": 200,
+        "final": "https://generative-value-learning.github.io/",
+        "links": [],
+        "coming_soon": false,
+        "paths": []
+      }
+    ]
+  },
+  {
+    "id": "N432",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Fig 7 checked against the revised fields: one_line = Rewards a PPO agent at episode end with a frozen S3D video-language model's similarity between its rollout and a single video or text demo; in simulated Meta-World/Franka Kitchen, 2-3x higher zero-shot task reward than GAIL/AIRL.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2310.07899",
+    "source_sha256": "e19d96b71ca476bd9de7b5e40e2bb8b467adfaf98e960b421d185d6613b86b1a",
+    "fields": {
+      "one_line": "Rewards a PPO agent at episode end with a frozen S3D video-language model's similarity between its rollout and a single video or text demo; in simulated Meta-World/Franka Kitchen, 2-3x higher zero-shot task reward than GAIL/AIRL."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N362",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: official implementation link and repository files confirmed.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2309.11489",
+    "source_sha256": "61eb4254c01ace4d9cc49b03e4b1f8dab1c687c9b9dba0d807387265b1cab806",
+    "fields": {
+      "code": "https://github.com/xlang-ai/text2reward"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://text-to-reward.github.io/",
+        "status": 200,
+        "final": "https://text-to-reward.github.io/",
+        "links": [
+          "https://github.com/HKUNLP/UnifiedSKG",
+          "https://github.com/HKUNLP/icl-selective-annotation",
+          "https://github.com/OpenLemur/lemur",
+          "https://github.com/Yushi-Hu/IC-DST",
+          "https://github.com/nerfies/nerfies.github.io",
+          "https://github.com/xlang-ai/OpenAgents",
+          "https://github.com/xlang-ai/text2reward"
+        ],
+        "coming_soon": true,
+        "paths": []
+      },
+      {
+        "url": "https://github.com/xlang-ai/text2reward",
+        "status": 200,
+        "final": "https://github.com/xlang-ai/text2reward",
+        "links": [
+          "https://github.com/ChenWu98",
+          "https://github.com/ChenWu98\\",
+          "https://github.com/Timothyxxx",
+          "https://github.com/Timothyxxx\\",
+          "https://github.com/collections",
+          "https://github.com/customer-stories",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/features",
+          "https://github.com/features/actions",
+          "https://github.com/features/ai/github-app",
+          "https://github.com/features/code-quality",
+          "https://github.com/features/code-review",
+          "https://github.com/features/codespaces",
+          "https://github.com/features/copilot",
+          "https://github.com/features/copilot/copilot-business",
+          "https://github.com/features/issues",
+          "https://github.com/fluidicon.png",
+          "https://github.com/marketplace",
+          "https://github.com/mcp",
+          "https://github.com/open-source/sponsors",
+          "https://github.com/openai/mujoco-py#install-mujoco",
+          "https://github.com/openai/mujoco-py#install-mujoco\\",
+          "https://github.com/orgs/community/discussions"
+        ],
+        "coming_soon": false,
+        "paths": [
+          "/",
+          "ManiSkill2",
+          "Metaworld",
+          "code_generation",
+          "rlkit/envs",
+          "run_maniskill",
+          "run_metaworld",
+          ".gitignore",
+          "README.md"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "N361",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: official implementation link and repository files confirmed.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2404.16779",
+    "source_sha256": "fce93fe15034fa6c398bc27021882a7b6b8c37c4beebd70c09b8eb00da510785",
+    "fields": {
+      "code": "https://github.com/tongzhoumu/DrS"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://sites.google.com/view/iclr24drs",
+        "status": 200,
+        "final": "https://sites.google.com/view/iclr24drs",
+        "links": [
+          "https://github.com/google/safevalues/issues\\n\\n",
+          "https://github.com/tongzhoumu/DrS"
+        ],
+        "coming_soon": false,
+        "paths": []
+      },
+      {
+        "url": "https://github.com/tongzhoumu/DrS",
+        "status": 200,
+        "final": "https://github.com/tongzhoumu/DrS",
+        "links": [
+          "https://github.com/collections",
+          "https://github.com/customer-stories",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/features",
+          "https://github.com/features/actions",
+          "https://github.com/features/ai/github-app",
+          "https://github.com/features/code-quality",
+          "https://github.com/features/code-review",
+          "https://github.com/features/codespaces",
+          "https://github.com/features/copilot",
+          "https://github.com/features/copilot/copilot-business",
+          "https://github.com/features/issues",
+          "https://github.com/fluidicon.png",
+          "https://github.com/marketplace",
+          "https://github.com/mcp",
+          "https://github.com/open-source/sponsors",
+          "https://github.com/orgs/community/discussions",
+          "https://github.com/partners",
+          "https://github.com/pricing",
+          "https://github.com/resources",
+          "https://github.com/resources/articles",
+          "https://github.com/resources/articles?topic=ai",
+          "https://github.com/resources/articles?topic=devops"
+        ],
+        "coming_soon": false,
+        "paths": [
+          "/",
+          "assets",
+          "demo_data",
+          "drs",
+          "reward_checkpoints",
+          ".gitignore",
+          "LICENSE",
+          "README.md",
+          "environment.yml"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "N223",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Frozen healthy teacher plus recurrent residual policy, trained with fault-injection randomization and adaptive fault sampling, compensates hidden single-joint command faults without fault labels; beats the healthy policy in sim and deploys zero-shot on a real LEAP Hand with software-injected faults.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2609.17404",
+    "source_sha256": "cdc002b1b1fed9a44bcb89f05e1c7cd21df1a817063391741ac7b3c6db607367",
+    "fields": {
+      "one_line": "Frozen healthy teacher plus recurrent residual policy, trained with fault-injection randomization and adaptive fault sampling, compensates hidden single-joint command faults without fault labels; beats the healthy policy in sim and deploys zero-shot on a real LEAP Hand with software-injected faults."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C315",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = TD3 residual on 6-DoF object poses, proprioception and the base action, trained only in a simple MuJoCo scene (measured primitives) against a paired 'sim VLA'. Real GR00T-N1.5 five-task average goes from 42% to 76% with zero real-world RL.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2606.18953",
+    "source_sha256": "0686e7c94cb1f3c2fce732743ddb47a0ce9341dea47a39bf8a6577c877015bca",
+    "fields": {
+      "one_line": "TD3 residual on 6-DoF object poses, proprioception and the base action, trained only in a simple MuJoCo scene (measured primitives) against a paired 'sim VLA'. Real GR00T-N1.5 five-task average goes from 42% to 76% with zero real-world RL."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N083",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Table 1 checked against the revised fields: one_line = Frozen pretrained flow policy steered by an offline-RL latent-noise actor, with action-critic warm-up and coarse-to-fine latent-to-residual expansion; beats imitation-only and RL post-training baselines on success and collisions in simulated mobile manipulation, transferred zero-shot to real.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2607.26460",
+    "source_sha256": "d7ae68b7de08e693e651f6b3f05b675cb34458d0f46e309bd79964da5ef1a7cf",
+    "fields": {
+      "one_line": "Frozen pretrained flow policy steered by an offline-RL latent-noise actor, with action-critic warm-up and coarse-to-fine latent-to-residual expansion; beats imitation-only and RL post-training baselines on success and collisions in simulated mobile manipulation, transferred zero-shot to real."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C107",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Table 1 checked against the revised fields: one_line = PPO on OpenVLA-7B, treating a trajectory as a multi-turn conversation, with a VLM process reward model trained on automatically extracted pseudo-labels. LIBERO average 76.5 → 81.0 (OpenVLA SFT baseline); π0-FAST, listed for reference, scores 85.5.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2505.18719",
+    "source_sha256": "0df81b9e3242bb75ba7004a814d9ddf3f812673549532ea842fd3d213a8d601d",
+    "fields": {
+      "one_line": "PPO on OpenVLA-7B, treating a trajectory as a multi-turn conversation, with a VLM process reward model trained on automatically extracted pseudo-labels. LIBERO average 76.5 → 81.0 (OpenVLA SFT baseline); π0-FAST, listed for reference, scores 85.5."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N207",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Table 2 checked against the revised fields: one_line = Dispersive-loss regularization (in-batch representations as negatives) during diffusion-policy pre-training, then DPPO fine-tuning. RoboMimic average success 0.94 vs 0.86 for DPPO (Transport 0.87 vs 0.60); real Franka Transport 70% vs 45% (AAAI 2026).",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2508.02644",
+    "source_sha256": "d3d46755cc2c410c6d134d4ec11f0c21569acedee2a5c5cb816fc8edd54bfde3",
+    "fields": {
+      "one_line": "Dispersive-loss regularization (in-batch representations as negatives) during diffusion-policy pre-training, then DPPO fine-tuning. RoboMimic average success 0.94 vs 0.86 for DPPO (Transport 0.87 vs 0.60); real Franka Transport 70% vs 45% (AAAI 2026)."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N204",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Project page linkshttps://github.com/LxRoboticsLab/RLRC; fresh request on2026-10-01 returns404. Emptycode field remains appropriate; SJTU affiliation confirmed inprimaryheader.",
+    "verification_note": "Project page linkshttps://github.com/LxRoboticsLab/RLRC; fresh request on2026-10-01 returns404. Emptycode field remains appropriate; SJTU affiliation confirmed inprimaryheader.",
+    "source": "https://arxiv.org/html/2506.17639",
+    "source_sha256": "a157b53d88694ce3c8cd2483cb5635075eec5bad9ba4bc9dd24faed8c6e15e00",
+    "fields": {
+      "code": "",
+      "org": "Shanghai Jiao Tong University"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://rlrc-vla.github.io",
+        "status": 200,
+        "final": "https://rlrc-vla.github.io",
+        "links": [
+          "https://github.com/LxRoboticsLab/RLRC",
+          "https://github.com/eliahuhorwitz/Academic-project-page-template"
+        ],
+        "coming_soon": false,
+        "paths": []
+      }
+    ]
+  },
+  {
+    "id": "C073",
+    "status": "verified_modified",
+    "severity": "minor",
+    "evidence": "TableII reports85.0/66.9/91.8/70.4 (unweighted mean78.525), while abstract says79.5 average. Revised line reports table cells only, avoiding unsupported reconciliation.",
+    "verification_note": "TableII reports85.0/66.9/91.8/70.4 (unweighted mean78.525), while abstract says79.5 average. Revised line reports table cells only, avoiding unsupported reconciliation.",
+    "source": "https://arxiv.org/html/2409.16578",
+    "source_sha256": "14d3f98fe7a39e2fe5fdb874272a2ef6a51d41e8a89e9ffed869e485f6f4ad9e",
+    "fields": {
+      "one_line": "PPO fine-tunes a BC transformer in AI2THOR using a low learning rate, no entropy bonus and a separate critic. CHORES-S success: ObjectNav 85.0%, Fetch 66.9%, PickUp 91.8%, RoomVisit 70.4%."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N360",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Table 4 checked against the revised fields: one_line = Demonstration-augmented model-based RL (TD-MPC2 backbone) that learns stage-wise dense rewards online alongside policy and world model; 40% better average data efficiency (70% on the hardest tasks) than baselines across 16 simulated sparse-reward tasks, using 5-100 demos per task.; org = UC San Diego, Hillbot, ETH Zürich; short = DEMO3",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2503.01837",
+    "source_sha256": "d6fff026d7c992c22f939687b0a8b1dd94c766268bed109c0526a5a0b2fde92a",
+    "fields": {
+      "one_line": "Demonstration-augmented model-based RL (TD-MPC2 backbone) that learns stage-wise dense rewards online alongside policy and world model; 40% better average data efficiency (70% on the hardest tasks) than baselines across 16 simulated sparse-reward tasks, using 5-100 demos per task.",
+      "org": "UC San Diego, Hillbot, ETH Zürich",
+      "code": "https://github.com/adrialopezescoriza/demo3",
+      "short": "DEMO3"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://adrialopezescoriza.github.io/demo3/",
+        "status": 200,
+        "final": "https://adrialopezescoriza.github.io/demo3/",
+        "links": [],
+        "coming_soon": false,
+        "paths": []
+      },
+      {
+        "url": "https://github.com/adrialopezescoriza/demo3",
+        "status": 200,
+        "final": "https://github.com/adrialopezescoriza/demo3",
+        "links": [
+          "https://github.com/adrialopezescoriza/demo3",
+          "https://github.com/adrialopezescoriza/demo3&quot;,&quot;user_id&quot;:null}}",
+          "https://github.com/adrialopezescoriza/demo3.git",
+          "https://github.com/adrialopezescoriza/demo3\\",
+          "https://github.com/collections",
+          "https://github.com/customer-stories",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/features",
+          "https://github.com/features/actions",
+          "https://github.com/features/ai/github-app",
+          "https://github.com/features/code-quality",
+          "https://github.com/features/code-review",
+          "https://github.com/features/codespaces",
+          "https://github.com/features/copilot",
+          "https://github.com/features/copilot/copilot-business",
+          "https://github.com/features/issues",
+          "https://github.com/fluidicon.png",
+          "https://github.com/marketplace",
+          "https://github.com/mcp",
+          "https://github.com/nicklashansen/tdmpc2",
+          "https://github.com/nicklashansen/tdmpc2\\",
+          "https://github.com/open-source/sponsors",
+          "https://github.com/orgs/community/discussions"
+        ],
+        "coming_soon": false,
+        "paths": [
+          "/",
+          "assets",
+          "demo3",
+          "docker",
+          "nautilus",
+          "results",
+          ".gitignore",
+          "CONTRIBUTING.md",
+          "README.md"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "C181",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Section 3.2, Section 3.3, Figure 5, Table 1 checked against the revised fields: one_line = Scores failed rollouts by V-JEPA 2 latent distance to the batch's own successes and uses these rewards in a GRPO-style update; one-shot OpenVLA* on LIBERO goes from 48.9% to 99.2% average success.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2511.15605",
+    "source_sha256": "876ac3a8f3ce1fbc40fe7680d985689da682dcfb397c92f72a25ef34b98caa40",
+    "fields": {
+      "one_line": "Scores failed rollouts by V-JEPA 2 latent distance to the batch's own successes and uses these rewards in a GRPO-style update; one-shot OpenVLA* on LIBERO goes from 48.9% to 99.2% average success."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C118",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Table 1, Table 3 checked against the revised fields: one_line = A temporal-ranking value model as potential-based shaping in PPO; CALVIN ABC-D Avg. Len. 4.283 to 4.296 (Seer-Large), while a sparse-reward PPO ablation fell below the starting policy (4.225).",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2505.19767",
+    "source_sha256": "93ebba3915faab408f7c89a9ca41d6c46164d0c4b1019981c5af92a235106086",
+    "fields": {
+      "one_line": "A temporal-ranking value model as potential-based shaping in PPO; CALVIN ABC-D Avg. Len. 4.283 to 4.296 (Seer-Large), while a sparse-reward PPO ablation fell below the starting policy (4.225)."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N435",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Fine-tunes a pretrained video diffusion model to generate goal videos; rewards combine video-level latent alignment with them and a forward-backward-representation reward toward a CLIP-selected goal frame; evaluated on Meta-World and Distracting Control Suite.; org = Wang et al.; short = GenReward",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2512.00961",
+    "source_sha256": "f14d66e8ae93a9470e78754c2da1056648aa205074f4dfe3edc3eb45bdaf8288",
+    "fields": {
+      "one_line": "Fine-tunes a pretrained video diffusion model to generate goal videos; rewards combine video-level latent alignment with them and a forward-backward-representation reward toward a CLIP-selected goal frame; evaluated on Meta-World and Distracting Control Suite.",
+      "org": "Wang et al.",
+      "code": "https://github.com/qiwang067/GenReward",
+      "short": "GenReward"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://qiwang067.github.io/genreward",
+        "status": 200,
+        "final": "https://qiwang067.github.io/genreward",
+        "links": [
+          "https://github.com/qiwang067/GenReward/"
+        ],
+        "coming_soon": false,
+        "paths": []
+      },
+      {
+        "url": "https://github.com/qiwang067/GenReward",
+        "status": 200,
+        "final": "https://github.com/qiwang067/GenReward",
+        "links": [
+          "https://github.com/Farama-Foundation/Metaworld",
+          "https://github.com/Farama-Foundation/Metaworld\\",
+          "https://github.com/NM512/dreamerv3-torch",
+          "https://github.com/NM512/dreamerv3-torch\\",
+          "https://github.com/collections",
+          "https://github.com/customer-stories",
+          "https://github.com/danijar/dreamerv3",
+          "https://github.com/danijar/dreamerv3\\",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/features",
+          "https://github.com/features/actions",
+          "https://github.com/features/ai/github-app",
+          "https://github.com/features/code-quality",
+          "https://github.com/features/code-review",
+          "https://github.com/features/codespaces",
+          "https://github.com/features/copilot",
+          "https://github.com/features/copilot/copilot-business",
+          "https://github.com/features/issues",
+          "https://github.com/fluidicon.png",
+          "https://github.com/marketplace",
+          "https://github.com/mcp",
+          "https://github.com/open-source/sponsors",
+          "https://github.com/orgs/community/discussions"
+        ],
+        "coming_soon": false,
+        "paths": [
+          "/",
+          "assets",
+          "configs",
+          "envs",
+          "videos",
+          "Dockerfile",
+          "README.md",
+          "cal_config.yaml",
+          "cogvideox_vae.py",
+          "eval_gcdreamer.py",
+          "eval_tools.py",
+          "exploration.py",
+          "fb_net.py",
+          "fb_net_vae.py",
+          "frame_selector.py",
+          "goal_dreamer.py",
+          "metaworld_envs.py",
+          "models.py",
+          "networks.py",
+          "parallel.py",
+          "requirements.txt",
+          "rewards.py",
+          "run_gc_mt_disassemble.bash",
+          "run_gc_mt_pick.bash",
+          "run_gc_mt_pick_bin.bash",
+          "run_gc_mt_pick_hole.bash",
+          "run_gc_mt_shelf.bash",
+          "tools.py",
+          "ts_video.py",
+          "vae3d.py",
+          "wrappers.py"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "C153",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Learns signed frame-pair temporal distances from action-free videos as a dense progress reward; added to the sparse success signal for DrQ-v2, it reaches near-perfect success on 9/10 Meta-World tasks within 200k interactions (sim).",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2509.26627",
+    "source_sha256": "14ec56173a7063ed9083723fb4e07f8d0f757dbee5fe55a77f7e90a8853eef19",
+    "fields": {
+      "one_line": "Learns signed frame-pair temporal distances from action-free videos as a dense progress reward; added to the sparse success signal for DrQ-v2, it reaches near-perfect success on 9/10 Meta-World tasks within 200k interactions (sim)."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C083",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Predicts a Gaussian over task progress from initial, current and goal frames, pretrained on EPIC-KITCHENS video; during online RL, adversarial 'push-back' lowers estimates on the agent's own out-of-distribution rollouts to counter distribution shift.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2411.17764",
+    "source_sha256": "8a18ca37cb8ffb0607c738317e2e12994cff126b9ab1fcd967624ce9b10ec278",
+    "fields": {
+      "one_line": "Predicts a Gaussian over task progress from initial, current and goal frames, pretrained on EPIC-KITCHENS video; during online RL, adversarial 'push-back' lowers estimates on the agent's own out-of-distribution rollouts to counter distribution shift."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C152",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Table 3 checked against the revised fields: one_line = Stage-aware progress labels from subtask segmentation; reward-weighted BC on pi0 gets 10/12 medium and 8/12 hard T-shirt folds vs 1/12 and 0/12 for plain BC on the full dataset; available in LeRobot.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2509.25358",
+    "source_sha256": "edc896f0b570fbe4cc9d3ffa70a8ac021c15d679af2f6176022dbe41fa530ec9",
+    "fields": {
+      "one_line": "Stage-aware progress labels from subtask segmentation; reward-weighted BC on pi0 gets 10/12 medium and 8/12 hard T-shirt folds vs 1/12 and 0/12 for plain BC on the full dataset; available in LeRobot."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N028",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary Fig. 4, Fig. 2 checked against the revised fields: one_line = A VLM ranks K=3-5 replay-buffer frames at once; a Plackett-Luce listwise loss trains the reward model. Competitive with pairwise Bradley-Terry and RL-VLM-F on three Meta-World tasks (Drawer Open: PL 86% vs RL-VLM-F 92%).",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2608.25350",
+    "source_sha256": "b7d8dbffed49dea9f08b19248bec19effca9772ce32ff2d97ccdf70c86f2257c",
+    "fields": {
+      "one_line": "A VLM ranks K=3-5 replay-buffer frames at once; a Plackett-Luce listwise loss trains the reward model. Competitive with pairwise Bradley-Terry and RL-VLM-F on three Meta-World tasks (Drawer Open: PL 86% vs RL-VLM-F 92%)."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N356",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = STDR learns visual dense rewards from expert videos: stage-transition plus within-stage progress signals, with OOD detection and grasp regulation; beats LIV/VIP on all 14 sim manipulation tasks and matches or beats handcrafted dense rewards on several.; short = STDR",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2606.31377",
+    "source_sha256": "a642785c44cb85373a6810d0563e0e9eb6f86aee2896d779c0a2e60eed3f59c6",
+    "fields": {
+      "one_line": "STDR learns visual dense rewards from expert videos: stage-transition plus within-stage progress signals, with OOD detection and grasp regulation; beats LIV/VIP on all 14 sim manipulation tasks and matches or beats handcrafted dense rewards on several.",
+      "short": "STDR"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N100",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Self-supervised relative-progress reward model trained on time-warped (speed-varied, reversed) demos; used to filter/reweight BC action chunks, giving up to ~18x successful T-shirt-folding throughput over vanilla BC on a real bimanual robot.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2606.28320",
+    "source_sha256": "1d6d808fbf18f9e684c6643b0e7533d29a8f163a76c24d2f2e22c11dc32c7a74",
+    "fields": {
+      "one_line": "Self-supervised relative-progress reward model trained on time-warped (speed-varied, reversed) demos; used to filter/reweight BC action chunks, giving up to ~18x successful T-shirt-folding throughput over vanilla BC on a real bimanual robot.",
+      "code": "https://github.com/uynitsuj/WARP-RM"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://uynitsuj.github.io/warp-rm/",
+        "status": 200,
+        "final": "https://uynitsuj.github.io/warp-rm/",
+        "links": [
+          "https://github.com/uynitsuj/WARP-RM",
+          "https://github.com/uynitsuj/WARP-RM#paper-simulation-results",
+          "https://github.com/uynitsuj/WARP-RM/blob/main/docs/reproduce_sim.md",
+          "https://github.com/uynitsuj/abc-rabc/tree/59db543d",
+          "https://github.com/uynitsuj/openpi/tree/9c8e7b75483edd5c2dd5f403109d3b0f16549d60"
+        ],
+        "coming_soon": false,
+        "paths": []
+      },
+      {
+        "url": "https://github.com/uynitsuj/WARP-RM",
+        "status": 200,
+        "final": "https://github.com/uynitsuj/WARP-RM",
+        "links": [
+          "https://github.com/collections",
+          "https://github.com/customer-stories",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/features",
+          "https://github.com/features/actions",
+          "https://github.com/features/ai/github-app",
+          "https://github.com/features/code-quality",
+          "https://github.com/features/code-review",
+          "https://github.com/features/codespaces",
+          "https://github.com/features/copilot",
+          "https://github.com/features/copilot/copilot-business",
+          "https://github.com/features/issues",
+          "https://github.com/fluidicon.png",
+          "https://github.com/marketplace",
+          "https://github.com/mcp",
+          "https://github.com/open-source/sponsors",
+          "https://github.com/orgs/community/discussions",
+          "https://github.com/partners",
+          "https://github.com/pricing",
+          "https://github.com/resources",
+          "https://github.com/resources/articles",
+          "https://github.com/resources/articles?topic=ai",
+          "https://github.com/resources/articles?topic=devops"
+        ],
+        "coming_soon": false,
+        "paths": [
+          "/",
+          "docs",
+          "scripts",
+          "warp_rm",
+          ".gitignore",
+          "LICENSE",
+          "README.md",
+          "pyproject.toml",
+          "uv.lock"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "C353",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Table 3 checked against the revised fields: one_line = A history-aware critic trained with latent next-state prediction; beats a single-frame VLM critic on all 7 real RECAP/AWR tasks (best 44/50) and reaches 99.0% ManiSkill IND with OpenVLA-OFT (PPO critic: 97.7%).",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2607.29613",
+    "source_sha256": "4d454ae74fa4d177b15838a4b7a765a7450b86bae7b9f50fc50587ef1e644f84",
+    "fields": {
+      "one_line": "A history-aware critic trained with latent next-state prediction; beats a single-frame VLM critic on all 7 real RECAP/AWR tasks (best 44/50) and reaches 99.0% ManiSkill IND with OpenVLA-OFT (PPO critic: 97.7%)."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N030",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: official implementation link and repository files confirmed.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2608.14284",
+    "source_sha256": "c929e8da4c7ec86dac358c228936fa6ddaab558f7090c5f5ceeb38db54001a96",
+    "fields": {
+      "code": "https://github.com/YuyangLiu2003/PRM-as-a-Judge"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://prm-as-a-judge.github.io",
+        "status": 200,
+        "final": "https://prm-as-a-judge.github.io",
+        "links": [
+          "https://github.com/YuyangLiu2003/PRM-as-a-Judge",
+          "https://github.com/YuyangLiu2003/PRM-as-a-Judge#wechat-community"
+        ],
+        "coming_soon": false,
+        "paths": []
+      },
+      {
+        "url": "https://github.com/YuyangLiu2003/PRM-as-a-Judge",
+        "status": 200,
+        "final": "https://github.com/YuyangLiu2003/PRM-as-a-Judge",
+        "links": [
+          "https://github.com/Yuheng2000/PRM-as-a-Judge.git",
+          "https://github.com/Yuheng2000/PRM-as-a-Judge.git\\n\\u003cspan",
+          "https://github.com/Yuheng2000/PRM-as-a-Judge.git\\ncd",
+          "https://github.com/YuyangLiu2003/PRM-as-a-Judge",
+          "https://github.com/YuyangLiu2003/PRM-as-a-Judge&quot;,&quot;user_id&quot;:null}}",
+          "https://github.com/YuyangLiu2003/PRM-as-a-Judge.git",
+          "https://github.com/YuyangLiu2003/PRM-as-a-Judge\\",
+          "https://github.com/collections",
+          "https://github.com/customer-stories",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/features",
+          "https://github.com/features/actions",
+          "https://github.com/features/ai/github-app",
+          "https://github.com/features/code-quality",
+          "https://github.com/features/code-review",
+          "https://github.com/features/codespaces",
+          "https://github.com/features/copilot",
+          "https://github.com/features/copilot/copilot-business",
+          "https://github.com/features/issues",
+          "https://github.com/fluidicon.png",
+          "https://github.com/marketplace",
+          "https://github.com/mcp",
+          "https://github.com/open-source/sponsors"
+        ],
+        "coming_soon": true,
+        "paths": [
+          "/",
+          "constraints",
+          "eval",
+          "figs",
+          "getting_started",
+          ".gitignore",
+          "LICENSE",
+          "README.md",
+          "THIRD_PARTY_NOTICES.md",
+          "pyproject.toml"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "N098",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary Table 1 checked against the revised fields: one_line = Value model trained on progress targets from world-model patch similarity to subgoals reshapes terminal rewards for PPO/GRPO VLA fine-tuning; ManiSkill3 (sim) average OOD success 82.9% vs 76.8% for OpenVLA-OFT with plain PPO and 17.5% after SFT.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2605.30795",
+    "source_sha256": "393fc68f12c52e2194a835b083d8eee53bab252e33b90740d13b250fda0914ee",
+    "fields": {
+      "one_line": "Value model trained on progress targets from world-model patch similarity to subgoals reshapes terminal rewards for PPO/GRPO VLA fine-tuning; ManiSkill3 (sim) average OOD success 82.9% vs 76.8% for OpenVLA-OFT with plain PPO and 17.5% after SFT."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N355",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary Table 1, Table 2 checked against the revised fields: family = worldmodel; one_line = Agentic Qwen3.5 reward that checks planning, visual quality, instruction following, physics and task completion, plus DynDiff-GRPO rollout diversification, for RL post-training of robot video world models; PAI-Bench robot Domain score +0.80 (Cosmos-Predict2.5-2B), +3.08 (Kairos-3.0-Robot).",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2606.19990",
+    "source_sha256": "e8704e92a51ed424a6e07e911bf920705a5d11aca03cea0cf4ba166abb0d7208",
+    "fields": {
+      "family": "worldmodel",
+      "code": "https://github.com/SpursLipu/Reward-as-An-Agent-for-Embodied-World-Models",
+      "one_line": "Agentic Qwen3.5 reward that checks planning, visual quality, instruction following, physics and task completion, plus DynDiff-GRPO rollout diversification, for RL post-training of robot video world models; PAI-Bench robot Domain score +0.80 (Cosmos-Predict2.5-2B), +3.08 (Kairos-3.0-Robot)."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://github.com/SpursLipu/Reward-as-An-Agent-for-Embodied-World-Models",
+        "status": 200,
+        "final": "https://github.com/SpursLipu/Reward-as-An-Agent-for-Embodied-World-Models",
+        "links": [
+          "https://github.com/SpursLipu/Reward-as-An-Agent-for-Embodied-World-Models",
+          "https://github.com/SpursLipu/Reward-as-An-Agent-for-Embodied-World-Models&quot;,&quot;user_id&quot;:null}}",
+          "https://github.com/SpursLipu/Reward-as-An-Agent-for-Embodied-World-Models.git",
+          "https://github.com/SpursLipu/Reward-as-An-Agent-for-Embodied-World-Models\\",
+          "https://github.com/collections",
+          "https://github.com/customer-stories",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/facebookresearch/WMReward",
+          "https://github.com/facebookresearch/WMReward#installation",
+          "https://github.com/facebookresearch/WMReward#installation\\",
+          "https://github.com/facebookresearch/WMReward.git",
+          "https://github.com/facebookresearch/WMReward.git\\n\\u003cspan",
+          "https://github.com/facebookresearch/WMReward.git\\ncd",
+          "https://github.com/facebookresearch/WMReward\\",
+          "https://github.com/facebookresearch/co-tracker",
+          "https://github.com/facebookresearch/co-tracker.git",
+          "https://github.com/facebookresearch/co-tracker.git\\n\\u003cspan",
+          "https://github.com/facebookresearch/co-tracker.git\\ncd",
+          "https://github.com/facebookresearch/co-tracker\\",
+          "https://github.com/facebookresearch/vjepa2",
+          "https://github.com/facebookresearch/vjepa2\\",
+          "https://github.com/features",
+          "https://github.com/features/actions"
+        ],
+        "coming_soon": false,
+        "paths": [
+          "/",
+          ".github/workflows",
+          "assets",
+          "configs",
+          "examples",
+          "reward_as_agent",
+          "scripts",
+          "tests",
+          ".env.example",
+          ".gitignore",
+          "LICENSE",
+          "README.md",
+          "environment.yml",
+          "pyproject.toml",
+          "requirements.txt",
+          "reward_main.py",
+          "start_doubao_reward.sh",
+          "start_evidence_reward.sh",
+          "start_qwen_reward.sh"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "N330",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary Table 2, Table 1 checked against the revised fields: family = advbc; one_line = Compact 0.1B VLA with two-stage Perceiver resampling and jointly trained progress heads (offline-RL critics over normalized remaining-horizon targets) that weight flow-matching imitation; beats imported larger-baseline scores on LIBERO and Meta-World; progress weighting adds 2.3 points on LIBERO.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2605.28231",
+    "source_sha256": "ac0e4d54c3aaaaa48b8c47cecdb0019ac63f206ebe7b5435068ca518e2c85509",
+    "fields": {
+      "family": "advbc",
+      "one_line": "Compact 0.1B VLA with two-stage Perceiver resampling and jointly trained progress heads (offline-RL critics over normalized remaining-horizon targets) that weight flow-matching imitation; beats imported larger-baseline scores on LIBERO and Meta-World; progress weighting adds 2.3 points on LIBERO."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C437",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary Table 7 checked against the revised fields: one_line = A survey of roughly 150 robot verifiers grouped by who supplies the judgment; finds credibility falls as availability rises, and argues robotics has yet to search a learned verifier for inputs it wrongly accepts.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2609.09250",
+    "source_sha256": "1421e094868efee9ab75d95bda1d8333cad56f455fe1ec23e06f34f807b92800",
+    "fields": {
+      "one_line": "A survey of roughly 150 robot verifiers grouped by who supplies the judgment; finds credibility falls as availability rises, and argues robotics has yet to search a learned verifier for inputs it wrongly accepts."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N022",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Position paper: reuse the VLA's frozen visual encoder plus a reference bank of successful demonstration endpoints as a built-in reward/evaluator, avoiding a separate reward model; COMAU Racer 3 demonstrator at TRL 4, no policy-improvement results yet.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2609.17115",
+    "source_sha256": "c650d48e3fd7c34f5a36084ba3cede54c2416dd10a637efd4483b9a7cf650ed9",
+    "fields": {
+      "one_line": "Position paper: reuse the VLA's frozen visual encoder plus a reference bank of successful demonstration endpoints as a built-in reward/evaluator, avoiding a separate reward model; COMAU Racer 3 demonstrator at TRL 4, no policy-improvement results yet."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N429",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: org = UC Berkeley; Sony Research; UT Austin",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2407.00898",
+    "source_sha256": "ba63dc80c5357d7f10a18986adc0825963904691a350ca045ac319f86dde39fa",
+    "fields": {
+      "org": "UC Berkeley; Sony Research; UT Austin",
+      "code": "https://github.com/outsider86/Residual-MPPI"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://sites.google.com/view/residual-mppi",
+        "status": 200,
+        "final": "https://sites.google.com/view/residual-mppi",
+        "links": [
+          "https://github.com/google/safevalues/issues\\n\\n",
+          "https://github.com/outsider86/Residual-MPPI"
+        ],
+        "coming_soon": true,
+        "paths": []
+      },
+      {
+        "url": "https://github.com/outsider86/Residual-MPPI",
+        "status": 200,
+        "final": "https://github.com/outsider86/Residual-MPPI",
+        "links": [
+          "https://github.com/collections",
+          "https://github.com/customer-stories",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/features",
+          "https://github.com/features/actions",
+          "https://github.com/features/ai/github-app",
+          "https://github.com/features/code-quality",
+          "https://github.com/features/code-review",
+          "https://github.com/features/codespaces",
+          "https://github.com/features/copilot",
+          "https://github.com/features/copilot/copilot-business",
+          "https://github.com/features/issues",
+          "https://github.com/fluidicon.png",
+          "https://github.com/google-deepmind/mujoco/releases/download/2.1.0/mujoco210-linux-x86_64.tar.gz",
+          "https://github.com/google-deepmind/mujoco/releases/download/2.1.0/mujoco210-linux-x86_64.tar.gz\\ntar",
+          "https://github.com/marketplace",
+          "https://github.com/mcp",
+          "https://github.com/open-source/sponsors",
+          "https://github.com/orgs/community/discussions",
+          "https://github.com/outsider86/Residual-MPPI",
+          "https://github.com/outsider86/Residual-MPPI&quot;,&quot;user_id&quot;:null}}",
+          "https://github.com/outsider86/Residual-MPPI.git",
+          "https://github.com/outsider86/Residual-MPPI\\"
+        ],
+        "coming_soon": false,
+        "paths": [
+          "/",
+          "CustomEnv",
+          "graphs",
+          "logs",
+          "parameters",
+          "utils",
+          "LICENSE",
+          "README.md",
+          "main.py",
+          "mppi.py",
+          "requirements.txt"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "C086",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Fig. 6 checked against the revised fields: org = UC San Diego",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2412.13630",
+    "source_sha256": "be2a9c060afa3ad61d7342245dd1d1c85db95f65f83896c5ab8b9a10902d44b8",
+    "fields": {
+      "org": "UC San Diego"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N331",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Table 1 checked against the revised fields: one_line = Decomposes tasks into motion-planner-linked skills, imitates data generated from 10 human demos, then fine-tunes pose prediction, skills and termination with online adaptation and RL; over 80% on every Robosuite visuomotor task tested, 84.6% vs 44.7% for the HSP baseline. Original link does not provide the advertised implementation.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2512.16861",
+    "source_sha256": "a34804c3c08fb359ed826f47674a74722727ca77c17f1b6164d793ed797bb5da",
+    "fields": {
+      "one_line": "Decomposes tasks into motion-planner-linked skills, imitates data generated from 10 human demos, then fine-tunes pose prediction, skills and termination with online adaptation and RL; over 80% on every Robosuite visuomotor task tested, 84.6% vs 44.7% for the HSP baseline.",
+      "code": ""
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://reinforcegen.github.io",
+        "status": 200,
+        "final": "https://reinforcegen.github.io",
+        "links": [],
+        "coming_soon": false,
+        "paths": []
+      }
+    ]
+  },
+  {
+    "id": "C063",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Gated residual trained by max likelihood on human SpaceMouse corrections over a frozen sim policy. Real Franka average 81% over four tasks; beats BC fine-tuning, and HG-DAgger and IWR, which the authors find forget the base policy.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2405.10315",
+    "source_sha256": "4561618ce92580055e6b21099d5ce98734bb27e0183705699ddb149b5dd38d4a",
+    "fields": {
+      "one_line": "Gated residual trained by max likelihood on human SpaceMouse corrections over a frozen sim policy. Real Franka average 81% over four tasks; beats BC fine-tuning, and HG-DAgger and IWR, which the authors find forget the base policy."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C066",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Per-step PPO residual on a frozen chunked diffusion policy. Sim assembly goes from 5-54% to 88-99% (low randomization) with 50 demos, while diffusion BC plateaus at about 80% on one_leg even with 100K RL-generated demos.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2407.16677",
+    "source_sha256": "c324427b7675e11d0f6c13283238b2a8b5128ece1bba7a0225fb622c513847b4",
+    "fields": {
+      "one_line": "Per-step PPO residual on a frozen chunked diffusion policy. Sim assembly goes from 5-54% to 88-99% (low randomization) with 50 demos, while diffusion BC plateaus at about 80% on one_leg even with 100K RL-generated demos."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C200",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Table 1 checked against the revised fields: one_line = Equivariant noise-steering actor and critics on equivariant diffusion policies. Square D2 peak success: base 0.275, DSRL 0.552, Equi-DSRL 0.644; but strict equivariance was lowest on Stack D1 (0.728 vs DSRL 0.740). Plain DSRL's Q diverged in 3/5 Lift seeds.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2512.11345",
+    "source_sha256": "2f5561a29ed0fe4984a55a7afbb9c89bf9e4794bb518bdd5dfcac4cb581eec0d",
+    "fields": {
+      "one_line": "Equivariant noise-steering actor and critics on equivariant diffusion policies. Square D2 peak success: base 0.275, DSRL 0.552, Equi-DSRL 0.644; but strict equivariance was lowest on Stack D1 (0.728 vs DSRL 0.740). Plain DSRL's Q diverged in 3/5 Lift seeds."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C025",
+    "status": "verified_modified",
+    "severity": "minor",
+    "evidence": "Replaced unsupported lineage priority with direct mechanism and evaluation domains from abstract; bounded learned decoder does not mathematically guarantee exact empirical support.",
+    "verification_note": "Replaced unsupported lineage priority with direct mechanism and evaluation domains from abstract; bounded learned decoder does not mathematically guarantee exact empirical support.",
+    "source": "https://arxiv.org/html/2011.07213",
+    "source_sha256": "a0b5628249dc4e55492f88ffd928c57674f11a4335acc0ad3ff7f3bd8595fd33",
+    "fields": {
+      "one_line": "Offline RL whose actor outputs a tanh-bounded latent through a frozen CVAE behavior decoder, constraining actions through its learned data distribution; evaluated on simulated continuous control and real deformable-object manipulation."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C008",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary text/header/linked project checked against the revised fields: family = blackbox; one_line = Classic precursor. Episode-fixed weight noise for coherent exploration in DQN, DDPG and TRPO. DQN with parameter noise beats ES on 15 of 21 Atari games with 25x less data.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/1706.01905",
+    "source_sha256": "4fd3f491c1cd7057c7a83d5e3f7f944b3810635bab2a59393943a2d1d8b173e4",
+    "fields": {
+      "family": "blackbox",
+      "one_line": "Classic precursor. Episode-fixed weight noise for coherent exploration in DQN, DDPG and TRPO. DQN with parameter noise beats ES on 15 of 21 Atari games with 25x less data."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N120",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Predicts scenario-level real-world policy performance from few paired sim/real samples plus many sim rollouts, with sim-bias correction and conformal calibration. Sim-to-sim: error down 4.9%/34.7% (driving), 14.5%/27.7% (quadruped) vs neural/aggregate baselines; also run on a real Go2.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2608.19425",
+    "source_sha256": "e568b217cec54c4f838f3eb9329a75353176aea66969020aa47a2d1b4b4e391c",
+    "fields": {
+      "one_line": "Predicts scenario-level real-world policy performance from few paired sim/real samples plus many sim rollouts, with sim-bias correction and conformal calibration. Sim-to-sim: error down 4.9%/34.7% (driving), 14.5%/27.7% (quadruped) vs neural/aggregate baselines; also run on a real Go2."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N126",
+    "status": "verified_modified",
+    "severity": "minor",
+    "evidence": "Abstract places17/21/40gains in real deployment but lead alleges body scope inconsistency. Removed those ambiguous gains; retained independently supported0.911 correlation across7tasks5policies.",
+    "verification_note": "Abstract places17/21/40gains in real deployment but lead alleges body scope inconsistency. Removed those ambiguous gains; retained independently supported0.911 correlation across7tasks5policies.",
+    "source": "https://arxiv.org/html/2606.28276",
+    "source_sha256": "fdc6ec78cb478998258a9820cadb303dc272b15d85b8ca1a85e37385509db40c",
+    "fields": {
+      "one_line": "Reconstructs video-to-sim digital twins and affordance-preserving object, scene and task variants for policy training. Across seven manipulation tasks and five policies, simulated evaluations correlate with real performance (mean Pearson 0.911).",
+      "code": "https://github.com/NVlabs/SimFoundry"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://research.nvidia.com/labs/gear/simfoundry/",
+        "status": 200,
+        "final": "https://research.nvidia.com/labs/gear/simfoundry/",
+        "links": [
+          "https://github.com/NVlabs/SimFoundry"
+        ],
+        "coming_soon": false,
+        "paths": []
+      },
+      {
+        "url": "https://github.com/NVlabs/SimFoundry",
+        "status": 200,
+        "final": "https://github.com/NVlabs/SimFoundry",
+        "links": [
+          "https://github.com/NVlabs/FoundationPose",
+          "https://github.com/NVlabs/FoundationPose\\",
+          "https://github.com/NVlabs/SimFoundry",
+          "https://github.com/NVlabs/SimFoundry&quot;,&quot;user_id&quot;:null}}",
+          "https://github.com/NVlabs/SimFoundry.git",
+          "https://github.com/NVlabs/SimFoundry\\",
+          "https://github.com/StanfordVL/BEHAVIOR-1K",
+          "https://github.com/StanfordVL/BEHAVIOR-1K\\",
+          "https://github.com/StanfordVL/OmniGibson",
+          "https://github.com/StanfordVL/OmniGibson\\",
+          "https://github.com/Tencent/Hunyuan3D-2",
+          "https://github.com/Tencent/Hunyuan3D-2\\",
+          "https://github.com/bytedance-seed/Depth-Anything-3",
+          "https://github.com/bytedance-seed/Depth-Anything-3\\",
+          "https://github.com/collections",
+          "https://github.com/cremebrule/digital-cousins",
+          "https://github.com/cremebrule/digital-cousins\\",
+          "https://github.com/customer-stories",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/facebookresearch/sam3",
+          "https://github.com/facebookresearch/sam3\\",
+          "https://github.com/features",
+          "https://github.com/features/actions"
+        ],
+        "coming_soon": true,
+        "paths": [
+          "/",
+          "docs",
+          "patches",
+          "scripts",
+          "simfoundry",
+          "tests",
+          "third_party_notices",
+          ".gitattributes",
+          ".gitignore",
+          "AGENTS.md",
+          "CONTRIBUTING.md",
+          "LICENSE",
+          "PATCH_PROVENANCE.md",
+          "README.md",
+          "SECURITY.md",
+          "THIRD_PARTY_LICENSES.md",
+          "THIRD_PARTY_NOTICES.md",
+          "install.sh",
+          "pytest.ini",
+          "requirements.txt",
+          "requirements_dev.txt",
+          "requirements_hunyuan.txt",
+          "requirements_teleop.txt",
+          "setup.py"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "C300",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary text/header/linked project checked against the revised fields: title = Contrastive Conceptor Activation Steering (COAST): Unlocking Vision-Language-Action Models through Hidden States; family = testtime; one_line = Training-free steering of a frozen policy's action-expert activations with contrastive conceptors fit from about 15 success/failure rollouts per task. Mean success up over 20 points in sim (partly early, under-trained checkpoints) and 40 points on 3 real tasks.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2605.17144",
+    "source_sha256": "0a2f60115dca937081e54749d3fafd3898d7368caf1690cfd28aed1e246cbaa4",
+    "fields": {
+      "title": "Contrastive Conceptor Activation Steering (COAST): Unlocking Vision-Language-Action Models through Hidden States",
+      "family": "testtime",
+      "one_line": "Training-free steering of a frozen policy's action-expert activations with contrastive conceptors fit from about 15 success/failure rollouts per task. Mean success up over 20 points in sim (partly early, under-trained checkpoints) and 40 points on 3 real tasks."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N334",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Two-stage RL for multi-fingered hands: task-agnostic play pretraining on diverse objects, then sparse-reward assembly fine-tuning; 33x more sample-efficient than RL from scratch (even with dense rewards); zero-shot real 60% (6/10) on 0.5 mm-clearance insertions.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2606.26428",
+    "source_sha256": "ec965052214d4c808e04f15c045343e4f5045b12ec3bea1330f90313b9ac9bb0",
+    "fields": {
+      "one_line": "Two-stage RL for multi-fingered hands: task-agnostic play pretraining on diverse objects, then sparse-reward assembly fine-tuning; 33x more sample-efficient than RL from scratch (even with dense rewards); zero-shot real 60% (6/10) on 0.5 mm-clearance insertions.",
+      "code": "https://github.com/kushal2000/play2perfect"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://play2perfect.github.io",
+        "status": 200,
+        "final": "https://play2perfect.github.io",
+        "links": [
+          "https://github.com/kushal2000/play2perfect",
+          "https://github.com/nerfies/nerfies.github.io"
+        ],
+        "coming_soon": false,
+        "paths": []
+      },
+      {
+        "url": "https://github.com/kushal2000/play2perfect",
+        "status": 200,
+        "final": "https://github.com/kushal2000/play2perfect",
+        "links": [
+          "https://github.com/Denys88/rl_games",
+          "https://github.com/Denys88/rl_games\\",
+          "https://github.com/collections",
+          "https://github.com/customer-stories",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/features",
+          "https://github.com/features/actions",
+          "https://github.com/features/ai/github-app",
+          "https://github.com/features/code-quality",
+          "https://github.com/features/code-review",
+          "https://github.com/features/codespaces",
+          "https://github.com/features/copilot",
+          "https://github.com/features/copilot/copilot-business",
+          "https://github.com/features/issues",
+          "https://github.com/fluidicon.png",
+          "https://github.com/kushal2000/play2perfect",
+          "https://github.com/kushal2000/play2perfect&quot;,&quot;user_id&quot;:null}}",
+          "https://github.com/kushal2000/play2perfect.git",
+          "https://github.com/kushal2000/play2perfect\\",
+          "https://github.com/marketplace",
+          "https://github.com/mcp",
+          "https://github.com/open-source/sponsors",
+          "https://github.com/orgs/community/discussions"
+        ],
+        "coming_soon": false,
+        "paths": [
+          "/",
+          "assets/urdf",
+          "deployment",
+          "docs",
+          "evaluation",
+          "isaacsimenvs",
+          "rl_games",
+          ".gitignore",
+          "LICENSE",
+          "README.md",
+          "download_checkpoints.py",
+          "format.sh",
+          "pyproject.toml",
+          "setup.py"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "N125",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: official implementation link and repository files confirmed.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2607.06699",
+    "source_sha256": "77fee680c3846f8271dee8ec9e50b3b2250f1a40aab4619f5f3ed06d97992616",
+    "fields": {
+      "code": "https://github.com/robosnap/robosnap"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://robosnap.github.io",
+        "status": 200,
+        "final": "https://robosnap.github.io",
+        "links": [
+          "https://github.com/PC1E-bit",
+          "https://github.com/greyman-seu",
+          "https://github.com/robosnap",
+          "https://github.com/zr-zhou0o0"
+        ],
+        "coming_soon": true,
+        "paths": []
+      },
+      {
+        "url": "https://github.com/robosnap/robosnap",
+        "status": 200,
+        "final": "https://github.com/robosnap/robosnap",
+        "links": [
+          "https://github.com/collections",
+          "https://github.com/customer-stories",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/features",
+          "https://github.com/features/actions",
+          "https://github.com/features/ai/github-app",
+          "https://github.com/features/code-quality",
+          "https://github.com/features/code-review",
+          "https://github.com/features/codespaces",
+          "https://github.com/features/copilot",
+          "https://github.com/features/copilot/copilot-business",
+          "https://github.com/features/issues",
+          "https://github.com/fluidicon.png",
+          "https://github.com/marketplace",
+          "https://github.com/mcp",
+          "https://github.com/open-source/sponsors",
+          "https://github.com/orgs/community/discussions",
+          "https://github.com/partners",
+          "https://github.com/pricing",
+          "https://github.com/resources",
+          "https://github.com/resources/articles",
+          "https://github.com/resources/articles?topic=ai",
+          "https://github.com/resources/articles?topic=devops"
+        ],
+        "coming_soon": false,
+        "paths": [
+          "/",
+          "assets",
+          "checkpoints",
+          "configs",
+          "docker",
+          "docs",
+          "examples",
+          "outputs",
+          "real_deploy",
+          "robosnap",
+          "scripts",
+          "third_party",
+          ".dockerignore",
+          ".gitignore",
+          ".gitmodules",
+          "Dockerfile",
+          "LICENSE",
+          "NOTICE",
+          "README.md",
+          "docker-compose.auto.yml",
+          "pyproject.toml"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "C268",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary text/header/linked project checked against the revised fields: family = testtime; one_line = Training-free runtime safeguard for a frozen ACT policy: a chunk-consistency failure detector (TIDE, conformal threshold) triggers a respawn to the latest VLM-verified checkpoint state. Real 6-task average: 66.7 → 80.0% unperturbed, 18.3 → 76.7% under adversarial perturbation.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2604.16683",
+    "source_sha256": "e6eb8a36de5136e8e23bdf41f5f76919712e7715c91b4234673f242f69955028",
+    "fields": {
+      "family": "testtime",
+      "one_line": "Training-free runtime safeguard for a frozen ACT policy: a chunk-consistency failure detector (TIDE, conformal threshold) triggers a respawn to the latest VLM-verified checkpoint state. Real 6-task average: 66.7 → 80.0% unperturbed, 18.3 → 76.7% under adversarial perturbation."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C231",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary text/header/linked project checked against the revised fields: family = advbc; one_line = Preference fine-tuning of a pretrained diffusion policy on preferred vs dispreferred real cloth-folding demos; RKO merges KTO's per-sample labels with RPO's similarity reweighting. Best in 4/9 settings; Trousers Pref 1: 0.910 vs 0.701 for vanilla DDPM.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2602.09583",
+    "source_sha256": "d1f079a82fd18fb38a7d3503b57cf7d6053ea9ae809fbfbee59a0ac79feb3864",
+    "fields": {
+      "family": "advbc",
+      "one_line": "Preference fine-tuning of a pretrained diffusion policy on preferred vs dispreferred real cloth-folding demos; RKO merges KTO's per-sample labels with RPO's similarity reweighting. Best in 4/9 settings; Trousers Pref 1: 0.910 vs 0.701 for vanilla DDPM."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C230",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary Fig. 16 checked against the revised fields: family = offpolicy; one_line = Infrastructure, not an algorithm: a fully asynchronous system for real-robot online learning. Peg insertion (CNN, RLPD) converges in about 1500 s vs 8000+ s with a synchronous pipeline; pi0 Pick-and-Place 39/60 → 58/60 with HG-DAgger.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2602.07837",
+    "source_sha256": "42f2ebf67d216eb8c595ba0d904df29906b5799e09a793ae50ac7d9f6fd4b475",
+    "fields": {
+      "family": "offpolicy",
+      "one_line": "Infrastructure, not an algorithm: a fully asynchronous system for real-robot online learning. Peg insertion (CNN, RLPD) converges in about 1500 s vs 8000+ s with a synchronous pipeline; pi0 Pick-and-Place 39/60 → 58/60 with HG-DAgger."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N444",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Reconstructs a photorealistic sim from an RGBD human video, trains RL on object-centric rewards, distills into an image diffusion policy with online sim-real alignment; no teleoperation data. Average task progress +30% over hand-tracking and sim-to-real baselines on 5 real tasks.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2505.07096",
+    "source_sha256": "a5cd4f3fe3cc45a54136d149286deace221de6bef41458c54c244f0fae48baf9",
+    "fields": {
+      "one_line": "Reconstructs a photorealistic sim from an RGBD human video, trains RL on object-centric rewards, distills into an image diffusion policy with online sim-real alignment; no teleoperation data. Average task progress +30% over hand-tracking and sim-to-real baselines on 5 real tasks.",
+      "code": "https://github.com/portal-cornell/X-Sim"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://portal-cornell.github.io/X-Sim/",
+        "status": 200,
+        "final": "https://portal-cornell.github.io/X-Sim/",
+        "links": [
+          "https://github.com/nerfies/nerfies.github.io",
+          "https://github.com/portal-cornell/X-Sim"
+        ],
+        "coming_soon": false,
+        "paths": []
+      },
+      {
+        "url": "https://github.com/portal-cornell/X-Sim",
+        "status": 200,
+        "final": "https://github.com/portal-cornell/X-Sim",
+        "links": [
+          "https://github.com/collections",
+          "https://github.com/customer-stories",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/features",
+          "https://github.com/features/actions",
+          "https://github.com/features/ai/github-app",
+          "https://github.com/features/code-quality",
+          "https://github.com/features/code-review",
+          "https://github.com/features/codespaces",
+          "https://github.com/features/copilot",
+          "https://github.com/features/copilot/copilot-business",
+          "https://github.com/features/issues",
+          "https://github.com/fluidicon.png",
+          "https://github.com/marketplace",
+          "https://github.com/mcp",
+          "https://github.com/open-source/sponsors",
+          "https://github.com/orgs/community/discussions",
+          "https://github.com/partners",
+          "https://github.com/portal-cornell/X-Sim",
+          "https://github.com/portal-cornell/X-Sim&quot;,&quot;user_id&quot;:null}}",
+          "https://github.com/portal-cornell/X-Sim.git",
+          "https://github.com/portal-cornell/X-Sim\\",
+          "https://github.com/pricing"
+        ],
+        "coming_soon": false,
+        "paths": [
+          "/",
+          "diffusion_policy",
+          "docs/assets",
+          "real_to_sim",
+          "simulation",
+          ".gitignore",
+          "README.md",
+          "run_pipeline.py",
+          "setup.sh"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "N338",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: official implementation link and repository files confirmed.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2502.08645",
+    "source_sha256": "3fdbea83248e4a2d4fe7b126ef8c925efa2412082307deb3b93a5e3de38a6c5e",
+    "fields": {
+      "code": "https://github.com/InternRobotics/Re3Sim"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://re3sim.github.io/",
+        "status": 200,
+        "final": "https://re3sim.github.io/",
+        "links": [
+          "https://github.com/Nimolty?tab=overview&from=2024-01-01&to=2024-01-31",
+          "https://github.com/OpenRobotLab/Re3Sim",
+          "https://github.com/cdcseacave/openMVS",
+          "https://github.com/nerfies/nerfies.github.io"
+        ],
+        "coming_soon": false,
+        "paths": []
+      },
+      {
+        "url": "https://github.com/InternRobotics/Re3Sim",
+        "status": 200,
+        "final": "https://github.com/InternRobotics/Re3Sim",
+        "links": [
+          "https://github.com/InternRobotics/Re3Sim",
+          "https://github.com/InternRobotics/Re3Sim&quot;,&quot;user_id&quot;:null}}",
+          "https://github.com/InternRobotics/Re3Sim.git",
+          "https://github.com/InternRobotics/Re3Sim\\",
+          "https://github.com/MarkFzp/act-plus-plus",
+          "https://github.com/MarkFzp/act-plus-plus\\",
+          "https://github.com/Nimolty?tab=overview&amp;from=2024-01-01&amp;to=2024-01-31",
+          "https://github.com/Nimolty?tab=overview\\u0026amp;from=2024-01-01\\u0026amp;to=2024-01-31\\",
+          "https://github.com/cdcseacave/openMVS/wiki/Building",
+          "https://github.com/cdcseacave/openMVS/wiki/Building\\",
+          "https://github.com/collections",
+          "https://github.com/customer-stories",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/features",
+          "https://github.com/features/actions",
+          "https://github.com/features/ai/github-app",
+          "https://github.com/features/code-quality",
+          "https://github.com/features/code-review",
+          "https://github.com/features/codespaces",
+          "https://github.com/features/copilot",
+          "https://github.com/features/copilot/copilot-business",
+          "https://github.com/features/issues",
+          "https://github.com/fluidicon.png"
+        ],
+        "coming_soon": false,
+        "paths": [
+          "/",
+          "policies/act_plus_plus",
+          "re3sim",
+          "real-deployment",
+          ".gitignore",
+          "README.md"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "N336",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: official implementation link and repository files confirmed.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2509.18631",
+    "source_sha256": "e4cee5fcf57707e76c49ba1650c2fff9f882f14fe0a24928c57384684289f1db",
+    "fields": {
+      "code": "https://github.com/GaTech-RL2/ot-sim2real"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://ot-sim2real.github.io/",
+        "status": 200,
+        "final": "https://ot-sim2real.github.io/",
+        "links": [
+          "https://github.com/TTimelord/ot-sim2real",
+          "https://github.com/nerfies/nerfies.github.io"
+        ],
+        "coming_soon": false,
+        "paths": []
+      },
+      {
+        "url": "https://github.com/GaTech-RL2/ot-sim2real",
+        "status": 200,
+        "final": "https://github.com/GaTech-RL2/ot-sim2real",
+        "links": [
+          "https://github.com/ARISE-Initiative/robosuite.git",
+          "https://github.com/ARISE-Initiative/robosuite.git\\n\\u003cspan",
+          "https://github.com/ARISE-Initiative/robosuite.git\\ncd",
+          "https://github.com/GaTech-RL2/ot-sim2real",
+          "https://github.com/GaTech-RL2/ot-sim2real&quot;,&quot;user_id&quot;:null}}",
+          "https://github.com/GaTech-RL2/ot-sim2real.git",
+          "https://github.com/GaTech-RL2/ot-sim2real\\",
+          "https://github.com/NVlabs/mimicgen.git",
+          "https://github.com/NVlabs/mimicgen.git\\n\\u003cspan",
+          "https://github.com/NVlabs/mimicgen.git\\ncd",
+          "https://github.com/collections",
+          "https://github.com/customer-stories",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/features",
+          "https://github.com/features/actions",
+          "https://github.com/features/ai/github-app",
+          "https://github.com/features/code-quality",
+          "https://github.com/features/code-review",
+          "https://github.com/features/codespaces",
+          "https://github.com/features/copilot",
+          "https://github.com/features/copilot/copilot-business",
+          "https://github.com/features/issues",
+          "https://github.com/fluidicon.png"
+        ],
+        "coming_soon": false,
+        "paths": [
+          "/",
+          "docs",
+          "examples",
+          "robomimic",
+          "tests",
+          ".gitignore",
+          ".gitmodules",
+          "LICENSE",
+          "MANIFEST.in",
+          "README.md",
+          "requirements-docs.txt",
+          "requirements.txt",
+          "setup.py"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "N335",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Table 1 checked against the revised fields: short = OmniReset",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2603.15789",
+    "source_sha256": "0a6865accdc5385ba1f5343c1f865038ab93f6ea48d52257eb22fea5ea72447f",
+    "fields": {
+      "code": "https://github.com/UW-Lab/UWLab",
+      "short": "OmniReset"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://weirdlabuw.github.io/omnireset/",
+        "status": 200,
+        "final": "https://weirdlabuw.github.io/omnireset/",
+        "links": [
+          "https://github.com/UW-Lab/UWLab"
+        ],
+        "coming_soon": false,
+        "paths": []
+      },
+      {
+        "url": "https://github.com/UW-Lab/UWLab",
+        "status": 200,
+        "final": "https://github.com/UW-Lab/UWLab",
+        "links": [
+          "https://github.com/UW-Lab/UWLab",
+          "https://github.com/UW-Lab/UWLab&quot;,&quot;user_id&quot;:null}}",
+          "https://github.com/UW-Lab/UWLab.git",
+          "https://github.com/UW-Lab/UWLab\\",
+          "https://github.com/collections",
+          "https://github.com/customer-stories",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/features",
+          "https://github.com/features/actions",
+          "https://github.com/features/ai/github-app",
+          "https://github.com/features/code-quality",
+          "https://github.com/features/code-review",
+          "https://github.com/features/codespaces",
+          "https://github.com/features/copilot",
+          "https://github.com/features/copilot/copilot-business",
+          "https://github.com/features/issues",
+          "https://github.com/fluidicon.png",
+          "https://github.com/isaac-sim/IsaacLab/actions/workflows/docs.yaml",
+          "https://github.com/isaac-sim/IsaacLab/actions/workflows/docs.yaml\\",
+          "https://github.com/isaac-sim/IsaacLab/actions/workflows/pre-commit.yaml",
+          "https://github.com/isaac-sim/IsaacLab/actions/workflows/pre-commit.yaml\\",
+          "https://github.com/marketplace",
+          "https://github.com/mcp"
+        ],
+        "coming_soon": false,
+        "paths": [
+          "/",
+          ".github",
+          ".greptile",
+          ".vscode",
+          "docker",
+          "docs",
+          "scripts",
+          "scripts_v2/tools",
+          "source",
+          "tools",
+          ".dockerignore",
+          ".flake8",
+          ".gitattributes",
+          ".gitignore",
+          ".pre-commit-config.yaml",
+          "CONTRIBUTING.md",
+          "CONTRIBUTORS.md",
+          "LICENCE",
+          "README.md",
+          "VERSION",
+          "environment.yml",
+          "pyproject.toml",
+          "pytest.ini",
+          "uwlab.sh"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "C330",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary prose explicitly reports12.6%sim/35%real/9.7%BC gains. Preserve them as reported, without reinterpreting as relative or pp; original bar-average discrepancy cannot be reconciled from text alone.",
+    "verification_note": "Primary prose explicitly reports12.6%sim/35%real/9.7%BC gains. Preserve them as reported, without reinterpreting as relative or pp; original bar-average discrepancy cannot be reconciled from text alone.",
+    "source": "https://arxiv.org/html/2606.18247",
+    "source_sha256": "6bf2524c89b248a3fe94b505c91aadcefcf5c6f5919bd9c54b47ff1486dc2889",
+    "fields": {
+      "one_line": "Gradient-free verifier scores sampled π0 action chunks by distance to a Gemini-drawn 2D end-effector trace; verified successes are distilled back by BC. Reported average steering gains: 12.6% sim, 35% real; BC fine-tuning +9.7% over π0-Bridge in sim."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C290",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary Table 1 checked against the revised fields: one_line = Action-VAE posterior turns a policy's actions into extra latent candidates; a task-progress verifier drops low scorers and score-weights the rest. CALVIN ABC→D avg length DP 2.41 → 2.58, OpenVLA 3.30 → 3.51; real π0 78.3% → 83.3%.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2605.25547",
+    "source_sha256": "cb5031dd067d48ea849f2280a769311f53b3d863472c237ba8d44f4437ce088d",
+    "fields": {
+      "one_line": "Action-VAE posterior turns a policy's actions into extra latent candidates; a task-progress verifier drops low scorers and score-weights the rest. CALVIN ABC→D avg length DP 2.41 → 2.58, OpenVLA 3.30 → 3.51; real π0 78.3% → 83.3%."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C321",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Vision picks the mode (latent world model plus VLM reward), then tactile-reward-guided diffusion editing refines contact. Real, visual base policy (appendix): wiping 30 → 90%, pipette 30 → 75%, insertion 40 → 80%.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2606.14981",
+    "source_sha256": "3299324822d4e4f6451af9b9bd08a21d593038b5065377acfe2d28896c1e0fc0",
+    "fields": {
+      "one_line": "Vision picks the mode (latent world model plus VLM reward), then tactile-reward-guided diffusion editing refines contact. Real, visual base policy (appendix): wiping 30 → 90%, pipette 30 → 75%, insertion 40 → 80%."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "C322",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary Table 3, Fig. 1 checked against the revised fields: one_line = Fine-tunes a Qwen2.5-VL pairwise progress critic from policy success/failure rollouts (binary labels) to pick among video-model-predicted outcomes of sampled actions. Real diffusion policy: Stacking 23/50 → 32/50, Push-Bowl mIoU 0.140 → 0.321.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2606.21572",
+    "source_sha256": "dcf705d7178c8f252f96015ba56e1ef6d691e2268909ea36770bb649059bead0",
+    "fields": {
+      "one_line": "Fine-tunes a Qwen2.5-VL pairwise progress critic from policy success/failure rollouts (binary labels) to pick among video-model-predicted outcomes of sampled actions. Real diffusion policy: Stacking 23/50 → 32/50, Push-Bowl mIoU 0.140 → 0.321."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N265",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Test-time framework for VLAs: a trigger detects critical phases, a proposer samples alternative action chunks, and an evaluator trained on success/failure/boundary data dreams futures to pick one; four real tasks average 72.5% vs 48.8% for base π0.5.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2605.11750",
+    "source_sha256": "6765f4097d764b0c0ae057ec5846420416e76eefa6f89f3ac7ce8e89f02829c0",
+    "fields": {
+      "one_line": "Test-time framework for VLAs: a trigger detects critical phases, a proposer samples alternative action chunks, and an evaluator trained on success/failure/boundary data dreams futures to pick one; four real tasks average 72.5% vs 48.8% for base π0.5."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N430",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = BYOVLA: training-free run-time intervention finds image regions a VLA is sensitive to and edits task-irrelevant distractors out (VLM + segmentation + inpainting); on hardware, VLAs nearly retain nominal performance despite distractors that otherwise cut success by up to 40%.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2410.01971",
+    "source_sha256": "f49dbbe20c0f6598e2cc2897c8787cd4aebfc03dfa2c37235d264d3b6f8de301",
+    "fields": {
+      "one_line": "BYOVLA: training-free run-time intervention finds image regions a VLA is sensitive to and edits task-irrelevant distractors out (VLM + segmentation + inpainting); on hardware, VLAs nearly retain nominal performance despite distractors that otherwise cut success by up to 40%.",
+      "code": "https://github.com/irom-princeton/byovla"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://aasherh.github.io/byovla/",
+        "status": 200,
+        "final": "https://aasherh.github.io/byovla/",
+        "links": [
+          "https://github.com/irom-lab/byovla"
+        ],
+        "coming_soon": false,
+        "paths": []
+      },
+      {
+        "url": "https://github.com/irom-princeton/byovla",
+        "status": 200,
+        "final": "https://github.com/irom-princeton/byovla",
+        "links": [
+          "https://github.com/AasherH/byovla/blob/main/img/anchor_figure.png",
+          "https://github.com/AasherH/byovla/blob/main/img/anchor_figure.png\\",
+          "https://github.com/AasherH/byovla/raw/main/img/anchor_figure.png",
+          "https://github.com/AasherH/byovla/raw/main/img/anchor_figure.png\\",
+          "https://github.com/IDEA-Research/Grounded-SAM-2",
+          "https://github.com/IDEA-Research/Grounded-SAM-2.git",
+          "https://github.com/IDEA-Research/Grounded-SAM-2.git\\n\\n#",
+          "https://github.com/IDEA-Research/Grounded-SAM-2\\",
+          "https://github.com/collections",
+          "https://github.com/customer-stories",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/features",
+          "https://github.com/features/actions",
+          "https://github.com/features/ai/github-app",
+          "https://github.com/features/code-quality",
+          "https://github.com/features/code-review",
+          "https://github.com/features/codespaces",
+          "https://github.com/features/copilot",
+          "https://github.com/features/copilot/copilot-business",
+          "https://github.com/features/issues",
+          "https://github.com/fluidicon.png",
+          "https://github.com/geekyutao/Inpaint-Anything",
+          "https://github.com/geekyutao/Inpaint-Anything.git"
+        ],
+        "coming_soon": false,
+        "paths": [
+          "/",
+          "LICENSE",
+          "README.md",
+          "byovla.py",
+          "byovla_outline.py",
+          "environment.yml"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "N273",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: one_line = Bellman-Guided Retrials: a demo-trained value function detects stalled progress at deployment and resamples alternative strategies, avoiding failed ones; raises average absolute success rates by more than 20 points in simulation and more than 50 in real-world tests. Original link does not provide the advertised implementation.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2406.15917",
+    "source_sha256": "d3f76a148c4a73b0f3347ae91465870300b3aee2332ade437603b9776ece69eb",
+    "fields": {
+      "one_line": "Bellman-Guided Retrials: a demo-trained value function detects stalled progress at deployment and resamples alternative strategies, avoiding failed ones; raises average absolute success rates by more than 20 points in simulation and more than 50 in real-world tests.",
+      "code": ""
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://sites.google.com/view/to-err-robotic/home",
+        "status": 200,
+        "final": "https://sites.google.com/view/to-err-robotic/home",
+        "links": [
+          "https://github.com/google/safevalues/issues\\n\\n"
+        ],
+        "coming_soon": false,
+        "paths": []
+      }
+    ]
+  },
+  {
+    "id": "C042",
+    "status": "verified",
+    "severity": "major",
+    "evidence": "Primary Table 1 checked against the revised fields: one_line = Diffusion behavior policy trained by BC separately from a generalized IQL critic; at evaluation, picks the highest-Q of N sampled actions. D4RL total 1213.8 vs IQL 1070.4 (reported-results setting).",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2304.10573",
+    "source_sha256": "b2a40d4cc7d06a6de80bfcc0f521394e78ad1ea710e92e537a9fd7aaa8c2768a",
+    "fields": {
+      "one_line": "Diffusion behavior policy trained by BC separately from a generalized IQL critic; at evaluation, picks the highest-Q of N sampled actions. D4RL total 1213.8 vs IQL 1070.4 (reported-results setting)."
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field."
+  },
+  {
+    "id": "N350",
+    "status": "verified",
+    "severity": "minor",
+    "evidence": "Primary text/header/linked project checked against the revised fields: official implementation link and repository files confirmed.",
+    "verification_note": "Targeted primary-source text/header/table check supports the identified discrepancy and proposed field correction.",
+    "source": "https://arxiv.org/html/2306.15724",
+    "source_sha256": "d71cddeba51e0d3d39e5e04b040f1ad61a8473e94e48ac9cf977275c286d3557",
+    "fields": {
+      "code": "https://github.com/real-stanford/reflect"
+    },
+    "scope": "Independent targeted review of candidate discrepancy; not a full-paper replication or proof of every original row field.",
+    "link_evidence": [
+      {
+        "url": "https://robot-reflect.github.io/",
+        "status": 200,
+        "final": "https://robot-reflect.github.io/",
+        "links": [
+          "https://github.com/columbia-ai-robotics/reflect"
+        ],
+        "coming_soon": false,
+        "paths": []
+      },
+      {
+        "url": "https://github.com/real-stanford/reflect",
+        "status": 200,
+        "final": "https://github.com/real-stanford/reflect",
+        "links": [
+          "https://github.com/collections",
+          "https://github.com/columbia-ai-robotics/reflect/blob/5736f88cade931bfcf670df82e38580d9c538771/main/get_local_sg.py#L38",
+          "https://github.com/columbia-ai-robotics/reflect/blob/5736f88cade931bfcf670df82e38580d9c538771/main/get_local_sg.py#L38\\",
+          "https://github.com/columbia-ai-robotics/reflect/blob/5736f88cade931bfcf670df82e38580d9c538771/main/scene_graph.py#L246",
+          "https://github.com/columbia-ai-robotics/reflect/blob/5736f88cade931bfcf670df82e38580d9c538771/main/scene_graph.py#L246\\",
+          "https://github.com/columbia-ai-robotics/reflect/blob/5736f88cade931bfcf670df82e38580d9c538771/main/scene_graph.py#L291",
+          "https://github.com/columbia-ai-robotics/reflect/blob/5736f88cade931bfcf670df82e38580d9c538771/main/scene_graph.py#L291\\",
+          "https://github.com/columbia-ai-robotics/reflect/blob/main/demo.ipynb",
+          "https://github.com/columbia-ai-robotics/reflect/blob/main/demo.ipynb\\",
+          "https://github.com/columbia-ai-robotics/reflect/blob/main/main/audio.py",
+          "https://github.com/columbia-ai-robotics/reflect/blob/main/main/audio.py\\",
+          "https://github.com/customer-stories",
+          "https://github.com/descriptinc/lyrebird-wav2clip",
+          "https://github.com/descriptinc/lyrebird-wav2clip\\",
+          "https://github.com/enterprise",
+          "https://github.com/enterprise/premium-support",
+          "https://github.com/enterprise/startups",
+          "https://github.com/features",
+          "https://github.com/features/actions",
+          "https://github.com/features/ai/github-app",
+          "https://github.com/features/code-quality",
+          "https://github.com/features/code-review",
+          "https://github.com/features/codespaces",
+          "https://github.com/features/copilot",
+          "https://github.com/features/copilot/copilot-business"
+        ],
+        "coming_soon": false,
+        "paths": [
+          "/",
+          "LLM",
+          "figs",
+          "main",
+          ".gitignore",
+          "LICENSE",
+          "README.md",
+          "demo.ipynb",
+          "env.yml"
+        ]
+      }
+    ]
+  }
+]

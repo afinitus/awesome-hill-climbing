@@ -31,7 +31,7 @@ class CupSpec:
     inner_radius: float = 0.04
     height: float = 0.06  # rim height above the table
     wall: float = 0.005
-    floor: float = 0.006  # floor thickness; thick enough that a dropped cube cannot punch through it
+    floor: float = 0.006  # floor thickness; reduces penetration with the configured stiff contacts
     segments: int = 20
     density: float = 1000.0  # kg/m^3, a sturdy plastic cup of about 125 g: light enough to push or tip
 

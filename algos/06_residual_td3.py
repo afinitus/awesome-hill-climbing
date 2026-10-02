@@ -398,6 +398,7 @@ def make_plots(cfg: Config, media: Path, s: dict) -> None:
     plotting.setup()
     P = plotting.PALETTE
     runs = s["runs"]
+    final_label = "search" if cfg.eval_set == "search" else f"held-out {cfg.eval_set}"
 
     def curve(ax, name, color, label=None):
         c = np.array(runs[name]["curve"])
@@ -423,9 +424,9 @@ def make_plots(cfg: Config, media: Path, s: dict) -> None:
             ax.axvline(cfg.warmup_steps / STEPS_PER_MIN, color="k", lw=0.8, ls=":")
             ax.text(cfg.warmup_steps / STEPS_PER_MIN, 0.04, " actor starts", fontsize=8)
         e = s["eval"][v]
-        plotting.heldout_point(ax, xmax * 1.06, *e["pooled"], label=f"held-out {cfg.eval_set}, residual (pooled)",
+        plotting.heldout_point(ax, xmax * 1.06, *e["pooled"], label=f"{final_label}, residual (pooled)",
                                color=P[1])
-        plotting.heldout_point(ax, xmax * 1.06, *e["base"], label=f"held-out {cfg.eval_set}, base_v1", color="black")
+        plotting.heldout_point(ax, xmax * 1.06, *e["base"], label=f"{final_label}, base_v1", color="black")
         finish(ax, v, f"Residual TD3 on CupDrop {v}, bound {cfg.bound:g}")
         ax.legend(loc="lower right", fontsize=8)
     plotting.save_fig(fig, media / "learning_curves.png")
@@ -513,7 +514,9 @@ def main(cfg: Config) -> None:
         import json
 
         s = json.loads((REPO_ROOT / cfg.replot).read_text())["extra"]
-        make_plots(Config(**{k: v for k, v in s["config"].items() if k != "replot"}), REPO_ROOT / "media/ch06", s)
+        saved_cfg = Config(**{k: v for k, v in s["config"].items() if k != "replot"})
+        out = REPO_ROOT / (saved_cfg.out or ("runs/ch06_quick" if saved_cfg.quick else "."))
+        make_plots(saved_cfg, out / "media/ch06", s)
         return
 
     out = REPO_ROOT / (cfg.out or ("runs/ch06_quick" if cfg.quick else "."))

@@ -14,7 +14,7 @@ RT Robotics]. It is derived from the [publicly available
 MJCF](https://github.com/TheRobotStudio/SO-ARM100/blob/608122e9ac330a753735f2e18aee73338e9ac407/Simulation/SO101/so101_new_calib.xml#L1).
 
 <p float="left">
-  <img src="so101.png" width="400">
+  <img src="https://raw.githubusercontent.com/google-deepmind/mujoco_menagerie/4d038b3feae26ec82b46a4d586379114012a8ac7/robotstudio_so101/so101.png" width="400">
 </p>
 
 ## MJCF derivation steps

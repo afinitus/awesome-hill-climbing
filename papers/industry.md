@@ -34,7 +34,6 @@ Companies take a big pretrained robot model and push one real task from "works i
 ## June 2026
 
 - **[KinetIQ Ascend](https://thehumanoid.ai/technology/kinetiq-ascend/)** (Humanoid, 2026-06-25) — Real-world PPO on a flow-matching VLA (ODE-to-SDE exploration noise, sparse success reward, speed curriculum), with gains measured against a concurrent frozen-policy A/B baseline. Tote handling 77.6%→98.9%, bottle picking 80%→98%, throughput +42% to +129% in 3-5 robot-days.
-- **[Cargo Cults, Data Flywheels, and Novelty Pumps](https://vedder.io/misc/novelty_pump.html)** (2026-06-14) — Essay: more robots repeating the same tasks yield redundant data; real improvement needs a labor-intensive "novelty pump" of ops teams seeking new states and tasks, not an automatic flywheel.
 
 ## May 2026
 
@@ -52,11 +51,6 @@ Companies take a big pretrained robot model and push one real task from "works i
 
 - **[Where Autonomy Works](https://epoch.ai/blog/where-autonomy-works-evaluating-robot-capabilities-in-2026)** (Epoch AI, 2026-02-10) — Survey of reported robot reliability: warehouse picking 99%+ (per roboticist interviews), DYNA-1 napkin folding 99.4% over a 24-hour run, Figure package handling 95% (claimed, one-hour demo); autonomy works where environments are controlled or forgiving.
 
-## 2026
-
-- **[Enact](https://www.ycombinator.com/companies/enact)** (Enact, 2026) — Startup that rolls out customer policies, finds failures and collects targeted recovery data; pi0.5 packing went from 90/100 (200 demos) to 99/100 with 50 added recovery demos (self-reported).
-- **[Fern (Ishiki Labs)](https://www.ycombinator.com/companies/fern-bot)** (Fern / Ishiki Labs, 2026) — YC W26 startup: world-model RL environments replicating production scenes; adds RL heads atop customers' existing policies to raise speed and success weekly. No quantitative results published.
-
 ## December 2025
 
 - **[State of Robot Learning](https://vedder.io/misc/state_of_robot_learning_dec_2025.html)** (2025-12) — Practitioner essay: nearly all robot learning today is BC plus laborious DAgger-style data iteration, and real-world RL remains hard; in the author's reading, pi*0.6's advantage-weighted method gives minor gains over BC and many tasks still needed human corrections.
@@ -64,13 +58,19 @@ Companies take a big pretrained robot model and push one real task from "works i
 
 ## November 2025
 
-- **[DYNA-1 Pre-Training](https://www.dyna.co/research/pre-training)** (Dyna Robotics, 2025-11-20) — Company update, no paper: says the DYNA-1 base model folds laundry and sorts packages zero-shot in unseen environments, and that as little as one hour of demos fine-tunes it to roughly 100% success on new tasks. RL not discussed.
-- **[AgiBot deploys its Real-World Reinforcement Learning system](https://www.therobotreport.com/agibot-deploys-real-world-reinforcement-learning-system/)** (AgiBot; Longcheer Technology, 2025-11-03) — AgiBot's RW-RL system learns assembly skills directly on a Longcheer pilot production line; company claims training cut from weeks to minutes and 100% task completion over extended operation. The article links no paper or code.
+- **[AgiBot real-world RL deployment](https://www.prnewswire.com/news-releases/agibot-achieves-first-real-world-deployment-of-reinforcement-learning-in-industrial-robotics-302601935.html)** (AgiBot; Longcheer Technology, 2025-11-02) — AgiBot's RW-RL system learns assembly skills directly on a Longcheer pilot production line; company claims training cut from weeks to minutes and 100% task completion over extended operation. The article links no paper or code.
+- **[DYNA-1 Pre-Training](https://www.dyna.co/research/pre-training)** (Dyna Robotics, 2025-11) — Company update, no paper: says the DYNA-1 base model folds laundry and sorts packages zero-shot in unseen environments, and that as little as one hour of demos fine-tunes it to roughly 100% success on new tasks. RL not discussed.
 
 ## Before September 2025
 
+- ⭐ **[Figure Helix logistics](https://www.figure.ai/news/scaling-helix-logistics)** (Figure AI, 2025-06-07) — Improves one deployed parcel-sorting job with more in-domain demos, richer System-1 inputs (stereo, vision memory, state history, force) and a 50% larger decoder head; the post describes no RL. Over three months, barcode-orientation success rose ~70% → ~95%.
 - **[1XWM (2025)](https://www.1x.tech/discover/redwood-ai-world-model)** (1X Technologies, 2025-06) — Action-conditioned video world model that also predicts task success from the final generated frame, used to rank humanoid policy checkpoints. Evidence is predicted success per checkpoint, checked by real runs on selected checkpoints; no correlation coefficient is reported.
-- ⭐ **[Figure Helix logistics](https://www.figure.ai/news/scaling-helix-logistics)** (Figure AI, 2025-06) — Improves one deployed parcel-sorting job with more in-domain demos, richer System-1 inputs (stereo, vision memory, state history, force) and a 50% larger decoder head; the post describes no RL. Over three months, barcode-orientation success rose ~70% → ~95%.
+- **[DYNA-1 blog](https://www.dyna.co/research/dyna-1)** (Dyna Robotics, 2025-06) — Reward-model-in-the-loop training over 6 weeks; self-reported 99.4% success over a 24-hour zero-intervention napkin run (850+ napkins, ~60% of human speed); method described only at a high level.
 - **[DYNA-1 launch release](https://www.prnewswire.com/news-releases/dyna-robotics-unveils-dyna-1-the-first-commercial-ready-robot-foundation-model-offering-fully-autonomous-round-the-clock-dexterity-302441437.html)** (Dyna Robotics, 2025-04) — Press release for DYNA-1: self-reported 800+ napkins folded in a continuous 24-hour run with zero interventions, 99.4% success at 60% of human throughput; credits a proprietary reward model for error recovery and training-data generation.
-- **[DYNA-1 blog](https://www.dyna.co/research/dyna-1)** (Dyna Robotics, 2025-04) — Reward-model-in-the-loop training over 6 weeks; self-reported 99.4% success over a 24-hour zero-intervention napkin run (850+ napkins, ~60% of human speed); method described only at a high level.
 - **[1X World Model (2024)](https://www.1x.tech/discover/1x-world-model)** (1X Technologies, 2024-09) — Blog and challenge arguing for a learned simulator as a repeatable evaluator. No quantitative link to real success. · [code](https://github.com/1x-technologies/1xgpt)
+
+## Publication date not stated
+
+- **[Cargo Cults, Data Flywheels, and Novelty Pumps](https://vedder.io/misc/novelty_pump.html)** — Essay: more robots repeating the same tasks yield redundant data; real improvement needs a labor-intensive "novelty pump" of ops teams seeking new states and tasks, not an automatic flywheel.
+- **[Enact](https://www.ycombinator.com/companies/enact)** (Enact) — Startup that rolls out customer policies, finds failures and collects targeted recovery data; pi0.5 packing went from 90/100 (200 demos) to 99/100 with 50 added recovery demos (self-reported).
+- **[Fern (Ishiki Labs)](https://www.ycombinator.com/companies/fern-bot)** (Fern / Ishiki Labs) — YC W26 startup: world-model RL environments replicating production scenes; adds RL heads atop customers' existing policies to raise speed and success weekly. No quantitative results published.

@@ -1,0 +1,2969 @@
+{
+  "scope": {
+    "selection": "All first 61 key=1 papers/posts in original CSV order, indices [0:61], C461 through C269; plus metadata/provenance closure for every one of the 28 family=industry rows.",
+    "checked_on": "2026-10-01",
+    "must_know_count": 61,
+    "industry_metadata_count": 28,
+    "nonblank_must_know_code_count": 18,
+    "method": "Primary author/publisher pages and paper headers, relevant method paragraphs, tables and individually noted figures were inspected. Existing complete arXiv title/v1-date API audit is reused. Official code provenance is traced through paper/project links and README identity, beyond HTTP status. This is targeted field verification, not a full-paper reading or result-reproduction certificate.",
+    "earlier_industry_scope": "Earlier P0 industry audit verified source/company identity and description claims; it did not systematically record title/date/affiliation/code checks. The industry_metadata entries below close that separate requirement.",
+    "source_artifacts": "Source URLs, HTTP status and available SHA-256s are durable below. Local extraction caches are working artifacts and are not required to understand the evidence. Evidence is paraphrased; tables/sections/figures locate quantitative claims."
+  },
+  "must_know": [
+    {
+      "id": "C461",
+      "original_order_index": 0,
+      "title": "BlenDAgger: Blended Shared Control for Interactive Imitation Learning",
+      "source_url": "https://arxiv.org/abs/2609.37599",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Carnegie Mellon University. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The hitl assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Method equations blend human/policy control per DoF using magnitude, disagreement and uncertainty. Real final-round Almond Scooping results are 50% versus HG-DAgger 15%.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2609.37599",
+          "final_url": "https://arxiv.org/html/2609.37599",
+          "http_status": 200,
+          "sha256": "7a651aaa4aed0f236742107aae94407370c8b355ec1f8587e72b467bbb58002f"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C455",
+      "original_order_index": 1,
+      "title": "Skill-Space Shooting for Autonomous Robot Policy Improvement",
+      "source_url": "https://arxiv.org/abs/2609.38178",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Tsinghua University; UC Berkeley; Shanghai Qi Zhi Institute. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The hitl assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Skill-space shooting uses Halton candidates, a value threshold and Gemini skill judgments. Table 1 Coffee mean progress is 71.25 versus human 46.25; the experiment uses the best three final evaluations, not a single deployment success rate.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2609.38178",
+          "final_url": "https://arxiv.org/html/2609.38178",
+          "http_status": 200,
+          "sha256": "e32540fd0449f4071bb7ff6182413031acfee81dff5985ffc0d478b24dafe32f"
+        },
+        {
+          "url": "https://skill-space-shooting.github.io",
+          "final_url": "https://skill-space-shooting.github.io/",
+          "http_status": 200,
+          "sha256": "141f34ae9e8c57b94a5ec9dfe82611c23b488c6d45806a789b83696eb94a04fd"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C450",
+      "original_order_index": 2,
+      "title": "PreferenceFlow: Test-Time Guidance of Flow-Matching Robot Policies from Human Interventions",
+      "source_url": "https://arxiv.org/abs/2609.36872",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Westlake University. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The testtime assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Bradley-Terry action preferences train the critic; QGF gradients guide the frozen pi0.5 flow. Table 1 four real Franka insertions average 90.5 versus frozen 69 and intervention BC 84.5.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2609.36872",
+          "final_url": "https://arxiv.org/html/2609.36872",
+          "http_status": 200,
+          "sha256": "ea8515ec1a6b038be8bdb6a9cf425172d93d8988e5a94356300d275a11b6a1e9"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C436",
+      "original_order_index": 3,
+      "title": "F4R: Failure-Driven Recognition, Reconstruction, Refinement, and Redeployment for Continual Robot Self-Improvement",
+      "source_url": "https://arxiv.org/abs/2609.35575",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Nanyang Technological University; Xi'an Jiaotong University; Dexmal. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The simreal assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "VLM failure diagnosis feeds reconstruction in Isaac and PPO refinement followed by co-training. Table 1 OOD success is base 26.25, target BC 71.25, F4R 90.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2609.35575",
+          "final_url": "https://arxiv.org/html/2609.35575",
+          "http_status": 200,
+          "sha256": "936ebb45600a00c5341b1e14fa18b2d71289d93eecbadf6eb93e1740940dc15d"
+        },
+        {
+          "url": "https://yuj0e.github.io/F4R_Website",
+          "final_url": "https://yuj0e.github.io/F4R_Website/",
+          "http_status": 200,
+          "sha256": "0e785d3e081890db4b7a3e276a52200c4f4c815c71f103dbc6b39be463fe53da"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C443",
+      "original_order_index": 4,
+      "title": "TimelyDAgger: Timing-Aware Expert Querying for VLA Policy Improvement",
+      "source_url": "https://arxiv.org/abs/2609.33157",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Tsinghua University; SEEN·E Robotic. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The hitl assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "PCA feature gating and an adaptive acquisition rule trigger expert feedback. Table 1 pi0.5 SC-Green comparison is BC 49, HG-DAgger 29, proposed 81.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2609.33157",
+          "final_url": "https://arxiv.org/html/2609.33157",
+          "http_status": 200,
+          "sha256": "278bf635c8b172b6f817db6111b0c572b9020e494b84a6377709e8f960ae84dc"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C413",
+      "original_order_index": 5,
+      "title": "Principal Steering Subspaces for Online Adaptation of Frozen Generative Robot Policies (PSS)",
+      "source_url": "https://arxiv.org/abs/2609.33765",
+      "status": "verified-with-correction",
+      "severity": "minor",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: XPENG Robotics; University of Michigan. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The residual assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Section V finite-difference probing uses 64 states and SAC in the action-sensitive subspace. Table II values 0.878 and 0.716 are the mean of the final five evaluations with one training seed; proposed wording fixes the evaluation qualifier.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2609.33765",
+          "final_url": "https://arxiv.org/html/2609.33765",
+          "http_status": 200,
+          "sha256": "8e8f058cf260aa800e4a45cc839c1a1bf90518b78e42af537acef8631219e4a9"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": [
+        {
+          "id": "C413",
+          "severity": "minor",
+          "fields": {
+            "one_line": "Finds noise directions that most move a frozen generative policy's actions using finite differences at 64 states; SAC steers those directions. Sim RoboMimic Diffusion-Square, final-five-evaluation mean, one seed: 0.878 vs 0.716 for full-latent steering."
+          },
+          "evidence": "Section V and Table II define final-window success as the mean over final five evaluations, not a single final evaluation. Other mechanism/numbers match.",
+          "source_url": "https://arxiv.org/html/2609.33765",
+          "before": {
+            "one_line": "Finds the few noise directions that most move a frozen diffusion or flow policy's actions (finite-difference probing at 64 states) and lets SAC steer only those. Sim RoboMimic Diffusion-Square, final success, one seed: 0.878 vs 0.716 steering the full latent."
+          },
+          "status": "applied"
+        }
+      ]
+    },
+    {
+      "id": "C435",
+      "original_order_index": 6,
+      "title": "Dissecting Advantage-Guided Post-Training for Vision-Language-Action Policies",
+      "source_url": "https://arxiv.org/abs/2609.28161",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Shanghai Jiao Tong University; Xiaomi Robotics. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The advbc assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "The paper separates advantage construction, calibration and actor weighting on offline data. The four-real-bimanual-task result table gives SFT 0.11, DAgger 0.45 and weighted training 0.74.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2609.28161",
+          "final_url": "https://arxiv.org/html/2609.28161",
+          "http_status": 200,
+          "sha256": "e1a715c8c28af15c42448322bb5b7357b8a3ba351bfd177e142ab4d2842e40cf"
+        },
+        {
+          "url": "https://dissectvla.github.io",
+          "final_url": "https://dissectvla.github.io/",
+          "http_status": 200,
+          "sha256": "f16c96c57a6e6ef3e32300dcb9cff516d0780f06e4630f305521da462d105081"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C462",
+      "original_order_index": 7,
+      "title": "PAKT: Physically-Aligned Kinesthetic Teaching for Reinforcement Learning",
+      "source_url": "https://arxiv.org/abs/2609.25630",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: NVIDIA. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The hitl assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "The reported hybrid correction/controller system reduces interventions by 62–86% and cycle time by 23–48%. The controller ablation attributes most cycle-time benefit to the new controller; the catalog does not attribute it entirely to learning.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2609.25630",
+          "final_url": "https://arxiv.org/html/2609.25630",
+          "http_status": 200,
+          "sha256": "6c5922ff982738111888230d3aa9cf22b17241dd675d93d9299874d2216b9de3"
+        },
+        {
+          "url": "https://pakt-website.github.io/pakt-website",
+          "final_url": "https://pakt-website.github.io/pakt-website/",
+          "http_status": 200,
+          "sha256": "4a6075b510b25da54bee98c05986cc63dbeb013a689c562f1444824a819c8e64"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C418",
+      "original_order_index": 8,
+      "title": "Stable and Efficient Real-World Online VLA Post-Training via Asynchronous Replay-Anchored Policy Improvement (RAPolicy)",
+      "source_url": "https://arxiv.org/abs/2609.22888",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Fudan University; Shanghai Key Laboratory of Multimodal Embodied AI; Singapore Management University. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The offpolicy assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "IQL evaluates recorded actions; the one-step flow actor is trained with stored noise and asynchronous update groups. Table I four 20-trial tasks yield 86.25%, rounded 86.3%, versus EXPO 50%.",
+        "code": "Paper/project flyfaerss.github.io/RAPolicy links this repository; README identifies RAPolicy."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2609.22888",
+          "final_url": "https://arxiv.org/html/2609.22888",
+          "http_status": 200,
+          "sha256": "fb056ed71861d56e9a3c88689d9053e361d7df7717641b80a661dab483005c86"
+        },
+        {
+          "url": "https://flyfaerss.github.io/RAPolicy/",
+          "final_url": "https://flyfaerss.github.io/RAPolicy/",
+          "http_status": 200,
+          "sha256": "c8aad611fafd22ec327b348d7150cecb386508efddd33a1774c38dd1722eba88"
+        },
+        {
+          "url": "https://github.com/flyfaerss/RAPolicy",
+          "final_url": "https://github.com/flyfaerss/RAPolicy",
+          "http_status": 200,
+          "sha256": "b7253b5dea537aeae9d336efe5f67d3e8881d7502f19037bebf775df8201428a"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": [],
+      "code_verification": {
+        "url": "https://github.com/flyfaerss/RAPolicy",
+        "status": 200,
+        "provenance": "Paper/project flyfaerss.github.io/RAPolicy links this repository; README identifies RAPolicy.",
+        "scope": "Repository README and implementation contents/provenance checked; no training or reproducibility claim."
+      }
+    },
+    {
+      "id": "C438",
+      "original_order_index": 9,
+      "title": "SeeQ: Training Generalist Value Functions for Long-Horizon Robotic Manipulation",
+      "source_url": "https://arxiv.org/abs/2609.22085",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Carnegie Mellon University. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The testtime assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Subtasks terminate value backups, preventing TD from crossing boundaries; both acting and backups use eight candidates. Table 1 real-task mean is 35.4% to 66.7%, with 24 evaluations per task.",
+        "code": "Author SeeQ project links this repository; README identifies the paper and implementation."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2609.22085",
+          "final_url": "https://arxiv.org/html/2609.22085",
+          "http_status": 200,
+          "sha256": "7bcf0624abcecacbd16bf4eb08d84189fb7c4bf57ed9048c07479061632bad29"
+        },
+        {
+          "url": "https://saksham002.github.io/seeq/",
+          "final_url": "https://saksham002.github.io/seeq/",
+          "http_status": 200,
+          "sha256": "2f5d247d8c09fa31203088d1edc3c7c008bb86afc55e09634000968c9097eaca"
+        },
+        {
+          "url": "https://github.com/saksham002/generalist-value-functions",
+          "final_url": "https://github.com/saksham002/generalist-value-functions",
+          "http_status": 200,
+          "sha256": "33316796458df022fbbd91e9e77665c8b45cf29603d2f6b32aa7b691e8d0c5eb"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": [],
+      "code_verification": {
+        "url": "https://github.com/saksham002/generalist-value-functions",
+        "status": 200,
+        "provenance": "Author SeeQ project links this repository; README identifies the paper and implementation.",
+        "scope": "Repository README and implementation contents/provenance checked; no training or reproducibility claim."
+      }
+    },
+    {
+      "id": "C412",
+      "original_order_index": 10,
+      "title": "Reinforcement Learning for Real-Time Vision-Language-Action Policies (Real-Time EXPO-FT)",
+      "source_url": "https://arxiv.org/abs/2609.18207",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Stanford University. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The residual assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "A critic steers 32 fresh bounded candidates while respecting the executed chunk prefix. The real four-task table gives means 12.5/30 base, 25/30 EXPO with RTC, and 29/30 proposed, with a ten-minute cap on two tasks.",
+        "code": "Paper and shared EXPO-FT README identify this official repository for Real-Time EXPO-FT as well as the original method."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2609.18207",
+          "final_url": "https://arxiv.org/html/2609.18207",
+          "http_status": 200,
+          "sha256": "206dce0a16b2dc049b5c00bc45ee1ceef20b9f3d33393234a23b98c50492993c"
+        },
+        {
+          "url": "https://pd-perry.github.io/real-time-expo-ft/",
+          "final_url": "https://pd-perry.github.io/real-time-expo-ft/",
+          "http_status": 200,
+          "sha256": "36d2b945982370ec8195df707847d3041445ae9906e69e08411cddb2532e9635"
+        },
+        {
+          "url": "https://github.com/pd-perry/expo-ft",
+          "final_url": "https://github.com/pd-perry/expo-ft",
+          "http_status": 200,
+          "sha256": "7accb763cd9a9464b8061bfafaf3c087cba0bb75ae9946d302901f78ce840ffe"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": [],
+      "code_verification": {
+        "url": "https://github.com/pd-perry/expo-ft",
+        "status": 200,
+        "provenance": "Paper and shared EXPO-FT README identify this official repository for Real-Time EXPO-FT as well as the original method.",
+        "scope": "Repository README and implementation contents/provenance checked; no training or reproducibility claim."
+      }
+    },
+    {
+      "id": "C444",
+      "original_order_index": 11,
+      "title": "RoboDrop: Curating VLA Post-Training Data via Local Gradient Compatibility",
+      "source_url": "https://arxiv.org/abs/2609.10021",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Tsinghua University; Striding AI. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The advbc assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "A warmup epoch supplies gradients compressed with a 4096-dimensional CountSketch; ten DINO-nearest clean references guide filtering. Table 5 four real tasks with 20 trials each improve 35% to 67.5%.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2609.10021",
+          "final_url": "https://arxiv.org/html/2609.10021",
+          "http_status": 200,
+          "sha256": "eaf907035adc24f245f00f3f9ae0050ac617678837e6c45912407365b02fb708"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C445",
+      "original_order_index": 12,
+      "title": "A Decade of Bayesian Optimization for Controller Tuning and Robot Learning: Tutorial, Review, and Future Prospects",
+      "source_url": "https://arxiv.org/abs/2609.09403",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: RWTH Aachen, University of Technology Nuremberg, TU Munich. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The blackbox assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Survey counts 110 hardware studies and 57 vanilla-BO studies. Cartpole table gives median/IQR costs Sobol 4647±190 and LogEI 4310±48; the linked TuneControl implementation matches the benchmark.",
+        "code": "Paper links TuneControl directly; repository README identifies the associated control benchmark."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2609.09403",
+          "final_url": "https://arxiv.org/html/2609.09403",
+          "http_status": 200,
+          "sha256": "50c31036b640b73d879bd61d7239ab98c7e0bfb7661bdec44d859221c273b0ab"
+        },
+        {
+          "url": "https://github.com/Data-Science-in-Mechanical-Engineering/tunecontrol",
+          "final_url": "https://github.com/Data-Science-in-Mechanical-Engineering/tunecontrol",
+          "http_status": 200,
+          "sha256": "06e6e0c4e83436f7c829e5b32fe5a410264ee8920eb71f99086c7d3215234668"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": [],
+      "code_verification": {
+        "url": "https://github.com/Data-Science-in-Mechanical-Engineering/tunecontrol",
+        "status": 200,
+        "provenance": "Paper links TuneControl directly; repository README identifies the associated control benchmark.",
+        "scope": "Repository README and implementation contents/provenance checked; no training or reproducibility claim."
+      }
+    },
+    {
+      "id": "C446",
+      "original_order_index": 13,
+      "title": "Where Success Breaks: Failure-Boundary Learning for Robust Vision-Language-Action Models (DLS)",
+      "source_url": "https://arxiv.org/abs/2609.06114",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Show Lab, National University of Singapore. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The simreal assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "The method uses critic-free velocity contrast with a stage-potential reward and real-data SFT anchor. Table 1 pi0.5 three-real-task ID/unseen comparisons are DLS 84.4/72.2, PPO 81.1/67.8, and N=100 SFT 78.9/54.4.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2609.06114",
+          "final_url": "https://arxiv.org/html/2609.06114",
+          "http_status": 200,
+          "sha256": "1b1fe61efad9751f15cbaae94932661525efe250bfcd5e8b542be21a598b7875"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C419",
+      "original_order_index": 14,
+      "title": "VLA-Precision: Asymmetric Co-Bootstrapping for Efficient Real-World Online RL of Vision-Language-Action Models",
+      "source_url": "https://arxiv.org/abs/2609.04355",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: University of Science and Technology of China; Beihang University; Zhongguancun Academy; Hefei SpinX Technology. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The offpolicy assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "The action expert receives LoRA updates against a frozen reference with advantage-weighted flow behavior cloning. Table I real-task mean is 98.3%, versus pi0.5 SFT 67.8% and Octo ConRFT 7.8%.",
+        "code": "Author VLA-Precision project links this repository; README links the paper."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2609.04355",
+          "final_url": "https://arxiv.org/html/2609.04355",
+          "http_status": 200,
+          "sha256": "2c1a9b68205ffe697568271ff3d73005956aad58a8ee56b4333c0352ffe227fb"
+        },
+        {
+          "url": "https://vla-precision.github.io/",
+          "final_url": "https://vla-precision.github.io/",
+          "http_status": 200,
+          "sha256": "3660191cba1e84a64e2f1f8ae9c9250b6ad79e40afc4579f34fccae8e1c46c85"
+        },
+        {
+          "url": "https://github.com/scy-v/VLA-Precision",
+          "final_url": "https://github.com/scy-v/VLA-Precision",
+          "http_status": 200,
+          "sha256": "cc1e4f7fad11142ca64f8697dc22850ff0a3d2769d2e5596c9f24a207c3547ee"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": [],
+      "code_verification": {
+        "url": "https://github.com/scy-v/VLA-Precision",
+        "status": 200,
+        "provenance": "Author VLA-Precision project links this repository; README links the paper.",
+        "scope": "Repository README and implementation contents/provenance checked; no training or reproducibility claim."
+      }
+    },
+    {
+      "id": "C434",
+      "original_order_index": 15,
+      "title": "Physical Self-Play",
+      "source_url": "https://www.skild.ai/blogs/physical-self-play",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Official article metadata dates the post 2026-09-23.",
+        "affiliation": "The publisher/host identifies Skild AI as the company responsible for this item; this is organizational attribution, not a paper affiliation block.",
+        "family": "The industry assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Official Skild post describes recent-opponent self-play and goal rewards, 140 simulated years, and humanoid transfer demonstrations. It provides no quantitative real-world success rate; catalog preserves that distinction.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://www.skild.ai/blogs/physical-self-play",
+          "final_url": "https://www.skild.ai/blogs/physical-self-play",
+          "http_status": 200,
+          "sha256": "03704cd8be2c295c2ff5f6108898b45be28777c803091ccd9c11635de556c0f3"
+        }
+      ],
+      "access_limits": "Company post, without an independently reproduced real-world success metric.",
+      "patches": []
+    },
+    {
+      "id": "C433",
+      "original_order_index": 16,
+      "title": "Robot Demos Are Easy. Reliability Is Hard (Jason Ma, Dyna Robotics talk)",
+      "source_url": "https://www.youtube.com/watch?v=Sjfz1TqxzEs",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "YouTube datePublished/uploadDate and the official AI Engineer VideoObject uploadDate all give 2026-09-24 for this same recording.",
+        "affiliation": "The publisher/host identifies Dyna Robotics as the company responsible for this item; this is organizational attribution, not a paper affiliation block.",
+        "family": "The reward assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Official AI Engineer transcript, 11:38–12:18 and 13:15–13:52, explains learned progress monitoring, failure discovery and recovery-data retraining. The talk reports 99.4% over a 24-hour napkin run and contrasts an approximately 80% conventional-pipeline level; these remain attributed company claims.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=Sjfz1TqxzEs",
+          "final_url": "https://www.youtube.com/watch?v=Sjfz1TqxzEs",
+          "http_status": 200,
+          "sha256": "31eeac8aa10136cfa7eda796bb25dba8b1fc31100efaba62c4208aa54d99ced8"
+        },
+        {
+          "url": "https://ai.engineer/talks/Sjfz1TqxzEs-robot-demos-are-easy-reliability-is-hard",
+          "final_url": "https://ai.engineer/talks/Sjfz1TqxzEs-robot-demos-are-easy-reliability-is-hard",
+          "http_status": 200,
+          "sha256": null
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=Sjfz1TqxzEs",
+          "final_url": "https://www.youtube.com/watch?v=Sjfz1TqxzEs",
+          "http_status": 200,
+          "sha256": null
+        }
+      ],
+      "access_limits": "Official event-host transcript and video metadata were inspected; this is a company talk, not a paper or independent replication.",
+      "patches": []
+    },
+    {
+      "id": "C392",
+      "original_order_index": 17,
+      "title": "Beyond Imitation: Self-Improving Robot Policies via Off-Policy Q-Planning",
+      "source_url": "https://arxiv.org/abs/2608.21204",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Georgia Institute of Technology. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The testtime assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "A frozen BC policy draws 32–64 actions; an approximately one-billion-parameter Q function weights/selects actions and learns from failures. The real cup experiment after five iterations improves 40% to 90%; supervised finetuning reaches 55%.",
+        "code": "Paper links varungiridhar.github.io/qplanning; that page points to q-planning.github.io, whose Code link resolves to the listed repository. README contains the Q-Planning implementation."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2608.21204",
+          "final_url": "https://arxiv.org/html/2608.21204",
+          "http_status": 200,
+          "sha256": "7d6fc994d54fdd3c8ce2c6f5504e4729ba56b5a1bc405b29f0c331950d83f423"
+        },
+        {
+          "url": "https://varungiridhar.github.io/qplanning/",
+          "final_url": "https://varungiridhar.github.io/qplanning/",
+          "http_status": 200,
+          "sha256": "2cd0b4426a65efa88d25f4fd629bd23dde96174fe8c0b1d40091bd27783fe1cf"
+        },
+        {
+          "url": "https://q-planning.github.io/",
+          "final_url": "https://q-planning.github.io/",
+          "http_status": 200,
+          "sha256": "b6bd64a632337aa439c7dea7b092559482330c73e9e4aaca6d96aa98134a03c1"
+        },
+        {
+          "url": "https://github.com/varungiridhar/qplanning-code",
+          "final_url": "https://github.com/varungiridhar/qplanning-code",
+          "http_status": 200,
+          "sha256": "c092be55e3d866c909f3f773f584ae0c445201b4cb209b63f68e9747e0e96070"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": [],
+      "code_verification": {
+        "url": "https://github.com/varungiridhar/qplanning-code",
+        "status": 200,
+        "provenance": "Paper links varungiridhar.github.io/qplanning; that page points to q-planning.github.io, whose Code link resolves to the listed repository. README contains the Q-Planning implementation.",
+        "scope": "Repository README and implementation contents/provenance checked; no training or reproducibility claim."
+      }
+    },
+    {
+      "id": "C400",
+      "original_order_index": 18,
+      "title": "ADEPT: Accelerating Dexterity via Pre-Training and Post-Training using Reinforcement Learning",
+      "source_url": "https://arxiv.org/abs/2608.19182",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: NVIDIA; University of Michigan. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The onpolicy assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "The adaptation recipe distills the changed observation interface, warms the critic with a frozen actor, then uses a small actor learning rate. Table 3 ADR-50 succeeds in 5/5 trials at 1e-5 and 0/5 at 1e-3; this is an adaptation ablation, not an industrial reliability claim.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2608.19182",
+          "final_url": "https://arxiv.org/html/2608.19182",
+          "http_status": 200,
+          "sha256": "dd4c8f37739c7304992a1b34e2d8a6a671e5cbd0a0f6d72d98d14455ba936d11"
+        },
+        {
+          "url": "https://adept-dexterity.github.io",
+          "final_url": "https://adept-dexterity.github.io/",
+          "http_status": 200,
+          "sha256": "cc963d0661b5c23d0a3db83008a08e4b481cd00885d6ff76bd7f1b84ea402542"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C405",
+      "original_order_index": 19,
+      "title": "GAINS: Leveraging Inconsistent Human Intervention Signals in Reinforcement Learning",
+      "source_url": "https://arxiv.org/abs/2608.15707",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Beijing Institute of Technology; Beijing Innovation Center of Humanoid Robotics; City University of Hong Kong; Nankai University. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The hitl assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Paper PDF covers four simulations and two real tasks; abstract reports 22% better success than RLIF and more than 50% fewer interventions. Method uses lower-tail truncated-quantile critics. Current project text mentions three real tasks; retain the paper-PDF scope, and do not silently combine versions.",
+        "code": "Official gains-hil.github.io project links HIL-RL. README main heading is SiLRI, but its update log explicitly adds GAINS and the gains policy option; it is not a mistaken SiLRI-only link."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2608.15707",
+          "final_url": "https://arxiv.org/html/2608.15707",
+          "http_status": 200,
+          "sha256": "41e994402c5c983ea6c927bc50ed5f291fc4d1a59a3b465ac163cc09b6b78bf0"
+        },
+        {
+          "url": "https://gains-hil.github.io/",
+          "final_url": "https://gains-hil.github.io/",
+          "http_status": 200,
+          "sha256": null
+        },
+        {
+          "url": "https://github.com/nuomizai/HIL-RL",
+          "final_url": "https://github.com/nuomizai/HIL-RL",
+          "http_status": 200,
+          "sha256": "a6354b2831a312f4f2535019e3db321993c721be484367a99a7e81c0b2a182e9"
+        },
+        {
+          "url": "https://arxiv.org/pdf/2608.15707",
+          "artifact": "primary PDF author page",
+          "sha256": "b2180cfc4b356f3ec61436c405e032e59b4c1fd9976225f0b9aba2874fed3ff3"
+        }
+      ],
+      "access_limits": "HTML affiliation extraction was incomplete; PDF author page was checked. Current project expands to three real tasks while the paper PDF states two; the row stays with the paper scope.",
+      "patches": [],
+      "code_verification": {
+        "url": "https://github.com/nuomizai/HIL-RL",
+        "status": 200,
+        "provenance": "Official gains-hil.github.io project links HIL-RL. README main heading is SiLRI, but its update log explicitly adds GAINS and the gains policy option; it is not a mistaken SiLRI-only link.",
+        "scope": "Repository README and implementation contents/provenance checked; no training or reproducibility claim."
+      }
+    },
+    {
+      "id": "C388",
+      "original_order_index": 20,
+      "title": "StructRL: Structured Action-Space Exploration for Flow-Based VLAs",
+      "source_url": "https://arxiv.org/abs/2608.15139",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Fudan University; Singapore Management University; Shanghai Artificial Intelligence Laboratory. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The onpolicy assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Endpoint exploration uses temporally correlated AR(1) noise and deterministic flow transport. ManiSkill OOD pi0.5 table gives SFT 25.9, piRL 49.3, its baseline 65.9 and StructRL 70.3.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2608.15139",
+          "final_url": "https://arxiv.org/html/2608.15139",
+          "http_status": 200,
+          "sha256": "9a1a422aa63cea830f2e97d6199d5ce15018bc60fe957eaf9ef6cc21a5771057"
+        },
+        {
+          "url": "https://flyfaerss.github.io/structrl/",
+          "final_url": "https://flyfaerss.github.io/structrl/",
+          "http_status": 200,
+          "sha256": "5be9e86a3ea33ece3a1b8ea9ab74767202f34e34642c477bc0e6285b35c22b94"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C395",
+      "original_order_index": 21,
+      "title": "Imagining Recovery: Inference-Time Counterfactual Realignment for Vision-Language-Action Models (CoRe)",
+      "source_url": "https://arxiv.org/abs/2608.14822",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Case Western Reserve University. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The testtime assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "A Mahalanobis action-expert-latent score identifies distribution shift; frozen-model restoration runs on simulated rollouts without online weight updates. LangSwitch table gives pi0 18.3 to 87.5 and pi0.5 35.5 to 92.7.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2608.14822",
+          "final_url": "https://arxiv.org/html/2608.14822",
+          "http_status": 200,
+          "sha256": "eff4ad90736f51d9ebc8798ffeb69da55f4f25a901c8d4725027df1a6c3e59c0"
+        },
+        {
+          "url": "https://arxiv.org/pdf/2608.14822",
+          "artifact": "primary PDF author page",
+          "sha256": "5bb540745515b12acf11eb4987b8d20c9a1023600430e4de74c78a90ab455942"
+        }
+      ],
+      "access_limits": "HTML affiliation extraction was incomplete; affiliation was checked from the primary PDF.",
+      "patches": []
+    },
+    {
+      "id": "C411",
+      "original_order_index": 22,
+      "title": "Temporal GRPO: Beyond Trajectory-Level Credit in Vision-Language-Action Reinforcement Learning",
+      "source_url": "https://arxiv.org/abs/2608.13026",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Institute of Software, CAS; UCAS. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The onpolicy assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "A VLM decomposes stages and compiles predicates; temporal advantages condition comparisons on stage reachability. RoboTwin2 macro results are 75.8 versus SimpleGRPO 68.8 and SFT 38.3.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2608.13026",
+          "final_url": "https://arxiv.org/html/2608.13026",
+          "http_status": 200,
+          "sha256": "42a52ffbeb136915446099ecdaa00689561165a4ef55feb155d83488c43ee9f8"
+        },
+        {
+          "url": "https://arxiv.org/pdf/2608.13026",
+          "artifact": "primary PDF author page",
+          "sha256": "bcd6920b24095c1d5106c8a7024df8276b68a3bd58b90882c8b58b0d4a9a0803"
+        }
+      ],
+      "access_limits": "HTML affiliation extraction was incomplete; affiliation was checked from the primary PDF.",
+      "patches": []
+    },
+    {
+      "id": "C402",
+      "original_order_index": 23,
+      "title": "Adaptation of Generalist Robot Policies with Minimal Data (MiDAS: Minimal-Data Adaptation Strategy)",
+      "source_url": "https://arxiv.org/abs/2608.11363",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Carnegie Mellon University. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The residual assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "LoRA backbone plus full action-head SFT initializes a residual actor that outputs complete chunks. LIBERO-Long one-demonstration table gives 91.2 versus DICE 89.3 and DSRL 33.5.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2608.11363",
+          "final_url": "https://arxiv.org/html/2608.11363",
+          "http_status": 200,
+          "sha256": "648f4f18d6877d5877ddb283e0003818670f6aace19490da3c4b633b415afd8b"
+        },
+        {
+          "url": "https://minimal-data-adaptation.github.io/",
+          "final_url": "https://minimal-data-adaptation.github.io/",
+          "http_status": 200,
+          "sha256": "4dbe9987ac9795cd7413d5ee83efaa70059eb5beb6ec91eb830cb2806ab6e7ea"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C397",
+      "original_order_index": 24,
+      "title": "RynnValue: Scaling Robotic Value Foundation Models with Temporal Distance",
+      "source_url": "https://arxiv.org/abs/2608.09853",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: DAMO Academy, Hupan Lab. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The reward assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "A temporal-distance value trained on over 7000 hours of video supplies potential-based rewards to frozen-pi0.5 DSRL. Online table gives 72.5 versus Robometer 52.5 and sparse reward 48.8.",
+        "code": "Paper directly links the Alibaba DAMO repository; README links RynnValue and its paper."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2608.09853",
+          "final_url": "https://arxiv.org/html/2608.09853",
+          "http_status": 200,
+          "sha256": "3bd9e1d1ac5ad8276ef7d7e56e3563ad9062f24308e796cbfd9d5286ad878fe4"
+        },
+        {
+          "url": "https://alibaba-damo-academy.github.io/RynnValue.github.io",
+          "final_url": "https://alibaba-damo-academy.github.io/RynnValue.github.io/",
+          "http_status": 200,
+          "sha256": "efc981c65ea5b74b50f13d6602dbd690f6d472760b2fa441ff28a4e7735d0e52"
+        },
+        {
+          "url": "https://github.com/alibaba-damo-academy/RynnValue",
+          "final_url": "https://github.com/alibaba-damo-academy/RynnValue",
+          "http_status": 200,
+          "sha256": "c5a3e2c5f3e9cca84d4d5a475e5f085c2554bcec4e3beb15bcdb5e3d89cb12c7"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": [],
+      "code_verification": {
+        "url": "https://github.com/alibaba-damo-academy/RynnValue",
+        "status": 200,
+        "provenance": "Paper directly links the Alibaba DAMO repository; README links RynnValue and its paper.",
+        "scope": "Repository README and implementation contents/provenance checked; no training or reproducibility claim."
+      }
+    },
+    {
+      "id": "C394",
+      "original_order_index": 25,
+      "title": "Not Just a Model, But a Product (Dyna Robotics blog on scaling customer deployments)",
+      "source_url": "https://www.dyna.co/research/scaling-customer-deployments",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Official Dyna Team page dates this post August 2026; retain month precision.",
+        "affiliation": "The publisher/host identifies Dyna Robotics as the company responsible for this item; this is organizational attribution, not a paper affiliation block.",
+        "family": "The industry assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "The official Dyna deployment post reports change from 35 folds/hour at 75% success to 95/hour at 93%. It describes SOP-driven automatic labels, uncertain-case human review and iterative fleet retraining; the figures remain company-reported.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://www.dyna.co/research/scaling-customer-deployments",
+          "final_url": "https://www.dyna.co/research/scaling-customer-deployments",
+          "http_status": 200,
+          "sha256": "de062b8598fca5f2159a5e76008d35aa1011b204ceba2c2b767ec74c1e27d6b6"
+        }
+      ],
+      "access_limits": "Company-reported operational metrics, not an independent benchmark.",
+      "patches": []
+    },
+    {
+      "id": "C360",
+      "original_order_index": 26,
+      "title": "CLIFT: Turning Gemini Robotics On-Device into Humanoid Specialists via Non-Invasive Closed-Loop Iterative Fine-Tuning",
+      "source_url": "https://arxiv.org/abs/2607.29172",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: UC Berkeley, Google DeepMind, NVIDIA Research. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The advbc assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "CLIFT uses state-neighbor/top-30-chunk return comparisons and supervised advantage labels for pi0.5. The real G1 plate task improves 53% to 96% over two 100-episode cycles; project says code is coming soon.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2607.29172",
+          "final_url": "https://arxiv.org/html/2607.29172",
+          "http_status": 200,
+          "sha256": "4b825e02289b48771ea7d39d2c627f560e7f821a087c062fc6427ffa93a4bfe6"
+        },
+        {
+          "url": "https://thomaschen98.github.io/clift",
+          "final_url": "https://thomaschen98.github.io/clift/",
+          "http_status": 200,
+          "sha256": "f54317fdc304d0f1e928759ff5361902e336745062212696f34171bd68b32ad0"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C377",
+      "original_order_index": 27,
+      "title": "RedFlow: Redirect Failure into Action-level Corrections for Flow-Matching VLA Policies",
+      "source_url": "https://arxiv.org/abs/2607.27782",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: HKUST. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The advbc assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Positive corrective and negative inferior chunks are matched within state/progress clusters. Real clothes-folding table has BC 36/100, AWR 48/100 and RedFlow 67/100, with intervals; no 100% reliability claim is made.",
+        "code": "Paper directly links the RedFlow repository; README describes a partial real-training release, not complete reproduction coverage."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2607.27782",
+          "final_url": "https://arxiv.org/html/2607.27782",
+          "http_status": 200,
+          "sha256": "449893c30bf0dc217cf08f2c75020953076c949b0818d5d5cc0c117b9a6da474"
+        },
+        {
+          "url": "https://github.com/HEISENYAN/RedFlow",
+          "final_url": "https://github.com/HEISENYAN/RedFlow",
+          "http_status": 200,
+          "sha256": "1e9114b93583b8349136c7102bdbf5470091f983bb51b7c43d4a0495a5b43153"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": [],
+      "code_verification": {
+        "url": "https://github.com/HEISENYAN/RedFlow",
+        "status": 200,
+        "provenance": "Paper directly links the RedFlow repository; README describes a partial real-training release, not complete reproduction coverage.",
+        "scope": "Repository README and implementation contents/provenance checked; no training or reproducibility claim."
+      }
+    },
+    {
+      "id": "C348",
+      "original_order_index": 28,
+      "title": "Do You Really Need to Pretrain Q-Functions for Online RL Fine-Tuning? (IPE: Initialization via Policy Ensemble)",
+      "source_url": "https://arxiv.org/abs/2607.27203",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Stanford University. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The offpolicy assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Diverse imitation-policy ensembles collect pooled experience for critic pretraining and downstream online RL. The paper reports 1.26x finetuning gains across six RoboMimic/OGBench tasks; this remains the paper's reported aggregate.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2607.27203",
+          "final_url": "https://arxiv.org/html/2607.27203",
+          "http_status": 200,
+          "sha256": "e1e49341111840c4cd59e3795ecade0137dca87654fa07572d77050f04cfba88"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C369",
+      "original_order_index": 29,
+      "title": "Closing the Lab-to-Store Gap: A Data-Efficient Post-Training and Experience-Driven Learning VLA Framework for Retail Humanoids (DEED)",
+      "source_url": "https://arxiv.org/abs/2607.20345",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: HIVE Robots; Technical University of Denmark. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The advbc assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Offline RECAP-style advantage labeling updates GR00T N1.6 from retail deployment data. Real experiment uses 51.5 minutes demonstrations plus 56.9 autonomous minutes; evaluations are 16/50, then 21/50, then 11/50, exposing the unsuccessful second iteration.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2607.20345",
+          "final_url": "https://arxiv.org/html/2607.20345",
+          "http_status": 200,
+          "sha256": "a52f4816b8c112a6d5ad0dc0ed0f1d5c3664bfd1b4d59620447d58a6069a632d"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C356",
+      "original_order_index": 30,
+      "title": "Foresight Residual RL for Long-Horizon Robot Manipulation with Vision-Language-Action Models",
+      "source_url": "https://arxiv.org/abs/2607.16506",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Rutgers University. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The residual assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "A phase-conditioned PPO residual uses next-phase foresight rewards around pi0. The simulated three-phase wrench table reports 85.6±3.9 versus 54.5±3.6; the inaccessible project page is not used as evidence.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2607.16506",
+          "final_url": "https://arxiv.org/html/2607.16506",
+          "http_status": 200,
+          "sha256": "aff8c764eb55c0b7db9399cfa4ca864ce53748701babe7a92f9fc240c009b318"
+        },
+        {
+          "url": "https://jaysparrow.github.io/foresight-residual-rl",
+          "final_url": "https://jaysparrow.github.io/foresight-residual-rl",
+          "http_status": 404,
+          "sha256": "b620507312c5e97566a3c6cfaf99144fefc18a0da7d941401dfa0f5f58fb0368"
+        }
+      ],
+      "access_limits": "The paper HTML is accessible; its project page returned 404. The code field is blank and no implementation release is asserted.",
+      "patches": []
+    },
+    {
+      "id": "C352",
+      "original_order_index": 31,
+      "title": "PAC-ACT: Post-training Actor-Critic for Action Chunking Transformers",
+      "source_url": "https://arxiv.org/abs/2607.09590",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: SUSTech. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The onpolicy assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "ACT's latent CVAE is replaced with a Gaussian stochastic actor for chunk PPO, with consecutive-policy KL and an imitation-prior penalty. Simulation table reports contour 60 to 100 and square 51.2 to 98.2.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2607.09590",
+          "final_url": "https://arxiv.org/html/2607.09590",
+          "http_status": 200,
+          "sha256": "b3d3d8e058f8cd0a07a41532c46f7e5becd6fc4e99622defb57ef88e78331f3c"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C380",
+      "original_order_index": 32,
+      "title": "Prompt-Driven Exploration: Language as an Exploration Space for VLA Reinforcement Learning (PDE)",
+      "source_url": "https://arxiv.org/abs/2607.08837",
+      "status": "verified-with-correction",
+      "severity": "major",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: MIT Improbable AI Lab; MIT-IBM Computing Research Lab. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The onpolicy assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Current v4 Figure 4 does not support the old hard-tier aggregate. Table 2 directly supports the narrower pi0.5 zero-start LIBERO-PRO Regime-3 task at step 120, 81.8% versus action-noise PPO 0%. The VLM prompt-exploration/PPO consolidation mechanism matches.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2607.08837",
+          "final_url": "https://arxiv.org/html/2607.08837",
+          "http_status": 200,
+          "sha256": "8ab76e8b1938a5ad2f93b89cabac07eb6f1792cb0e63f62c1a30eff6990fa8d9"
+        },
+        {
+          "url": "https://xinyunsunshine.github.io/prompt-rl",
+          "final_url": "https://xinyunsunshine.github.io/prompt-rl/",
+          "http_status": 200,
+          "sha256": "8098bcaf36a2eca6fd1db281ff99138b62e5d44f13e5130f77e0e9c30d1cd7ee"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": [
+        {
+          "id": "C380",
+          "severity": "major",
+          "fields": {
+            "one_line": "A VLM rewrites task prompts to discover successful rollouts; PPO trains with a mixture including the deployment prompt. Sim LIBERO-PRO, pi0.5 zero-start Regime 3 task, step 120: 81.8% vs action-noise PPO 0%."
+          },
+          "evidence": "Current v4 Figure4 ends near16% versus11% for the hard-task curves, inconsistent with19.5/13.3. Table2 directly supports the narrower object-task-perturbation Regime3 comparison81.8versus0 at step120; retains one directly tabulated result.",
+          "source_url": "https://arxiv.org/html/2607.08837v4",
+          "before": {
+            "one_line": "Explores in language: a VLM watches rollout videos and rewrites per-episode prompts; PPO consolidates successes under the canonical prompt. Sim LIBERO-PRO hard tier (47 tasks), pi0.5: 19.5% vs action-noise PPO 13.3% (init 1.3%); one zero-start task: 81.8% vs 0%."
+          },
+          "status": "applied"
+        }
+      ]
+    },
+    {
+      "id": "C355",
+      "original_order_index": 33,
+      "title": "FlowDAgger: Human-in-the-Loop Adaptation of Generative Robot Policies in Latent Space",
+      "source_url": "https://arxiv.org/abs/2607.08877",
+      "status": "verified-with-correction",
+      "severity": "minor",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Microsoft Research; Microsoft; ETH Zurich; University of Washington. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The hitl assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Flow inversion converts expert corrections into initial-noise targets for a small steering policy. MetaWorld mean success is 0.78 versus 0.71. Held-out saturated tasks give 0.88 versus base 0.96 and SFT 0.02. Author affiliation fixes the truncated University of Washington name.",
+        "code": "Author FlowDAgger project links the Microsoft repository; README identifies the official implementation."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2607.08877",
+          "final_url": "https://arxiv.org/html/2607.08877",
+          "http_status": 200,
+          "sha256": "b453958f13dacb64e7efc2c30d5f479ed2ac604854fbde3d5813868d6e91e2cd"
+        },
+        {
+          "url": "https://microsoft.github.io/FlowDAgger",
+          "final_url": "https://microsoft.github.io/FlowDAgger/",
+          "http_status": 200,
+          "sha256": "11518b1b114b233f980ecb1722befeaec393340d44d37f5c72dbd18d2638f4c9"
+        },
+        {
+          "url": "https://github.com/microsoft/FlowDAgger",
+          "final_url": "https://github.com/microsoft/FlowDAgger",
+          "http_status": 200,
+          "sha256": "3b0b73c9180e68d7578367123e24ec6d507b9aac7ed05d248a4f8900b7622947"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": [
+        {
+          "id": "C355",
+          "severity": "minor",
+          "fields": {
+            "org": "Microsoft Research; Microsoft; ETH Zurich; University of Washington"
+          },
+          "evidence": "Author-affiliation block explicitly lists University of Washington for Daphne Chen and Maya Cakmak; current trailing University of… is truncated.",
+          "source_url": "https://arxiv.org/html/2607.08877",
+          "before": {
+            "org": "Microsoft Research; Microsoft; ETH Zurich; University of…"
+          },
+          "status": "applied"
+        }
+      ],
+      "code_verification": {
+        "url": "https://github.com/microsoft/FlowDAgger",
+        "status": 200,
+        "provenance": "Author FlowDAgger project links the Microsoft repository; README identifies the official implementation.",
+        "scope": "Repository README and implementation contents/provenance checked; no training or reproducibility claim."
+      }
+    },
+    {
+      "id": "C351",
+      "original_order_index": 34,
+      "title": "HELP: Human-Efficient Large-Scale Robot Post-Training with Rollout Segmentation",
+      "source_url": "https://arxiv.org/abs/2607.09776",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Shanghai AI Laboratory. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The hitl assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "The intervention loop trains a VLAC-CUT progress critic using four trajectory segments and preserves recovery data. Table 4 Microplate iteration 2 gives HELP 42 tasks/hour at 90%, versus HITL 25/hour at 60%.",
+        "code": "Paper directly links InternRobotics/VLAC-cut; README identifies HELP and the VLAC-CUT critic."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2607.09776",
+          "final_url": "https://arxiv.org/html/2607.09776",
+          "http_status": 200,
+          "sha256": "c6f783f26bfd8b823153b18886faacc12b18b93e3d04e3fdac02b71aa6ad4c2e"
+        },
+        {
+          "url": "https://github.com/InternRobotics/VLAC-cut",
+          "final_url": "https://github.com/InternRobotics/VLAC-cut",
+          "http_status": 200,
+          "sha256": "2a36da1fb245696e8c8b902d28d299b2077c4b9a85976d426194dece74c5461e"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": [],
+      "code_verification": {
+        "url": "https://github.com/InternRobotics/VLAC-cut",
+        "status": 200,
+        "provenance": "Paper directly links InternRobotics/VLAC-cut; README identifies HELP and the VLAC-CUT critic.",
+        "scope": "Repository README and implementation contents/provenance checked; no training or reproducibility claim."
+      }
+    },
+    {
+      "id": "C370",
+      "original_order_index": 35,
+      "title": "SILO: Simulation-in-the-Loop Sim-to-Real Transfer for Multi-Stage Cable Routing",
+      "source_url": "https://arxiv.org/abs/2607.04616",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: NVIDIA; UC San Diego. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The simreal assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "A rolling cable-capsule digital twin supports online PPO from scratch and transfers actions to the real setup. H3 comparison is 18/24 versus 12/24 from the cited HIL baseline; the row does not present it as a newly rerun identical-budget baseline.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2607.04616",
+          "final_url": "https://arxiv.org/html/2607.04616",
+          "http_status": 200,
+          "sha256": "d60f271702a505d2fba016f6c3cfe6dfe6fce98574dc14e1111ca11f49071be2"
+        },
+        {
+          "url": "https://silo-cable-routing.github.io/",
+          "final_url": "https://silo-cable-routing.github.io/",
+          "http_status": 200,
+          "sha256": "0c27929ca9dc0535cd0a99776793a3fc8c1fb75391d3be1fa6f4f7901783654e"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C358",
+      "original_order_index": 36,
+      "title": "WorldSample: Closed-loop Real-robot RL with World Modelling",
+      "source_url": "https://arxiv.org/abs/2607.02431",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Nanyang Technological University; Tsinghua University; Central South University; Beijing University of Posts and Telecommunications. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The worldmodel assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Action-jittered trajectories are rendered through Cosmos 2.5 and screened by a critic before learning. Table 1 five real tasks gives 82% in 64 minutes versus HIL 56% in 83 minutes.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2607.02431",
+          "final_url": "https://arxiv.org/html/2607.02431",
+          "http_status": 200,
+          "sha256": "1c477695bc3af1d6bc8db74d2975e15724a9213e1788076aa291969a84b3d6ac"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C354",
+      "original_order_index": 37,
+      "title": "One Demonstration Is Enough for Real-World Robotic Reinforcement Learning (AutoSERL)",
+      "source_url": "https://arxiv.org/abs/2607.01651",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Institute of Automation, CAS; PKU-PsiBot Joint Lab; Peking University. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The offpolicy assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Three automatic intervention routines use one demonstration, including a drift-based planner and stalled-state replay. Table 1 reports 50/50 on each of six tasks after 8–45 minutes; automatic interventions are disabled for the main evaluation, which uses deterministic reset positions.",
+        "code": "Paper names autoserl.github.io; that project links autoserl/AutoSERL.git, and README names the matching paper."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2607.01651",
+          "final_url": "https://arxiv.org/html/2607.01651",
+          "http_status": 200,
+          "sha256": "c01e6461571f643e1b6b083b307fca1d8c2868c794690aee8b40caf429c28682"
+        },
+        {
+          "url": "https://autoserl.github.io/",
+          "final_url": "https://autoserl.github.io/",
+          "http_status": 200,
+          "sha256": "8e9b6f2007b008da60597e1205f8ea1ad8edd540efb0188a6988df1dc159bba6"
+        },
+        {
+          "url": "https://github.com/autoserl/AutoSERL",
+          "final_url": "https://github.com/autoserl/AutoSERL",
+          "http_status": 200,
+          "sha256": "255c04ccf842508428915ae6437e175a6f09c54badf64e896a7dc3ff4257d706"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": [],
+      "code_verification": {
+        "url": "https://github.com/autoserl/AutoSERL",
+        "status": 200,
+        "provenance": "Paper names autoserl.github.io; that project links autoserl/AutoSERL.git, and README names the matching paper.",
+        "scope": "Repository README and implementation contents/provenance checked; no training or reproducibility claim."
+      }
+    },
+    {
+      "id": "C364",
+      "original_order_index": 38,
+      "title": "RoboWorld: Fast and Reliable Neural Simulators for Generalist Robot Policy Evaluation",
+      "source_url": "https://arxiv.org/abs/2607.01060",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: KAIST; Config. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The worldmodel assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "A causal Wan2.1 T2V 1.3B simulator uses cached context and four denoising steps with StepForcing; GPT-4o judges outcomes. The reported RoboArena comparison uses 4186 rollouts of eight VLAs and Pearson correlation 0.989.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2607.01060",
+          "final_url": "https://arxiv.org/html/2607.01060",
+          "http_status": 200,
+          "sha256": "162947b53c71726ef3952c99fad1c4eef261486e74f7ddea0dafaac02c31d64e"
+        },
+        {
+          "url": "https://byeongguks.github.io/RoboWorld/",
+          "final_url": "https://byeongguks.github.io/RoboWorld/",
+          "http_status": 200,
+          "sha256": "e5f52d65a0aff8f3fa085a1fdba087d2ed02c0e90153f0c84c75f629d28a3558"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C357",
+      "original_order_index": 39,
+      "title": "ACT-2 Preview: Generalizing Reliability (Sunday Robotics blog)",
+      "source_url": "https://www.sunday.ai/blog/act-2-preview",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Official Sunday post is dated 2026-07-17.",
+        "affiliation": "The publisher/host identifies Sunday Robotics as the company responsible for this item; this is organizational attribution, not a paper affiliation block.",
+        "family": "The industry assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Official Sunday ACT-2 preview reports 778/785 at one fixed checkpoint without per-home adaptation. It distinguishes earlier demonstration/SFT studies from the incompletely disclosed reliability loop; no unsupported proprietary optimizer is inferred.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://www.sunday.ai/blog/act-2-preview",
+          "final_url": "https://www.sunday.ai/blog/act-2-preview",
+          "http_status": 200,
+          "sha256": "40fc70bb441d8bd738d79bb6aec2cb9cc33e21b6604d52ace44f388ef4d1d247"
+        }
+      ],
+      "access_limits": "Company-reported result; full proprietary update rule is not disclosed.",
+      "patches": []
+    },
+    {
+      "id": "C327",
+      "original_order_index": 40,
+      "title": "STEAM: Self-Supervised Temporal Ensemble Advantage Modeling for Real-World Robot Learning",
+      "source_url": "https://arxiv.org/abs/2606.29834",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Institute of Automation, CAS; Tsinghua University; UCAS. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The advbc assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "An ensemble estimates minimum visual-language time offsets, then guides advantage-conditioned flow training. Table 1 towel result is 92.3% versus RECAP 55.6% and BC 33.3%; real trial counts are not disclosed in the reported comparison.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2606.29834",
+          "final_url": "https://arxiv.org/html/2606.29834",
+          "http_status": 200,
+          "sha256": "68a06e4ed6be341e8bb7d1f2e9ebf331900cd0e1b39213a2b199f442d7adafea"
+        }
+      ],
+      "access_limits": "The cited real-task comparison does not expose a trial count; the percent is retained as an author-reported result.",
+      "patches": []
+    },
+    {
+      "id": "C324",
+      "original_order_index": 41,
+      "title": "Support-Constrained RL Enables Real-World Policy Improvement without Real-World Experience (SCORE: Support-Constrained Off-Domain REinforcement)",
+      "source_url": "https://arxiv.org/abs/2606.27475",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: University of Washington; Amazon FAR. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The residual assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "A scanned digital twin trains noise steering plus a bounded residual with PPO; no physical online RL is used. Eight-real-task mean improves 37.8 to 89.9; the residual-only comparison is 59.5.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2606.27475",
+          "final_url": "https://arxiv.org/html/2606.27475",
+          "http_status": 200,
+          "sha256": "e82f04f94a3a67c9dae273e87c665ccb5d5578c4b96b496bcbbaa4b14e40d192"
+        },
+        {
+          "url": "https://weirdlabuw.github.io/score/",
+          "final_url": "https://weirdlabuw.github.io/score/",
+          "http_status": 200,
+          "sha256": "6b7b1eebeffecda56dd4f5f6116d851a50d58861d949aea40f3e89c62b7b9a31"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C337",
+      "original_order_index": 42,
+      "title": "Learning Process Rewards via Success Visitation Matching for Efficient RL",
+      "source_url": "https://arxiv.org/abs/2606.23640",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: UC Berkeley. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The reward assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "A classifier separates policy success and failure visitation; clipped log odds shape the reward alongside outcomes. Figure 5 pick-and-place curve was visually inspected: roughly 0.93 versus 0.20 at the endpoint, a simulation chart reading.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2606.23640",
+          "final_url": "https://arxiv.org/html/2606.23640",
+          "http_status": 200,
+          "sha256": "bf594669a261e28550cad1c4c4f73f447e828a6cac22317553959498e026b272"
+        },
+        {
+          "url": "https://success-visitation-matching.github.io",
+          "final_url": "https://success-visitation-matching.github.io/",
+          "http_status": 200,
+          "sha256": "6f5f837ffd55b7b276856544f5b2db736f557e00e03e3fb465e2c162844f8d3d"
+        }
+      ],
+      "access_limits": "Numbers come from a visually inspected curve, not a raw-results table; no new precision is inferred.",
+      "patches": []
+    },
+    {
+      "id": "C305",
+      "original_order_index": 43,
+      "title": "FlowDPG: Deterministic Policy Gradient on Flow Matching Policies for Real-World Manipulation",
+      "source_url": "https://arxiv.org/abs/2606.22303",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Carnegie Mellon University, University of Pennsylvania, Skild AI. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The offpolicy assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Critic gradients at a one-step clean action estimate set the flow-velocity target with a BC anchor, avoiding ODE backpropagation. AirPods overall real table gives BC 64, RLT 80, QAM 80 and offline FlowDPG 88.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2606.22303",
+          "final_url": "https://arxiv.org/html/2606.22303",
+          "http_status": 200,
+          "sha256": "db89b5035427711df90719dcec479e73ccd3bcb4e799a1fcca93de39859fcebf"
+        },
+        {
+          "url": "https://flowdpg.github.io",
+          "final_url": "https://flowdpg.github.io/",
+          "http_status": 200,
+          "sha256": "c0288690922fbc8d1fbb2741b471d8a12bc5fa6589af373534e0a621d7887af8"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C318",
+      "original_order_index": 44,
+      "title": "RARM: Confidence-Gated Progress Reward Modeling for RL in Manipulation",
+      "source_url": "https://arxiv.org/abs/2606.22027",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: National University of Singapore, Booking.com, University of Cambridge, Nanjing University. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The reward assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "A confidence gate applies reference-relative progress rewards. Table 1 at 90 rollouts gives cloth 25/30 versus binary 7/30 and Robometer 9/30; Appendix D.2 explicitly identifies DAVIS and MOSE as comparator training data.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2606.22027",
+          "final_url": "https://arxiv.org/html/2606.22027",
+          "http_status": 200,
+          "sha256": "21caae43321fa98bb8420a0809a86ee49795de9309d38fca8a7953e5da9ca640"
+        },
+        {
+          "url": "https://rarm-robotics.github.io/",
+          "final_url": "https://rarm-robotics.github.io/",
+          "http_status": 200,
+          "sha256": "18a734f3265c1df74275aa517f6bb1cda64d4f27da0cbf02818beda11654a754"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C329",
+      "original_order_index": 45,
+      "title": "ENPIRE: Agentic Robot Policy Self-Improvement in the Real World",
+      "source_url": "https://arxiv.org/abs/2606.19980",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: NVIDIA, Carnegie Mellon University, UC Berkeley. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The blackbox assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Language-model agents edit experiment configurations and select black-box proposals. Real pin insertion reaches near-perfect performance in roughly 40 minutes with eight agents versus 1.5 hours with one; the reported system allows eight adaptive retries, not first-attempt success.",
+        "code": "Paper directly links NVlabs/ENPIRE; README identifies the work."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2606.19980",
+          "final_url": "https://arxiv.org/html/2606.19980",
+          "http_status": 200,
+          "sha256": "a2c612c85614193cf0b0f11129bfd5ca9321751a916e559d22be9b287a59202a"
+        },
+        {
+          "url": "https://github.com/NVlabs/ENPIRE",
+          "final_url": "https://github.com/NVlabs/ENPIRE",
+          "http_status": 200,
+          "sha256": "072420a0cff29d16f44a651fa2f7fcccef8c0c8299b4fb0244b3f1fef7f46db8"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": [],
+      "code_verification": {
+        "url": "https://github.com/NVlabs/ENPIRE",
+        "status": 200,
+        "provenance": "Paper directly links NVlabs/ENPIRE; README identifies the work.",
+        "scope": "Repository README and implementation contents/provenance checked; no training or reproducibility claim."
+      }
+    },
+    {
+      "id": "C311",
+      "original_order_index": 46,
+      "title": "ROVE: Unlocking Human Interventions for Humanoid Manipulation via Reinforcement Learning",
+      "source_url": "https://arxiv.org/abs/2606.17011",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: XPENG Robotics; Fudan; CUHK; SJTU. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The advbc assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "A stage penalty and expectile optimistic value modify RECAP-style advantage weighting. Figure 4 visually confirms equal-experience iteration-1 comparisons: Erase 60 versus 50, Bread 73.3 versus 66.7.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2606.17011",
+          "final_url": "https://arxiv.org/html/2606.17011",
+          "http_status": 200,
+          "sha256": "2002824e58f1758f1cd1e0a1b58a6ead4cf9dd1c56e1e99140151f5d328f5215"
+        },
+        {
+          "url": "https://xpeng-robotics.github.io/rove",
+          "final_url": "https://xpeng-robotics.github.io/rove/",
+          "http_status": 200,
+          "sha256": "a94843c6b501a5b47c9bfe95538ccfc3a80116d8b89adee9ae239049bf7a51d1"
+        }
+      ],
+      "access_limits": "Numbers come from a visually inspected figure; comparison is confined to equal-experience iteration 1.",
+      "patches": []
+    },
+    {
+      "id": "C333",
+      "original_order_index": 47,
+      "title": "TacCoRL: Integrating Tactile Feedback into VLA via Simulation",
+      "source_url": "https://arxiv.org/abs/2606.11743",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: UCLA, UC San Diego, Peking University, University of Utah, UESTC. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The simreal assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Tactile tokens and contact gating combine real/sim supervised data with simulation PPO and a BC anchor. The four-real-bimanual-task table reports 72.5% versus 50%.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2606.11743",
+          "final_url": "https://arxiv.org/html/2606.11743",
+          "http_status": 200,
+          "sha256": "e8576106dbe47ee439fca77c288e534765aafb2137270fe38984010c18b807ac"
+        },
+        {
+          "url": "https://tac-corl.github.io/",
+          "final_url": "https://tac-corl.github.io/",
+          "http_status": 200,
+          "sha256": "6db0682cb93cb0eb8c0a7df47ca96598a5441b0e12745255d7b3af6a007752c3"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C317",
+      "original_order_index": 48,
+      "title": "UniIntervene: Agentic Intervention for Efficient Real-World Reinforcement Learning",
+      "source_url": "https://arxiv.org/abs/2606.12372",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Nanyang Technological University; Beijing University of Posts and Telecommunications. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The hitl assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "A VLM proxy uses temporal value, risk and recovery memory to automate interventions. Table 1 five-real-task UR7e results move HIL 81% with 34.3% intervention ratio to 88% with 14.6%.",
+        "code": "Paper prints the author project URL; project links Denghaoyuan123/UniIntervene and README links the matching arXiv paper."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2606.12372",
+          "final_url": "https://arxiv.org/html/2606.12372",
+          "http_status": 200,
+          "sha256": "859e7ce02b73255a8fc66b974bc3a3e004ec8176b7095512b02398610c27c975"
+        },
+        {
+          "url": "https://denghaoyuan123.github.io/UniIntervene-project/",
+          "final_url": "https://denghaoyuan123.github.io/UniIntervene-project/",
+          "http_status": 200,
+          "sha256": "45fe432adaf124ac10bd7e752cb6c6f7c780abde6d80afdf0f3aa9781549ae31"
+        },
+        {
+          "url": "https://github.com/Denghaoyuan123/UniIntervene",
+          "final_url": "https://github.com/Denghaoyuan123/UniIntervene",
+          "http_status": 200,
+          "sha256": "44179d1d209a65182c4d940b716813d7612230af96ff999ff843b05424c63f6f"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": [],
+      "code_verification": {
+        "url": "https://github.com/Denghaoyuan123/UniIntervene",
+        "status": 200,
+        "provenance": "Paper prints the author project URL; project links Denghaoyuan123/UniIntervene and README links the matching arXiv paper.",
+        "scope": "Repository README and implementation contents/provenance checked; no training or reproducibility claim."
+      }
+    },
+    {
+      "id": "C313",
+      "original_order_index": 49,
+      "title": "SARM2: Multi-Task Stage Aware Reward Modeling for Self Improving Robotic Manipulation",
+      "source_url": "https://arxiv.org/abs/2606.10305",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Stanford, UC Berkeley, SJTU, xdof.ai. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The reward assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "SARM2 uses primitive classification and multi-expert remaining-step value; SPIRAL is residual TD3 with a BC anchor. Round-3 whiteboard results are 18/20 versus reward-model finetuning 13/20 and sparse 11/20. Listed code is explicitly the SPIRAL half.",
+        "code": "Official SARM2 project provides separate SARM2 and SPIRAL Code links; this listed repository is the SPIRAL half and README confirms it."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2606.10305",
+          "final_url": "https://arxiv.org/html/2606.10305",
+          "http_status": 200,
+          "sha256": "7c9bab010e468b861331f42ad9e7e96efc88132cce911a3757e84b13d3966b14"
+        },
+        {
+          "url": "https://qianzhong-chen.github.io/sarm2.github.io/",
+          "final_url": "https://qianzhong-chen.github.io/sarm2.github.io/",
+          "http_status": 200,
+          "sha256": "21cb6f51980c84e4c368e35af383d58e66ad9d5ee0ba8d499465e7515923053e"
+        },
+        {
+          "url": "https://github.com/Qianzhong-Chen/openspiral",
+          "final_url": "https://github.com/Qianzhong-Chen/openspiral",
+          "http_status": 200,
+          "sha256": "4ddb6f59e4d80c602cf788bf5b206548895d819762bcc5245e2da4f3ebb0a183"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": [],
+      "code_verification": {
+        "url": "https://github.com/Qianzhong-Chen/openspiral",
+        "status": 200,
+        "provenance": "Official SARM2 project provides separate SARM2 and SPIRAL Code links; this listed repository is the SPIRAL half and README confirms it.",
+        "scope": "Repository README and implementation contents/provenance checked; no training or reproducibility claim."
+      }
+    },
+    {
+      "id": "C307",
+      "original_order_index": 50,
+      "title": "Test-Time Gradient Guidance of Flow Policies in Reinforcement Learning (QGF, Q-Guided Flow)",
+      "source_url": "https://arxiv.org/abs/2606.11087",
+      "status": "verified-with-correction",
+      "severity": "minor",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: UC Berkeley; Physical Intelligence. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The testtime assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "An IQL critic guides frozen BC flow velocities through a one-step clean-action estimate. Figure 5 was visually checked: the 20-task OGBench mean beats tested test-time baselines and slightly exceeds EDP, but individual tasks need not; wording now specifies the mean.",
+        "code": "Paper directly links zhouzypaul/qgf; README identifies QGF and its paper."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2606.11087",
+          "final_url": "https://arxiv.org/html/2606.11087",
+          "http_status": 200,
+          "sha256": "07abca118df33b8ec6a850f463583be5d79277098b7393042c66b944235203c5"
+        },
+        {
+          "url": "https://github.com/zhouzypaul/qgf",
+          "final_url": "https://github.com/zhouzypaul/qgf",
+          "http_status": 200,
+          "sha256": "69213855db3ecc327d5dfc55a6019f6808ddc94695e4d72de3723aff3d9fa5ff"
+        }
+      ],
+      "access_limits": "Aggregate comparison comes from a visually inspected figure; no claim of winning every individual task.",
+      "patches": [
+        {
+          "id": "C307",
+          "severity": "minor",
+          "fields": {
+            "one_line": "Freezes a BC flow policy and IQL critic; each flow step adds grad Q, evaluated at a one-step estimate of the finished action, to the velocity. OGBench sim, charted 20-task mean: beats tested test-time methods, slightly edges EDP."
+          },
+          "before": {
+            "one_line": "Freezes a BC flow policy and IQL critic; each flow step adds grad Q, evaluated at a one-step estimate of the finished action, to the velocity. OGBench sim, charts only: beats all tested test-time methods, slightly edges EDP."
+          },
+          "evidence": "Figure 5 supports the 20-task aggregate comparison, but not winning every task; for example EDP exceeds QGF on cube quadruple. Qualify the existing comparison as the plotted mean.",
+          "source_url": "https://arxiv.org/html/2606.11087",
+          "status": "applied"
+        }
+      ],
+      "code_verification": {
+        "url": "https://github.com/zhouzypaul/qgf",
+        "status": 200,
+        "provenance": "Paper directly links zhouzypaul/qgf; README identifies QGF and its paper.",
+        "scope": "Repository README and implementation contents/provenance checked; no training or reproducibility claim."
+      }
+    },
+    {
+      "id": "C335",
+      "original_order_index": 51,
+      "title": "Video2Sim2Real: Full-Stack Autonomous Dexterous Skill Acquisition from a Single Human Video",
+      "source_url": "https://arxiv.org/abs/2606.08828",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Georgia Institute of Technology, University of Pennsylvania, Toyota Research Institute, Carnegie Mellon University. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The simreal assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "RGB-D human motion reconstructs a twin and a point-cloud student receives PPO finger-residual training. Table 2 seven real tasks total 67/70 successes versus 11/70 for the frozen-policy baseline, or 95.7% versus 15.7%.",
+        "code": "Official video2sim2real.github.io title/author project links this repository; README supplies an initial partial implementation release."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2606.08828",
+          "final_url": "https://arxiv.org/html/2606.08828",
+          "http_status": 200,
+          "sha256": "7ca6d2f6da728f118c916c2adf22803326ca860d274aa5729319a3674ea86c2e"
+        },
+        {
+          "url": "https://video2sim2real.github.io/",
+          "final_url": "https://video2sim2real.github.io/",
+          "http_status": 200,
+          "sha256": "ff8eb592a7d0a02c83cfab17ded9ef560653861539876c9bfbf1c6e82dc045ca"
+        },
+        {
+          "url": "https://github.com/video2sim2real/video2sim2real",
+          "final_url": "https://github.com/video2sim2real/video2sim2real",
+          "http_status": 200,
+          "sha256": "02fe65a23505651b03996530a29f4a6da8224729dac3a2c5719634b09526608e"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": [],
+      "code_verification": {
+        "url": "https://github.com/video2sim2real/video2sim2real",
+        "status": 200,
+        "provenance": "Official video2sim2real.github.io title/author project links this repository; README supplies an initial partial implementation release.",
+        "scope": "Repository README and implementation contents/provenance checked; no training or reproducibility claim."
+      }
+    },
+    {
+      "id": "C310",
+      "original_order_index": 52,
+      "title": "FlowPRO: Reward-Free Reinforced Fine-Tuning of Flow-Matching VLAs via Proximalized Preference Optimization",
+      "source_url": "https://arxiv.org/abs/2606.05468",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Tencent Robotics X; Futian Laboratory; Tsinghua University. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The hitl assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "The critic-free method uses a proximal residual preference objective, DPO-like comparisons and SFT rollback pairs. Three-round pi0 Pack table gives 99% versus RECAP-style pi0.6* 94% and DAgger 88%; models are identified rather than collapsed into one baseline.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2606.05468",
+          "final_url": "https://arxiv.org/html/2606.05468",
+          "http_status": 200,
+          "sha256": "cccd51660aac26db9f74f678415d3fc303c5e3f33076a26254a40bed77ff0f7e"
+        },
+        {
+          "url": "https://wuyeyexvnainai.github.io/flowpro/",
+          "final_url": "https://wuyeyexvnainai.github.io/flowpro/",
+          "http_status": 200,
+          "sha256": "f07964e81ed61e6a1aa525cde428841ebec81d78ad5079d40387f3b558d7dcef"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C302",
+      "original_order_index": 53,
+      "title": "A Factory-Floor Deployment Case Study of VLA Pipelines for Industrial Packaging Task: Workflow, Failures, and Lessons",
+      "source_url": "https://arxiv.org/abs/2605.27461",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Siemens. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The industry assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "The Siemens factory study documents an iterative data/SFT pipeline and 2535 episodes with deployment failures. It does not supply a single final aggregate success rate; the catalog preserves that limit.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2605.27461",
+          "final_url": "https://arxiv.org/html/2605.27461",
+          "http_status": 200,
+          "sha256": "f7fe7cfcddb1a00a2a24d8870fb3608f964d67f6c80a03c2b6c1784816a31ec4"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C276",
+      "original_order_index": 54,
+      "title": "EXPO-FT: Sample-Efficient Reinforcement Learning Finetuning for Vision-Language-Action Models",
+      "source_url": "https://arxiv.org/abs/2605.25477",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Stanford University. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The offpolicy assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "EXPO-FT learns a small edit policy and critic while leaving the VLA's updates supervised. Real tables show 30/30 versus base 20.5/30 and HG 22.1/30 in 19.1 minutes; candidate selection combines eight base and eight edited actions.",
+        "code": "Paper links pd-perry/expo-ft; README links the original EXPO-FT paper and the Real-Time extension."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2605.25477",
+          "final_url": "https://arxiv.org/html/2605.25477",
+          "http_status": 200,
+          "sha256": "95116b5b3a739662d61b6dd75c5632b69729431d8f1494e35ada850e5fd450ad"
+        },
+        {
+          "url": "https://pd-perry.github.io/expo-ft",
+          "final_url": "https://pd-perry.github.io/expo-ft/",
+          "http_status": 200,
+          "sha256": "c8a9d6060f556d118057e699fe4349f23fcd363ec5b18a05d84ac3f733d311f8"
+        },
+        {
+          "url": "https://github.com/pd-perry/expo-ft/",
+          "final_url": "https://github.com/pd-perry/expo-ft/",
+          "http_status": 200,
+          "sha256": "aee845f287507e219e12176d656e4380552ec77ab929963f10ba4d85133e60fc"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": [],
+      "code_verification": {
+        "url": "https://github.com/pd-perry/expo-ft/",
+        "status": 200,
+        "provenance": "Paper links pd-perry/expo-ft; README links the original EXPO-FT paper and the Real-Time extension.",
+        "scope": "Repository README and implementation contents/provenance checked; no training or reproducibility claim."
+      }
+    },
+    {
+      "id": "C304",
+      "original_order_index": 55,
+      "title": "Behavioral Mode Discovery for Fine-tuning Multimodal Generative Policies",
+      "source_url": "https://arxiv.org/abs/2605.11387",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Naver Labs Europe; Stanford. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The residual assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "A per-episode DIAYN-like behavioral code diversifies latent-noise steering. Avoid simulation comparison reports DSRL 2/24, DPPO 6.33/24 and BMD 10/24 task coverage near perfect success.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2605.11387",
+          "final_url": "https://arxiv.org/html/2605.11387",
+          "http_status": 200,
+          "sha256": "490b2516b189da736664e02486ba84edaf507b970c64ce213304742d63c77914"
+        },
+        {
+          "url": "https://behav-mod-dis.github.io",
+          "final_url": "https://behav-mod-dis.github.io/",
+          "http_status": 200,
+          "sha256": "bc4e70f18836b80a83d24e061f92cbe8bbee3425b58681e27201d2e977428bb2"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C279",
+      "original_order_index": 56,
+      "title": "UniSteer: Unified Noise Steering for Efficient Human-Guided VLA Adaptation",
+      "source_url": "https://arxiv.org/abs/2605.10821",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Microsoft Research; Tsinghua University; University of Technology Sydney. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The residual assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Fixed-point flow inversion converts expert corrections into targets for latent SAC. Four-real-task table gives 20% to 90% in 66 minutes on average, versus DSRL 55% and DAgger 60%.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2605.10821",
+          "final_url": "https://arxiv.org/html/2605.10821",
+          "http_status": 200,
+          "sha256": "c380c1f2dd837fba8960c5999fb2760a482840c6d1ece0075c682cf086d2bf18"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C288",
+      "original_order_index": 57,
+      "title": "VLA-ATTC: Adaptive Test-Time Compute for VLA Models with Relative Action Critic Model",
+      "source_url": "https://arxiv.org/abs/2605.01194",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: University of Sydney; Central South University; USTC; SenseTime Research; HKUST. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The testtime assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "A two-sample DTW gate calls a 16-candidate tournament guided by a relative critic. LIBERO-Long table with 50 trials/task gives pi0 82.8 to 90.6, gated 92.2, versus full RoboMonkey 56.5.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2605.01194",
+          "final_url": "https://arxiv.org/html/2605.01194",
+          "http_status": 200,
+          "sha256": "1f1d770f83e9f3a599e3aab0b85a4d74a8dc8d7a4f15898ef8f3114a0a6cf61f"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C282",
+      "original_order_index": 58,
+      "title": "Learning While Deploying: Fleet-Scale Reinforcement Learning for Generalist Robot Policies",
+      "source_url": "https://arxiv.org/abs/2605.00416",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: AGIBOT Finch; Shanghai Innovation Institute; Columbia University. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The offpolicy assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Uncertainty-aware quantile critics support 16-action QAM during fleet deployment. The task-composite table reports 0.95 versus SFT 0.76 and RECAP 0.85; the description labels the metric as composite rather than binary success.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2605.00416",
+          "final_url": "https://arxiv.org/html/2605.00416",
+          "http_status": 200,
+          "sha256": "78e4c1248750875cedabca6ed3a5f948dd3e62dca2d65dbd70383992616654bc"
+        },
+        {
+          "url": "https://learning-while-deploying.github.io/",
+          "final_url": "https://learning-while-deploying.github.io/",
+          "http_status": 200,
+          "sha256": "82a02ae5322734203317ed75f04404bbe13af818128ac57ceff58ad8cca1bbd9"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C264",
+      "original_order_index": 59,
+      "title": "RL Token: Bootstrapping Online RL with Vision-Language-Action Models",
+      "source_url": "https://arxiv.org/abs/2604.23073",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Physical Intelligence. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The offpolicy assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "A compact learned token edits frozen pi0.6 behavior using TD3 with an L2 edit penalty. The real screw task's critical phase improves 20% to 65%; this is not a whole-factory or all-task claim.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2604.23073",
+          "final_url": "https://arxiv.org/html/2604.23073",
+          "http_status": 200,
+          "sha256": "e66a04012a037bd27ed07b81db573cf0d099cb4d93d773ceeefad00b06f59e50"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    },
+    {
+      "id": "C269",
+      "original_order_index": 60,
+      "title": "Hi-WM: Human-in-the-World-Model for Scalable Robot Post-Training",
+      "source_url": "https://arxiv.org/abs/2604.21741",
+      "status": "verified",
+      "severity": "none",
+      "field_coverage": {
+        "title_date": "Title identity matched the primary paper. arXiv first-version date and canonical title reuse the completed repository-wide 874-ID API audit recorded in REPORT.md and VALIDATION.json; that metadata audit is not a claim of full-paper reading.",
+        "affiliation": "Primary author-affiliation header supports the listed organizations: Current Robotics; Tsinghua University; Peking University; University of Toronto. Institutional lists may be abbreviated rather than exhaustive.",
+        "family": "The hitl assignment matches the principal mechanism described below and the catalog family definitions; overlapping methods can fit more than one family.",
+        "description": "Human interventions train a world model; rollback and branching augment corrective experience for DP/pi0. The paper reports three-real-task gains of 37.9 points over base and 19 points over world-model self-training.",
+        "code": "Blank code field retained after inspecting primary paper/project links; no own implementation link was verified in those checked pages. This is not proof that no code exists anywhere."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2604.21741",
+          "final_url": "https://arxiv.org/html/2604.21741",
+          "http_status": 200,
+          "sha256": "c222c951316aeaa73e753597680b17bc493156d0798a255567e58667dbb06ad7"
+        },
+        {
+          "url": "https://hi-wm.github.io/",
+          "final_url": "https://hi-wm.github.io/",
+          "http_status": 200,
+          "sha256": "5683507fed9b3367fa203e86c706eabd05d1471a16ae68d4a6de21e4a00e772c"
+        }
+      ],
+      "access_limits": "Targeted field and claim verification, not a claim of a complete paper read or independent result reproduction.",
+      "patches": []
+    }
+  ],
+  "industry_metadata": [
+    {
+      "id": "C070",
+      "title": "1X World Model (announcement of a learned simulator for evaluating humanoid policies, plus the 1X World Model Challenge)",
+      "source_url": "https://www.1x.tech/discover/1x-world-model",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Official post header is September 17, 2024; current month precision agrees.",
+        "affiliation": "Publisher and named author/company identity support 1X Technologies.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Official 1X announcement directly links 1x-technologies/1xgpt as its challenge/released dataset; repository README identifies the 1X World Model Challenge implementation."
+      },
+      "sources": [
+        {
+          "url": "https://www.1x.tech/discover/1x-world-model",
+          "final_url": "https://www.1x.tech/discover/1x-world-model",
+          "http_status": 200,
+          "sha256": "7c745ca8b0d9bfe94e59e40e83b408ea2d52a69f561721a705d3cfbe1c8b00a0"
+        },
+        {
+          "url": "https://www.1x.tech/discover/1x-world-model",
+          "final_url": "https://www.1x.tech/discover/1x-world-model",
+          "http_status": 200,
+          "sha256": "7c745ca8b0d9bfe94e59e40e83b408ea2d52a69f561721a705d3cfbe1c8b00a0"
+        },
+        null
+      ],
+      "patches": [],
+      "access_limits": ""
+    },
+    {
+      "id": "C102",
+      "title": "Dynamism v1 (DYNA-1) Model: A Breakthrough in Performance and Production-Ready Embodied AI",
+      "source_url": "https://www.dyna.co/research/dyna-1",
+      "status": "verified-with-correction",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Official Dyna Team blog explicitly dates itself June 2025; patch separates it from the April press release.",
+        "affiliation": "Publisher and named author/company identity support Dyna Robotics.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://www.dyna.co/research/dyna-1",
+          "final_url": "https://www.dyna.co/research/dyna-1",
+          "http_status": 200,
+          "sha256": "b3143d5ae30bd98889b7ab3c52dfb0d974556500250d667c6f04c79381e6b2a2"
+        }
+      ],
+      "patches": [
+        {
+          "id": "C102",
+          "severity": "minor",
+          "fields": {
+            "date": "2025-06"
+          },
+          "before": {
+            "date": "2025-04"
+          },
+          "evidence": "The current official DYNA-1 blog by the Dyna Team labels its own date June 2025. April 29 is the separate press release C104. Use the date of the linked item.",
+          "source_url": "https://www.dyna.co/research/dyna-1",
+          "status": "applied"
+        }
+      ],
+      "access_limits": ""
+    },
+    {
+      "id": "C104",
+      "title": "Dyna Robotics Unveils DYNA-1: The First Commercial-Ready Robot Foundation Model Offering Fully Autonomous, Round-the-Clock Dexterity",
+      "source_url": "https://www.prnewswire.com/news-releases/dyna-robotics-unveils-dyna-1-the-first-commercial-ready-robot-foundation-model-offering-fully-autonomous-round-the-clock-dexterity-302441437.html",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Company-provided PRNewswire release explicitly dates itself April 29, 2025; current month precision agrees.",
+        "affiliation": "Publisher and named author/company identity support Dyna Robotics.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://www.prnewswire.com/news-releases/dyna-robotics-unveils-dyna-1-the-first-commercial-ready-robot-foundation-model-offering-fully-autonomous-round-the-clock-dexterity-302441437.html",
+          "final_url": "https://www.prnewswire.com/news-releases/dyna-robotics-unveils-dyna-1-the-first-commercial-ready-robot-foundation-model-offering-fully-autonomous-round-the-clock-dexterity-302441437.html",
+          "http_status": 200,
+          "sha256": "251431985e440f5c73baad2f502f08b4e11dba98af1bf6c390cc301bad761898"
+        }
+      ],
+      "patches": [],
+      "access_limits": ""
+    },
+    {
+      "id": "C124",
+      "title": "Scaling Helix: a New State of the Art in Humanoid Logistics",
+      "source_url": "https://www.figure.ai/news/scaling-helix-logistics",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Official Figure time element states June 7, 2025; month precision agrees.",
+        "affiliation": "Publisher and named author/company identity support Figure AI.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://www.figure.ai/news/scaling-helix-logistics",
+          "final_url": "https://www.figure.ai/news/scaling-helix-logistics",
+          "http_status": 200,
+          "sha256": "8d7020a652d2b1c950c7af2aa5a8ffe93f80427a28b68175450b59dde52924c8"
+        }
+      ],
+      "patches": [],
+      "access_limits": ""
+    },
+    {
+      "id": "C128",
+      "title": "1X World Model: Evaluating Bits, not Atoms (1XWM, policy evaluation with a learned action-conditioned video world model)",
+      "source_url": "https://www.1x.tech/discover/redwood-ai-world-model",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Official 1X post header is June 16, 2025; month precision agrees.",
+        "affiliation": "Publisher and named author/company identity support 1X Technologies.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://www.1x.tech/discover/redwood-ai-world-model",
+          "final_url": "https://www.1x.tech/discover/redwood-ai-world-model",
+          "http_status": 200,
+          "sha256": "5fca76f4e0aca4a81c2ffd95ceb5591f0dd403bff9a92a773e33fb8879c1d0af"
+        }
+      ],
+      "patches": [],
+      "access_limits": ""
+    },
+    {
+      "id": "C177",
+      "title": "Open-World Dexterity and Live Demos around the World (DYNA-1i)",
+      "source_url": "https://www.dyna.co/research/open-world-dexterity",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Official Dyna Team post header states December 2025.",
+        "affiliation": "Publisher and named author/company identity support Dyna Robotics.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://www.dyna.co/research/open-world-dexterity",
+          "final_url": "https://www.dyna.co/research/open-world-dexterity",
+          "http_status": 200,
+          "sha256": "69205e12d264f0d7db419e6ac35afb1ffe02d4ae0390b2372cb353b9816b8aa4"
+        }
+      ],
+      "patches": [],
+      "access_limits": ""
+    },
+    {
+      "id": "C267",
+      "title": "GEN-1: Scaling Embodied Foundation Models to Mastery",
+      "source_url": "https://generalistai.com/blog/gen-1",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Official Generalist Team post header states April 2, 2026.",
+        "affiliation": "Publisher and named author/company identity support Generalist AI.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://generalistai.com/blog/gen-1",
+          "final_url": "https://generalistai.com/blog/gen-1",
+          "http_status": 200,
+          "sha256": "322f7c00e2a8b807ad2bb4692b83dff0e675c2bbfa92a459595b87300666e530"
+        }
+      ],
+      "patches": [],
+      "access_limits": ""
+    },
+    {
+      "id": "C302",
+      "title": "A Factory-Floor Deployment Case Study of VLA Pipelines for Industrial Packaging Task: Workflow, Failures, and Lessons",
+      "source_url": "https://arxiv.org/abs/2605.27461",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Primary arXiv first-version date 2026-05-25 reuses the completed 874-ID API audit.",
+        "affiliation": "Publisher and named author/company identity support Siemens.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2605.27461",
+          "final_url": "https://arxiv.org/html/2605.27461",
+          "http_status": 200,
+          "sha256": "f7fe7cfcddb1a00a2a24d8870fb3608f964d67f6c80a03c2b6c1784816a31ec4"
+        }
+      ],
+      "patches": [],
+      "access_limits": ""
+    },
+    {
+      "id": "C357",
+      "title": "ACT-2 Preview: Generalizing Reliability (Sunday Robotics blog)",
+      "source_url": "https://www.sunday.ai/blog/act-2-preview",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Official Sunday post is dated July 17, 2026.",
+        "affiliation": "Publisher and named author/company identity support Sunday Robotics.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://www.sunday.ai/blog/act-2-preview",
+          "final_url": "https://www.sunday.ai/blog/act-2-preview",
+          "http_status": 200,
+          "sha256": "33fd517a782555f059fa57e77de2d7ba49322bc13f67c79d90f521a6befc6737"
+        }
+      ],
+      "patches": [],
+      "access_limits": ""
+    },
+    {
+      "id": "C394",
+      "title": "Not Just a Model, But a Product (Dyna Robotics blog on scaling customer deployments)",
+      "source_url": "https://www.dyna.co/research/scaling-customer-deployments",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Official Dyna Team post header states August 2026.",
+        "affiliation": "Publisher and named author/company identity support Dyna Robotics.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://www.dyna.co/research/scaling-customer-deployments",
+          "final_url": "https://www.dyna.co/research/scaling-customer-deployments",
+          "http_status": 200,
+          "sha256": "de062b8598fca5f2159a5e76008d35aa1011b204ceba2c2b767ec74c1e27d6b6"
+        }
+      ],
+      "patches": [],
+      "access_limits": ""
+    },
+    {
+      "id": "C434",
+      "title": "Physical Self-Play",
+      "source_url": "https://www.skild.ai/blogs/physical-self-play",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Official Skild article metadata gives September 23, 2026.",
+        "affiliation": "Publisher and named author/company identity support Skild AI.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://www.skild.ai/blogs/physical-self-play",
+          "final_url": "https://www.skild.ai/blogs/physical-self-play",
+          "http_status": 200,
+          "sha256": "72ed928c358a22cb02c2c4741bdcd718f1d4e9018edc4c30e72ff47d9bf943df"
+        }
+      ],
+      "patches": [],
+      "access_limits": ""
+    },
+    {
+      "id": "N145",
+      "title": "DYNA-1 Pre-Training: Zero-Shot Dexterity Is Here (adjacent)",
+      "source_url": "https://www.dyna.co/research/pre-training",
+      "status": "verified-with-correction",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Official Dyna Team header states November 2025; no day is exposed. Patch removes unsupported day precision.",
+        "affiliation": "Publisher and named author/company identity support Dyna Robotics.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://www.dyna.co/research/pre-training",
+          "final_url": "https://www.dyna.co/research/pre-training",
+          "http_status": 200,
+          "sha256": "241095e28382ce718fe7c66add9bb82e1670e670c2a4025a79df9918f0fab5c3"
+        }
+      ],
+      "patches": [
+        {
+          "id": "N145",
+          "severity": "minor",
+          "fields": {
+            "date": "2025-11"
+          },
+          "before": {
+            "date": "2025-11-20"
+          },
+          "evidence": "The official Dyna Team post labels its date November 2025; an exact day is not exposed in the page or metadata. Narrow the unsupported day precision.",
+          "source_url": "https://www.dyna.co/research/pre-training",
+          "status": "applied"
+        }
+      ],
+      "access_limits": ""
+    },
+    {
+      "id": "N146",
+      "title": "AgiBot deploys its Real-World Reinforcement Learning system",
+      "source_url": "https://www.therobotreport.com/agibot-deploys-real-world-reinforcement-learning-system/",
+      "status": "verified-with-correction",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing the catalog explanatory parenthetical suffix. N146 uses the verified replacement primary release title.",
+        "date": "Old Robot Report source returned 403 in this pass. The company-provided Agibot PRNewswire release has explicit November 2, 2025, 21:00 ET metadata; patch uses that primary artifact and its own date/title.",
+        "affiliation": "Publisher and named author/company identity support AgiBot; Longcheer Technology.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Company-provided Agibot primary release independently rechecked: Longcheer pilot line, claimed weeks-to-minutes training and 100% completion over extended operation; it links no paper/code and supplies no trial denominator. Existing company-claim qualification is retained.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://www.therobotreport.com/agibot-deploys-real-world-reinforcement-learning-system/",
+          "final_url": "https://www.therobotreport.com/agibot-deploys-real-world-reinforcement-learning-system/",
+          "http_status": 403,
+          "sha256": "0b4fd70fddd69dab29f47ea247a3b3c636bcd8cefe92812dc00a2225c0ff3556"
+        },
+        {
+          "url": "https://www.prnewswire.com/news-releases/agibot-achieves-first-real-world-deployment-of-reinforcement-learning-in-industrial-robotics-302601935.html",
+          "final_url": "https://www.prnewswire.com/news-releases/agibot-achieves-first-real-world-deployment-of-reinforcement-learning-in-industrial-robotics-302601935.html",
+          "http_status": 200,
+          "sha256": null
+        }
+      ],
+      "patches": [
+        {
+          "id": "N146",
+          "severity": "minor",
+          "fields": {
+            "title": "AgiBot Achieves First Real-World Deployment of Reinforcement Learning in Industrial Robotics",
+            "short": "AgiBot real-world RL deployment",
+            "url": "https://www.prnewswire.com/news-releases/agibot-achieves-first-real-world-deployment-of-reinforcement-learning-in-industrial-robotics-302601935.html",
+            "date": "2025-11-02"
+          },
+          "before": {
+            "title": "AgiBot deploys its Real-World Reinforcement Learning system",
+            "short": "AgiBot deploys its Real-World Reinforcement Learning system",
+            "url": "https://www.therobotreport.com/agibot-deploys-real-world-reinforcement-learning-system/",
+            "date": "2025-11-03"
+          },
+          "evidence": "The old Robot Report URL returns 403 on the metadata pass. The company-authored Agibot release has the same Longcheer pilot, weeks-to-minutes and self-reported extended-operation 100% claims; its provider and publication timestamp are explicit. Prefer this primary release; retain company-claim qualifications.",
+          "source_url": "https://www.prnewswire.com/news-releases/agibot-achieves-first-real-world-deployment-of-reinforcement-learning-in-industrial-robotics-302601935.html",
+          "status": "applied"
+        }
+      ],
+      "access_limits": "Original secondary source was blocked (403); current primary release supports the replacement fields and attributed claims."
+    },
+    {
+      "id": "N147",
+      "title": "KinetIQ Ascend: Towards 100% Manipulation Reliability and Superhuman Speed",
+      "source_url": "https://thehumanoid.ai/technology/kinetiq-ascend/",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Official Humanoid page time element and structured data give June 25, 2026; the stored title matches its social metadata although its visible hero heading differs.",
+        "affiliation": "Publisher and named author/company identity support Humanoid.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://thehumanoid.ai/technology/kinetiq-ascend/",
+          "final_url": "https://thehumanoid.ai/technology/kinetiq-ascend/",
+          "http_status": 200,
+          "sha256": "e3a656690679bb27c4a68690bcbc990f56fb2b8eb6972f52e997f77c862b5ddb"
+        }
+      ],
+      "patches": [],
+      "access_limits": ""
+    },
+    {
+      "id": "N148",
+      "title": "What 10 Months in Production Taught Us About the Robotics \"Bubble\"",
+      "source_url": "https://www.dyna.co/news/robotics-bubble",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Official Dyna post by York Yang states May 2026.",
+        "affiliation": "Publisher and named author/company identity support Dyna Robotics.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://www.dyna.co/news/robotics-bubble",
+          "final_url": "https://www.dyna.co/news/robotics-bubble",
+          "http_status": 200,
+          "sha256": "6f23aa8de9f0553e100a73bb5ac91ae898538ab9dfa9ce12b4139bfbf5b59762"
+        }
+      ],
+      "patches": [],
+      "access_limits": ""
+    },
+    {
+      "id": "N149",
+      "title": "Fern (Ishiki Labs): RL environments for robotics companies",
+      "source_url": "https://www.ycombinator.com/companies/fern-bot",
+      "status": "verified-with-correction",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "YC shows Winter 2026 batch and founding year 2025, but no profile-publication date; neither proves publication in 2026. Patch clears date.",
+        "affiliation": "Publisher and named author/company identity support Fern / Ishiki Labs.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://www.ycombinator.com/companies/fern-bot",
+          "final_url": "https://www.ycombinator.com/companies/fern-bot",
+          "http_status": 200,
+          "sha256": "ce15ae470044b6381ba03763b7be92675b68446d46d7ee5852b0cd74a42e3d29"
+        }
+      ],
+      "patches": [
+        {
+          "id": "N149",
+          "severity": "minor",
+          "fields": {
+            "date": ""
+          },
+          "before": {
+            "date": "2026"
+          },
+          "source_url": "https://www.ycombinator.com/companies/fern-bot",
+          "evidence": "YC profile displays a 2026 accelerator batch, but does not state when this profile or launch description was first published. Cohort year is not publication date; clear the unsupported publication-year field. Company identity and the profile claims are verified.",
+          "status": "applied"
+        }
+      ],
+      "access_limits": "Publication date is not stated; patch clears unsupported date precision."
+    },
+    {
+      "id": "N150",
+      "title": "Enact: Real-world RL environments for robotics models (YC S26)",
+      "source_url": "https://www.ycombinator.com/companies/enact",
+      "status": "verified-with-correction",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "YC shows Summer 2026 batch and founding year 2026, but no profile-publication date. Patch clears date.",
+        "affiliation": "Publisher and named author/company identity support Enact.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://www.ycombinator.com/companies/enact",
+          "final_url": "https://www.ycombinator.com/companies/enact",
+          "http_status": 200,
+          "sha256": "270962dc1c28699c31d7f7bef89537789414780f5dbf586c7c9f1dd55f8495ae"
+        }
+      ],
+      "patches": [
+        {
+          "id": "N150",
+          "severity": "minor",
+          "fields": {
+            "date": ""
+          },
+          "before": {
+            "date": "2026"
+          },
+          "source_url": "https://www.ycombinator.com/companies/enact",
+          "evidence": "YC profile displays a 2026 accelerator batch, but does not state when this profile or launch description was first published. Cohort year is not publication date; clear the unsupported publication-year field. Company identity and the profile claims are verified.",
+          "status": "applied"
+        }
+      ],
+      "access_limits": "Publication date is not stated; patch clears unsupported date precision."
+    },
+    {
+      "id": "N151",
+      "title": "Building a 100-Robot Data Factory Toward Factory-Ready AI",
+      "source_url": "https://www.tutorintelligence.com/blog/building-a-100-robot-data-factory-toward-factory-ready-ai",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Official Tutor structured datePublished gives April 30, 2026; month precision agrees.",
+        "affiliation": "Publisher and named author/company identity support Tutor Intelligence.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://www.tutorintelligence.com/blog/building-a-100-robot-data-factory-toward-factory-ready-ai",
+          "final_url": "https://www.tutorintelligence.com/blog/building-a-100-robot-data-factory-toward-factory-ready-ai",
+          "http_status": 200,
+          "sha256": "00e2002126350104332eb299d108908bc1aefb9e17d842f91f4232256f4c4322"
+        }
+      ],
+      "patches": [],
+      "access_limits": ""
+    },
+    {
+      "id": "N152",
+      "title": "State of Robot Learning — December 2025",
+      "source_url": "https://vedder.io/misc/state_of_robot_learning_dec_2025.html",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Author page explicitly situates its present-tense assessment in December 2025, consistent with its title and URL. It has no separate publication timestamp; retain only month precision.",
+        "affiliation": "The author meta tag identifies Kyle Vedder. Catalog org is blank, so no unsupported institutional attribution is made.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://vedder.io/misc/state_of_robot_learning_dec_2025.html",
+          "final_url": "https://vedder.io/misc/state_of_robot_learning_dec_2025.html",
+          "http_status": 200,
+          "sha256": "f41639531e1a16e9c2c2fe57bc05819b170879d0ab21730080d339b94bd1a79e"
+        }
+      ],
+      "patches": [],
+      "access_limits": "Month comes from the author's explicit contemporaneous framing, not a separate timestamp."
+    },
+    {
+      "id": "N153",
+      "title": "Smooth Exponentials for Robotics",
+      "source_url": "https://evjang.com/2026/09/10/smooth-exponential.html",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Author page metadata gives September 10, 2026.",
+        "affiliation": "Publisher and named author/company identity support Eric Jang.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://evjang.com/2026/09/10/smooth-exponential.html",
+          "final_url": "https://evjang.com/2026/09/10/smooth-exponential.html",
+          "http_status": 200,
+          "sha256": "aefdb8c9f0f151af0549ea4ca1806256f0c184bd8f3a079d9f275a98de225e4c"
+        }
+      ],
+      "patches": [],
+      "access_limits": ""
+    },
+    {
+      "id": "N154",
+      "title": "Cargo Cults, Data Flywheels, and Novelty Pumps",
+      "source_url": "https://vedder.io/misc/novelty_pump.html",
+      "status": "verified-with-correction",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Author page has no visible or structured publication date; no primary evidence established even a publication month/year. Patch clears the date rather than substituting a crawl timestamp.",
+        "affiliation": "The author meta tag identifies Kyle Vedder. Catalog org is blank, so no unsupported institutional attribution is made.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://vedder.io/misc/novelty_pump.html",
+          "final_url": "https://vedder.io/misc/novelty_pump.html",
+          "http_status": 200,
+          "sha256": "2798cd1cbd931a710ac8bbd638750e8d17497d5652c19af6af47dcdd718fd10e"
+        }
+      ],
+      "patches": [
+        {
+          "id": "N154",
+          "severity": "minor",
+          "fields": {
+            "date": ""
+          },
+          "before": {
+            "date": "2026-06-14"
+          },
+          "source_url": "https://vedder.io/misc/novelty_pump.html",
+          "evidence": "The author page identifies Kyle Vedder and the article title but has no date in the visible text, meta tags, time elements, or structured data. No primary evidence establishes even the month or year; clear the unsupported June 14 date and display date not stated. No crawl/header date is substituted.",
+          "status": "applied"
+        }
+      ],
+      "access_limits": "Publication date is not stated; patch clears unsupported date precision."
+    },
+    {
+      "id": "N155",
+      "title": "In-Context Learning Results Hint at a \"GPT Moment\" for Robotics",
+      "source_url": "https://itcanthink.substack.com/p/in-context-learning-results-hint",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Author page time element/structured metadata give August 28, 2026.",
+        "affiliation": "Publisher and named author/company identity support Chris Paxton.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://itcanthink.substack.com/p/in-context-learning-results-hint",
+          "final_url": "https://itcanthink.substack.com/p/in-context-learning-results-hint",
+          "http_status": 200,
+          "sha256": "be6e396d78656a0b3ce4a52d8f5c89cb06120eeeb6c3dda45d3ea3df703eadf9"
+        }
+      ],
+      "patches": [],
+      "access_limits": ""
+    },
+    {
+      "id": "N159",
+      "title": "Where Autonomy Works: Evaluating Robot Capabilities in 2026",
+      "source_url": "https://epoch.ai/blog/where-autonomy-works-evaluating-robot-capabilities-in-2026",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Official Epoch page article metadata gives February 10, 2026; byline names Yann Riviere and Jean Denain.",
+        "affiliation": "Publisher and named author/company identity support Epoch AI.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://epoch.ai/blog/where-autonomy-works-evaluating-robot-capabilities-in-2026",
+          "final_url": "https://epoch.ai/blog/where-autonomy-works-evaluating-robot-capabilities-in-2026",
+          "http_status": 200,
+          "sha256": "687f9c10f1a1b4ce90b0810ed906b19fea0e848137588966c73b02c3513bebaa"
+        }
+      ],
+      "patches": [],
+      "access_limits": ""
+    },
+    {
+      "id": "N160",
+      "title": "Going Beyond World Models & VLAs",
+      "source_url": "https://generalistai.com/blog/beyond-world-models",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Official Generalist post by Pete Florence and team gives April 7, 2026.",
+        "affiliation": "Publisher and named author/company identity support Generalist AI.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://generalistai.com/blog/beyond-world-models",
+          "final_url": "https://generalistai.com/blog/beyond-world-models",
+          "http_status": 200,
+          "sha256": "49d9f334b85c328eef73491d36b6ec2ad4582fa15c4f1c51103b82c2b0df685b"
+        }
+      ],
+      "patches": [],
+      "access_limits": ""
+    },
+    {
+      "id": "N161",
+      "title": "Bessemer Predicts: Robotics and Physical AI",
+      "source_url": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Official Bessemer page visible Published date and embedded publishedAt give April 16, 2026.",
+        "affiliation": "Publisher and named author/company identity support Bessemer Venture Partners.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+          "final_url": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+          "http_status": 200,
+          "sha256": "88bd9d1064928b585db5473da77fe7c76c789e30a07a0377ba1a32d1f94569bc"
+        }
+      ],
+      "patches": [],
+      "access_limits": ""
+    },
+    {
+      "id": "N162",
+      "title": "Sunday Robotics ACT-2: What 778 of 785 Laundry Folds Actually Prove",
+      "source_url": "https://physicalaiguide.com/guides/sunday-robotics-act-2-reliability-evidence/",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Physical AI Guide article explicitly gives July 17, 2026 and an Editorial Team byline; this is attributed secondary commentary, not a Sunday-authored experimental report.",
+        "affiliation": "Publisher and named author/company identity support Physical AI Guide.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://physicalaiguide.com/guides/sunday-robotics-act-2-reliability-evidence/",
+          "final_url": "https://physicalaiguide.com/guides/sunday-robotics-act-2-reliability-evidence/",
+          "http_status": 200,
+          "sha256": "5733d89e8eca17fb4e3b4f3f9a70f2738ac45d04ec7ed8eb7682eb4f7aae82b4"
+        }
+      ],
+      "patches": [],
+      "access_limits": ""
+    },
+    {
+      "id": "N164",
+      "title": "Gemini Robotics 2 brings whole body intelligence to robots",
+      "source_url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Official DeepMind article metadata gives July 30, 2026 and a Carolina Parada byline.",
+        "affiliation": "Publisher and named author/company identity support Google DeepMind.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+          "final_url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+          "http_status": 200,
+          "sha256": "c3b13a1c154d982f862f56142b78a5d4c15dc7e874fb74bbe4c413bd96cc527a"
+        }
+      ],
+      "patches": [],
+      "access_limits": ""
+    },
+    {
+      "id": "N410",
+      "title": "The Robot Data Factory",
+      "source_url": "https://arxiv.org/abs/2609.16705",
+      "status": "verified",
+      "field_coverage": {
+        "title": "Matched the title/identity in the publisher or author page, allowing catalog explanatory parentheticals.",
+        "date": "Primary arXiv first-version date September 15, 2026 reuses the completed API audit. Author header identifies MBZUAI; existing author-name attribution is accurate but not an institutional list.",
+        "affiliation": "Primary author list confirms the named authors; author affiliation is Mohamed bin Zayed University of Artificial Intelligence (MBZUAI). Current author-name fallback is accurate and does not falsely assert a different institution.",
+        "family": "Industry is an appropriate editorial grouping for the company report, case study, company profile or industry commentary; it does not imply this is a paper or an independently validated result.",
+        "description": "Source claims and relevant qualifiers were checked in the earlier complete 28-industry-item P0 audit (P0-REVIEW.md); this pass closes metadata and code-provenance fields rather than claiming the earlier wording screen covered them.",
+        "code": "Blank field retained: checked item does not supply a verified own implementation link; no universal absence-of-code claim."
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2609.16705",
+          "final_url": "https://arxiv.org/html/2609.16705",
+          "http_status": 200,
+          "sha256": "59c1fd3fef381d6eb5fba351c8a720a75cc261d413ac4d3b6edffd2ba0290a4f"
+        }
+      ],
+      "patches": [],
+      "access_limits": ""
+    }
+  ],
+  "patches": [
+    {
+      "id": "C355",
+      "severity": "minor",
+      "fields": {
+        "org": "Microsoft Research; Microsoft; ETH Zurich; University of Washington"
+      },
+      "evidence": "Author-affiliation block explicitly lists University of Washington for Daphne Chen and Maya Cakmak; current trailing University of… is truncated.",
+      "source_url": "https://arxiv.org/html/2607.08877",
+      "before": {
+        "org": "Microsoft Research; Microsoft; ETH Zurich; University of…"
+      },
+      "status": "applied"
+    },
+    {
+      "id": "C413",
+      "severity": "minor",
+      "fields": {
+        "one_line": "Finds noise directions that most move a frozen generative policy's actions using finite differences at 64 states; SAC steers those directions. Sim RoboMimic Diffusion-Square, final-five-evaluation mean, one seed: 0.878 vs 0.716 for full-latent steering."
+      },
+      "evidence": "Section V and Table II define final-window success as the mean over final five evaluations, not a single final evaluation. Other mechanism/numbers match.",
+      "source_url": "https://arxiv.org/html/2609.33765",
+      "before": {
+        "one_line": "Finds the few noise directions that most move a frozen diffusion or flow policy's actions (finite-difference probing at 64 states) and lets SAC steer only those. Sim RoboMimic Diffusion-Square, final success, one seed: 0.878 vs 0.716 steering the full latent."
+      },
+      "status": "applied"
+    },
+    {
+      "id": "C380",
+      "severity": "major",
+      "fields": {
+        "one_line": "A VLM rewrites task prompts to discover successful rollouts; PPO trains with a mixture including the deployment prompt. Sim LIBERO-PRO, pi0.5 zero-start Regime 3 task, step 120: 81.8% vs action-noise PPO 0%."
+      },
+      "evidence": "Current v4 Figure4 ends near16% versus11% for the hard-task curves, inconsistent with19.5/13.3. Table2 directly supports the narrower object-task-perturbation Regime3 comparison81.8versus0 at step120; retains one directly tabulated result.",
+      "source_url": "https://arxiv.org/html/2607.08837v4",
+      "before": {
+        "one_line": "Explores in language: a VLM watches rollout videos and rewrites per-episode prompts; PPO consolidates successes under the canonical prompt. Sim LIBERO-PRO hard tier (47 tasks), pi0.5: 19.5% vs action-noise PPO 13.3% (init 1.3%); one zero-start task: 81.8% vs 0%."
+      },
+      "status": "applied"
+    },
+    {
+      "id": "C102",
+      "severity": "minor",
+      "fields": {
+        "date": "2025-06"
+      },
+      "before": {
+        "date": "2025-04"
+      },
+      "evidence": "The current official DYNA-1 blog by the Dyna Team labels its own date June 2025. April 29 is the separate press release C104. Use the date of the linked item.",
+      "source_url": "https://www.dyna.co/research/dyna-1",
+      "status": "applied"
+    },
+    {
+      "id": "N145",
+      "severity": "minor",
+      "fields": {
+        "date": "2025-11"
+      },
+      "before": {
+        "date": "2025-11-20"
+      },
+      "evidence": "The official Dyna Team post labels its date November 2025; an exact day is not exposed in the page or metadata. Narrow the unsupported day precision.",
+      "source_url": "https://www.dyna.co/research/pre-training",
+      "status": "applied"
+    },
+    {
+      "id": "N146",
+      "severity": "minor",
+      "fields": {
+        "title": "AgiBot Achieves First Real-World Deployment of Reinforcement Learning in Industrial Robotics",
+        "short": "AgiBot real-world RL deployment",
+        "url": "https://www.prnewswire.com/news-releases/agibot-achieves-first-real-world-deployment-of-reinforcement-learning-in-industrial-robotics-302601935.html",
+        "date": "2025-11-02"
+      },
+      "before": {
+        "title": "AgiBot deploys its Real-World Reinforcement Learning system",
+        "short": "AgiBot deploys its Real-World Reinforcement Learning system",
+        "url": "https://www.therobotreport.com/agibot-deploys-real-world-reinforcement-learning-system/",
+        "date": "2025-11-03"
+      },
+      "evidence": "The old Robot Report URL returns 403 on the metadata pass. The company-authored Agibot release has the same Longcheer pilot, weeks-to-minutes and self-reported extended-operation 100% claims; its provider and publication timestamp are explicit. Prefer this primary release; retain company-claim qualifications.",
+      "source_url": "https://www.prnewswire.com/news-releases/agibot-achieves-first-real-world-deployment-of-reinforcement-learning-in-industrial-robotics-302601935.html",
+      "status": "applied"
+    },
+    {
+      "id": "C307",
+      "severity": "minor",
+      "fields": {
+        "one_line": "Freezes a BC flow policy and IQL critic; each flow step adds grad Q, evaluated at a one-step estimate of the finished action, to the velocity. OGBench sim, charted 20-task mean: beats tested test-time methods, slightly edges EDP."
+      },
+      "before": {
+        "one_line": "Freezes a BC flow policy and IQL critic; each flow step adds grad Q, evaluated at a one-step estimate of the finished action, to the velocity. OGBench sim, charts only: beats all tested test-time methods, slightly edges EDP."
+      },
+      "evidence": "Figure 5 supports the 20-task aggregate comparison, but not winning every task; for example EDP exceeds QGF on cube quadruple. Qualify the existing comparison as the plotted mean.",
+      "source_url": "https://arxiv.org/html/2606.11087",
+      "status": "applied"
+    },
+    {
+      "id": "N154",
+      "severity": "minor",
+      "fields": {
+        "date": ""
+      },
+      "before": {
+        "date": "2026-06-14"
+      },
+      "source_url": "https://vedder.io/misc/novelty_pump.html",
+      "evidence": "The author page identifies Kyle Vedder and the article title but has no date in the visible text, meta tags, time elements, or structured data. No primary evidence establishes even the month or year; clear the unsupported June 14 date and display date not stated. No crawl/header date is substituted.",
+      "status": "applied"
+    },
+    {
+      "id": "N149",
+      "severity": "minor",
+      "fields": {
+        "date": ""
+      },
+      "before": {
+        "date": "2026"
+      },
+      "source_url": "https://www.ycombinator.com/companies/fern-bot",
+      "evidence": "YC profile displays a 2026 accelerator batch, but does not state when this profile or launch description was first published. Cohort year is not publication date; clear the unsupported publication-year field. Company identity and the profile claims are verified.",
+      "status": "applied"
+    },
+    {
+      "id": "N150",
+      "severity": "minor",
+      "fields": {
+        "date": ""
+      },
+      "before": {
+        "date": "2026"
+      },
+      "source_url": "https://www.ycombinator.com/companies/enact",
+      "evidence": "YC profile displays a 2026 accelerator batch, but does not state when this profile or launch description was first published. Cohort year is not publication date; clear the unsupported publication-year field. Company identity and the profile claims are verified.",
+      "status": "applied"
+    }
+  ]
+}

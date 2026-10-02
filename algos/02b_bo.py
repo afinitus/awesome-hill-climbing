@@ -288,8 +288,11 @@ def plot_comparison(cfg: Config) -> None:
 
 
 def main(cfg: Config) -> None:
+    final_label = "search check" if cfg.quick else "held-out"
+    base_label = "search check" if cfg.quick else "eval"
     acqs = ["logei", "sobol"] if cfg.acq == "all" else [cfg.acq]
-    ev = partial(evaluate, init_set="eval", robot=cfg.robot, n_workers=cfg.n_workers, n=cfg.eval_n)
+    ev = partial(evaluate, init_set="search" if cfg.quick else "eval", robot=cfg.robot,
+                 n_workers=cfg.n_workers, n=cfg.eval_n)
     base = ev(partial(KnobController, DEFAULT_KNOBS, cfg.robot)) if cfg.heldout else None
     finals: dict[str, list] = {}
     for acq in acqs:
@@ -308,15 +311,15 @@ def main(cfg: Config) -> None:
                     final = ev(partial(KnobController, knobs, cfg.robot), ledger=L, category="eval")
                     L.set_final(successes=final)
                     finals.setdefault(name, []).append(final)
-            held = f" -> held-out {final.summary}" if base is not None else ""
+            held = f" -> {final_label} {final.summary}" if base is not None else ""
             print(f"{name} seed {seed}: search {format_rate(*r['best_search'])}{held} | "
                   f"{L.robot_minutes['search']:.1f} search robot-min, {r['rollouts']} episodes")
     if base is not None:
-        print(f"\nsummary (base on eval: {base.summary})")
+        print(f"\nsummary (base on {base_label}: {base.summary})")
         for name, fs in finals.items():
             k, n = sum(f.k for f in fs), sum(f.n for f in fs)
             per_seed = ", ".join(f"{f.k}/{f.n}" for f in fs)
-            print(f"  {name:6s} held-out per seed [{per_seed}]  pooled {format_rate(k, n)}")
+            print(f"  {name:6s} {final_label} per seed [{per_seed}]  pooled {format_rate(k, n)}")
     if cfg.media and not cfg.quick and base is not None:
         plot_comparison(cfg)
 

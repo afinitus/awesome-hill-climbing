@@ -1,0 +1,38 @@
+[
+  {
+    "id": "C301",
+    "old": {
+      "org": "HKUST"
+    },
+    "fields": {
+      "org": "Hong Kong University of Science and Technology (Guangzhou)"
+    },
+    "severity": "minor",
+    "evidence": "Primary v2 affiliation block specifies the Guangzhou university; replace ambiguous HKUST attribution.",
+    "source_url": "https://arxiv.org/html/2605.15971"
+  },
+  {
+    "id": "C272",
+    "old": {
+      "code": "https://github.com/czs12354-xxdbd/WM-Dagger"
+    },
+    "fields": {
+      "code": ""
+    },
+    "severity": "major",
+    "evidence": "The associated WM-DAgger repository contains only README.md, which says Code Coming Soon. Remove the implementation-availability link; retain the paper URL.",
+    "source_url": "https://arxiv.org/html/2604.11351"
+  },
+  {
+    "id": "C207",
+    "old": {
+      "code": "https://research.nvidia.com/labs/dir/cosmos-policy/"
+    },
+    "fields": {
+      "code": "https://github.com/NVlabs/cosmos-policy"
+    },
+    "severity": "optional metadata enrichment",
+    "evidence": "The old project URL has an HTML refresh redirect. The current official project loads its Code link from publications.json and links NVlabs/cosmos-policy; repository contains cosmos_policy plus training/evaluation guides.",
+    "source_url": "https://arxiv.org/html/2601.16163"
+  }
+]

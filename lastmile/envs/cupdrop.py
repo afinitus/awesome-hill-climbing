@@ -7,7 +7,7 @@ instead of acting as an unbreakable guide rail. Every failure (missed grasp, sli
 
 Control is at 10 Hz. The policy sends an end-effector delta plus a gripper command; the env integrates an
 EE target, clips it to a workspace box, runs damped-least-squares IK, and hands joint targets to the arm's
-position servos (Menagerie gains and force limits, unchanged).
+position servos (with robot-specific gripper gain and force-limit adjustments in RobotSpec).
 """
 
 from __future__ import annotations

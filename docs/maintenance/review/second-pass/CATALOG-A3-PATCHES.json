@@ -1,0 +1,197 @@
+[
+  {
+    "id": "N267",
+    "severity": "minor",
+    "change_classification": "current-claim-or-provenance-correction",
+    "status": "proposed-not-applied",
+    "before": {
+      "code": "https://AdaWorldPolicy.github.io"
+    },
+    "fields": {
+      "code": ""
+    },
+    "source_url": "https://arxiv.org/abs/2602.20057",
+    "evidence": {
+      "code": "Current official project is a video-results page with no links at all; no implementation download is exposed. Clear code field while preserving project provenance here."
+    },
+    "access_or_scope_limits": []
+  },
+  {
+    "id": "N270",
+    "severity": "minor",
+    "change_classification": "current-claim-or-provenance-correction",
+    "status": "proposed-not-applied",
+    "before": {
+      "code": "https://seungkukim.github.io/robocurate/"
+    },
+    "fields": {
+      "code": ""
+    },
+    "source_url": "https://arxiv.org/abs/2602.18742",
+    "evidence": {
+      "code": "Current project links arXiv and website-template source only, no method implementation. Clear code field without asserting code unavailable elsewhere."
+    },
+    "access_or_scope_limits": []
+  },
+  {
+    "id": "N269",
+    "severity": "minor",
+    "change_classification": "current-claim-or-provenance-correction",
+    "status": "proposed-not-applied",
+    "before": {
+      "one_line": "14B autoregressive video-diffusion World Action Model jointly predicting future video and actions at 7Hz; real-robot task progress over 2x the best pretrained VLA on unseen tasks/environments; 10-20 min video-only cross-embodiment data: >42% relative gain on unseen tasks."
+    },
+    "fields": {
+      "one_line": "14B video-action diffusion model; optimized Flash inference reaches ~7Hz on GB200. Real-robot task progress exceeds 2× the best tested pretrained VLA; 10–20 minutes of video-only cross-embodiment data yields >42% relative improvement on unseen tasks."
+    },
+    "source_url": "https://arxiv.org/abs/2602.15922",
+    "evidence": {
+      "description": "Abstract/real results support14B joint video-action modeling,62.2 task-progress versus27.4 best tested pretrained VLA and>42% relative transfer gains from10–20min video-only data. Section3.2.6 specifies150ms/~7Hz for optimized DreamZero-Flash on GB200; qualify hardware/variant."
+    },
+    "access_or_scope_limits": []
+  },
+  {
+    "id": "N359",
+    "severity": "minor",
+    "change_classification": "current-claim-or-provenance-correction",
+    "status": "proposed-not-applied",
+    "before": {
+      "one_line": "Video generation model produces per-episode task guidance; coarse- and fine-grained contrastive latent rewards against it drive manipulation RL without human annotations across 18 sim and real tasks."
+    },
+    "fields": {
+      "one_line": "Video generator adapted with a small set of expert videos produces per-episode task guidance. Coarse- and fine-grained contrastive latent rewards drive manipulation RL without reward annotations, evaluated across 18 simulated and real tasks."
+    },
+    "source_url": "https://arxiv.org/abs/2602.12636",
+    "evidence": {
+      "description": "Abstract supports per-episode video guidance, coarse/fine latent contrastive rewards and18sim/physicaltasks. Add the explicitly required small expert-video set for generator domain adaptation so no-annotation wording does not imply no demonstrations."
+    },
+    "access_or_scope_limits": []
+  },
+  {
+    "id": "C231",
+    "severity": "minor",
+    "change_classification": "current-claim-or-provenance-correction",
+    "status": "proposed-not-applied",
+    "before": {
+      "one_line": "Preference fine-tuning of a pretrained diffusion policy on preferred vs dispreferred real cloth-folding demos; RKO merges KTO's per-sample labels with RPO's similarity reweighting. Best in 4/9 settings; Trousers Pref 1: 0.910 vs 0.701 for vanilla DDPM."
+    },
+    "fields": {
+      "one_line": "Fine-tunes diffusion policies on preferred/dispreferred cloth-folding demonstrations, combining KTO sample labels with RPO similarity weighting. RKO leads 4/9 real garment/preference settings; Trousers Pref 1 normalized folding score is 0.910 versus vanilla DDPM’s 0.701."
+    },
+    "source_url": "https://arxiv.org/abs/2602.09583",
+    "evidence": {
+      "description": "Methods III-B combine KTO single-sample preference labels and RPO similarity weighting. IV-B compares nine garment/preference settings: RKO leads four. Table I trousers Pref 1 reports normalized folding score 0.910 versus DDPM 0.701, not binary success rate; Fig. 3 defines a complete correct fold as score 1."
+    },
+    "access_or_scope_limits": []
+  },
+  {
+    "id": "C229",
+    "severity": "none",
+    "change_classification": "optional-current-version-title-normalization",
+    "status": "proposed-not-applied",
+    "before": {
+      "title": "SERNF: Sample-Efficient Real-World Dexterous Policy Fine-Tuning via Action-Chunked Critics and Normalizing Flows (the v4 PDF is titled \"SERNF: Sample-Efficient Real-World Dexterous Fine-Tuning with Normalizing-Flow Policies\")"
+    },
+    "fields": {
+      "title": "SERNF: Sample-Efficient Real-World Dexterous Fine-Tuning with Normalizing-Flow Policies"
+    },
+    "source_url": "https://arxiv.org/abs/2602.09580",
+    "evidence": {
+      "title": "Current v4 primary title: SERNF: Sample-Efficient Real-World Dexterous Fine-Tuning with Normalizing-Flow Policies. Current catalog accurately gives both the old metadata title and this v4 variant; proposed shorter title is optional readability normalization, not an original factual error."
+    },
+    "access_or_scope_limits": [
+      "The arXiv abstract metadata retains an earlier longer title; the proposed readable title follows the current v4 PDF/HTML title. Scissors rates use the paper’s aggregated 25-configuration evaluation, not its 15-configuration table."
+    ]
+  },
+  {
+    "id": "C223",
+    "severity": "minor",
+    "change_classification": "current-claim-or-provenance-correction",
+    "status": "proposed-not-applied",
+    "before": {
+      "code": "https://github.com/showlab/World-VLA-Loop"
+    },
+    "fields": {
+      "code": ""
+    },
+    "source_url": "https://arxiv.org/abs/2602.06508",
+    "evidence": {
+      "code": "Official showlab repository is HTTP 200 but contains website assets only; README Source Code section states preparation is ongoing. Clear the code field rather than advertise this as a released implementation."
+    },
+    "access_or_scope_limits": [
+      "The official repository remains a project website/source-code placeholder; no implementation was present at review time."
+    ]
+  },
+  {
+    "id": "N214",
+    "severity": "minor",
+    "change_classification": "current-claim-or-provenance-correction",
+    "status": "proposed-not-applied",
+    "before": {
+      "one_line": "RFO trains flow policies with reparameterization policy gradients, backpropagating through ODE action generation and differentiable dynamics; almost 2x SOTA baseline reward on a soft-body quadruped task."
+    },
+    "fields": {
+      "one_line": "RFO trains flow policies with reparameterization policy gradients through ODE action generation and differentiable dynamics. On simulated Soft Jumper, reward is 3023.96 versus 1597.99 for the best tested baseline, SAPO (about 1.89×)."
+    },
+    "source_url": "https://arxiv.org/abs/2602.03501",
+    "evidence": {
+      "description": "Method backpropagates reparameterized policy gradients through flow ODE action generation and differentiable dynamics. Main results table Soft Jumper reward: RFO 3023.96 versus best tested baseline SAPO 1597.99 (1.89×); simulated soft quadruped, not real-robot reward. Narrow the broad SOTA phrase to the tested comparison."
+    },
+    "access_or_scope_limits": []
+  },
+  {
+    "id": "N185",
+    "severity": "minor",
+    "change_classification": "current-claim-or-provenance-correction",
+    "status": "proposed-not-applied",
+    "before": {
+      "one_line": "Shows expected-reward RL is a first-order approximation of maximum likelihood under binary terminal feedback; MaxRL interpolates between them as sampling compute scales, up to 20x test-time scaling efficiency over GRPO."
+    },
+    "fields": {
+      "one_line": "Under binary terminal feedback, expected-reward RL approximates maximum likelihood to first order. MaxRL approaches likelihood optimization as sampling compute grows; math-reasoning evaluations report up to 20× test-time sampling efficiency over GRPO with a perfect verifier."
+    },
+    "source_url": "https://arxiv.org/abs/2602.02710",
+    "evidence": {
+      "description": "Sections 2–4 derive likelihood under binary terminal feedback and expected-reward RL as its first-order approximation; MaxRL is compute-indexed. Section 6.4/Fig. 6 give up to 20× sampling efficiency on mathematical reasoning specifically with a perfect verifier. Add that condition, which the existing sentence omitted."
+    },
+    "access_or_scope_limits": []
+  },
+  {
+    "id": "N189",
+    "severity": "minor",
+    "change_classification": "current-claim-or-provenance-correction",
+    "status": "proposed-not-applied",
+    "before": {
+      "one_line": "SDPO: LLM conditioned on rich textual feedback (e.g. runtime errors) acts as self-teacher, distilling next-token predictions into the policy; at test time on very hard coding questions, matches best-of-k discovery with ~3x fewer attempts."
+    },
+    "fields": {
+      "one_line": "SDPO distills a feedback-conditioned LLM’s next-token predictions back into its policy. On nine selected very-hard LiveCodeBench questions, test-time self-distillation matches best-of-k discovery probability with about 3× fewer attempts."
+    },
+    "source_url": "https://arxiv.org/abs/2601.20802",
+    "evidence": {
+      "description": "Section 2 defines feedback-conditioned self-teacher and next-token distillation. Section 5 selects nine very-hard LiveCodeBench questions with base pass@64 below .03 and at least one solution discovered by a tested method; the 3× test-time comparison is within that selected set. Qualify the count and selection rather than imply all difficult coding questions."
+    },
+    "access_or_scope_limits": [
+      "Test-time questions were retained only if at least one compared method found a solution within the study budget; no population-wide 3× claim is established."
+    ]
+  },
+  {
+    "id": "C206",
+    "severity": "minor",
+    "change_classification": "current-claim-or-provenance-correction",
+    "status": "proposed-not-applied",
+    "before": {
+      "one_line": "World-model safety critic predicts near-future failures and hands control to an offline-trained recovery policy during PPO-based (Uni-O4) offline-to-online RL; real Franka tasks: 73.1% fewer intervention-requiring failures than Uni-O4 (mean of per-task reductions)."
+    },
+    "fields": {
+      "one_line": "World-model safety critic triggers an offline-trained recovery policy during PPO-based Uni-O4 refinement. Across three real Franka tasks, failure state-action pairs fall by 73.1% versus Uni-O4 (mean per-task reduction over 50 training episodes)."
+    },
+    "source_url": "https://arxiv.org/abs/2601.07821",
+    "evidence": {
+      "description": "Method learns a world-model safety critic plus offline recovery policy, with PPO/GAE Uni-O4 updates. Figure 7 labels failure state-action pairs over 50 real training episodes. Visually checked printed counts Uni-O4/FARL: 186/36, 1524/322, 2172/875; mean per-task reduction is 73.055%, rounding to 73.1. Label the counted unit explicitly rather than imply separate failure episodes."
+    },
+    "access_or_scope_limits": [
+      "Failure counts are constraint-violating state-action pairs, not counts of failed episodes or distinct physical accidents."
+    ]
+  }
+]
