@@ -56,7 +56,7 @@ CI (`.github/workflows/ci.yml`) runs `make test` and `make smoke` on Ubuntu and 
 
 ## The honesty rules
 
-Last-mile results can be hard to compare when selection protocols, search budgets or trial counts differ or are incompletely reported. These rules make our protocol explicit; historical exceptions are disclosed in the chapter notes and prelaunch review. They apply to code, printed summaries, plots, chapter docs and posts about the repo.
+Last-mile results can be hard to compare when selection protocols, search budgets or trial counts differ or are incompletely reported. These rules make our protocol explicit; historical exceptions are disclosed in the chapter notes. They apply to code, printed summaries, plots, chapter docs and posts about the repo.
 
 1. **Search and evaluation use disjoint initial states.** Anything you choose (knobs, a noise ticket, a checkpoint, a hyperparameter, N in best-of-N) is chosen on the `search` set only (64 seeds, 10 000–10 063). `eval` (256 seeds) is held out and never used for selection; `eval_ext` (1024) is for final claims. If a chapter also shows a number selected on `eval`, label it *optimistic* and print it next to the held-out one, as Chapter 3 does to show the gap.
 2. **Every success rate has a Wilson 95% interval,** in tables, plots, printed summaries and docs. Use `lastmile.common.eval.wilson` (or `format_rate`), not a normal approximation, which breaks at 0/n and n/n. Reference values:

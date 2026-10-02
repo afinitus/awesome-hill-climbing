@@ -97,11 +97,11 @@ METHODS = ("sac", "rlpd", "qc", "qc-cql")
 # reproduced the pilot's SAC, RLPD and QC rounds. The corrected QC target deliberately changes its trajectory.
 PRIOR_STEPS: dict[str, dict[str, int]] = {"pilot_1": {"search": 44_515, "train": 160_368},
                                           "first_quick_run": {"search": 20_759, "train": 10_363},
-                                          "prelaunch_invalid_full_run": {"search": 0, "train": 572_459}}
+                                          "superseded_full_run": {"search": 0, "train": 572_459}}
 # The first full run used a different target-policy argmax. Its development cost is retained:
 # sum the 12 rows' train steps, subtract each row's already-counted pilots, then count each seed's
 # shared demos and warm-up once (not four and three times). See the archived run manifest.
-PRIOR_HUMAN_MINUTES = {"prelaunch_invalid_full_run": {"demos": 4_999 / 600}}
+PRIOR_HUMAN_MINUTES = {"superseded_full_run": {"demos": 4_999 / 600}}
 
 
 @dataclass

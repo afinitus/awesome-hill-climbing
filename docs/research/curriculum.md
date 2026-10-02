@@ -1,6 +1,7 @@
 # lastmile: course plan and future work
 
-This is a planning document, updated during the October 2026 prelaunch review. The
+This is a planning document, last updated in October 2026. Released in v0.1: chapters 0-3, 5-8 and 12, in
+simulation. Next: chapters 4 and 9-11, then the SO-101 hardware steps. The
 [chapter index](../chapters/README.md) records what is implemented and the
 [design contract](../DESIGN.md) defines the current experiment. Proposed work below is not a measured result,
 a hardware tutorial, or a promise that every method reaches a particular success rate.
@@ -68,7 +69,7 @@ chunks at successive decisions. A true support limit requires a stronger argumen
 CupDrop-v1 accepts a drop into an upright cup at its current position, including some episodes where the cup
 was displaced or tipped and recovered. It is not a validated no-shoving benchmark. Historical adaptive reuse
 of evaluation states also remains a limitation. These findings and their measurements are in the
-[review report](../maintenance/review/REPORT.md).
+[design contract](../DESIGN.md) (§2).
 
 Before making stronger confirmatory benchmark claims, define a new metric/version, test adversarial cases,
 freeze a fresh evaluation protocol and preserve complete training/pilot/checkpoint provenance. Do not quietly
@@ -148,7 +149,7 @@ hardware reference baseline, and it does not depend on a promised future LeRobot
 ## Public announcement scope
 
 Describe the repository as a curated, source-linked guide to methods for improving robot policies, with a
-simulation course and a roadmap. Link the current chapter index and review report. Use an implemented
+simulation course and a roadmap. Link the current chapter index and the design contract. Use an implemented
 chapter's measured result only with its task, baseline, evaluation protocol, interval and limitations.
 
 Do not announce twelve completed methods that all reach 95%, real hardware results, exhaustive coverage of

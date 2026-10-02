@@ -772,7 +772,7 @@ Not robot-manipulation papers: scaling laws for value functions and RL compute, 
 
 This repo also hosts **`lastmile`**, an open-source course that implements these families on one task: a low-cost **SO-101** arm (the AgileX **PiPER** is supported in simulation too) picks up a cube and drops it in a cup. One base policy works about half the time; each chapter tries to push it toward 95%+ and reports what that cost in robot-minutes and human-minutes. Everything runs in MuJoCo on a laptop (no NVIDIA GPU needed). Each chapter also describes a real-arm step for the SO-101; none has been run on hardware yet, and each carries a safety note to read first (clear workspace, power switch or e-stop in reach, low speed limits, supervise every run). Each hardware step in the chapter notes opens with a safety checklist; read it before you power the arm.
 
-**Benchmark limitation:** CupDrop-v1 scores a drop into the cup at its current position; it can count successes after the cup was moved or tipped and recovered. These scores do not establish a no-shoving benchmark. See the [prelaunch review](docs/maintenance/review/REPORT.md).
+**Benchmark limitation:** CupDrop-v1 scores a drop into the cup at its current position; it can count successes after the cup was moved or tipped and recovered. These scores do not establish a no-shoving benchmark. The measurements are in [docs/DESIGN.md](docs/DESIGN.md) (§2, known metric limitation).
 
 <p><img src="media/env/so101_tuned.gif" width="330" alt="SO-101 picking up the cube and dropping it in the cup"> <img src="media/env/piper_tuned.gif" width="330" alt="AgileX PiPER doing the same task"></p>
 
@@ -790,14 +790,14 @@ make validate   # sanity-check the task with the scripted controller, on both ar
 | 1 | Hill climbing & ARS | Finite differences on a smoothed objective | Kohl & Stone 2004, ARS, TD-ES | available |
 | 2 | CEM, CMA-ES, PI², BO | Reward-weighted averaging; BO: a surrogate model | Zero-order primer, BO review | available |
 | 3 | The golden ticket | Black-box search in noise space | Golden Ticket | available |
-| 4 | PPO/GRPO for a flow policy | Likelihood-ratio PG + anchors | SimpleVLA-RL, πRL, PAC-ACT | planned for v0.3 |
+| 4 | PPO/GRPO for a flow policy | Likelihood-ratio PG + anchors | SimpleVLA-RL, πRL, PAC-ACT | planned for v0.2 |
 | 5 | SAC → RLPD → Q-chunking | Bellman backups on replay | Q-chunking, Three Regimes, IPE | available |
 | 6 | Residual RL | Frozen base + bounded add-on | ResFiT, DAWN, Res-HIL | available |
 | 7 | DSRL noise steering | RL in latent-noise space | DSRL, SCORE, PSS, RFS | available |
 | 8 | Propose, edit, select | Edit policy + argmax-Q | EXPO-FT, Real-Time EXPO-FT | available |
-| 9 | Filtered BC, AWR, RECAP-lite | Improvement as supervised learning | π*0.6/RECAP, CFGRL | planned for v0.3 |
-| 10 | DAgger, HG-DAgger, RaC | On-policy labels | RaC, SOP, FlowDAgger | planned for v0.3 |
-| 11 | Rewards & progress models | Shaping and learned judges | Robometer, TOPReward | planned for v0.3 |
+| 9 | Filtered BC, AWR, RECAP-lite | Improvement as supervised learning | π*0.6/RECAP, CFGRL | planned for v0.2 |
+| 10 | DAgger, HG-DAgger, RaC | On-policy labels | RaC, SOP, FlowDAgger | planned for v0.2 |
+| 11 | Rewards & progress models | Shaping and learned judges | Robometer, TOPReward | planned for v0.2 |
 | 12 | Test-time best-of-N | Greedy selection with a verifier | UF-OPS, Q-Planning, SeeQ | available |
 
 Design contract: [docs/DESIGN.md](docs/DESIGN.md) · course plan: [docs/research/curriculum.md](docs/research/curriculum.md) · chapter notes: [docs/chapters/](docs/chapters/)
@@ -964,7 +964,7 @@ Design contract: [docs/DESIGN.md](docs/DESIGN.md) · course plan: [docs/research
 
 The first version (September 2026) came from an agent-assisted literature sweep: many search angles plus rounds of gap-finding (arXiv month by month, citation mining, company blogs and talks). Of the 912 papers and posts, 912 are marked `checked` or `corrected` in the catalog, and 0 are marked `read-once`; these are recorded review statuses, not independent replication. The 212 resources are also listed from source pages. `tools/arxiv_meta.py` checks every arXiv link in the paper list and its first-version date against the arXiv API and flags titles that do not match, and `tools/check_links.py` checks the non-arXiv links. The workflow for weekly updates is documented in [docs/maintenance/weekly-sweep.md](docs/maintenance/weekly-sweep.md).
 
-Numbers are as reported by the authors. Some are bar-chart readings or estimates from small trial counts, and industry numbers are self-reported. Check the paper before citing a number. Research and drafting were assisted by Claude (Anthropic), which also helped write the lastmile code and chapter notes. The pre-launch review and fixes also used Codex (OpenAI).
+Numbers are as reported by the authors. Some are bar-chart readings or estimates from small trial counts, and industry numbers are self-reported. Check the paper before citing a number. Research and drafting were assisted by Claude (Anthropic), which also helped write the lastmile code and chapter notes. Codex (OpenAI) was also used for source checks and fixes.
 
 ## Contributing
 

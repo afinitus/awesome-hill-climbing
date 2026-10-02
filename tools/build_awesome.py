@@ -67,14 +67,14 @@ CHAPTERS = [  # (number, method, base idea, papers mirrored, planned release)
     ("1", "Hill climbing & ARS", "Finite differences on a smoothed objective", "Kohl & Stone 2004, ARS, TD-ES", "v0.1"),
     ("2", "CEM, CMA-ES, PI², BO", "Reward-weighted averaging; BO: a surrogate model", "Zero-order primer, BO review", "v0.1"),
     ("3", "The golden ticket", "Black-box search in noise space", "Golden Ticket", "v0.1"),
-    ("4", "PPO/GRPO for a flow policy", "Likelihood-ratio PG + anchors", "SimpleVLA-RL, πRL, PAC-ACT", "v0.3"),
-    ("5", "SAC → RLPD → Q-chunking", "Bellman backups on replay", "Q-chunking, Three Regimes, IPE", "v0.2"),
-    ("6", "Residual RL", "Frozen base + bounded add-on", "ResFiT, DAWN, Res-HIL", "v0.2"),
-    ("7", "DSRL noise steering", "RL in latent-noise space", "DSRL, SCORE, PSS, RFS", "v0.2"),
-    ("8", "Propose, edit, select", "Edit policy + argmax-Q", "EXPO-FT, Real-Time EXPO-FT", "v0.2"),
-    ("9", "Filtered BC, AWR, RECAP-lite", "Improvement as supervised learning", "π*0.6/RECAP, CFGRL", "v0.3"),
-    ("10", "DAgger, HG-DAgger, RaC", "On-policy labels", "RaC, SOP, FlowDAgger", "v0.3"),
-    ("11", "Rewards & progress models", "Shaping and learned judges", "Robometer, TOPReward", "v0.3"),
+    ("4", "PPO/GRPO for a flow policy", "Likelihood-ratio PG + anchors", "SimpleVLA-RL, πRL, PAC-ACT", "v0.2"),
+    ("5", "SAC → RLPD → Q-chunking", "Bellman backups on replay", "Q-chunking, Three Regimes, IPE", "v0.1"),
+    ("6", "Residual RL", "Frozen base + bounded add-on", "ResFiT, DAWN, Res-HIL", "v0.1"),
+    ("7", "DSRL noise steering", "RL in latent-noise space", "DSRL, SCORE, PSS, RFS", "v0.1"),
+    ("8", "Propose, edit, select", "Edit policy + argmax-Q", "EXPO-FT, Real-Time EXPO-FT", "v0.1"),
+    ("9", "Filtered BC, AWR, RECAP-lite", "Improvement as supervised learning", "π*0.6/RECAP, CFGRL", "v0.2"),
+    ("10", "DAgger, HG-DAgger, RaC", "On-policy labels", "RaC, SOP, FlowDAgger", "v0.2"),
+    ("11", "Rewards & progress models", "Shaping and learned judges", "Robometer, TOPReward", "v0.2"),
     ("12", "Test-time best-of-N", "Greedy selection with a verifier", "UF-OPS, Q-Planning, SeeQ", "v0.1"),
 ]
 
@@ -285,7 +285,7 @@ def sec_handson(code_released: bool) -> list[str]:
         "Each hardware step in the chapter notes opens with a safety checklist; read it before you power the arm."), "",
         ("**Benchmark limitation:** CupDrop-v1 scores a drop into the cup at its current position; it can count successes "
         "after the cup was moved or tipped and recovered. These scores do not establish a no-shoving benchmark. "
-        "See the [prelaunch review](docs/maintenance/review/REPORT.md)."), "",
+        "The measurements are in [docs/DESIGN.md](docs/DESIGN.md) (§2, known metric limitation)."), "",
     ]
     if code_released:
         intro += [
@@ -329,7 +329,7 @@ def sec_footer(n_papers: int, n_deep: int, n_checked: int, n_res: int, today: dt
         ("Numbers are as reported by the authors. Some are bar-chart readings or estimates from small trial "
         "counts, and industry numbers are self-reported. Check the paper before citing a number. Research and "
         "drafting were assisted by Claude (Anthropic), which also helped write the lastmile code and chapter notes. "
-        "The pre-launch review and fixes also used Codex (OpenAI)."), "",
+        "Codex (OpenAI) was also used for source checks and fixes."), "",
         "## Contributing", "",
         ("Add a row to [`data/papers.csv`](data/papers.csv) or [`data/resources.csv`](data/resources.csv), run "
         "`uv run python tools/build_awesome.py`, and open a pull request. A good entry has a concrete one-line "

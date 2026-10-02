@@ -1,1 +1,0 @@
-{'count_objects': 17669, 'result_files': 145, 'discordant_tests': 181, 'paired_tests': 666, 'bootstrap_objects': 666, 'bootstrap_max_endpoint_count_gap': 1.0, 'bootstrap_unique_distributions': 38, 'explicit_doc_rates': 233, 'explicit_doc_intervals': 224}

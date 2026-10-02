@@ -1403,7 +1403,7 @@
         "search": 20759,
         "train": 10363
       },
-      "prelaunch_invalid_full_run": {
+      "superseded_full_run": {
         "search": 0,
         "train": 572459
       }
@@ -1411,14 +1411,14 @@
     "gif_seed": 20000,
     "wall_minutes": 46.61897781735,
     "prior_human_minutes": {
-      "prelaunch_invalid_full_run": {
+      "superseded_full_run": {
         "demos": 8.331666666666667
       }
     },
-    "prelaunch_review": {
+    "rerun_provenance": {
       "qc_target": "online ensemble mean selects; target-pair minimum evaluates same candidate",
       "accounting_migration": "Added archived invalid full-run development cost after training; no outcomes or learned-policy values altered.",
-      "archive": "docs/maintenance/review/archive/ch05_target_policy_bug/manifest.json"
+      "archive": "docs/evidence/ch05-superseded-run/manifest.json"
     }
   },
   "git_sha": "e9505e4",
@@ -1460,7 +1460,7 @@
     "n_workers": 4,
     "threads": 2,
     "device": "auto",
-    "out": "runs/prelaunch_ch05",
+    "out": "runs/ch05_rerun",
     "quick": false
   }
 }

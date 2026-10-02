@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "chapter": "ch05",
-  "method": "qc_s2",
+  "method": "qc-cql_s2",
   "robot": "so101",
   "variant": "v1",
   "setting": "sim",
@@ -17,12 +17,12 @@
     "init_set": "eval"
   },
   "final": {
-    "sr": 0.9296875,
+    "sr": 0.55078125,
     "ci": [
-      0.8916048433850524,
-      0.9550648199790895
+      0.48954464249048335,
+      0.6105163177252789
     ],
-    "k": 238,
+    "k": 141,
     "n": 256,
     "init_set": "eval",
     "init_set_version": "v1"
@@ -30,20 +30,20 @@
   "budget": {
     "robot_minutes": {
       "search": 108.79,
-      "train": 1335.3600000000001,
-      "eval": 57.55833333333333
+      "train": 332.30333333333334,
+      "eval": 76.99166666666666
     },
     "human_minutes": {
-      "demos": 11.225000000000001,
+      "demos": 2.8933333333333335,
       "labels": 0.0,
       "takeovers": 0.0,
       "resets": 0.0,
       "annotation": 0.0
     },
     "compute": {
-      "cpu_hours": 0.33807269583333327,
+      "cpu_hours": 0.31543663388888893,
       "gpu_hours": 0.0,
-      "wall_minutes": 46.6214913555501
+      "wall_minutes": 46.61980099026672
     }
   },
   "extra": {
@@ -1336,62 +1336,62 @@
     },
     "cost_steps_sac_s0": {
       "search": 65274,
-      "train": 818970,
+      "train": 246511,
       "eval": 99804
     },
     "cost_steps_sac_s1": {
       "search": 65274,
-      "train": 819602,
+      "train": 247143,
       "eval": 99879
     },
     "cost_steps_sac_s2": {
       "search": 65274,
-      "train": 818433,
+      "train": 245974,
       "eval": 100862
     },
     "cost_steps_rlpd_s0": {
       "search": 65274,
-      "train": 817463,
+      "train": 245004,
       "eval": 100868
     },
     "cost_steps_rlpd_s1": {
       "search": 65274,
-      "train": 819587,
+      "train": 247128,
       "eval": 97497
     },
     "cost_steps_rlpd_s2": {
       "search": 65274,
-      "train": 816987,
+      "train": 244528,
       "eval": 80889
     },
     "cost_steps_qc_s0": {
       "search": 65274,
-      "train": 800702,
+      "train": 228243,
       "eval": 34549
     },
     "cost_steps_qc_s1": {
       "search": 65274,
-      "train": 803802,
+      "train": 231343,
       "eval": 34013
     },
     "cost_steps_qc_s2": {
       "search": 65274,
-      "train": 801216,
+      "train": 228757,
       "eval": 34535
     },
     "cost_steps_qc-cql_s0": {
       "search": 65274,
-      "train": 771979,
+      "train": 199520,
       "eval": 44608
     },
     "cost_steps_qc-cql_s1": {
       "search": 65274,
-      "train": 771306,
+      "train": 198847,
       "eval": 46279
     },
     "cost_steps_qc-cql_s2": {
       "search": 65274,
-      "train": 771841,
+      "train": 199382,
       "eval": 46195
     },
     "prior_steps": {
@@ -1402,24 +1402,10 @@
       "first_quick_run": {
         "search": 20759,
         "train": 10363
-      },
-      "superseded_full_run": {
-        "search": 0,
-        "train": 572459
       }
     },
     "gif_seed": 20000,
-    "wall_minutes": 46.61897781735,
-    "prior_human_minutes": {
-      "superseded_full_run": {
-        "demos": 8.331666666666667
-      }
-    },
-    "rerun_provenance": {
-      "qc_target": "online ensemble mean selects; target-pair minimum evaluates same candidate",
-      "accounting_migration": "Added archived invalid full-run development cost after training; no outcomes or learned-policy values altered.",
-      "archive": "docs/evidence/ch05-superseded-run/manifest.json"
-    }
+    "wall_minutes": 46.61897781735
   },
   "git_sha": "e9505e4",
   "timestamp": "2026-10-01T18:11:50",
