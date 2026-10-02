@@ -1,5 +1,7 @@
 # Pre-launch review brief: Awesome Hill Climbing
 
+> Historical assignment, preserved for review provenance. Its opening status and counts describe the repository before this review. See [REPORT.md](REPORT.md) for the current findings, completed coverage, checks and launch recommendation.
+
 You are a fresh pair of eyes. The repo is about to be announced on X (Twitter). Your job is to find anything that is **wrong, unfair or controversial, overclaimed, legally risky, or broken**, and to confirm that the experiments in the course were done correctly. Fix what you can, report the rest, and end with a go/no-go.
 
 - Repo: https://github.com/afinitus/awesome-hill-climbing (work on branch `review/prelaunch`)

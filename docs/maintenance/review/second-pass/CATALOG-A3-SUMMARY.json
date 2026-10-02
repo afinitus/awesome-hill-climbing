@@ -1,0 +1,21 @@
+{
+  "scope": "A selection indices 209:234 inclusive start, exclusive end; separate from chapter reviewer indices 184:209.",
+  "selection": "CATALOG-A-SELECTION.json",
+  "count": 25,
+  "first_id": "C227",
+  "last_id": "C206",
+  "counts_by_severity": {
+    "none": 15,
+    "minor": 10
+  },
+  "rows_with_proposed_changes": 11,
+  "optional_title_normalizations": [
+    "C229"
+  ],
+  "primary_full_text_access_failures": 0,
+  "unresolved_current_fields": [],
+  "method": "Manual comparison of all listed description claims and specified metadata against primary abstracts, relevant methods/results, tables/figures and paper-linked project/code sources. Sources and specific limits are recorded per row. No full-paper proof/code audit or experiment reproduction. Prior arXiv title/v1-date API pass reused.",
+  "access_and_scope_note": "C223 and N267/N270 code links are placeholders cleared by proposal. N208 and N324 have valid released implementations, with completeness limits recorded. C202 version-specific ablation and affiliation were checked in v1; current mechanism/results checked in v2.",
+  "state": "All 25 assigned rows complete; proposals not applied by this reviewer.",
+  "sampling_note": "Complete deterministic assigned cohort; not a random-sample error-rate estimate."
+}

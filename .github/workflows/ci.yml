@@ -12,6 +12,9 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   test:
     name: test (${{ matrix.os }})
@@ -55,9 +58,15 @@ jobs:
       - name: Tests
         run: make test
 
+      - name: Lint
+        run: uv run ruff check .
+
       # README.md and papers/*.md are generated from data/; fail if someone edited one side only.
       - name: Awesome list is in sync with data/
         run: uv run python tools/build_awesome.py --check
+
+      - name: Explainer site is in sync with data/
+        run: uv run python tools/build_site.py --check
 
       # Runs every algos/[0-9]*.py with --quick and passes when there are none yet.
       # Quick runs write only under runs/chNN_quick/, never into results/ or media/.

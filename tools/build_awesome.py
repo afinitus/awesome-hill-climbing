@@ -38,7 +38,7 @@ DATA = ROOT / "data"
 README = ROOT / "README.md"
 PAPERS_DIR = ROOT / "papers"
 REPO_URL = "https://github.com/afinitus/awesome-hill-climbing"
-RECENT_FROM = "2025-09"  # "the last year" for counts and for the month-by-month layout
+RECENT_FROM = "2025-09"  # fixed start of the recent-work timeline and counts
 
 # Hand-picked entry points (ids in data/papers.csv) and why each is worth reading first.
 START_HERE = [
@@ -143,7 +143,7 @@ def entry(p: dict) -> str:
         line += f" — {esc(p['one_line'])}"
     extras = [f"[code]({p['code']})"] if p.get("code") else []
     if p.get("verified") == "corrected":
-        extras.append("numbers corrected after an independent re-check against the source")
+        extras.append("entry corrected after source review")
     return line + (" · " + " · ".join(extras) if extras else "")
 
 
@@ -213,8 +213,9 @@ def sec_loop() -> list[str]:
         "| **Re-measure** | Held-out start states, trial counts and confidence intervals. Then repeat. | [Evaluation](papers/worldmodel.md), [industry loops](papers/industry.md) |",
         "",
         ("**Measuring the nines.** Near the top, the hard part is knowing whether you climbed. "
-        "30/30 successes only shows the true rate is at least **88.6%** (95% Wilson interval). "
-        "You need **73** straight successes for a lower bound of 95%, and **381** for 99%. "
+        "30/30 successes gives a **[88.6%, 100%]** Wilson 95% interval, not proof of perfect reliability. "
+        "At a fixed evaluation size, **73/73** gives a lower bound of 95%, and **381/381** gives 99%, "
+        "assuming independent trials with a constant success probability. "
         "Report the interval, keep search episodes separate from evaluation episodes, and compare methods on the "
         "same start states."), "",
         ("Three patterns run through the list: these methods mostly **amplify behavior the base policy already has** "
@@ -292,7 +293,7 @@ def sec_handson(code_released: bool) -> list[str]:
             ' <img src="media/env/piper_tuned.gif" width="330" alt="AgileX PiPER doing the same task"></p>'), "",
             "**What is in the repo today:** the simulated task on both arms, the evaluation harness (fixed search and "
             "held-out start states, Wilson intervals, a cost ledger) and a scripted controller with ten tunable knobs. "
-            "Tuned, it scores 255/256 on the held-out set; with the deliberately mis-tuned knobs that chapters 1 and 2 "
+            "Tuned, it scores 255/256 = 99.6% [97.8%, 99.9%] on the held-out set; with the deliberately mis-tuned knobs that chapters 1 and 2 "
             "start from, it scores 123/256 = 48.0% [42.0%, 54.2%]. "
             + (f"Chapters {join_and([str(int(n)) for n in sorted(have)])} are available, with notes and results in "
                "[docs/chapters/](docs/chapters/)." if have else "The chapters themselves are next."), "",
@@ -416,20 +417,20 @@ def build() -> dict[Path, str]:
         ('  <img src="media/banner-light.svg" width="100%" alt="Climbing the Nines: a success-rate landscape drawn as '
         'contour lines, with a dashed hill-climbing path from a pretrained policy at 50% up past the 99% contour.">'),
         "</picture>", "",
-        ("> Papers, posts, code and courses on **hill-climbing robot policies**: taking a pretrained or "
-        "imitation-learned policy from ~50% to 95–99%+ success on a real task. RL fine-tuning, residual and steering "
+        ("> Papers, posts, code and courses on **hill-climbing robot policies**: improving task reliability after "
+        "pretraining or imitation learning. RL fine-tuning, residual and steering "
         "policies, advantage-weighted retraining, human corrections, test-time verifiers, reward and world models, "
         "sim-to-real, and the classic black-box search underneath it all."), "",
         (f"**{len(papers)} papers and posts** · **{n_recent} since {month_label(RECENT_FROM)}** · **{n_key} must-know (⭐)** · "
         f"**{len(res)} tools, courses and benchmarks** · updated **{today.isoformat()}**"), "",
         *([(f"**Interactive explainer: [Climbing the Nines]({meta['site_url']})**: the hill-climbing loop, the RL "
-           "ideas underneath, a timeline of the last 12 months, the course results, and a searchable index of every "
+           "ideas underneath, a timeline from September 2025 onward, the course results, and a searchable index of every "
            "paper."), ""] if meta.get("site_url") else []),
         ("A pretrained robot policy that works half the time needs more reliable behavior before deployment. "
         "Even 99% success needs a declared task scope, quality bar, speed and evaluation protocol. "
         "\"Hill climbing\" is what labs and companies call the loop in between: deploy, measure, find failures, improve, "
         "re-measure. This list maps the ways people run that loop, the textbook RL ideas each one comes from, and what "
-        "changed in the last twelve months, down to this week."), "",
+        "changed since September 2025, through the update date above."), "",
         "## Contents", "",
     ]
     for title, subs in toc:

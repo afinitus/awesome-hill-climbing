@@ -1,7 +1,7 @@
 [project]
 name = "lastmile"
 version = "0.1.0"
-description = "lastmile: the hands-on course inside Awesome Hill Climbing. Hill-climb a robot policy from ~50% toward 95%+, from classic search to 2026 last-mile RL, in MuJoCo on a laptop, then on a real SO-101."
+description = "lastmile: the hands-on MuJoCo simulation course inside Awesome Hill Climbing, from classic search to recent robot-policy improvement methods. Hardware chapters are planned."
 readme = "README.md"
 requires-python = ">=3.10,<3.14"
 license = { text = "MIT" }

@@ -1,0 +1,2173 @@
+[
+  {
+    "id": "N412",
+    "selection_index": 2,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "UC Berkeley; Stanford; Amazon FAR"
+    },
+    "fields": {
+      "org": "Amazon FAR; UC Berkeley; CMU; Stanford"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.38172",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N408",
+    "selection_index": 3,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Kang et al."
+    },
+    "fields": {
+      "org": "MIT; 2077AI Open Source Foundation; Texas A&M; UW\u2013Madison"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.37359",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N388",
+    "selection_index": 4,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Stanford"
+    },
+    "fields": {
+      "org": "Stanford; NVIDIA; University of Michigan"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.36720",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N382",
+    "selection_index": 5,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Wen et al."
+    },
+    "fields": {
+      "org": "National University of Singapore; KAUST; A*STAR et al."
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.37156",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N258",
+    "selection_index": 7,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Wang et al."
+    },
+    "fields": {
+      "org": "Tsinghua; Alibaba"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.36945",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N250",
+    "selection_index": 8,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Xie et al."
+    },
+    "fields": {
+      "org": "Fudan; Shanghai Innovation Institute; NeoteAI"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.37810",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N242",
+    "selection_index": 9,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Ren et al."
+    },
+    "fields": {
+      "org": "Shanghai AI Lab; SJTU; Zhejiang; USTC; CUHK; HKU"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.37089",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N238",
+    "selection_index": 10,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Zhang et al."
+    },
+    "fields": {
+      "org": "Northwestern; UCSB; UIUC; CMU"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.36684",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N232",
+    "selection_index": 11,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Li et al."
+    },
+    "fields": {
+      "org": "Tianjin University; HKU; Hefei University of Technology"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.37591",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N184",
+    "selection_index": 12,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Zhou et al.",
+      "code": ""
+    },
+    "fields": {
+      "org": "UC Berkeley; Princeton",
+      "code": "https://github.com/EasyPPO/EasyPPO"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.36802",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N136",
+    "selection_index": 13,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Bao et al."
+    },
+    "fields": {
+      "org": "Renmin University of China; XYZ Embodied AI; Tsinghua"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.37583",
+    "supplemental_sources": [
+      {
+        "url": "https://arxiv.org/html/2609.37583",
+        "sha256": "7aa40f4059b51c137e18414f8b69a9a8911580160f98b0d767076fd6049a4d64",
+        "locator": "Exact official code/project href in primary HTML",
+        "confirmed_link": "https://github.com/RUCKBReasoning/RoboHarn-Evo"
+      }
+    ]
+  },
+  {
+    "id": "N093",
+    "selection_index": 14,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Wu et al."
+    },
+    "fields": {
+      "org": "National Taiwan University; Delta Electronics"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.36785",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N092",
+    "selection_index": 15,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Atasever et al."
+    },
+    "fields": {
+      "org": "USC; University of Florida"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.37519",
+    "supplemental_sources": [
+      {
+        "url": "https://arxiv.org/html/2609.37519",
+        "sha256": "20fe6618209357d755dc4798894a230f707d65af531279a2069c731eca9261ee",
+        "locator": "Exact official code/project href in primary HTML",
+        "confirmed_link": "https://video2stl.github.io/"
+      }
+    ]
+  },
+  {
+    "id": "N071",
+    "selection_index": 16,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Li et al."
+    },
+    "fields": {
+      "org": "Griffith; Tsinghua; MainCode; Tencent; Fudan; Tongji"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.36808",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N069",
+    "selection_index": 17,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Rho Team"
+    },
+    "fields": {
+      "org": "Microsoft Research"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.38164",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N051",
+    "selection_index": 18,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Zheng et al."
+    },
+    "fields": {
+      "org": "HKUST; Joy Future Academy; Peking University; CUHK"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.38059",
+    "supplemental_sources": [
+      {
+        "url": "https://arxiv.org/html/2609.38059",
+        "sha256": "116641339e18a1d5c046f347330cf23f3e681a02cc0a6ebfe12b8157a2edff70",
+        "locator": "Exact official code/project href in primary HTML",
+        "confirmed_link": "https://zhengsh123.github.io/WorldLine/"
+      }
+    ]
+  },
+  {
+    "id": "N025",
+    "selection_index": 19,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Lee et al."
+    },
+    "fields": {
+      "org": "POSTECH; MBZUAI"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.37334",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N016",
+    "selection_index": 20,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Zhou et al."
+    },
+    "fields": {
+      "org": "HIT Shenzhen; SLAI; Tsinghua; JD et al."
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.38057",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N004",
+    "selection_index": 21,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Zhan et al."
+    },
+    "fields": {
+      "org": "HIT; Dalian University of Technology; SUSTech"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.37398",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N001",
+    "selection_index": 22,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Xu et al."
+    },
+    "fields": {
+      "org": "Beihang; CUHK; PKU-Psibot; Tsinghua et al."
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.36588",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N251",
+    "selection_index": 28,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Gong et al."
+    },
+    "fields": {
+      "org": "Fudan; ShanghaiTech; Shanghai Innovation Institute"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.34497",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N233",
+    "selection_index": 29,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Kwon et al."
+    },
+    "fields": {
+      "org": "Sungkyunkwan University; KAIST"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.34911",
+    "supplemental_sources": [
+      {
+        "url": "https://acupcycling.github.io/",
+        "sha256": "1b6c4c4d68a87ce500af7261a6a800f76793bfda90d8d78b0beca549c5de3141",
+        "locator": "Official project page linked from the primary paper",
+        "confirmed_link": "https://github.com/star-kwon/action-upcycling"
+      },
+      {
+        "url": "https://github.com/star-kwon/action-upcycling",
+        "sha256": "baa88e102791e2d4a9f8a61141c858c239e1b32b9d52d98b1725a02e30bae50c",
+        "locator": "Repository/project title, README and matching paper identifier; association only"
+      }
+    ]
+  },
+  {
+    "id": "N230",
+    "selection_index": 30,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Guo et al."
+    },
+    "fields": {
+      "org": "Rice University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.35231",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N187",
+    "selection_index": 31,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Wang et al."
+    },
+    "fields": {
+      "org": "UIUC; MIT; UPenn; University of Washington; IBM"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.36246",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N137",
+    "selection_index": 32,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Bendib et al."
+    },
+    "fields": {
+      "org": "Sorbonne Universit\u00e9 (ISIR)"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.35615",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N128",
+    "selection_index": 33,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Sagar et al."
+    },
+    "fields": {
+      "org": "Arizona State University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.36182",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N127",
+    "selection_index": 34,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Li et al."
+    },
+    "fields": {
+      "org": "CMU; Tsinghua"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.36107",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N065",
+    "selection_index": 35,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Hahn et al."
+    },
+    "fields": {
+      "org": "Cornell; Seoul National University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.36250",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N053",
+    "selection_index": 36,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Sun et al."
+    },
+    "fields": {
+      "org": "Zhejiang University; Yinwang Intelligent Technology"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.35078",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N019",
+    "selection_index": 37,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Liu et al."
+    },
+    "fields": {
+      "org": "Dalian University of Technology; Beta Infinity; NTU"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.34206",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N008",
+    "selection_index": 38,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Liu et al."
+    },
+    "fields": {
+      "org": "University of Science and Technology of China"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.34250",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N007",
+    "selection_index": 39,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Ma et al."
+    },
+    "fields": {
+      "org": "HUST; CAS; SJTU; Frontis.AI; Tsinghua"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.34688",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N401",
+    "selection_index": 44,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Zhang et al."
+    },
+    "fields": {
+      "org": "University of Queensland (UQMM Lab)"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.33125",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N386",
+    "selection_index": 45,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Park et al."
+    },
+    "fields": {
+      "org": "KAIST"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.33172",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N379",
+    "selection_index": 46,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Chen et al."
+    },
+    "fields": {
+      "org": "Nanjing University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.33336",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N375",
+    "selection_index": 47,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Yang et al."
+    },
+    "fields": {
+      "org": "UMass Amherst; Genesis AI"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.33882",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N372",
+    "selection_index": 49,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Wang et al."
+    },
+    "fields": {
+      "org": "Cambridge; Tsinghua; Cardiff; HKU"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.33053",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N255",
+    "selection_index": 50,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Li et al."
+    },
+    "fields": {
+      "org": "UC San Diego"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.33337",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N231",
+    "selection_index": 51,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Vembar et al."
+    },
+    "fields": {
+      "org": "IIIT Hyderabad; Johns Hopkins"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.33546",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N227",
+    "selection_index": 52,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Park et al."
+    },
+    "fields": {
+      "org": "KAIST"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.33049",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N142",
+    "selection_index": 53,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Guo et al."
+    },
+    "fields": {
+      "org": "Northwestern University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.33101",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N122",
+    "selection_index": 54,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Kapelyukh et al."
+    },
+    "fields": {
+      "org": "Robotics and AI Institute; Imperial College London"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.33982",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N121",
+    "selection_index": 55,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Kapelyukh et al."
+    },
+    "fields": {
+      "org": "Robotics and AI Institute; Imperial College London"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.34010",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N066",
+    "selection_index": 56,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Liu et al."
+    },
+    "fields": {
+      "org": "KTH; EPFL; Idiap; Beihang; HKUST Guangzhou et al."
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.33872",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N064",
+    "selection_index": 57,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Kim et al."
+    },
+    "fields": {
+      "org": "Seoul National University; KAIST"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.33378",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N045",
+    "selection_index": 58,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Jiao et al."
+    },
+    "fields": {
+      "org": "Wuhan University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.33239",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N037",
+    "selection_index": 59,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Chandra et al."
+    },
+    "fields": {
+      "org": "IIT Madras; Indian AI Research Organisation; NTU"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.33256",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N011",
+    "selection_index": 60,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Qiao et al."
+    },
+    "fields": {
+      "org": "KTH; Beihang; HKUST Guangzhou; Peking University; Great Bay University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim. The project currently disables its Code button but embeds the exact existing repository URL; the repository README identifies this paper. Association is confirmed; runnable release completeness was not audited.",
+    "source_url": "https://arxiv.org/html/2609.33832",
+    "supplemental_sources": [
+      {
+        "url": "https://imagine-to-achieve.github.io/",
+        "sha256": "5ef1cb2c2aa2d13c59efec15123790bf044bea57013f1ac85ca48881bacb87b3",
+        "locator": "Official project page linked from the primary paper",
+        "confirmed_link": "https://github.com/imagine-to-achieve/imagine-to-achieve"
+      },
+      {
+        "url": "https://github.com/imagine-to-achieve/imagine-to-achieve",
+        "sha256": "c7b3792acece3fc69524cd8e96e3a99b2665dfe20979c1cbe4f65c8d79c86f7c",
+        "locator": "Repository/project title, README and matching paper identifier; association only"
+      }
+    ]
+  },
+  {
+    "id": "N389",
+    "selection_index": 62,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Li et al."
+    },
+    "fields": {
+      "org": "South China University of Technology; Yuanwu Technology"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.32155",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N259",
+    "selection_index": 65,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Ni et al."
+    },
+    "fields": {
+      "org": "Mila; Universit\u00e9 de Montr\u00e9al; McGill"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.35880",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N257",
+    "selection_index": 66,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Bu et al."
+    },
+    "fields": {
+      "org": "Rutgers; Nanjing Tech; Nanjing University of Posts and Telecommunications; NYU"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.32819",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N256",
+    "selection_index": 67,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Li et al."
+    },
+    "fields": {
+      "org": "UC San Diego"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.32952",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N253",
+    "selection_index": 68,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Zou et al."
+    },
+    "fields": {
+      "org": "Sun Yat-sen University; NUS"
+    },
+    "evidence": "The PDF author block supports the proposed institution list, and its project/code footnote explicitly gives the existing repository. The method mechanism supports the retained editorial family. Repository implementation completeness was not audited.",
+    "source_url": "https://arxiv.org/html/2609.32594",
+    "supplemental_sources": [
+      {
+        "url": "https://arxiv.org/pdf/2609.32594",
+        "sha256": "6c1bd01b019b4d763206a40aee1fa05bbf130d4516560132d3132b7ca04a8b2d",
+        "locator": "PDF title page; code/project footnote where present"
+      },
+      {
+        "url": "https://github.com/ma-fppo/MA-FPPO",
+        "sha256": "7f76e9c7f256b3cf9dcc752460e9b9bb1ce1554cdcbef64528548d30653531d9",
+        "locator": "Repository/project title, README and matching paper identifier; association only"
+      }
+    ]
+  },
+  {
+    "id": "N240",
+    "selection_index": 69,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Li et al."
+    },
+    "fields": {
+      "org": "NTU; Yunnan University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.32394",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N226",
+    "selection_index": 70,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Zhang et al."
+    },
+    "fields": {
+      "org": "Jilin University; Dalian University of Technology"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.32416",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N063",
+    "selection_index": 71,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Liang et al."
+    },
+    "fields": {
+      "org": "NTU; Beihang; NUS; Cloud Butterfly; SJTU"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.32862",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N017",
+    "selection_index": 72,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Li et al."
+    },
+    "fields": {
+      "org": "MBZUAI; University of Sydney; Oxford; AI2 Robotics; Waterloo; Melbourne"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.32698",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N390",
+    "selection_index": 73,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "University of Maryland"
+    },
+    "fields": {
+      "org": "University of Maryland; USC"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.30913",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N387",
+    "selection_index": 74,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Zou et al."
+    },
+    "fields": {
+      "org": "Sun Yat-sen University"
+    },
+    "evidence": "The PDF author block supports the proposed institution list, and its project/code footnote explicitly gives the existing repository. The method mechanism supports the retained editorial family. Repository implementation completeness was not audited.",
+    "source_url": "https://arxiv.org/html/2609.31281",
+    "supplemental_sources": [
+      {
+        "url": "https://arxiv.org/pdf/2609.31281",
+        "sha256": "704ae85ebc9b9e0397d5db6a920214b2edc61b54d0e39367f4285985f43c9489",
+        "locator": "PDF title page; code/project footnote where present"
+      },
+      {
+        "url": "https://github.com/ma-wam/MA-WAM",
+        "sha256": "64537bd3f7084fdcebb127b0c639e9a0de27a995abd3c1c171ccc3131bf401a7",
+        "locator": "Repository/project title, README and matching paper identifier; association only"
+      }
+    ]
+  },
+  {
+    "id": "N254",
+    "selection_index": 75,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Zou et al."
+    },
+    "fields": {
+      "org": "Sun Yat-sen University"
+    },
+    "evidence": "The PDF author block supports the proposed institution list, and its project/code footnote explicitly gives the existing repository. The method mechanism supports the retained editorial family. Repository implementation completeness was not audited.",
+    "source_url": "https://arxiv.org/html/2609.31286",
+    "supplemental_sources": [
+      {
+        "url": "https://arxiv.org/pdf/2609.31286",
+        "sha256": "bf17f88da9b164cb3f0139fb84699eb26fe5ca61ac4c0e12ee11b17a8ca5c3b2",
+        "locator": "PDF title page; code/project footnote where present"
+      },
+      {
+        "url": "https://github.com/g2maf/G2MAF",
+        "sha256": "27809c1332410f0efd647d4de98e5a3c554f9c4d4c7460c492c3fc2f3d36e815",
+        "locator": "Repository/project title, README and matching paper identifier; association only"
+      }
+    ]
+  },
+  {
+    "id": "N215",
+    "selection_index": 76,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Wang et al."
+    },
+    "fields": {
+      "org": "Northwestern Polytechnical University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.31439",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N138",
+    "selection_index": 77,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Janwani et al."
+    },
+    "fields": {
+      "org": "Georgia Tech"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.30695",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N132",
+    "selection_index": 78,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Olkin et al."
+    },
+    "fields": {
+      "org": "Caltech"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.31577",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N119",
+    "selection_index": 79,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Canales et al."
+    },
+    "fields": {
+      "org": "ETH Z\u00fcrich; Universidad de Chile"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.31025",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N103",
+    "selection_index": 80,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Peng et al."
+    },
+    "fields": {
+      "org": "Ant Group; UIUC; NVIDIA; Stanford"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.31924",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N101",
+    "selection_index": 81,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Zheng et al."
+    },
+    "fields": {
+      "org": "UPenn; Lehigh University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.31606",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N070",
+    "selection_index": 82,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Kashani et al."
+    },
+    "fields": {
+      "org": "University of Hamburg"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.31313",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N067",
+    "selection_index": 83,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Ajith et al."
+    },
+    "fields": {
+      "org": "Siemens; Worcester Polytechnic Institute"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.30715",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N023",
+    "selection_index": 85,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Snegirev et al."
+    },
+    "fields": {
+      "org": "Skoltech"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.31048",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N393",
+    "selection_index": 89,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Zhang et al."
+    },
+    "fields": {
+      "org": "HKUST Guangzhou; CUHK; Knowin AI"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.29964",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N392",
+    "selection_index": 90,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Tsinghua University"
+    },
+    "fields": {
+      "org": "Tsinghua; Manifold AI"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.30036",
+    "supplemental_sources": [
+      {
+        "url": "https://arxiv.org/html/2609.30036",
+        "sha256": "37e3487cc81923018fd5b61aac80e0257eac168b8c6b734fbc2fede54776a4dc",
+        "locator": "Exact official code/project href in primary HTML",
+        "confirmed_link": "https://github.com/daybraeklaxry/Aim-Short-to-Reach-Far"
+      }
+    ]
+  },
+  {
+    "id": "N247",
+    "selection_index": 91,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Li et al."
+    },
+    "fields": {
+      "org": "CUHK; HKUST Guangzhou; Knowin AI"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.29394",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N246",
+    "selection_index": 92,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Wang et al."
+    },
+    "fields": {
+      "org": "Darwin Agent Team"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.29166",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N245",
+    "selection_index": 93,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Tang et al.",
+      "code": ""
+    },
+    "fields": {
+      "org": "UNC; USTC; HKUST; CUHK",
+      "code": "https://github.com/Haaareally/AdaHVLA-Adaptive_Harness_VLA"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.29204",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N241",
+    "selection_index": 94,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Huang et al."
+    },
+    "fields": {
+      "org": "Duke University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.28878",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N133",
+    "selection_index": 95,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Irshayyid et al."
+    },
+    "fields": {
+      "org": "Oakland University; Wayne State; OORT; Columbia"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.30554",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N105",
+    "selection_index": 96,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Qiu et al."
+    },
+    "fields": {
+      "org": "Nanjing University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.30264",
+    "supplemental_sources": [
+      {
+        "url": "https://ad-wm.github.io/",
+        "sha256": "6cd1398c820da4a54d9828008cf5f71a4d5849c38f67a2cd362e9c1b42851b70",
+        "locator": "Official project page linked from the primary paper",
+        "confirmed_link": "https://github.com/ad-wm/ad-wm-code"
+      },
+      {
+        "url": "https://github.com/ad-wm/ad-wm-code",
+        "sha256": "9cf0ce0fa0e7df2bb5dee8818ca32c5bb5927a5d6f5d2ff7d5ee1bed9c5ce616",
+        "locator": "Repository/project title, README and matching paper identifier; association only"
+      }
+    ]
+  },
+  {
+    "id": "N026",
+    "selection_index": 97,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Wang et al."
+    },
+    "fields": {
+      "org": "Carnegie Mellon University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.30462",
+    "supplemental_sources": []
+  },
+  {
+    "id": "C448",
+    "selection_index": 99,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "NTU; Changan"
+    },
+    "fields": {
+      "org": "NTU; Changan; Cloudbutterfly"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.29000",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N398",
+    "selection_index": 101,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Baek et al."
+    },
+    "fields": {
+      "org": "Korea University; WIRobotics"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.28427",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N249",
+    "selection_index": 102,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Wang et al."
+    },
+    "fields": {
+      "org": "Country Garden Services; HUST; Omni AI"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.27612",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N228",
+    "selection_index": 103,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Yu et al."
+    },
+    "fields": {
+      "org": "Tsinghua; CMU"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.28281",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N218",
+    "selection_index": 104,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Zhang et al."
+    },
+    "fields": {
+      "org": "CMU; General Motors; UT Arlington"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.27269",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N217",
+    "selection_index": 105,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Vitchutripop et al."
+    },
+    "fields": {
+      "org": "Yale University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.28807",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N139",
+    "selection_index": 106,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Sahoo et al."
+    },
+    "fields": {
+      "org": "Stanford; Princeton"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.28314",
+    "supplemental_sources": [
+      {
+        "url": "https://prpl-group.com/tandem/",
+        "sha256": "c60a60fdcf8525ef496473366b37c22489993a077e64bb8190aa1c8fae146247",
+        "locator": "Official project page linked from the primary paper",
+        "confirmed_link": "https://github.com/SamratSahoo/TANDEM"
+      },
+      {
+        "url": "https://github.com/SamratSahoo/TANDEM",
+        "sha256": "b1d610aa30d5e2cd21171788d843991b3f224e1a5a5a76b2bb5d44690ab689f3",
+        "locator": "Repository/project title, README and matching paper identifier; association only"
+      }
+    ]
+  },
+  {
+    "id": "N072",
+    "selection_index": 108,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Sadjadpour et al."
+    },
+    "fields": {
+      "org": "UC Berkeley"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.28660",
+    "supplemental_sources": [
+      {
+        "url": "https://morphometricimitation.github.io",
+        "sha256": "03344e5c20b475cff2d29240337022267104303fa3abb4e9c9f6dda73572b38a",
+        "locator": "Repository/project title, README and matching paper identifier; association only"
+      }
+    ]
+  },
+  {
+    "id": "N050",
+    "selection_index": 109,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Hansen et al."
+    },
+    "fields": {
+      "org": "NVIDIA; UC San Diego; USC"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.28258",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N018",
+    "selection_index": 110,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Zeng et al."
+    },
+    "fields": {
+      "org": "HKUST Guangzhou"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.27468",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N248",
+    "selection_index": 116,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Lou et al."
+    },
+    "fields": {
+      "org": "Nanjing University; Ant Group; Zhejiang University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.28530",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N222",
+    "selection_index": 117,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Pahk et al."
+    },
+    "fields": {
+      "org": "Tommoro Robotics"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.25558",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N165",
+    "selection_index": 118,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Wei et al."
+    },
+    "fields": {
+      "org": "Samsung Robotics eXperience; NUS; UIUC"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.26672",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N135",
+    "selection_index": 119,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Jin et al."
+    },
+    "fields": {
+      "org": "LandSpace; SJTU"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.25631",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N074",
+    "selection_index": 120,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Lou et al."
+    },
+    "fields": {
+      "org": "Nanjing University; HKUST Guangzhou; Beijing University of Technology"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.26313",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N370",
+    "selection_index": 126,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Li et al."
+    },
+    "fields": {
+      "org": "HKUST Guangzhou; KTH"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.24180",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N221",
+    "selection_index": 127,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Yang et al."
+    },
+    "fields": {
+      "org": "DexGEM Lab; SJTU; Tongji; DexRobot"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.24093",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N073",
+    "selection_index": 128,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Ma et al."
+    },
+    "fields": {
+      "org": "UCAS; Institute of Automation CAS; PaXini AI"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.24511",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N046",
+    "selection_index": 129,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Nagahisa et al."
+    },
+    "fields": {
+      "org": "Kyushu University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.24317",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N039",
+    "selection_index": 130,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Liu et al."
+    },
+    "fields": {
+      "org": "HKUST Guangzhou; Boston University; SJTU"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.24749",
+    "supplemental_sources": [
+      {
+        "url": "https://nebulis-lab.com/D-JEPA",
+        "sha256": "324bd407afb7ba372b88c6e537814484ef9b9c9ce177dc7d0f8a413e20082497",
+        "locator": "Official project page linked from the primary paper",
+        "confirmed_link": "https://github.com/NEBULIS-Lab/D-JEPA"
+      },
+      {
+        "url": "https://github.com/NEBULIS-Lab/D-JEPA",
+        "sha256": "8dc7640fbe526b1096b8cc955492a0c469fd4959b28a738fd8397d9e7f8b3e02",
+        "locator": "Repository/project title, README and matching paper identifier; association only"
+      }
+    ]
+  },
+  {
+    "id": "N033",
+    "selection_index": 131,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Yuan et al."
+    },
+    "fields": {
+      "org": "Oxford; Purdue; UWE Bristol"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.24745",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N118",
+    "selection_index": 136,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Cho et al."
+    },
+    "fields": {
+      "org": "Seoul National University; Georgia Tech"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.22798",
+    "supplemental_sources": []
+  },
+  {
+    "id": "C440",
+    "selection_index": 137,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Nanjing University; Cirquar"
+    },
+    "fields": {
+      "org": "Nanjing University; Cirquar; Mila; Universit\u00e9 de Montr\u00e9al"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.22879",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N403",
+    "selection_index": 139,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Hong et al."
+    },
+    "fields": {
+      "org": "HKU; SUSTech; EIT Ningbo; HUST; INFIFORCE"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.21358",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N371",
+    "selection_index": 143,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Tang et al."
+    },
+    "fields": {
+      "org": "ICT CAS; UCAS; Zhongke Haichuan Intelligent"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.21216",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N236",
+    "selection_index": 144,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Soni et al."
+    },
+    "fields": {
+      "org": "Montanuniversit\u00e4t Leoben"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.21740",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N234",
+    "selection_index": 145,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Periasami et al."
+    },
+    "fields": {
+      "org": "Duke University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.22538",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N229",
+    "selection_index": 146,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Zhao et al."
+    },
+    "fields": {
+      "org": "National University of Defense Technology"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.21908",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N225",
+    "selection_index": 147,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "code": ""
+    },
+    "fields": {
+      "code": "https://zhao-sq.github.io/carf/"
+    },
+    "evidence": "The paper supplies the CARF project URL; that official page identifies UC Berkeley. The proposed code field points to this project page, not an asserted released implementation. Failure-weighted flow-matching fine-tuning supports advbc.",
+    "source_url": "https://arxiv.org/html/2609.21982",
+    "supplemental_sources": [
+      {
+        "url": "https://arxiv.org/pdf/2609.21982",
+        "sha256": "9dc418c4b6d66a51cd95ba63b204bdc7c8132d984f01d037da1ae274d382d311",
+        "locator": "PDF title page; code/project footnote where present"
+      },
+      {
+        "url": "https://zhao-sq.github.io/carf/",
+        "sha256": "40ad5de87a53f95be05ad8a9adc7a77d3fe4b153ff96ae2c208cca340195190f",
+        "locator": "Official project page linked from the primary paper",
+        "confirmed_link": "https://zhao-sq.github.io/carf/"
+      }
+    ]
+  },
+  {
+    "id": "N219",
+    "selection_index": 148,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Wei et al."
+    },
+    "fields": {
+      "org": "University of Freiburg; CARIAD; KIT"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.21617",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N123",
+    "selection_index": 149,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Kappel et al."
+    },
+    "fields": {
+      "org": "ISIR; CNRS; Sorbonne University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.21817",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N104",
+    "selection_index": 150,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Wang et al."
+    },
+    "fields": {
+      "org": "Carnegie Mellon University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.22521",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N094",
+    "selection_index": 151,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Joualy et al."
+    },
+    "fields": {
+      "org": "KU Leuven; Flanders Make"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.21767",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N075",
+    "selection_index": 152,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Zhu et al."
+    },
+    "fields": {
+      "org": "Texas Tech; Purdue"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.21246",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N024",
+    "selection_index": 153,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Wu et al."
+    },
+    "fields": {
+      "org": "TU Munich; MBZUAI; Shanghai University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.22606",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N002",
+    "selection_index": 154,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Kingetsu et al."
+    },
+    "fields": {
+      "org": "Fujitsu; Institute of Statistical Mathematics"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.21650",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N395",
+    "selection_index": 158,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Huang et al."
+    },
+    "fields": {
+      "org": "Huawei; UBC; University of Toronto; McGill"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.20791",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N380",
+    "selection_index": 159,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Shanghai Jiao Tong University et al."
+    },
+    "fields": {
+      "org": "SJTU; China University of Mining and Technology; Shanghai Innovation Institute"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.20892",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N244",
+    "selection_index": 161,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Sun et al."
+    },
+    "fields": {
+      "org": "University of Washington; McGill; Princeton"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.20477",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N220",
+    "selection_index": 162,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Liu et al."
+    },
+    "fields": {
+      "org": "Deakin University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.19962",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N163",
+    "selection_index": 163,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Ji et al."
+    },
+    "fields": {
+      "org": "UT Austin; University of Central Florida"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.21022",
+    "supplemental_sources": [
+      {
+        "url": "https://vla-feedback.github.io",
+        "sha256": "1062c7917ea985c3084b7e86e54c57634fa7b0f264f7f88867128865333329a4",
+        "locator": "Official project page linked from the primary paper",
+        "confirmed_link": "https://github.com/jidaxian010/VLA-Feedback-release"
+      },
+      {
+        "url": "https://github.com/jidaxian010/VLA-Feedback-release",
+        "sha256": "893697e3d571532d4c30d79f42cf6c20c6be1f58d16f97e0781fa04fc57770c6",
+        "locator": "Repository/project title, README and matching paper identifier; association only"
+      }
+    ]
+  },
+  {
+    "id": "N140",
+    "selection_index": 164,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Kim et al."
+    },
+    "fields": {
+      "org": "University of Illinois Urbana-Champaign"
+    },
+    "evidence": "The affiliation footnote explicitly identifies UIUC. Diffusion-based optimization supports blackbox; the source says code is forthcoming, so the blank code field is retained.",
+    "source_url": "https://arxiv.org/html/2609.21138",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N108",
+    "selection_index": 165,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Wang et al."
+    },
+    "fields": {
+      "org": "UBC; Westlake; Style3D Research"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.19600",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N106",
+    "selection_index": 166,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Qin et al."
+    },
+    "fields": {
+      "org": "HKUST Guangzhou; Xspark AI; Peking University; Tsinghua; HKU"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.20649",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N076",
+    "selection_index": 167,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "LAAS-CNRS",
+      "code": ""
+    },
+    "fields": {
+      "org": "Sileane; LAAS-CNRS",
+      "code": "https://github.com/MAGMA-rob/magma-gen"
+    },
+    "evidence": "The PDF title page identifies Sileane and LAAS-CNRS and links the official project. That project links the proposed repository. The privileged coach supplies on-policy corrections without per-step human demonstrations; hitl explicitly includes machine intervention, so that editorial family is retained.",
+    "source_url": "https://arxiv.org/pdf/2609.20056",
+    "supplemental_sources": [
+      {
+        "url": "https://arxiv.org/pdf/2609.20056",
+        "sha256": "c797638ab3a0de937ede2ca701c1a6fb8a60b8f3f76dff31e4bd8b98fdc54345",
+        "locator": "PDF title page; code/project footnote where present"
+      },
+      {
+        "url": "https://magma-rob.github.io/magma-gen",
+        "sha256": "5151d89bb5541212a27dc34aeedd39c98c3c52bf92adf8c159a28970e89958e4",
+        "locator": "Official project page linked from the primary paper",
+        "confirmed_link": "https://github.com/MAGMA-rob/magma-gen"
+      }
+    ]
+  },
+  {
+    "id": "N059",
+    "selection_index": 168,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Wang et al."
+    },
+    "fields": {
+      "org": "ZTE"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.19659",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N056",
+    "selection_index": 169,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Da Col et al."
+    },
+    "fields": {
+      "org": "KE:SAI; ETH Z\u00fcrich; NVIDIA; Stanford; ELLIS T\u00fcbingen"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.20756",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N048",
+    "selection_index": 170,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Wang et al."
+    },
+    "fields": {
+      "org": "HKUST; HKUST Guangzhou"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.19850",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N029",
+    "selection_index": 171,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Tu et al."
+    },
+    "fields": {
+      "org": "NTU"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.20106",
+    "supplemental_sources": []
+  },
+  {
+    "id": "C423",
+    "selection_index": 174,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "code": ""
+    },
+    "fields": {
+      "code": "https://wuji.tech/blog/post-training-0"
+    },
+    "evidence": "The primary affiliation footnote identifies Wuji Technology and ShanghaiTech; the official project link is explicitly supplied. Frozen-base latent residual TD3 supports residual.",
+    "source_url": "https://arxiv.org/html/2609.19666",
+    "supplemental_sources": [
+      {
+        "url": "https://wuji.tech/blog/post-training-0",
+        "sha256": "750b594a75d87c8349c1ba2d1d56d777934c6ca70dee26f854b39e39f4853ae1",
+        "locator": "Official project page linked from the primary paper",
+        "confirmed_link": "https://wuji.tech/blog/post-training-0"
+      }
+    ]
+  },
+  {
+    "id": "C422",
+    "selection_index": 175,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Xi'an Jiaotong University; Peking University"
+    },
+    "fields": {
+      "org": "Xi'an Jiaotong; Peking University; PrimeBot; JD Technology"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.20659",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N417",
+    "selection_index": 176,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Li et al."
+    },
+    "fields": {
+      "org": "SJTU; Shanghai AI Lab; Westlake; Nanjing; Tsinghua; CUHK; NTU"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.18708",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N414",
+    "selection_index": 177,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "TUM / Univ. Hamburg"
+    },
+    "fields": {
+      "org": "University of Hamburg; TU Munich; USTC"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.18242",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N243",
+    "selection_index": 179,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Xiang et al."
+    },
+    "fields": {
+      "org": "HKUST Guangzhou; HKU"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.18293",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N237",
+    "selection_index": 180,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Yang et al."
+    },
+    "fields": {
+      "org": "Brown University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.18167",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N077",
+    "selection_index": 181,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Schneider et al."
+    },
+    "fields": {
+      "org": "KIT"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.18324",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N035",
+    "selection_index": 182,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Li et al."
+    },
+    "fields": {
+      "org": "HKUST; ACCESS; Zhejiang University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.18016",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N235",
+    "selection_index": 186,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Pei et al."
+    },
+    "fields": {
+      "org": "Institute of Automation CAS; HIT"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.11445",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N114",
+    "selection_index": 187,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Zou et al."
+    },
+    "fields": {
+      "org": "Beijing Innovation Center of Humanoid Robotics (X-Humanoid)"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.12036",
+    "supplemental_sources": [
+      {
+        "url": "https://arxiv.org/html/2609.12036",
+        "sha256": "711c81abc4fa94114ec093cc624e694c364977bdd687baf624a03639a38260c7",
+        "locator": "Exact official code/project href in primary HTML",
+        "confirmed_link": "https://zoushilong1024.github.io/Pelican-Sim1.0/"
+      }
+    ]
+  },
+  {
+    "id": "N224",
+    "selection_index": 189,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Ma et al."
+    },
+    "fields": {
+      "org": "Fudan University; Shanghai Innovation Institute; NeoteAI"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.05266",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N031",
+    "selection_index": 191,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Zhang et al."
+    },
+    "fields": {
+      "org": "Institute of Science Tokyo; DENSO IT Lab; National Institute of Informatics"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2609.02159",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N107",
+    "selection_index": 193,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Liu et al."
+    },
+    "fields": {
+      "org": "Princeton University"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2608.27406",
+    "supplemental_sources": []
+  },
+  {
+    "id": "N005",
+    "selection_index": 196,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Yang et al."
+    },
+    "fields": {
+      "org": "University College London"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2608.22364",
+    "supplemental_sources": []
+  },
+  {
+    "id": "C406",
+    "selection_index": 199,
+    "change_type": "optional metadata enrichment",
+    "old": {
+      "org": "Peking University"
+    },
+    "fields": {
+      "org": "Peking University; X-Humanoid; Nankai; Xi'an Jiaotong"
+    },
+    "evidence": "Primary author/affiliation material supports the existing organization or the proposed affiliation enrichment. The abstract/introduction and previously reviewed method description support the retained editorial family. Listed code/project links were checked for association with this paper; a blank field makes no availability claim.",
+    "source_url": "https://arxiv.org/html/2608.16837",
+    "supplemental_sources": []
+  }
+]

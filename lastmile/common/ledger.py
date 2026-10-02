@@ -89,9 +89,17 @@ def _score(result: EvalResult | Sequence[bool], init_set: str | None) -> _Score:
         if init_set is not None and result.init_set is not None and init_set != result.init_set:
             raise ValueError(f"init_set={init_set!r} contradicts the result, which was scored on {result.init_set!r}")
         init_set = init_set or result.init_set
-        seeds = tuple(int(s) for s in result.seeds)
+        env_seeds = np.asarray(result.seeds)
+        if env_seeds.ndim != 1 or not np.issubdtype(env_seeds.dtype, np.integer):
+            raise ValueError("evaluation seeds must be a 1-D array of integers")
+        seeds = tuple(int(s) for s in env_seeds)
         result = result.successes
-    successes = np.asarray(result, dtype=bool)
+    outcomes = np.asarray(result)
+    if outcomes.ndim != 1 or outcomes.size == 0 or not np.isin(outcomes, [False, True]).all():
+        raise ValueError("successes must be a non-empty 1-D array of binary outcomes")
+    if seeds is not None and len(seeds) != len(outcomes):
+        raise ValueError("evaluation seeds must have one entry per outcome")
+    successes = outcomes.astype(bool)
     k, n = int(successes.sum()), len(successes)
     lo, hi = wilson(k, n)
     entry = {"sr": k / n if n else 0.0, "ci": [lo, hi], "k": k, "n": n, "init_set": init_set or "eval"}
@@ -205,6 +213,11 @@ class Ledger:
     def to_dict(self) -> dict[str, Any]:
         for category in self.robot_steps:
             check_robot_category(category)
+        for name, costs in (("robot steps", self.robot_steps), ("human minutes", self.human_minutes),
+                            ("compute", {"worker CPU seconds": self.worker_cpu_seconds, "GPU hours": self.gpu_hours})):
+            for category, value in costs.items():
+                if not np.isfinite(value) or value < 0:
+                    raise ValueError(f"{name} {category!r} must be finite and non-negative, got {value}")
         return {
             "schema": SCHEMA_VERSION,
             "chapter": self.chapter,

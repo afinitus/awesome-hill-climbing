@@ -1,0 +1,33 @@
+{
+  "scope": "A indices0:184; whole current descriptions plus specified metadata. A2 indices184:209 owned by chapter reviewer; A3 indices209:234 reviewed separately by this reviewer.",
+  "review_base_commit": "25a9a1dea8b15f7e025610c56453fb4c89a98998",
+  "selection": "CATALOG-A-SELECTION.json",
+  "count": 184,
+  "first_id": "N223",
+  "last_id": "C252",
+  "method": "Manual source-claim comparison of abstract, relevant methods/results/table/figure passages and primary project/code provenance. Reused prior targeted evidence only when directly supporting unchanged claims; no whole-paper proof/code audit or experiment reproduction. All primary sources fetched; title/v1-date API pass reused.",
+  "counts_by_severity": {
+    "none": 139,
+    "major": 8,
+    "minor": 37
+  },
+  "rows_with_proposed_changes": 55,
+  "optional_affiliation_enrichments": 10,
+  "unresolved_current_fields": [],
+  "access_limits_resolved_by_narrowing": [
+    {
+      "id": "N239",
+      "field": "code",
+      "reason": "Anonymous implementation401; clear code field and preserve official-project provenance in audit."
+    },
+    {
+      "id": "N439",
+      "field": "org",
+      "reason": "Formal institutional mapping absent; propose primary first-author attribution Wu et al. (Junyu Wu), retaining disclosure limit."
+    }
+  ],
+  "primary_full_text_access_failures": 0,
+  "state": "All184 assigned rows complete; proposed catalog patches not applied by this reviewer.",
+  "sampling_note": "This is a complete audit of the assigned deterministic remaining cohort, not a random-sample corpus error-rate estimate.",
+  "severity_note": "Major includes statistic-type, percent-versus-points and method-family corrections. C284 is classified separately as a newer-primary-version update; these deterministic cohort counts are not corpus error estimates."
+}

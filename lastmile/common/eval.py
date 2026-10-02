@@ -108,10 +108,11 @@ def bootstrap_diff(
 
 
 def min_successes_for_lower_bound(target: float, z: float = 1.96) -> int:
-    """Length of an all-success streak whose Wilson lower bound reaches ``target``.
+    """All-success fixed sample size whose Wilson lower bound reaches ``target``.
 
-    With zero failures the lower bound is ``n / (n + z^2)``: 73 straight successes to claim
-    95%, 381 to claim 99%. A good reminder of how much evidence "the nines" require.
+    With zero failures the lower bound is ``n / (n + z^2)``: 73/73 reaches 95%,
+    and 381/381 reaches 99%. Use independent, constant-probability trials with a
+    fixed evaluation size; these bounds do not justify stopping at a lucky streak.
     """
     if not 0 < target < 1:
         raise ValueError("target must be in (0, 1)")

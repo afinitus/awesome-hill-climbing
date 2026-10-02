@@ -1,0 +1,50 @@
+{
+  "checked_on": "2026-10-02",
+  "base_commit": "25a9a1d",
+  "scope": "Independent read-only review of root functional changes to leaderboard parsing/pairing, site calculator and wording, Awesome generator wording/counts, and CI. Relevant tests inspected; no new global test run or scientific rerun.",
+  "files": {
+    "tools/leaderboard.py": "13fad7d1625c8409c79d617e2df48bd4f5fa18701d3dad42330ac91270a25a22",
+    "tools/build_site.py": "cf1eb6b5feea390fd2df161398348d23bc2b87b9dbfd5d1d8100e30ffbcc6cb2",
+    "tools/build_awesome.py": "06ee20d772687304f957e8113ff581338fdfb1e10c5de9b65161c12ae7f90e7f",
+    ".github/workflows/ci.yml": "13771810c045f5cec3d329eecb09379dea51497a698329b53926be3bb0638945",
+    "tests/test_leaderboard.py": "1049b96c82aeb3ded2275687505ee7ea0ec344a123fdb5f6b60475eb72bf5d74",
+    "tests/test_build_site.py": "b1be38b1eca8429b3807fc0b8c36e1600549528a2fcbd67caad0406fbb36e6ad"
+  },
+  "status": "no_concrete_regression_found",
+  "findings": [],
+  "checks": [
+    {
+      "area": "leaderboard validation",
+      "result": "New integer-count guards reject booleans, fractional counts, nonpositive n and out-of-range k; sr agrees with k/n; bounded ordered CIs contain sr; NaN fails the comparisons. Cost checks reject negative and nonfinite numeric values. load_runs catches malformed mapping failures and skips them with a warning. Existing valid JSON result serialization remains compatible.",
+      "tests_inspected": "test_invalid_counts_and_intervals_cannot_reach_the_public_table; test_invalid_costs_cannot_reach_the_public_table; existing formatting/loading tests."
+    },
+    {
+      "area": "pairing",
+      "result": "The new version check rejects differing known init-set versions in addition to existing set/name and count checks. Unknown metadata remains permissive exactly as before; the change does not pretend to verify episode-level seeds.",
+      "tests_inspected": "test_different_known_init_versions_are_not_paired; existing unpaired-row cases."
+    },
+    {
+      "area": "Wilson calculator",
+      "result": "Number plus Number.isSafeInteger rejects fractional, blank, nonfinite and unsafe integer input; explicit bounds reject n<1 and k outside 0..n. Invalid input clears interval width and hides the point; the next valid update restores visibility. Existing Wilson arithmetic and display values are unchanged.",
+      "tests_inspected": "Root VALIDATION.json records browser probes for 30/30, 0/30, 31/30, 2.5/30 and blank inputs; independent review here is source-level, not a repeated browser run."
+    },
+    {
+      "area": "generator prose and counts",
+      "result": "Count expressions remain data-derived and unchanged. The fixed September 2025 threshold is now labeled explicitly rather than as a rolling twelve months. The seven Start Here picks currently all fall within the past year. The 30/30, 73/73 and 381/381 wording now specifies fixed-size independent Bernoulli assumptions; no new arithmetic path is introduced. Chapter-plan language distinguishes implemented and planned content.",
+      "current_snapshot_counts": {
+        "papers": 912,
+        "recent_since_2025_09": 676,
+        "must_know": 122
+      }
+    },
+    {
+      "area": "CI",
+      "result": "contents:read suffices for checkout and read-only validation; setup-uv has no new write requirement. ruff is in the locked dev extra installed before lint. Site --check is deterministic from the repository update date and tracked input files, matching the existing Awesome synchronization gate. Matrix and smoke commands remain unchanged."
+    }
+  ],
+  "limits": [
+    "No full browser, dependency reinstall, CI service execution or scientific rerun performed by this reviewer. Parent reports 176 passing tests and final smoke checks; those execution claims are not independently duplicated here.",
+    "Review concerns the requested diff, not all pre-existing validation behavior. Optional/missing success metadata and permissive legacy pairing remain pre-existing design choices.",
+    "Python test files do not directly execute the JavaScript calculator; the recorded parent browser probes supply that interaction evidence."
+  ]
+}

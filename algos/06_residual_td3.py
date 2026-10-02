@@ -514,7 +514,9 @@ def main(cfg: Config) -> None:
         import json
 
         s = json.loads((REPO_ROOT / cfg.replot).read_text())["extra"]
-        make_plots(Config(**{k: v for k, v in s["config"].items() if k != "replot"}), REPO_ROOT / "media/ch06", s)
+        saved_cfg = Config(**{k: v for k, v in s["config"].items() if k != "replot"})
+        out = REPO_ROOT / (saved_cfg.out or ("runs/ch06_quick" if saved_cfg.quick else "."))
+        make_plots(saved_cfg, out / "media/ch06", s)
         return
 
     out = REPO_ROOT / (cfg.out or ("runs/ch06_quick" if cfg.quick else "."))

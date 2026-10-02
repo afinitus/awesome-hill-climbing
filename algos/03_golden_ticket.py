@@ -591,8 +591,8 @@ def make_plots(R: dict, out: Path = MEDIA, *, final_set: str = "eval") -> None:
     plotting.save_fig(fig, out / "support.png")
 
 
-def tickets_gif(R: dict, cfg: Config, out: Path) -> None:
-    """Replay six policies on one eval start state and tile them 3 x 2, border green on success.
+def tickets_gif(R: dict, cfg: Config, out: Path, *, final_set: str | None = None) -> None:
+    """Replay six policies on one scored start state and tile them 3 x 2, border green on success.
 
     Each episode is one already counted in an evaluation above (same env seed, same policy seed), rerun in
     process with its actions recorded and then re-rendered, which reproduces it exactly.
@@ -601,12 +601,13 @@ def tickets_gif(R: dict, cfg: Config, out: Path) -> None:
     from lastmile.common.plotting import replay_frames, save_gif, side_by_side, tile
     from lastmile.envs.cupdrop import CupDropEnv
 
+    final_set = final_set or cfg.final_set
     env = CupDropEnv(robot=cfg.robot, render_size=(160, 160))
     seed_index = R["gif"]["seed_index"]
-    seed, clips = INIT_SETS[cfg.final_set][seed_index], []
+    seed, clips = INIT_SETS[final_set][seed_index], []
     for label, w in R["gif"]["clips"]:
         make = GAUSS if w is None else fixed(np.array(w))  # None: the Gaussian base
-        res = rollout_seeds(make, [seed], [policy_seed(cfg.final_set, seed_index)], robot=cfg.robot, n_workers=1,
+        res = rollout_seeds(make, [seed], [policy_seed(final_set, seed_index)], robot=cfg.robot, n_workers=1,
                             record_trajectories=True)
         traj = res.trajectories[0]
         frames = [np.array(f) for f in replay_frames(env, traj, label=label, every=5)]  # writable copies
@@ -615,7 +616,7 @@ def tickets_gif(R: dict, cfg: Config, out: Path) -> None:
             f[:4], f[-4:], f[:, :4], f[:, -4:] = color, color, color, color
         clips.append(frames + [frames[-1]] * 4)
     path = save_gif(tile(clips, cols=3), out / "tickets_grid.gif", fps=4, max_size=488)
-    print(f"wrote {path} ({path.stat().st_size / 1e6:.2f} MB, {cfg.final_set} seed {seed})")
+    print(f"wrote {path} ({path.stat().st_size / 1e6:.2f} MB, {final_set} seed {seed})")
     path = save_gif(side_by_side(clips[0], clips[2]), out / "before_after.gif", fps=4, max_size=324)
     print(f"wrote {path} ({path.stat().st_size / 1e6:.2f} MB)")
 
@@ -628,9 +629,11 @@ def main(cfg: Config) -> None:
         saved = json.loads(Path(cfg.replot).read_text())
         R = saved["extra"]["analysis"]
         plot_set = saved["final"].get("init_set", "eval")
-        make_plots(R, final_set=plot_set)
+        replay_cfg = Config(**saved["config"])
+        out = ROOT / "runs" / "ch03_quick" / "media" if replay_cfg.quick else MEDIA
+        make_plots(R, out, final_set=plot_set)
         with optional_media("the ticket GIFs"):
-            tickets_gif(R, cfg, MEDIA)
+            tickets_gif(R, replay_cfg, out, final_set=plot_set)
         return
     t0 = time.time()
     root = cfg.results_root or str(ROOT / "runs" / "ch03_quick" if cfg.quick else DEFAULT_RESULTS_ROOT)

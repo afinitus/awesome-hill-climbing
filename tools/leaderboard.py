@@ -111,6 +111,13 @@ def parse_rate(d: dict) -> Rate:
     if not isinstance(d, dict):
         raise TypeError("success-rate entry is not an object")
     k, n = d.get("k"), d.get("n")
+    for name, value in (("k", k), ("n", n)):
+        if value is not None and (isinstance(value, bool) or not isinstance(value, int)):
+            raise ValueError(f"{name} must be an integer count")
+    if n is not None and n <= 0:
+        raise ValueError("n must be positive")
+    if k is not None and (k < 0 or (n is not None and k > n)):
+        raise ValueError("k must lie between zero and n")
     sr = d.get("sr")
     if sr is None and k is not None and n:
         sr = k / n
@@ -119,9 +126,13 @@ def parse_rate(d: dict) -> Rate:
     sr = float(sr)
     if not 0.0 <= sr <= 1.0:
         raise ValueError(f"success rate {sr} is outside [0, 1]")
+    if k is not None and n is not None and not math.isclose(sr, k / n, abs_tol=1e-9):
+        raise ValueError("success rate disagrees with k/n")
     ci = d.get("ci")
     if ci is not None:
         lo, hi = (float(x) for x in ci)
+        if not 0.0 <= lo <= sr <= hi <= 1.0:
+            raise ValueError("confidence interval must contain the rate and lie within [0, 1]")
         ci = (lo, hi)
     elif k is not None and n:
         ci = wilson(int(k), int(n))
@@ -151,6 +162,11 @@ def parse_run(path: Path, data: object) -> Run:
     budget = data.get("budget") or {}
     robot = budget.get("robot_minutes")
     human = budget.get("human_minutes")
+    for name, values in (("robot_minutes", robot), ("human_minutes", human)):
+        if values is not None:
+            for value in values.values():
+                if not isinstance(value, (int, float)) or not math.isfinite(value) or value < 0:
+                    raise ValueError(f"{name} must contain finite nonnegative costs")
     return Run(
         path=path,
         chapter=str(data["chapter"]),
@@ -227,7 +243,9 @@ def is_paired(base: Rate, final: Rate) -> bool:
     """True if base and final were scored on the same episodes, as far as the file tells."""
     same_set = base.init_set is None or final.init_set is None or base.init_set == final.init_set
     same_n = base.n is None or final.n is None or base.n == final.n
-    return same_set and same_n
+    same_version = (base.init_set_version is None or final.init_set_version is None
+                    or base.init_set_version == final.init_set_version)
+    return same_set and same_n and same_version
 
 
 def table_row(run: Run) -> list[str]:

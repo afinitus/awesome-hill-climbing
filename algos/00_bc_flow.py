@@ -154,7 +154,7 @@ def build_dataset(pool: dict[str, list[dict]], n: int, frac: float):
 
 
 def epochs_for(n_samples: int, steps: int, batch_size: int) -> int:
-    """train_flowchunk counts epochs; we fix gradient steps so small datasets are not under-trained."""
+    """Round a requested update budget up to full epochs (at most one epoch minus one extra update)."""
     return max(1, math.ceil(steps / math.ceil(n_samples / batch_size)))
 
 
@@ -164,22 +164,24 @@ def train_job(obs, chunks, steps: int, seed: int, batch_size: int, lr: float, th
 
     from lastmile.common.policy_flow import ChunkDataset, train_flowchunk
 
+    cpu_start = time.process_time()
     torch.set_num_threads(threads)
     ds = ChunkDataset(obs, chunks)
     epochs = epochs_for(len(ds), steps, batch_size)
     model, losses = train_flowchunk(ds, epochs=epochs, batch_size=batch_size, lr=lr, seed=seed)
     model.save(path)
-    return losses[-1]
+    return {"loss": losses[-1], "cpu_seconds": time.process_time() - cpu_start}
 
 
-def train_all(cfg: Config, pool_exec, datasets: dict, steps: int | dict, tag: str, work: Path) -> dict:
+def train_all(cfg: Config, pool_exec, datasets: dict, steps: int | dict, tag: str, work: Path,
+              ledger: Ledger) -> dict:
     """Train one model per pipeline seed in parallel; `steps` may differ per seed. Returns {seed: path}."""
     paths = {s: str(work / f"{tag}_seed{s}.pt") for s in datasets}
     jobs = [pool_exec.submit(train_job, ds.obs, ds.chunks, steps[s] if isinstance(steps, dict) else steps,
                              s, cfg.batch_size, cfg.lr, cfg.train_threads, paths[s])
             for s, ds in datasets.items()]
     for job in jobs:
-        job.result()
+        ledger.worker_cpu_seconds += job.result()["cpu_seconds"]
     return paths
 
 
@@ -354,7 +356,7 @@ def main(cfg: Config) -> None:
         for n, frac in grid_keys:
             t0 = time.time()
             paths = train_all(cfg, trainers, {s: build_dataset(pools[s], n, frac)[0] for s in cfg.seeds},
-                              cfg.train_steps, f"n{n}_f{frac}", work)
+                              cfg.train_steps, f"n{n}_f{frac}", work, L)
             runs[(n, frac)] = {s: score(cfg, p, "search", range(cfg.search_salts), L, "search")
                                for s, p in paths.items()}
             g = grid[(n, frac)] = summarize(cfg, runs[(n, frac)])
@@ -389,7 +391,7 @@ def main(cfg: Config) -> None:
         ablation = {cfg.train_steps: summarize(cfg, runs[chosen])}
         for steps in cfg.steps_ablation:
             paths = train_all(cfg, trainers, {s: build_dataset(pools[s], n_sel, f_sel)[0] for s in cfg.seeds},
-                              steps, f"abl{steps}", work)
+                              steps, f"abl{steps}", work, L)
             ablation[steps] = summarize(cfg, {s: score(cfg, p, "search", range(cfg.pass_k), L, "search")
                                               for s, p in paths.items()})
         for steps, a in sorted(ablation.items()):
@@ -406,7 +408,7 @@ def main(cfg: Config) -> None:
             for n in [m for m in cfg.n_demos if m != n_sel]:
                 ds = {s: build_dataset(pools[s], n, f_sel)[0] for s in cfg.seeds}
                 steps = {s: epochs[s] * math.ceil(len(ds[s]) / cfg.batch_size) for s in cfg.seeds}
-                paths = train_all(cfg, trainers, ds, steps, f"ep_n{n}_f{f_sel}", work)
+                paths = train_all(cfg, trainers, ds, steps, f"ep_n{n}_f{f_sel}", work, L)
                 runs_n = {s: score(cfg, p, "search", range(cfg.pass_k), L, "search")
                           for s, p in paths.items()}
                 epoch_abl[n] = {**summarize(cfg, runs_n), "epochs": epochs[base_seed], "steps": steps}

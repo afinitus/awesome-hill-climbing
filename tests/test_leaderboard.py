@@ -81,7 +81,7 @@ def block(readme: Path, lb) -> str:
 
 
 def test_wilson_matches_reference_numbers(lb):
-    # The reference intervals printed in the curriculum (docs/research/curriculum.md §3).
+    # Fixed-count Wilson reference intervals, including the all-success boundary.
     for (k, n), (lo, hi) in {
         (15, 30): (33.2, 66.8),
         (30, 30): (88.6, 100.0),
@@ -89,6 +89,30 @@ def test_wilson_matches_reference_numbers(lb):
     }.items():
         got = lb.wilson(k, n)
         assert round(100 * got[0], 1) == lo and round(100 * got[1], 1) == hi
+
+
+@pytest.mark.parametrize("rate", [
+    {"k": 2.5, "n": 30}, {"k": True, "n": 30}, {"k": 1, "n": 0},
+    {"k": -1, "n": 30}, {"k": 31, "n": 30}, {"k": 15, "n": 30, "sr": 0.9},
+    {"sr": 0.5, "ci": [0.6, 0.8]}, {"sr": 0.5, "ci": [-0.1, 0.8]},
+    {"sr": 0.5, "ci": [0.2, float("nan")]},
+])
+def test_invalid_counts_and_intervals_cannot_reach_the_public_table(lb, rate):
+    with pytest.raises(ValueError):
+        lb.parse_rate(rate)
+
+
+def test_different_known_init_versions_are_not_paired(lb):
+    base = lb.parse_rate({"k": 15, "n": 30, "init_set": "eval", "init_set_version": "v0"})
+    final = lb.parse_rate({"k": 20, "n": 30, "init_set": "eval", "init_set_version": "v1"})
+    assert not lb.is_paired(base, final)
+
+
+@pytest.mark.parametrize("value", [-1, float("nan"), float("inf")])
+def test_invalid_costs_cannot_reach_the_public_table(tmp_path, lb, capsys, value):
+    write_result(tmp_path, "ch01", "bad_cost", 20, n=30, search=value)
+    assert lb.load_runs(tmp_path / "results") == []
+    assert "finite nonnegative costs" in capsys.readouterr().err
 
 
 def test_table_rows_sorted_and_formatted(tmp_path, lb):

@@ -1,0 +1,678 @@
+{
+  "method": "Every raster frame decoded; SVG XML parsed. Contact sheets use first/middle/final GIF frames and every PNG. Visual review is recorded separately.",
+  "files": [
+    {
+      "path": "media/banner-dark.svg",
+      "sha256": "00dfa5f0fc07ed0a9d0de3a4c5901d1e1020842e88c88fb7c2075f488bf03ac6",
+      "bytes": 26825,
+      "format": "SVG",
+      "viewBox": "0 0 1280 360",
+      "elements": 41
+    },
+    {
+      "path": "media/banner-light.svg",
+      "sha256": "907d73c01d9a82c0ecb7784b7201f437e451edc8efdf3db9fd13f21a2f0fec29",
+      "bytes": 26825,
+      "format": "SVG",
+      "viewBox": "0 0 1280 360",
+      "elements": 41
+    },
+    {
+      "path": "media/ch00/base_v1_success_vs_failure.gif",
+      "sha256": "284611acec6c1d798bac8bea2fb059ab54773b0bda3b22e0038fee4f5298946d",
+      "bytes": 2002068,
+      "format": "GIF",
+      "size": [
+        400,
+        198
+      ],
+      "frames": 76
+    },
+    {
+      "path": "media/ch00/calibration.png",
+      "sha256": "47aae96f94a0775d831daa0f9895986b1963d39a664421e56cd62371824814cd",
+      "bytes": 78624,
+      "format": "PNG",
+      "size": [
+        1146,
+        592
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch00/data_scaling.png",
+      "sha256": "790c46b28681b767863192852ccc40ed1cd2938ae924e0cc7bbc958889909748",
+      "bytes": 67540,
+      "format": "PNG",
+      "size": [
+        897,
+        592
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch00/demos_clean_vs_sloppy.gif",
+      "sha256": "51a6271dd9ec159c0666077e0ba419d1833de6e78ca55a5116714fd8473e2908",
+      "bytes": 1103784,
+      "format": "GIF",
+      "size": [
+        400,
+        198
+      ],
+      "frames": 36
+    },
+    {
+      "path": "media/ch00/failure_modes.png",
+      "sha256": "9fcd9e0104dd201b02cd4a2c523ecc48bc9f07bf7f1fb137fbfdaf1e1b0f721f",
+      "bytes": 32453,
+      "format": "PNG",
+      "size": [
+        864,
+        561
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch00/pass_at_k.png",
+      "sha256": "9e0fd5749bee13be4e6cddd9f5b98bc37575933b945491717216f78ed9815e04",
+      "bytes": 54801,
+      "format": "PNG",
+      "size": [
+        886,
+        592
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch00/train_steps.png",
+      "sha256": "53c6f753ef8576953bf25e1f3065872d8e2f56826942441c720d82a2850b48b1",
+      "bytes": 64278,
+      "format": "PNG",
+      "size": [
+        890,
+        592
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch01/before_after.gif",
+      "sha256": "c81a801efa95079a6c286ddb4d2bb1533e9c1910ce3167dfb9444064e2992a85",
+      "bytes": 379714,
+      "format": "GIF",
+      "size": [
+        512,
+        256
+      ],
+      "frames": 21
+    },
+    {
+      "path": "media/ch01/fd_step_failure.png",
+      "sha256": "49036d657e7f46ed1cc23806487138c7706daaec7a645572b712d19970b69d17",
+      "bytes": 163437,
+      "format": "PNG",
+      "size": [
+        1784,
+        580
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch01/knob_paths.png",
+      "sha256": "e2a654f65d359e0ed5f12a4638a51a08be7baa7dc99815479b4e15d1305f4612",
+      "bytes": 160248,
+      "format": "PNG",
+      "size": [
+        2033,
+        580
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch01/landscape_slices.png",
+      "sha256": "f6610079463d203f492a043d8defdab5e74ec22b052d433a21bf511a58cacf3a",
+      "bytes": 162832,
+      "format": "PNG",
+      "size": [
+        1752,
+        850
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch01/learning_curves.png",
+      "sha256": "df6ed2cc6c7fb2a2f3f6ada0309e86f4d6ca650028158b06ba4d0004126ff3fa",
+      "bytes": 135155,
+      "format": "PNG",
+      "size": [
+        2295,
+        580
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch02/all_methods.png",
+      "sha256": "e8ef9001bd4e86f524fb968bab82c5fddd69fb68d50edb6b8cea554438c9ca53",
+      "bytes": 176993,
+      "format": "PNG",
+      "size": [
+        1851,
+        664
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch02/all_methods_4knobs.png",
+      "sha256": "87a2170a6d23fccd136c0e007ceacb5f8e618d7d588f9c15d184d6d2471119de",
+      "bytes": 179342,
+      "format": "PNG",
+      "size": [
+        1851,
+        690
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch02/before_after_cem.gif",
+      "sha256": "7634db5b98ad27ce842ea55cd7a6975746b5a94697d2ab74e8b7b1057bfd17f4",
+      "bytes": 595808,
+      "format": "GIF",
+      "size": [
+        512,
+        256
+      ],
+      "frames": 47
+    },
+    {
+      "path": "media/ch02/ellipses.gif",
+      "sha256": "c24e9c6a22ed0f5b8623041bc0d3d25316eb55a8332e0e66e42ea69be5e275ed",
+      "bytes": 194480,
+      "format": "GIF",
+      "size": [
+        900,
+        330
+      ],
+      "frames": 13
+    },
+    {
+      "path": "media/ch02/knobs_moved.png",
+      "sha256": "8af80d0d21cbe46b0c3bd7400bb61ba3c4fbfb0ad2dfa5b03a8cb1341e517e18",
+      "bytes": 68632,
+      "format": "PNG",
+      "size": [
+        1442,
+        602
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch02/search_curves.png",
+      "sha256": "4826cfa33ca3ce33f180ed8c52096bd67036c633262aa3511d488733b28f53b4",
+      "bytes": 261888,
+      "format": "PNG",
+      "size": [
+        1789,
+        674
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch03/before_after.gif",
+      "sha256": "c19852410681e4dbca055740bc91be18dfd65aa0a8fa0aba6d3cfe4e1470c094",
+      "bytes": 607980,
+      "format": "GIF",
+      "size": [
+        324,
+        160
+      ],
+      "frames": 31
+    },
+    {
+      "path": "media/ch03/search_curves.png",
+      "sha256": "557907468a1c70ec09276a19ae9ed592ac23911e0d7f009866ebf1c53f765c0b",
+      "bytes": 129702,
+      "format": "PNG",
+      "size": [
+        1579,
+        660
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch03/search_vs_heldout.png",
+      "sha256": "a4b023eb673502f0c25d893bdcb0645a343b397e8620de358cd68e9c8fffb9e1",
+      "bytes": 116618,
+      "format": "PNG",
+      "size": [
+        928,
+        777
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch03/support.png",
+      "sha256": "f318e31e805a083ccb24aa88446ba11e22fc48e0daf2e5c40a205429440415ea",
+      "bytes": 69331,
+      "format": "PNG",
+      "size": [
+        1262,
+        615
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch03/tickets_grid.gif",
+      "sha256": "531047e491b6e9d460d26c6bc94eb252213f952d8b970f635f3556ac5954561f",
+      "bytes": 972112,
+      "format": "GIF",
+      "size": [
+        488,
+        324
+      ],
+      "frames": 31
+    },
+    {
+      "path": "media/ch05/base_vs_qc.gif",
+      "sha256": "e471b52f58e7c0e13c05a492e127babe927835b3eef70d863cc6c737cc2a715d",
+      "bytes": 1637908,
+      "format": "GIF",
+      "size": [
+        400,
+        198
+      ],
+      "frames": 51
+    },
+    {
+      "path": "media/ch05/dip.png",
+      "sha256": "481e1ab1ffc85a7c4fc622b2322961ff2c95998a7ec96a0f333778cc00d59def",
+      "bytes": 69848,
+      "format": "PNG",
+      "size": [
+        902,
+        592
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch05/eval_per_seed.png",
+      "sha256": "8f46ba3619a2bc8c312a2f396d6bb6219fa566e349c4bd9a788b5887f75e83b1",
+      "bytes": 43842,
+      "format": "PNG",
+      "size": [
+        1311,
+        561
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch05/learning_curves.png",
+      "sha256": "5d3d2b6e3adfc55232eb3b3754ea8b2e79ad0844fbf415be7790465cbd8a1de6",
+      "bytes": 100595,
+      "format": "PNG",
+      "size": [
+        1432,
+        661
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch06/bias_base_vs_residual.gif",
+      "sha256": "b88659d55dd406735893149ba622fe4b10163fce0e86a3c02f67b994d1bad599",
+      "bytes": 1813306,
+      "format": "GIF",
+      "size": [
+        400,
+        198
+      ],
+      "frames": 51
+    },
+    {
+      "path": "media/ch06/bound_compare.png",
+      "sha256": "d650bbc00f7080e2663d55980838275309a35362ad251b74a12757bf25c3527d",
+      "bytes": 127831,
+      "format": "PNG",
+      "size": [
+        1442,
+        615
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch06/dawn_early.png",
+      "sha256": "3f21334cea2c5513dc2288bd149f1e9801bfdb93950cdc44c046488a1395d905",
+      "bytes": 146105,
+      "format": "PNG",
+      "size": [
+        1018,
+        638
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch06/dawn_grid.png",
+      "sha256": "018fc9936c0fdf640ba89d1f6440daa64855af4e9fbd908a91df17bd9316764e",
+      "bytes": 163053,
+      "format": "PNG",
+      "size": [
+        1189,
+        933
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch06/learning_curves.png",
+      "sha256": "47b408808a593b65809adb6791900a40c69db9c9529ea34c6872cd0a913f1fca",
+      "bytes": 171190,
+      "format": "PNG",
+      "size": [
+        1537,
+        638
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch06/v1_base_vs_residual.gif",
+      "sha256": "95efc1c84f54d2a6cd3695ae22116cd91c65f6a779c681871324984f97f96613",
+      "bytes": 1253193,
+      "format": "GIF",
+      "size": [
+        400,
+        198
+      ],
+      "frames": 51
+    },
+    {
+      "path": "media/ch07/base_vs_dsrl.gif",
+      "sha256": "e3bb9d6aea080ff0ae0f024afeeaf4a8a42f1d8e4837a4de7a60e1933839f4ce",
+      "bytes": 1140496,
+      "format": "GIF",
+      "size": [
+        404,
+        200
+      ],
+      "frames": 51
+    },
+    {
+      "path": "media/ch07/grasp_modes.png",
+      "sha256": "82e49e7204db891bbb231b6316e0c9c3b73243c25ab59ac760e84e2563c31a3c",
+      "bytes": 74617,
+      "format": "PNG",
+      "size": [
+        1217,
+        658
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch07/hard_pss_vs_residual.gif",
+      "sha256": "7d3fea896934c2d28c84ab77997ba7ae5c526fd657a95371fafc3169b32e0920",
+      "bytes": 974882,
+      "format": "GIF",
+      "size": [
+        404,
+        200
+      ],
+      "frames": 51
+    },
+    {
+      "path": "media/ch07/heldout.png",
+      "sha256": "da3279d21a954bfbd801b5ab6dbb94e60502a27bd9648350e94d2a18e37920ed",
+      "bytes": 81649,
+      "format": "PNG",
+      "size": [
+        1630,
+        616
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch07/learning_curves.png",
+      "sha256": "945308035fe4a73b8a540f50267c0b2912a341efb2220249118596d7844753b1",
+      "bytes": 248166,
+      "format": "PNG",
+      "size": [
+        1670,
+        638
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch07/pss_spectrum.png",
+      "sha256": "971a59aae92b946a106d9cb4351079f38ea95700ab373919e9ae8ecbd791c81f",
+      "bytes": 58590,
+      "format": "PNG",
+      "size": [
+        812,
+        546
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch07/support_limit.png",
+      "sha256": "05f11701888f1e5428f91d154d034aee56c6ff8622fbd1a05b505295931735b9",
+      "bytes": 57726,
+      "format": "PNG",
+      "size": [
+        973,
+        647
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch08/eval_by_config.png",
+      "sha256": "7412f64bade9eaa8a991d62ff19ded526cbdfbdd9242603884b43bc18646e02c",
+      "bytes": 74372,
+      "format": "PNG",
+      "size": [
+        1158,
+        734
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch08/latency.png",
+      "sha256": "7aeb9ef7bb8cc1c0800e6716bd6eadb0991d9c66e93c7e14937fffd2f9cdfeb6",
+      "bytes": 47568,
+      "format": "PNG",
+      "size": [
+        849,
+        608
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch08/learning_curves.png",
+      "sha256": "0e66d7517cd0a2356890fc8762c42ba2b522c43e5af68c4702a9fcb8f5ce6104",
+      "bytes": 190522,
+      "format": "PNG",
+      "size": [
+        1456,
+        661
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch08/proposal_fan.gif",
+      "sha256": "82a4f9ae5adb4f60cb2f945972c988b8d97e9d3b7ef61e0223e7aaffb129c837",
+      "bytes": 605805,
+      "format": "GIF",
+      "size": [
+        516,
+        256
+      ],
+      "frames": 39
+    },
+    {
+      "path": "media/ch08/q_calibration.png",
+      "sha256": "13577ce1238e966bdcf8ce7e4bb49fdc0a13cd631d58d29587a63dd16c701a13",
+      "bytes": 94285,
+      "format": "PNG",
+      "size": [
+        912,
+        592
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch12/base_vs_best_of_n.gif",
+      "sha256": "4ce06c2193f5fa4be718ca3f5269faf062ed8c22f2353c5f32d89e80089ec3d7",
+      "bytes": 1802098,
+      "format": "GIF",
+      "size": [
+        400,
+        198
+      ],
+      "frames": 51
+    },
+    {
+      "path": "media/ch12/data_sweep.png",
+      "sha256": "27f21f8e6d2f6b91010e3efee1d076997fa5606eadd961bb687e3a39078a6994",
+      "bytes": 65601,
+      "format": "PNG",
+      "size": [
+        886,
+        592
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch12/pass_at_k.png",
+      "sha256": "e8587306076e82c63c63b9db1a3a2869998c456aa39ad4e7c53927a9842d6549",
+      "bytes": 50913,
+      "format": "PNG",
+      "size": [
+        886,
+        592
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/ch12/success_vs_n.png",
+      "sha256": "d3e7b565775f4fac46cb692dd157736737da7437d4ce2d07e3caa6d8b9a776f2",
+      "bytes": 100359,
+      "format": "PNG",
+      "size": [
+        979,
+        661
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/env/piper_default_fail.gif",
+      "sha256": "8e2a278ec8ad5d312d6cbd1472e3a7d9f1f697784479e3f814554aac29f986c0",
+      "bytes": 1669892,
+      "format": "GIF",
+      "size": [
+        256,
+        256
+      ],
+      "frames": 76
+    },
+    {
+      "path": "media/env/piper_scene.png",
+      "sha256": "4247601281f466b253b8fa934b3cde04a946070f9c8651a6adb9a8a3ccb9c473",
+      "bytes": 125741,
+      "format": "PNG",
+      "size": [
+        768,
+        256
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/env/piper_tuned.gif",
+      "sha256": "990f7c1931aa687d0ac395a82d52a7921241f3b319579c76dbe4b29f83c3a58a",
+      "bytes": 1340472,
+      "format": "GIF",
+      "size": [
+        256,
+        256
+      ],
+      "frames": 49
+    },
+    {
+      "path": "media/env/so101_default_fail.gif",
+      "sha256": "3bf87021e4fbe25b7c74fb69d3b12a12af605a3fd120b0f405873bca462c2847",
+      "bytes": 277169,
+      "format": "GIF",
+      "size": [
+        256,
+        256
+      ],
+      "frames": 29
+    },
+    {
+      "path": "media/env/so101_scene.png",
+      "sha256": "2bfff992b5e7b84212841b1245d88457f2b48401f1a520f095735d74c930c188",
+      "bytes": 89527,
+      "format": "PNG",
+      "size": [
+        768,
+        256
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/env/so101_tuned.gif",
+      "sha256": "91b654fb0673738c5cd6ef385517f0d4c5161028c14701dbfa0297ad408652f7",
+      "bytes": 420475,
+      "format": "GIF",
+      "size": [
+        256,
+        256
+      ],
+      "frames": 40
+    },
+    {
+      "path": "media/leaderboard/success_vs_human_minutes.png",
+      "sha256": "0fe72ccb902b9d6323890dab51f14cb20743f2ed884b50ef027ee66f2be40d6b",
+      "bytes": 183741,
+      "format": "PNG",
+      "size": [
+        1878,
+        1506
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/leaderboard/success_vs_robot_minutes.png",
+      "sha256": "d3622109c633ee7edb35f47573efcf9e984be6b21d38c52203cdf6ab624d6db5",
+      "bytes": 181391,
+      "format": "PNG",
+      "size": [
+        1878,
+        1506
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/social-preview.png",
+      "sha256": "637b3df5f05c6cb5ab460d1f8a50bf8110a19c3ddcd04cabc1514f21b29c9d9d",
+      "bytes": 115097,
+      "format": "PNG",
+      "size": [
+        1280,
+        640
+      ],
+      "frames": 1
+    },
+    {
+      "path": "media/social-preview.svg",
+      "sha256": "4d2c3b67b6f816345b9390bcd219f7acc2a79ec618eec4f10d7c1ae62919780d",
+      "bytes": 26461,
+      "format": "SVG",
+      "viewBox": "0 0 1280 640",
+      "elements": 34
+    }
+  ],
+  "visual_review": {
+    "status": "passed",
+    "raster_contact_sheets_viewed": 11,
+    "raster_scope": "Every PNG plus first/middle/final frames of every GIF; all GIF frames structurally decoded, not all individually visually inspected.",
+    "svg_files_rendered_and_viewed": [
+      "media/banner-dark.svg",
+      "media/banner-light.svg",
+      "media/social-preview.svg"
+    ],
+    "finding": "No corruption, missing content or material layout issue found in this inspection."
+  }
+}

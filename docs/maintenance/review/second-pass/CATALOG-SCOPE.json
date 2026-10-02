@@ -1,0 +1,16 @@
+{
+  "base_commit": "25a9a1dea8b15f7e025610c56453fb4c89a98998",
+  "paper_csv_sha256": "a0f9334f06efccf8e3c2ea74aa94a4f9822ded2913401d97972766594d97261d",
+  "total": 912,
+  "prior_whole_description_covered": 445,
+  "remaining_description_reviews": 467,
+  "a": 234,
+  "b": 233,
+  "prior_full_metadata_covered": 143,
+  "metadata_gaps": 769,
+  "metadata_only_gaps_after_assigned_description_reviews": 302,
+  "arxiv_rows_with_prior_global_title_v1_date_api": 874,
+  "uncovered_with_prior_targeted_lead": 244,
+  "policy": "Conservative union: P1 all-field reviews, P2 recent/sample description cohorts, P0 20-row source spot check and 28 industry source descriptions. Candidate lead dispositions alone do not qualify as whole-description review, even when a one_line was rewritten. They remain useful leads/evidence to reread. Institutional/code/family checks were only systematic in P1 key+industry rows; targeted individual metadata corrections are not counted as a full metadata audit. Counts concern catalog claims, not full-paper reading or replicated experiments.",
+  "selection": "Current CSV order at base_commit; exclude prior whole-description union; first ceil(N/2) -> A and remainder -> B. No randomness or post-inspection changes."
+}

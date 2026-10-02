@@ -87,7 +87,7 @@ def policy_seed(init_set: str, index: int, salt: int = 0) -> int  # common rando
 
 Common random numbers: episode `i` of set `S` always uses env seed `INIT_SETS[S][i]` and policy seed `policy_seed(S, i, salt)`, so two methods evaluated on the same set are paired.
 
-Statistics helpers (same file): `wilson(k, n, z=1.96) -> (lo, hi)`; `mcnemar_exact(a: bool[], b: bool[]) -> p` (the significance test for paired comparisons); `bootstrap_diff(a, b, n=10_000, seed=0) -> (lo, hi)` (an effect-size interval, not a test: unreliable with fewer than ~10 discordant pairs); `min_successes_for_lower_bound(target) -> n` (all-success streak needed, e.g. 0.95 → 73, 0.99 → 381).
+Statistics helpers (same file): `wilson(k, n, z=1.96) -> (lo, hi)`; `mcnemar_exact(a: bool[], b: bool[]) -> p` (the significance test for paired comparisons); `bootstrap_diff(a, b, n=10_000, seed=0) -> (lo, hi)` (an effect-size interval, not a test: unreliable with fewer than ~10 discordant pairs); `min_successes_for_lower_bound(target) -> n` (all-success fixed-size evaluation needed, e.g. 0.95 → 73, 0.99 → 381; assumes independent trials with constant success probability, not optional stopping).
 
 ## 4. Policies (`lastmile/common/policy.py`)
 

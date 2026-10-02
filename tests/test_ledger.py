@@ -112,3 +112,44 @@ def test_results_config_uses_repo_relative_paths():
 
     cfg = {"results_root": str(REPO_ROOT / "results"), "runs": [str(REPO_ROOT / "runs" / "x")], "k": 3, "other": "/tmp/y"}
     assert _portable(cfg) == {"results_root": "results", "runs": ["runs/x"], "k": 3, "other": "/tmp/y"}
+
+
+@pytest.mark.parametrize("outcomes", [[[True, False], [False, False]], [], [float("nan")], [0.2, 1.0]])
+def test_malformed_outcomes_cannot_publish_a_plausible_score(tmp_path, outcomes):
+    ledger = Ledger("test", "malformed", results_root=tmp_path)
+    with pytest.raises(ValueError, match="non-empty 1-D array of binary outcomes"):
+        ledger.set_final(outcomes)
+    assert ledger.final is None
+
+
+def test_eval_result_seed_count_must_match_outcomes(tmp_path):
+    result = _result([True, False], "eval")
+    result.seeds = np.array([20_000])
+    with pytest.raises(ValueError, match="one entry per outcome"):
+        Ledger("test", "malformed", results_root=tmp_path).set_final(result)
+
+
+@pytest.mark.parametrize("seeds", [[20_000.5, 20_001.5], [float("nan"), 20_001],
+                                   [[20_000], [20_001]], [True, False]])
+def test_eval_result_seeds_cannot_be_silently_coerced_for_pairing(tmp_path, seeds):
+    result = _result([True, False], "eval")
+    result.seeds = np.asarray(seeds)
+    with pytest.raises(ValueError, match="1-D array of integers"):
+        Ledger("test", "malformed", results_root=tmp_path).set_final(result)
+
+
+@pytest.mark.parametrize("value", [-1, float("nan"), float("inf")])
+@pytest.mark.parametrize("category", ["robot", "human", "cpu", "gpu"])
+def test_invalid_costs_cannot_be_written(tmp_path, category, value):
+    ledger = Ledger("test", "malformed", results_root=tmp_path)
+    if category == "robot":
+        ledger.robot_steps["train"] = value
+    elif category == "human":
+        ledger.human_minutes["demos"] = value
+    elif category == "cpu":
+        ledger.worker_cpu_seconds = value
+    else:
+        ledger.gpu_hours = value
+    with pytest.raises(ValueError, match="finite and non-negative"):
+        ledger.write()
+    assert not list(tmp_path.rglob("*.json"))

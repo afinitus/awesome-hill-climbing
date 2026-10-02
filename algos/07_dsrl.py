@@ -640,7 +640,11 @@ def make_gifs(A: dict, trajs: dict, pick: tuple | None, cfg: Config, out: Path) 
 def main(cfg: Config) -> None:
     if cfg.replot:
         saved = json.loads(Path(cfg.replot).read_text())
-        make_plots(saved["extra"]["analysis"], MEDIA, quick=saved["final"].get("init_set") == "search")
+        saved_cfg = Config(**saved["config"])
+        single = saved_cfg.subspace > 0 or saved_cfg.hybrid or saved_cfg.residual_only
+        out = REPO_ROOT / "runs" / ("ch07_quick" if saved_cfg.quick else "ch07_arm")
+        media = out / "media" / "ch07" if saved_cfg.quick or single else MEDIA
+        make_plots(saved["extra"]["analysis"], media, quick=saved["final"].get("init_set") == "search")
         return
     torch.set_num_threads(2)
     t0 = time.time()
