@@ -277,7 +277,7 @@ def sec_handson(code_released: bool) -> list[str]:
     intro = [
         "## Hands-on: lastmile", "",
         ("This repo also hosts **`lastmile`**, an open-source course that implements these families on one task: "
-        "a low-cost **SO-101** arm (the AgileX **PiPER** is supported in simulation too) picks up a cube and drops it "
+        "a simulated low-cost **SO-101** arm (or an AgileX **PiPER**) picks up a cube and drops it "
         "in a cup. One base policy works about half the time; each chapter tries to push it toward 95%+ and reports "
         "what that cost in robot-minutes and human-minutes. Everything runs in MuJoCo on a laptop (no NVIDIA GPU "
         "needed). Each chapter also describes a real-arm step for the SO-101; none has been run on hardware yet, and each "

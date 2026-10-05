@@ -34,6 +34,10 @@ jobs:
       - name: Build site/index.html from data/
         run: uv run --no-project python tools/build_site.py
 
+      # The link-preview image (og:image in site/index.html) is served from the site itself.
+      - name: Add the social preview image
+        run: cp media/social-preview.png site/social-preview.png
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3

@@ -604,6 +604,11 @@ def render() -> str:
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:url" content="{PAGES_URL}">
 <meta property="og:type" content="article">
+<meta property="og:image" content="{PAGES_URL}social-preview.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Climbing the Nines: a success-rate landscape drawn as contour lines, with a path from a pretrained policy at 50% up past the 99% contour.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M2 28 L11 14 L16 20 L23 6 L30 28 Z' fill='%231C58C0'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

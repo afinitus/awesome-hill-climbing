@@ -1,0 +1,4 @@
+Awesome Hill Climbing and the lastmile course are released under the MIT License (see LICENSE).
+
+Robot models under lastmile/envs/assets/ are vendored from MuJoCo Menagerie and
+keep their own licenses (SO-101: Apache-2.0, AgileX PiPER: MIT).
