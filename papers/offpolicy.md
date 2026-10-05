@@ -11,8 +11,12 @@ Learn a Q-function from every transition you have (demos, human corrections, old
 - **Use it when:** Use this family when you already have a decent policy (roughly 40-80% on one task), each real episode is expensive, and you can get a binary success signal. Off-policy RL reuses every demo, correction and failed rollout, so it usually needs far fewer robot minutes than on-policy PPO/GRPO.
 - **What changed in 2025–26:** The target policy changed: the 2023-24 lineage (RLPD, SERL, HIL-SERL) trained small task-specific SAC policies, while 2026 work wraps the same off-policy machinery around pretrained flow VLAs such as pi0.5 and pi0.6 (EXPO-FT, RL Token, ALOE, LWD, RAPolicy). Critics increasingly score whole action chunks, following Q-chunking (Jul 2025), and follow-ups such as DQC, AQC and ACH decide how long to commit to a chunk. Other work questions how much offline critic pretraining and offline-data replay really help (WSRL, Three Regimes), and the human-in-the-loop HIL-SERL loop is being automated or scaled: AutoSERL replaces the live intervener with a one-demo scripted corrector, and LWD runs the loop on a 16-robot fleet.
 
-**122 entries**, newest first. ⭐ marks must-know work.
+**123 entries**, newest first. ⭐ marks must-know work.
 
+
+## October 2026
+
+- **[eRLT](https://arxiv.org/abs/2610.00913)** (Huang et al., 2026-10-01) — Online RL on a frozen VLA; a learned router pools action-relevant tokens across layers into an RL token, refined by critic feedback; real USB and ribbon-cable insertion learning-curve AUC +108.9% and +46.7% over the strongest baseline.
 
 ## September 2026
 

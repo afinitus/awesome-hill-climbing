@@ -11,11 +11,16 @@ Keep the supervised imitation loss, but decide which actions (or which demos) th
 - **Use it when:** Use this family when you have a decent BC or VLA policy (roughly 20-60% success) on a specific task, a way to label episodes success or failure, and ideally a teleop device for takeovers, but you do not want to backprop RL through a large flow or diffusion sampler. Start with curation (RoboDrop, QoQ or CUPID-style audits, or cheap smoothness filters) when your demos are mixed-quality.
 - **What changed in 2025–26:** The big shift came with pi*0.6/RECAP in November 2025. Advantage-conditioned BC, where the policy is conditioned on a binarized advantage token and classifier-free guidance is optional, suits flow VLAs whose likelihood is awkward to weight, and it joined advantage-weighted BC as a main option; RECAP names CFGRL (May 2025) as the closest prior formulation. In the next ten months at least a dozen groups adopted or adapted the recipe: GigaBrain RAMP, chi0, DexPIE, DEED, ROVE, STEAM, Robo-ValueRL, PACE, DistAL, Facet-0, CLIFT and a prizewinning LeHome Challenge entry (1st in the simulation round, 2nd in the real-world final).
 
-**61 entries**, newest first. ⭐ marks must-know work.
+**63 entries**, newest first. ⭐ marks must-know work.
 
+
+## October 2026
+
+- **[MobiAgent](https://arxiv.org/abs/2610.03476)** (Liu et al., 2026-10-02) — Outer loop segments and verifies deployment rollouts, clusters them into atomic skills and fine-tunes flow-matching skill experts without annotations; autonomous data recycling lifts success 7.50% to 27.50% on RoboCasa and 32.5% to 57.5% on Astribot S1.
 
 ## September 2026
 
+- **[PrefPI](https://arxiv.org/abs/2609.40165)** (Rho et al., 2026-09-30) — Preference-guided policy iteration: models preferred self-generated trajectories as a conditional distribution and amplifies them with classifier-free guidance, pushing diffusion policies and pi0.5 beyond their initial support; real object transport height 10.7 cm to 19.8 cm with 150 preference-labeled trajectories.
 - **[RE-0](https://arxiv.org/abs/2609.32416)** (Jilin University; Dalian University of Technology, 2026-09-26) — Teacher gives local corrections on the student's own failure histories; only environment-verified corrections become on-policy distillation supervision (RE-OPD), with a per-round gain lower bound.
 - **[Generate, Track, Improve](https://arxiv.org/abs/2609.31577)** (Caltech, 2026-09-25) — Off-policy RL (structured search plus advantage-weighted regression) fine-tunes a depth-conditioned flow-matching motion generator feeding a tracking policy; in simulation vs the pre-fine-tuned generator, up to +25 points terrain traversal and +80 skill selection; G1 hardware shown qualitatively.
 - **[PACL](https://arxiv.org/abs/2609.29000)** (NTU; Changan; Cloudbutterfly, 2026-09-24) — IQL chunk critic with future latent supervision conditions a diffusion actor on high-value chunks, then selects best-of-N; real Franka StackCup improves from 18/25 to 25/25 trials.

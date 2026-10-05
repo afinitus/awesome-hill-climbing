@@ -11,11 +11,17 @@ Run the policy, let a person (or now a machine) step in where it goes wrong, and
 - **Use it when:** Use this family when you have a decent imitation policy (roughly 30% to 80% success) that fails in specific, repeatable places, and a person who can recognize and fix those failures. It is the default last-mile tool when you have no reward function, when the task is long-horizon or contact-rich, and when you want the policy to stay close to its pretrained behavior.
 - **What changed in 2025–26:** Over the last 12 months, the policy being corrected became a VLA: pi0/pi0.5-class models replace small BC-RNNs, and the loops are built as systems. SOP streams fleet corrections to a cloud learner, and HELP splits the human work between a teleoperator and a floor operator who together supervise twelve robots. Methods also get more out of each correction: FlowPRO trains on paired failed and corrected segments with a DPO-style loss, and FlowDAgger maps corrections into a frozen flow policy's noise space instead of retraining it. Machines increasingly take the intervener's role (UniIntervene, Skill-Space Shooting), and how and when a correction is collected is now studied directly (RaC's recover-then-correct rule, TimelyDAgger's takeover timing).
 
-**77 entries**, newest first. ⭐ marks must-know work.
+**80 entries**, newest first. ⭐ marks must-know work.
 
+
+## October 2026
+
+- **[UniIntervene++](https://arxiv.org/abs/2610.03620)** (Lin et al., 2026-10-02) — Learns online values for the RL policy, trajectory correction and a task-structured CodePolicy as semi-MDP options to allocate control, periodically probing unassisted competence; five real tasks: 89.67% average success, at least 6 points over baselines, with 0.77% human intervention. · [code](https://github.com/dannyyudong/An-Adaptive-Intervention-Agent-for-Efficient-Real-World-Reinforcement-Learning)
+- **[Recova](https://arxiv.org/abs/2610.01178)** (Liu et al., 2026-10-01) — An agent diagnoses failures and tests corrective programs in a reconstructed twin, then routes real rollouts and human demonstrations into DAgger training of task and recovery policies; four real workstations: mean success 23.8% to 77.5%, 87.5% with recovery skills. · [code](https://www.liuisabella.com/Recova)
 
 ## September 2026
 
+- **[FailBank](https://arxiv.org/abs/2609.39820)** (Cui et al., 2026-09-30) — A fixed CBF safety module acts as an observe-only teacher whose counterfactual corrections, admitted by outcome, drive guarded LoRA updates of the VLA. VLA-Arena: task success +8.5 and +6.9 points over the base policies, +25.4 and +9.5 over runtime shielding.
 - **[Rho](https://arxiv.org/abs/2609.38164)** (Microsoft Research, 2026-09-29) — Open-weights dual-arm VLA family (YAM Box, UR AI Trainer, FR3 Duo) with embodiment-specific midtraining; a latent policy adapts online from as few as 15 corrected episodes.
 - ⭐ **[BlenDAgger](https://arxiv.org/abs/2609.37599)** (Carnegie Mellon University, 2026-09-29) — Keeps the policy running during corrections, blending human and policy actions per DoF group and giving the human more control when they push hard, disagree, or the policy is uncertain. Final round, real Almond Scooping: 50% vs HG-DAgger 15%.
 - ⭐ **[Skill-Space Shooting](https://arxiv.org/abs/2609.38178)** (Tsinghua University; UC Berkeley; Shanghai Qi Zhi Institute, 2026-09-29) — A learned value model halts a pi0.5-class policy when its score drops below zero; Gemini 2.5 Pro picks and checks a repair skill; successful repairs become training data. Real Coffee mean progress: 71.25% vs 46.25% with extra human demos.

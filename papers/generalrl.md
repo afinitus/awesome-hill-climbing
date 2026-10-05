@@ -11,11 +11,19 @@ Not robot-manipulation papers: scaling laws for value functions and RL compute, 
 - **Use it when:** Read these when you are choosing an algorithm family or a compute budget, or when a robot paper cites an idea from language-model RL and you want the original.
 - **What changed in 2025–26:** RL for language models and RL for robot policies increasingly share a toolkit in 2025-26: critic-free group baselines, KL-anchored fine-tuning from a pretrained model, learned verifiers, and spending compute at test time. Real-robot work still leans heavily on off-policy critics (SAC or TD3 with RLPD-style demo mixing), which language-model RL rarely uses.
 
-**74 entries**, newest first. ⭐ marks must-know work.
+**79 entries**, newest first. ⭐ marks must-know work.
 
+
+## October 2026
+
+- **[Probe the Harness](https://arxiv.org/abs/2610.02911)** (Pan, 2026-10-02) — Shows four harness details (ratio reference, unseeded arm, replayed first batch, loss normalisers) reversed a stale-data RL comparison between SAN and truncated importance sampling; once checked, TIS matches SAN on verl. Releases the PTH checklist.
+- **[Towards Optimal Policy Improvement](https://arxiv.org/abs/2610.01566)** (Oren et al., 2026-10-01) — Frames greedification under approximate evaluation as decision-making under uncertainty and derives an operator optimal for that objective; it and its gradient-based approximations improve aggregate performance across GumbelAlphaZero, SAC, ReBRAC and Generalized Policy Iteration.
 
 ## September 2026
 
+- **[AC2](https://arxiv.org/abs/2609.39247)** (Wen et al., 2026-09-30) — AC2 assigns credit to 10k-token action chunks scored by a learned critic, used only where it is locally accurate, so trajectories need not reach a terminal reward; Qwen3-4B exceeds GRPO's 18.5% peak on IMO-ProofBench with 2.5x fewer decoding FLOPs.
+- **[Cool the Sampler](https://arxiv.org/abs/2609.36953)** (Pan, 2026-09-29) — Sampling stale rollouts at temperature 0.8 while learner and importance weights stay at 1 stabilizes importance-corrected GRPO past its staleness cliff; Qwen2.5-Math-7B at refresh interval 144: cooled runs end at 92-93% vs 68-81% uncooled.
+- **[PReFlow](https://arxiv.org/abs/2609.36812)** (Ha et al., 2026-09-29) — PReFlow extracts policies by critic-based selection of behavior proposals plus a conditional refinement flow trained with closed-form adjoint matching under a KL-regularized objective; highest aggregate OGBench score after online fine-tuning among compared methods, 91% after 500K steps.
 - **[RoXDrive](https://arxiv.org/abs/2609.36851)** (CUHK-Shenzhen et al., 2026-09-29) — Closed-loop RL post-training of E2E driving policies inside video world models, keeping only rollouts an inverse-dynamics evaluator deems action-faithful; cuts safety violations 27.6% (DiffusionDrive, nuScenes). · [code](https://github.com/Hongbin98/RoXDrive)
 - **[Fine-Tuning on Self-Generated and Reward-Weighted Data](https://arxiv.org/abs/2609.36945)** (Tsinghua; Alibaba, 2026-09-29) — Theory of RE(S), REINFORCE with rollouts refreshed every S steps, in softmax bandits: global convergence, Θ(1/T) rate, and moderate off-policyness escaping weak-initialization traps faster.
 - **[EasyPPO](https://arxiv.org/abs/2609.36802)** (UC Berkeley; Princeton, 2026-09-29) — Stabilizes PPO's critic for LLM RL via actor-only truncation filtering, noise-normalized critic regression and smaller critic minibatches; relative gains of 14.89% coding, 2.28% math, 9.47% search over PPO. · [code](https://github.com/EasyPPO/EasyPPO)

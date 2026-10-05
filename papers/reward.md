@@ -11,8 +11,12 @@ These methods leave the policy alone and build the score it climbs against: a le
 - **Use it when:** Use this family when success is sparse or expensive to judge and the task is long or multi-stage. Examples: cloth folding, insertion sequences, anything where a rollout that gets 80% of the way looks the same as one that fails at once under a success bit.
 - **What changed in 2025–26:** Per-task rankers (Rank2Reward) and pretrained visual-embedding rewards (VIP, trained on Ego4D human video) gave way to VLM reward models trained on large pooled datasets: Robo-Dopamine on over 3,400 hours, Robometer on RBM-1M (over 1M trajectories), RynnValue on over 7,000 hours. Training data now deliberately includes real or synthesized failures, so models can score failed rollouts and not only expert ones (RoboReward's counterfactual relabeling of successful episodes, Robometer's trajectory-comparison loss over failed trajectories). Shaping got more careful: Robo-Dopamine feeds progress in through policy-invariant shaping instead of as raw reward. In RECAP-style loops the value model itself became a lever: with the same RECAP pipeline, ViVa reports 80.0% average real success with its value vs 63.3% with a VLM value. The 'No Free Checker' survey notes that how far a policy can be optimized against a learned robot verifier is still largely unstudied, and that no shared benchmark for verifier exploitability exists yet.
 
-**87 entries**, newest first. ⭐ marks must-know work.
+**88 entries**, newest first. ⭐ marks must-know work.
 
+
+## October 2026
+
+- **[CriticHack](https://arxiv.org/abs/2610.02527)** (Luo et al., 2026-10-01) — Fine-tuning a diffusion policy on the Robometer reward raises drawer-task success 10.2 points but wrong-object failures 10.9 points, unlike the simulator's success signal; a tilt model predicts shifts across 26 settings (Spearman .89), and a frozen outcome verifier fixes it.
 
 ## September 2026
 
