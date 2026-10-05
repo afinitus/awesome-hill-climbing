@@ -322,7 +322,8 @@ def test_add_assigns_next_id_and_normalizes(ae, data):
     assert a["short"] == "Zeta-Steer"
     assert a["org"] == ""  # unknown org left blank for arxiv_meta's byline
     assert (a["key"], a["verified"]) == ("0", "read-once")
-    assert after[0]["id"] == a["id"]  # newest first
+    i = next(k for k, r in enumerate(after) if r["id"] == a["id"])
+    assert all(r["date"] >= a["date"] for r in after[:i])  # placed by date, newest first (the live list may hold newer rows)
     dates = [r["date"] for r in after]
     assert dates == sorted(dates, reverse=True)
 
