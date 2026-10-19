@@ -11,8 +11,13 @@ Roll out the pretrained policy as a stochastic policy, raise the log-probability
 - **Use it when:** Use it when you have (1) a pretrained policy that already succeeds sometimes, roughly 10-90%, (2) a simulator or digital twin with cheap resets and an automatic success check, and (3) GPUs for large-scale parallel simulated rollouts. It is the right tool for pushing a competent SFT policy past its imitation plateau: in RL4VLA, SFT plateaued at about 16k demos with 0.781 in-distribution success, and PPO reached 0.938 (appendix Table 1). Do not run it directly on a real arm with a small rollout budget; there, prefer the off-policy, residual or human-in-the-loop families.
 - **What changed in 2025–26:** A year ago (May to July 2025) the open question was whether PPO or GRPO could train a VLA at all: RIPT-VLA, VLA-RL, RL4VLA and TGRPO showed it could in simulation, while ReinFlow and FPO showed how to run PPO-style updates on flow-matching policies. From September to October 2025 this became standard recipes and infrastructure: SimpleVLA-RL applied critic-free GRPO with binary success rewards to OpenVLA-OFT, πRL made PPO work on the pi0 and pi0.5 flow VLAs, and RLinf-VLA provided shared training infrastructure. With LIBERO close to saturated (several methods report about 97-99% average), 2026 work focuses on where the learning signal comes from, avoiding forgetting, and real-world transfer.
 
-**70 entries**, newest first. ⭐ marks must-know work.
+**72 entries**, newest first. ⭐ marks must-know work.
 
+
+## October 2026
+
+- **[DRIVE](https://arxiv.org/abs/2610.09943)** (Li et al., 2026-10-07) — RL fine-tuning of VLAs adds a success-conditioned intrinsic reward for behavioral diversity among time-aligned grouped rollouts; OOD gain over vanilla RL fine-tuning of 5.3 points on pi0 and 2.0 on pi0.5, real dual-arm OOD success 64.1% to 73.3%.
+- **[VLA RL augmentation](https://arxiv.org/abs/2610.05994)** (Grooten et al., 2026-10-05) — Study of image augmentation in PPO post-training of VLAs: augment only the critic and keep actor inputs clean; raises LIBERO-Plus out-of-distribution success by 7.8 and 10.0 points for π0.5 and GR00T N1.5, while augmenting the actor collapses training. · [code](https://github.com/bramgrooten/vla-augm)
 
 ## September 2026
 

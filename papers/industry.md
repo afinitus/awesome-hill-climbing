@@ -11,8 +11,12 @@ Companies take a big pretrained robot model and push one real task from "works i
 - **Use it when:** Use these case studies as a template when you have one fixed, economically defined task, a pretrained base policy that already works sometimes (roughly 50-80%), and the ability to run many long evaluation sessions. A common order, pieced together from partial company disclosures: (1) define success with the customer's own quality bar and log everything; (2) automate grading and failure localization (progress model or auto-labeler); (3) collect targeted recovery or correction data where the policy actually fails (DAgger-style); (4) if success plateaus or speed matters, add a value function and advantage-weighted or advantage-conditioned retraining in the RECAP style; (5) report streaks, successes per hour and graded quality over hundreds of trials with a declared scope.
 - **What changed in 2025–26:** RL entered industry recipes in supervised-friendly forms: π*0.6/RECAP (Nov 2025) used a value function and advantage-conditioned retraining and outperformed PPO and AWR baselines on laundry folding with π0.6 (a Gemma 3 4B backbone plus an 860M action expert), and Generalist lists learning from experience (RL) among GEN-1's ingredients. Large-scale human data is now presented as what makes post-training cheap: GEN-1 is pretrained on over 500,000 hours of wearable-device data and adapted with about an hour of robot data per task, and Sunday pretrains ACT-2 on sensorized human data. Reporting moved toward production metrics, such as ACT-2's 99.1% success over 785 laundry attempts and Dyna-2's 95 napkins per hour with 93% meeting the quality bar, but these posts give few details of the training updates behind the numbers. A Siemens factory case study is a rare published account of the effort and recurring failure modes of an iterative fine-tuning loop on π0.5.
 
-**28 entries**, newest first. ⭐ marks must-know work.
+**29 entries**, newest first. ⭐ marks must-know work.
 
+
+## October 2026
+
+- **[NVIDIA GB300 tester-tray assembly](https://developer.nvidia.com/blog/the-machines-that-make-the-machines/)** (NVIDIA, 2026-10-07) — For GB300 tester-tray assembly, a connector-insertion base policy trained by RL in Isaac Lab simulation is composed with a force-torque residual policy trained by RL on the real robot; multi-connector insertion reaches 90-95% success against a 99.5% manufacturer target.
 
 ## September 2026
 

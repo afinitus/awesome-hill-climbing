@@ -7,7 +7,7 @@
 
 > Papers, posts, code and courses on **hill-climbing robot policies**: improving task reliability after pretraining or imitation learning. RL fine-tuning, residual and steering policies, advantage-weighted retraining, human corrections, test-time verifiers, reward and world models, sim-to-real, and the classic black-box search underneath it all.
 
-**952 papers and posts** · **716 since September 2025** · **122 must-know (⭐)** · **212 tools, courses and benchmarks** · updated **2026-10-05**
+**1066 papers and posts** · **830 since September 2025** · **122 must-know (⭐)** · **214 tools, courses and benchmarks** · updated **2026-10-19**
 
 **Interactive explainer: [Climbing the Nines](https://afinitus.github.io/awesome-hill-climbing/)**: the hill-climbing loop, the RL ideas underneath, a timeline from September 2025 onward, the course results, and a searchable index of every paper.
 
@@ -47,191 +47,109 @@ A pretrained robot policy that works half the time needs more reliable behavior 
 
 ## What's new
 
-**183 papers and posts from the last 14 days** (2026-09-21 to 2026-10-05), newest first. Descriptions are on each family page.
+**101 papers and posts from the last 14 days** (2026-10-05 to 2026-10-19), newest first. Descriptions are on each family page.
 
-- `2026-10-02` **[Self-Repairing Recurrent Ensembles for Real-Time Recovery from Distribution Shift](https://arxiv.org/abs/2610.03249)** (Lemmel et al.) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-10-02` **[Probe the Harness](https://arxiv.org/abs/2610.02911)**: Setup Checks for Stale-Data RL Comparisons in Language Models (Pan) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-10-02` **[MobiAgent](https://arxiv.org/abs/2610.03476)**: Dual-Loop Recursive Policy Self-Improvement for Long-Horizon Mobile Manipulation (Liu et al.) · [Advantage-weighted & filtered BC](papers/advbc.md)
-- `2026-10-02` **[Skill2Real](https://arxiv.org/abs/2610.02788)**: Agentic Skill Learning for Zero-Shot Sim-to-Real Robot Manipulation (He et al.) · [Sim-to-real & real-to-sim](papers/simreal.md)
-- `2026-10-02` **[UniIntervene++](https://arxiv.org/abs/2610.03620)**: An Adaptive Intervention Agent for Efficient Real-World Reinforcement Learning (Lin et al.) · [Human corrections & DAgger](papers/hitl.md)
-- `2026-10-02` **[RoboBridge](https://arxiv.org/abs/2610.02717)**: A Self-Evolving Embodied Agent Framework for Sim-to-Real Transfer (Li et al.) · [Sim-to-real & real-to-sim](papers/simreal.md)
-- `2026-10-01` **[eRLT](https://arxiv.org/abs/2610.00913)**: Efficient VLA Reinforcement Learning via Action-Relevant Token Routing (Huang et al.) · [Off-policy critics & offline-to-online RL](papers/offpolicy.md)
-- `2026-10-01` **[VAPS](https://arxiv.org/abs/2610.01397)**: Continue, Abort, or Fall: Viability-Aware Policy Selection (VAPS) for Safe Humanoid Acrobatics (Ju et al.) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-10-01` **[CLRE](https://arxiv.org/abs/2610.00992)**: Closed-Loop Refinement and Execution for Learned Driving Planners (Hu et al.) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-10-01` **[CAG](https://arxiv.org/abs/2610.01559)**: Completion Aware Guidance for World Action Models (Kim et al.) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-10-01` **[Towards Optimal Policy Improvement](https://arxiv.org/abs/2610.01566)** (Oren et al.) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-10-01` **[SocialVLA](https://arxiv.org/abs/2610.02360)**: A Social Perception Gateway for Human-Reaction-Based Failure Detection and Recovery in VLA Manipulation (Konstantinova et al.) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-10-01` **[MFPG-PPO](https://arxiv.org/abs/2610.02505)**: Multi-Fidelity Policy Gradients Stabilize Data-Scarce Reinforcement Learning (Liu et al.) · [Sim-to-real & real-to-sim](papers/simreal.md)
-- `2026-10-01` **[RPG](https://arxiv.org/abs/2610.02204)**: Reconstruct, Practice, Go Real: Guided Self-Improvement for Embodied Agents (Wang et al.) · [Sim-to-real & real-to-sim](papers/simreal.md)
-- `2026-10-01` **[Recova](https://arxiv.org/abs/2610.01178)**: Agent-Guided Failure Recovery for Autonomous Robotic Manipulation (Liu et al.) · [Human corrections & DAgger](papers/hitl.md)
-- `2026-10-01` **[InterEvolve](https://arxiv.org/abs/2610.02196)**: Test-Time Evolution of Reward Programs for Humanoid Loco-Manipulation (Lin et al.) · [Black-box search](papers/blackbox.md)
-- `2026-10-01` **[CoFiT](https://arxiv.org/abs/2610.02341)**: Filter-Aware Fine-Tuning for Safe Humanoid Whole-Body Tracking (Mohnot et al.) · [Sim-to-real & real-to-sim](papers/simreal.md)
-- `2026-10-01` **[CriticHack](https://arxiv.org/abs/2610.02527)**: Evaluating Visual Rewards Under Robot Policy Optimization (Luo et al.) · [Reward, value & progress models](papers/reward.md)
-- `2026-09-30` **[SimEX](https://arxiv.org/abs/2609.38982)**: Simulation-Integrated Robotics AutoResearch (Hu et al.) · [Sim-to-real & real-to-sim](papers/simreal.md)
-- `2026-09-30` **[Scale and Selection](https://arxiv.org/abs/2609.39304)**: What Makes Automatic Harness Evolution Work for Visual-Interface Robot Agents (Wei et al.) · [Black-box search](papers/blackbox.md)
-- `2026-09-30` **[AC2](https://arxiv.org/abs/2609.39247)**: Trust the Critic More (Wen et al.) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-09-30` **[Cue the Flow](https://arxiv.org/abs/2609.38989)**: Steering Flow-Matching Policies for Open-World Delivery Manipulation (Wang et al.) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-30` **[RoboCoach](https://arxiv.org/abs/2609.39685)**: World Models as Active Coaches for Compositional Robot Skills (Liu et al.) · [World models & evaluation](papers/worldmodel.md)
-- `2026-09-30` **[ChunkTrust](https://arxiv.org/abs/2609.39754)**: Adapting Execution Horizons for Robot Policies with Action-Expert Evidence (Huang et al.) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-30` **[PRICE](https://arxiv.org/abs/2609.38890)** the Action Chunks: Physical Relational Credit Assignment for Embodied Reinforcement Learning (Zou et al.) · [On-policy policy gradients](papers/onpolicy.md)
-- `2026-09-30` **[LocoWM](https://arxiv.org/abs/2609.39179)**: High-Precision Locomotion through World-Model-Guided Residual Adaptation (Zhao et al.) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-30` **[PrefPI](https://arxiv.org/abs/2609.40165)**: Preference-Guided Steering into Out-of-Distribution Behaviors (Rho et al.) · [Advantage-weighted & filtered BC](papers/advbc.md)
-- `2026-09-30` **[Measuring Asset and Scene Reconstruction Effects in Real-to-Sim Robot Evaluation](https://arxiv.org/abs/2610.00731)** (Verma et al.) · [World models & evaluation](papers/worldmodel.md)
-- `2026-09-30` **[EmbodiRSI](https://arxiv.org/abs/2609.38905)**: Recursive Self-Improvement for Data-Efficient Robot Adaptation (Lang et al.) · [Sim-to-real & real-to-sim](papers/simreal.md)
-- `2026-09-30` **[TeV](https://arxiv.org/abs/2609.39038)**: Looking Back to Move Forward: Temporal Verification for Generative Robot Policies (Wang et al.) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-30` **[DynaHarness](https://arxiv.org/abs/2609.40306)**: A Dynamic Physical Harness for Self-Evolving Robot Agents (Deng et al.) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-30` **[TRUST](https://arxiv.org/abs/2610.00601)**: When Reasoning Helps Action: Monitoring and Steering Chain-of-Thought in Vision-Language-Action Policies (Karnik et al.) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-30` **[Online-ES](https://arxiv.org/abs/2609.38855)**: Online Evolution Strategy for Flow-Matching VLA Policies via Self-Supervised Trajectory Distribution Optimization (Yao et al.) · [Black-box search](papers/blackbox.md)
-- `2026-09-30` **[FailBank](https://arxiv.org/abs/2609.39820)**: Learning from Runtime Feedback through Failure-Bank Self-Evolution for Vision-Language-Action Models (Cui et al.) · [Human corrections & DAgger](papers/hitl.md)
-- `2026-09-29` **[SimpleARM](https://arxiv.org/abs/2609.36595)**: Simple Agentic Memory for Generalist Robot Policies (Zhang et al.) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-29` **[ReGuide](https://arxiv.org/abs/2609.38616)**: Correcting WHERE, Preserving HOW: Compositional Generalization for Vision-Language-Action Models via Referential Guidance (Zhang et al.) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-29` **[Cool the Sampler](https://arxiv.org/abs/2609.36953)**, Not the Learner: Sampling Temperature Moves the Staleness Cliff of Importance-Corrected GRPO (Pan) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-09-29` **[PReFlow](https://arxiv.org/abs/2609.36812)**: Diffusion Policy Improvement with Proposal-Conditioned Refinement Flows (Ha et al.) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-09-29` **[Flow Velocity Steering](https://arxiv.org/abs/2609.38570)**: Data-Efficient Adaptation of a Driving VLA to Class 8 Trucks (Das et al.) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-29` **[FP2](https://arxiv.org/abs/2609.37433)**: Equipping Robotic Foundation Models with Force Control (FORTE Lab; Noematrix; Flexiv; SJTU et al.) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-29` **[Track-and-Complete](https://arxiv.org/abs/2609.36924)**: Learning Humanoid Skills from a Single Failed Human Video (Yonsei University) · [Sim-to-real & real-to-sim](papers/simreal.md)
-- `2026-09-29` **[Counterfactual Video Generation Enables Scalable Humanoid Loco-Manipulation](https://arxiv.org/abs/2609.38172)** (Amazon FAR; UC Berkeley; CMU; Stanford) · [Sim-to-real & real-to-sim](papers/simreal.md)
-- `2026-09-29` **[Encore](https://arxiv.org/abs/2609.37359)**: Few-Shot Agentic Discovery of Manipulation Strategies (MIT; 2077AI Open Source Foundation; Texas A&M; UW–Madison) · [Black-box search](papers/blackbox.md)
-- `2026-09-29` **[T²Mem](https://arxiv.org/abs/2609.36720)**: Learning Test-Time Memory for Robotics (Stanford; NVIDIA; University of Michigan) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-29` **[Lucid Dreaming for World Models](https://arxiv.org/abs/2609.37156)**: Learning to Doubt Imagination and Decide by Trust (National University of Singapore; KAUST; A*STAR et al.) · [World models & evaluation](papers/worldmodel.md)
-- `2026-09-29` **[RoXDrive](https://arxiv.org/abs/2609.36851)**: Closed-Loop Reinforcement Learning for End-to-End Autonomous Driving via Action-Faithful Rollouts (CUHK-Shenzhen et al.) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-09-29` **[Fine-Tuning on Self-Generated and Reward-Weighted Data](https://arxiv.org/abs/2609.36945)**: Learning Dynamics, Convergence Rates, and Benefits of Off-Policyness (Tsinghua; Alibaba) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-09-29` **[Explore, Execute, Evolve](https://arxiv.org/abs/2609.37810)**: A Skill Acquisition and Reuse Loop for Embodied Agents (Fudan; Shanghai Innovation Institute; NeoteAI) · [Black-box search](papers/blackbox.md)
-- `2026-09-29` **[Real2Gym](https://arxiv.org/abs/2609.37089)**: Building Gyms from Videos, Bringing Skills to Robots (Shanghai AI Lab; SJTU; Zhejiang; USTC; CUHK; HKU) · [Sim-to-real & real-to-sim](papers/simreal.md)
-- `2026-09-29` **[ProgressCompass](https://arxiv.org/abs/2609.36684)**: Embodied Progress Reward Models Are Lost Without the Right Context (Northwestern; UCSB; UIUC; CMU) · [Reward, value & progress models](papers/reward.md)
-- `2026-09-29` **[Credit-Guided Policy Improvement for Test-time Adaptive Vision-Language Navigation](https://arxiv.org/abs/2609.37591)** (Tianjin University; HKU; Hefei University of Technology) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-29` **[EasyPPO](https://arxiv.org/abs/2609.36802)**: Stabilizing the Critic Is Key (UC Berkeley; Princeton) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-09-29` **[RoboHarn-Evo](https://arxiv.org/abs/2609.37583)**: Evolving Hierarchical Physical Knowledge for Self-Improving Robotic Manipulation (Renmin University of China; XYZ Embodied AI; Tsinghua) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-29` **[TaRL](https://arxiv.org/abs/2609.36785)**: Learning General and Physical Rewards from Tactile Demonstrations (National Taiwan University; Delta Electronics) · [Reward, value & progress models](papers/reward.md)
-- `2026-09-29` **[Video2STL](https://arxiv.org/abs/2609.37519)**: Grounding VLM-Generated Temporal Specifications for Robot Learning (USC; University of Florida) · [Reward, value & progress models](papers/reward.md)
-- `2026-09-29` **[Spotter](https://arxiv.org/abs/2609.36808)**: Let the Embodied Model Lead, and the VLM Reflect for It (Griffith; Tsinghua; MainCode; Tencent; Fudan; Tongji) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-29` **[Rho](https://arxiv.org/abs/2609.38164)**: A Foundation for Efficiently Adaptable VLA Models (Microsoft Research) · [Human corrections & DAgger](papers/hitl.md)
-- `2026-09-29` **[WorldLine](https://arxiv.org/abs/2609.38059)**: Action-Driven Visual Simulation for Robotic Manipulation (HKUST; Joy Future Academy; Peking University; CUHK) · [World models & evaluation](papers/worldmodel.md)
-- `2026-09-29` **[Taming VLAs under Robot Execution Errors](https://arxiv.org/abs/2609.37334)**: Self-Compensation and Stress Testing (POSTECH; MBZUAI) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-29` **[EVO-WAM](https://arxiv.org/abs/2609.38057)**: Evolving World Action Models through Video-Action Verification (HIT Shenzhen; SLAI; Tsinghua; JD et al.) · [World models & evaluation](papers/worldmodel.md)
-- `2026-09-29` **[Direct Experience World-Model Optimization](https://arxiv.org/abs/2609.37398)**: Learning the World Beyond Action Imitation (HIT; Dalian University of Technology; SUSTech) · [World models & evaluation](papers/worldmodel.md)
-- `2026-09-29` **[Cooperative Multi-Agent Vision-Language-Action Models via Reinforced Fine Tuning](https://arxiv.org/abs/2609.36588)** (Beihang; CUHK; PKU-Psibot; Tsinghua et al.) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-29` ⭐ **[BlenDAgger](https://arxiv.org/abs/2609.37599)**: Blended Shared Control for Interactive Imitation Learning (Carnegie Mellon University) · [Human corrections & DAgger](papers/hitl.md)
-- `2026-09-29` ⭐ **[Skill-Space Shooting](https://arxiv.org/abs/2609.38178)** for Autonomous Robot Policy Improvement (Tsinghua University; UC Berkeley; Shanghai Qi Zhi Institute) · [Human corrections & DAgger](papers/hitl.md)
-- `2026-09-29` ⭐ **[PreferenceFlow](https://arxiv.org/abs/2609.36872)**: Test-Time Guidance of Flow-Matching Robot Policies from Human Interventions (Westlake University) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-29` **[ReF-HIL](https://arxiv.org/abs/2609.37131)**: Shaping the Critic around Human Action Neighborhoods for Efficient Human-in-the-Loop Reinforcement Learning (Tsinghua University) · [Off-policy critics & offline-to-online RL](papers/offpolicy.md)
-- `2026-09-28` **[The Low-Rank Structure of VLA Reinforcement Learning](https://arxiv.org/abs/2609.34599)** (Oh et al.) · [On-policy policy gradients](papers/onpolicy.md)
-- `2026-09-28` **[DexAgent](https://arxiv.org/abs/2609.35318)**: An Agentic Human2Sim2Robot Framework for Dexterous Manipulation with Self-Evolving Tool Library (Stanford University; Columbia) · [Sim-to-real & real-to-sim](papers/simreal.md)
-- `2026-09-28` **[NavHarness](https://arxiv.org/abs/2609.34276)**: Towards Lifelong Embodied Navigation (Adelaide University (AIML); CSIRO Data61) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-28` **[Zeroth-Order Reward Shaping](https://arxiv.org/abs/2609.34695)**: Sufficiency of Zeroth-Order Reward Shaping for Policy Gradient in Stabilization Control (UC San Diego, Tsinghua University) · [Reward, value & progress models](papers/reward.md)
-- `2026-09-28` **[EMPIRIC](https://arxiv.org/abs/2609.35047)**: Experiment-Driven Learning of Residual World Models for Robot Planning (Cambridge / MIT / Basis / Cornell / Princeton et al.) · [World models & evaluation](papers/worldmodel.md)
-- `2026-09-28` **[QAMM](https://arxiv.org/abs/2609.34497)**: Adjoint MeanFlow Matching for Few-Step Offline Reinforcement Learning (Fudan; ShanghaiTech; Shanghai Innovation Institute) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-09-28` **[Don't Throw Away the Tail](https://arxiv.org/abs/2609.34911)**: Action Upcycling for Policy Acceleration (Sungkyunkwan University; KAIST) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-28` **[NUDGE](https://arxiv.org/abs/2609.35231)**: Zero-Shot Reactive Obstacle Avoidance for Generative Robot Policies (Rice University) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-28` **[Learning from Teacher Continuations at Student States](https://arxiv.org/abs/2609.36246)** (UIUC; MIT; UPenn; University of Washington; IBM) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-09-28` **[Behavioral Foundation Models for Quality Diversity](https://arxiv.org/abs/2609.35615)** (Sorbonne Université (ISIR)) · [Black-box search](papers/blackbox.md)
-- `2026-09-28` **[Test-Time Adaptation of Manipulation Policies Under Actuator Degradation](https://arxiv.org/abs/2609.36182)** (Arizona State University) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-28` **[Scouting the Dynamics Gap](https://arxiv.org/abs/2609.36107)**: Test-Time Policy Adaptation via Action-Outcome Feedback (CMU; Tsinghua) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-28` **[Action Chunking Proximal Policy Optimization with Feedback Correction](https://arxiv.org/abs/2609.36250)** (Cornell; Seoul National University) · [On-policy policy gradients](papers/onpolicy.md)
-- `2026-09-28` **[RefineDrive](https://arxiv.org/abs/2609.35078)**: Reliable Failure-Guided Learning for Vision-Language-Action Driving (Zhejiang University; Yinwang Intelligent Technology) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-09-28` **[WorldGuide](https://arxiv.org/abs/2609.34206)**: Learning Success-Failure Boundaries in Latent World Models for Vision-Language-Action Policies (Dalian University of Technology; Beta Infinity; NTU) · [World models & evaluation](papers/worldmodel.md)
-- `2026-09-28` **[WAM-OPD](https://arxiv.org/abs/2609.34250)**: Sharpening World Action Models via On-Policy Distillation (University of Science and Technology of China) · [On-policy policy gradients](papers/onpolicy.md)
-- `2026-09-28` **[Uni-TMPO](https://arxiv.org/abs/2609.34688)**: Unified Trajectory Matching Policy Optimization: Diverse T2I Generation and VLA Generalization (HUST; CAS; SJTU; Frontis.AI; Tsinghua) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-09-28` **[StructRL](https://arxiv.org/abs/2609.36352)**: Online Structured Reinforcement Learning for Long-Horizon Vision-Language-Action Tasks (Penn State, Amazon AWS AI) · [Reward, value & progress models](papers/reward.md)
-- `2026-09-28` **[AGF](https://arxiv.org/abs/2609.34944)**: Adjoint Guidance Flow: Amortized Critic Guidance for VLA Policies (KAIST; SKKU; GIST) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-28` **[FailPatch](https://arxiv.org/abs/2609.34175)**: Failure Residual Patching for Vision-Language-Action Models (Xi'an Jiaotong; Dexmal; Nanjing U) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-28` **[ARS](https://arxiv.org/abs/2609.34484)**: Agentic Reward System for Robot Learning (AIRC, Midea Group) · [Reward, value & progress models](papers/reward.md)
-- `2026-09-28` ⭐ **[F4R](https://arxiv.org/abs/2609.35575)**: Failure-Driven Recognition, Reconstruction, Refinement, and Redeployment for Continual Robot Self-Improvement (Nanyang Technological University; Xi'an Jiaotong University; Dexmal) · [Sim-to-real & real-to-sim](papers/simreal.md)
-- `2026-09-27` **[Train Together or Merge Later? Unifying VLA Experts via a Shared Action Interface](https://arxiv.org/abs/2609.33125)** (University of Queensland (UQMM Lab)) · [On-policy policy gradients](papers/onpolicy.md)
-- `2026-09-27` **[DPP](https://arxiv.org/abs/2609.33172)**: Dynamic Manipulation with World-Action Models via Counterfactual Planning (KAIST) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-27` **[Beyond Conservatism](https://arxiv.org/abs/2609.33336)**: Recoverability-Conditioned Exploration for Model-Based Imitation Learning (Nanjing University) · [World models & evaluation](papers/worldmodel.md)
-- `2026-09-27` **[DexTaG](https://arxiv.org/abs/2609.33882)**: Tactile-as-Guidance in Reinforcement Learning for Dexterous Manipulation (UMass Amherst; Genesis AI) · [Sim-to-real & real-to-sim](papers/simreal.md)
-- `2026-09-27` **[FoLD](https://arxiv.org/abs/2609.33551)**: Force-Informed Learning for Dexterous Articulated Object Manipulation (USTC; CAS Institute of AI for Industries; Shenzhen University) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-27` **[SwingRL](https://arxiv.org/abs/2609.33053)**: Adaptive Observation Reinforcement Learning with World-Model Prediction for Cable-Suspended Hoisting Control (Cambridge; Tsinghua; Cardiff; HKU) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-27` **[Safe Score Matching](https://arxiv.org/abs/2609.33337)**: Diffusion Policies with Hamilton-Jacobi Reachability for Online Safe Reinforcement Learning (UC San Diego) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-09-27` **[Steer2Grasp](https://arxiv.org/abs/2609.33546)**: Inference-Time Embodiment-Aware Steering for Diverse Physically Feasible Grasp Diffusion (IIIT Hyderabad; Johns Hopkins) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-27` **[PARS](https://arxiv.org/abs/2609.33049)**: Is Online Interaction Necessary for Recovery? A Minimalist Approach to Robust Planning via Perturbation (KAIST) · [Human corrections & DAgger](papers/hitl.md)
-- `2026-09-27` **[Evolving Dexterous Robots from Scratch](https://arxiv.org/abs/2609.33101)** (Northwestern University) · [Black-box search](papers/blackbox.md)
-- `2026-09-27` **[Test-Time Spatial Reasoning for Robot Manipulation Using Generative Real-to-Sim](https://arxiv.org/abs/2609.33982)** (Robotics and AI Institute; Imperial College London) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-27` **[ZeroBot](https://arxiv.org/abs/2609.34010)**: Learning from Scratch in Minutes with Generative Real2Sim (Robotics and AI Institute; Imperial College London) · [Sim-to-real & real-to-sim](papers/simreal.md)
-- `2026-09-27` **[Robot-GST](https://arxiv.org/abs/2609.33872)**: geometry-aware spatial-temporal robot policy representation and evaluation (KTH; EPFL; Idiap; Beihang; HKUST Guangzhou et al.) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-27` **[Recursive Harness Distillation across Agents for Robot Manipulation](https://arxiv.org/abs/2609.33378)** (Seoul National University; KAIST) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-27` **[Schrödinger–Föllmer Actor–Critic](https://arxiv.org/abs/2609.33239)**: Diffusion Policy Improvement with Finite-Sample Analysis (Wuhan University) · [Off-policy critics & offline-to-online RL](papers/offpolicy.md)
-- `2026-09-27` **[ActionGround](https://arxiv.org/abs/2609.33256)**: Training-Free Runtime Refinement of Frozen VLA Policies (IIT Madras; Indian AI Research Organisation; NTU) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-27` **[Achieve What You Imagined](https://arxiv.org/abs/2609.33832)**: Learning to Align Actions with Visual Plans (KTH; Beihang; HKUST Guangzhou; Peking University; Great Bay University) · [World models & evaluation](papers/worldmodel.md)
-- `2026-09-27` ⭐ **[TimelyDAgger](https://arxiv.org/abs/2609.33157)**: Timing-Aware Expert Querying for VLA Policy Improvement (Tsinghua University; SEEN·E Robotic) · [Human corrections & DAgger](papers/hitl.md)
-- `2026-09-27` ⭐ **[PSS](https://arxiv.org/abs/2609.33765)**: Principal Steering Subspaces for Online Adaptation of Frozen Generative Robot Policies (XPENG Robotics; University of Michigan) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-26` **[SAMBAR](https://arxiv.org/abs/2609.32108)**: Selective Anchoring via Method of Multipliers for Balanced Knowledge Acquisition and Retention in Vision-Language-Action Models (UC Berkeley) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-09-26` **[RecastVLA](https://arxiv.org/abs/2609.32155)**: From Past Interaction to Future Control with Adaptive Policy States (South China University of Technology; Yuanwu Technology) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-26` **[Timestep Weighting](https://arxiv.org/abs/2609.32665)**: A Hidden Key to Effective ELBO-Based Flow-Matching RL (Tsinghua; Princeton; EPFL) · [On-policy policy gradients](papers/onpolicy.md)
-- `2026-09-26` **[ALTER](https://arxiv.org/abs/2609.32129)**: Residual Denoising Enables Sample-Efficient Multi-Agent Coordination on Demand (UC Berkeley) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-26` **[From Static Policies to Adaptive Priors in Offline Reinforcement Learning](https://arxiv.org/abs/2609.35880)** (Mila; Université de Montréal; McGill) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-09-26` **[Rank Collapse Is Recoverable, Growing \|Q\| Is Not: Out-of-Sample Early Warning for Value Divergence in High-UTD Soft Actor-Critic](https://arxiv.org/abs/2609.32819)** (Rutgers; Nanjing Tech; Nanjing University of Posts and Telecommunications; NYU) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-09-26` **[Constrained Flow Policy Updates](https://arxiv.org/abs/2609.32952)**: A Generalized Schrödinger Bridge View (UC San Diego) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-09-26` **[MA-FPPO](https://arxiv.org/abs/2609.32594)**: Multi-Agent Flow-Pretrained Policy Optimization (Sun Yat-sen University; NUS) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-09-26` **[Beyond Scripted Search](https://arxiv.org/abs/2609.32394)**: Sample-Efficient Reward Discovery via Agentic Black-box Optimization (NTU; Yunnan University) · [Reward, value & progress models](papers/reward.md)
-- `2026-09-26` **[RE-0](https://arxiv.org/abs/2609.32416)**: Verified Recursive Improvement of Embodied Code-as-Policy Agents through Local On-Policy Distillation (Jilin University; Dalian University of Technology) · [Advantage-weighted & filtered BC](papers/advbc.md)
-- `2026-09-26` **[RoboFoundry](https://arxiv.org/abs/2609.32862)**: System-as-Policy Evolution for Self-Learning Embodied Agents (NTU; Beihang; NUS; Cloud Butterfly; SJTU) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-26` **[SEES](https://arxiv.org/abs/2609.32698)**: A Self-Evolving Embodied System via Failure-Guided VLA Policy Adaptation (MBZUAI; University of Sydney; Oxford; AI2 Robotics; Waterloo; Melbourne) · [On-policy policy gradients](papers/onpolicy.md)
-- `2026-09-25` **[Causeway](https://arxiv.org/abs/2609.30913)**: Restoring Task Accessibility for Instruction Switching in VLA Policies (University of Maryland; USC) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-25` **[MA-WAM](https://arxiv.org/abs/2609.31281)**: Multi-Agent World-Action Model for Test-Time Planning (Sun Yat-sen University) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-25` **[G2MAF](https://arxiv.org/abs/2609.31286)**: Test-Time Gradient Guidance for Multi-Agent Flow Policies (Sun Yat-sen University) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-09-25` **[Learning to Leverage Compliance](https://arxiv.org/abs/2609.31439)**: A Policy-Admittance Learning Framework for Robotic Insertion (Northwestern Polytechnical University) · [Reward, value & progress models](papers/reward.md)
-- `2026-09-25` **[Multi-Objective Human-in-the-Loop Bayesian Optimization of a Lower-Limb Exoskeleton](https://arxiv.org/abs/2609.30695)** (Georgia Tech) · [Black-box search](papers/blackbox.md)
-- `2026-09-25` **[Generate, Track, Improve](https://arxiv.org/abs/2609.31577)**: Perceptive Multi-Skill Humanoid Locomotion with RL-Fine-Tuned Motion Generators (Caltech) · [Advantage-weighted & filtered BC](papers/advbc.md)
-- `2026-09-25` **[Precision at Speed](https://arxiv.org/abs/2609.31025)**: Sample-Efficient Online Model-Based Reinforcement Learning for Hydraulic Excavator Control (ETH Zürich; Universidad de Chile) · [World models & evaluation](papers/worldmodel.md)
-- `2026-09-25` **[HapticWorld](https://arxiv.org/abs/2609.31924)**: an Interactive World Simulator with Real-time Torque Feedback (Ant Group; UIUC; NVIDIA; Stanford) · [World models & evaluation](papers/worldmodel.md)
-- `2026-09-25` **[STL-SVPG](https://arxiv.org/abs/2609.31606)**: Learning Robot Policies from Sparse Success Signals via STL-Guided Stein Variational Policy Gradient (UPenn; Lehigh University) · [Reward, value & progress models](papers/reward.md)
-- `2026-09-25` **[Towards VLA-Dreamer](https://arxiv.org/abs/2609.31313)**: Refining VLA Behavior Using World Models (University of Hamburg) · [World models & evaluation](papers/worldmodel.md)
-- `2026-09-25` **[RoboMonitor](https://arxiv.org/abs/2609.30715)**: Label-Efficient Runtime Monitoring of Robot Task Execution via Predictive Representation Learning (Siemens; Worcester Polytechnic Institute) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-25` **[PHIRL](https://arxiv.org/abs/2609.31855)**: Aligning Learned Rewards with Task Progress for Inverse Reinforcement Learning (Yu et al.) · [Reward, value & progress models](papers/reward.md)
-- `2026-09-25` **[Kintsugi-VLA](https://arxiv.org/abs/2609.31048)**: Turning Failed Robot Rollouts into Recovery Data through Interventional Recoverability (Skoltech) · [Human corrections & DAgger](papers/hitl.md)
-- `2026-09-25` **[VLaRL](https://arxiv.org/abs/2609.30868)**: Augmenting Vision-Language-Action Models with Simulation-Trained Latent-Conditioned Residual RL (MSRA Tokyo; KAIST; U Tokyo) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-25` **[FIND](https://arxiv.org/abs/2609.32069)** Something You Can't Do: Agentic Real-World Reinforcement Learning for Self-Improving VLA Models (TU Darmstadt; Hessian.AI; U Augsburg; Tongji University; Shanghai Research Institute for Intelligent Autonomous Systems) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-24` **[Training-free Behavior Cloning](https://arxiv.org/abs/2609.30134)** (Stanford) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-24` **[World Action Agent](https://arxiv.org/abs/2609.29964)**: Harnessing VLMs for Robot Manipulation via World Action Rehearsal (HKUST Guangzhou; CUHK; Knowin AI) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-24` **[Aim Short to Reach Far](https://arxiv.org/abs/2609.30036)**: Your Frozen World Model Can Plan Better Than You Think (Tsinghua; Manifold AI) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-24` **[RACaP](https://arxiv.org/abs/2609.29394)**: Agentic Reasoning, Acting, and Coding as Policies for Evolvable Robot Learning (CUHK; HKUST Guangzhou; Knowin AI) · [Black-box search](papers/blackbox.md)
-- `2026-09-24` **[HarnessPAI](https://arxiv.org/abs/2609.29166)**: An Evolving Harness for Physical AI (Darwin Agent Team) · [Black-box search](papers/blackbox.md)
-- `2026-09-24` **[AdaHVLA](https://arxiv.org/abs/2609.29204)**: Adaptive Harnesses for Long-Horizon Vision-Language-Action Execution (UNC; USTC; HKUST; CUHK) · [Black-box search](papers/blackbox.md)
-- `2026-09-24` **[Online Sim-to-Real Adaptation via Closed-Loop System Modeling](https://arxiv.org/abs/2609.28878)** (Duke University) · [Sim-to-real & real-to-sim](papers/simreal.md)
-- `2026-09-24` **[Privacy-Preserving Prompted Policy Search for Robotic Control](https://arxiv.org/abs/2609.30554)** (Oakland University; Wayne State; OORT; Columbia) · [Black-box search](papers/blackbox.md)
-- `2026-09-24` **[AD-WM](https://arxiv.org/abs/2609.30264)**: Action-Discriminative World Models for Counterfactual Model Predictive Control (Nanjing University) · [World models & evaluation](papers/worldmodel.md)
-- `2026-09-24` **[Policy-Calibrated DAgger](https://arxiv.org/abs/2609.30462)**: Offline Calibrated Noise Injection for Imitation Learning (Carnegie Mellon University) · [Human corrections & DAgger](papers/hitl.md)
-- `2026-09-24` **[Self-Adaptive VLA](https://arxiv.org/abs/2609.30092)** for Robust Robot Deployment (UMass Amherst; Genesis AI) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-24` **[PACL](https://arxiv.org/abs/2609.29000)**: Learning from Mixed-Quality Deployment Experience for Robot Manipulation (NTU; Changan; Cloudbutterfly) · [Advantage-weighted & filtered BC](papers/advbc.md)
-- `2026-09-24` ⭐ **[Dyna: reward model as failure detector](https://www.youtube.com/watch?v=Sjfz1TqxzEs)**: Robot Demos Are Easy. Reliability Is Hard (Dyna Robotics) · [Reward, value & progress models](papers/reward.md)
-- `2026-09-24` **[Res-HIL](https://arxiv.org/abs/2609.30023)**: Human-Guided Residual Reinforcement Learning for Sample-Efficient Dexterous Manipulation (Siemens; TU Munich) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-23` **[Context-Continuous Preference Learning for Exoskeleton Personalization](https://arxiv.org/abs/2609.28427)** (Korea University; WIRobotics) · [Black-box search](papers/blackbox.md)
-- `2026-09-23` **[RegenHarness](https://arxiv.org/abs/2609.27612)**: A Robot Agent Harness with Evidence-Gated Recursive Self-Improvement (Country Garden Services; HUST; Omni AI) · [Black-box search](papers/blackbox.md)
-- `2026-09-23` **[BrickCraft-Duo](https://arxiv.org/abs/2609.28281)**: Efficient Dual-Arm Skill Learning and Refinement for Compositional Long-Horizon Assembly (Tsinghua; CMU) · [Human corrections & DAgger](papers/hitl.md)
-- `2026-09-23` **[Banana Kick](https://arxiv.org/abs/2609.27269)**: Response-Informed Skill Evolution for Humanoid Soccer (CMU; General Motors; UT Arlington) · [On-policy policy gradients](papers/onpolicy.md)
-- `2026-09-23` **[An Analysis of Streaming Deep Reinforcement Learning for Adaptive Continual Learning in Robotics](https://arxiv.org/abs/2609.28807)** (Yale University) · [On-policy policy gradients](papers/onpolicy.md)
-- `2026-09-23` **[TANDEM](https://arxiv.org/abs/2609.28314)**: Task and Motion Planning with As-Needed Demonstrations for Efficient Vision-Language-Action Model Fine-tuning (Stanford; Princeton) · [Human corrections & DAgger](papers/hitl.md)
-- `2026-09-23` **[What Stops Recursive Self-Improvement in Robotics? Lessons from 123 Rounds of Agentic Skill Discovery](https://arxiv.org/abs/2609.31760)** (National University of Singapore) · [Black-box search](papers/blackbox.md)
-- `2026-09-23` **[Morphometric Imitation](https://arxiv.org/abs/2609.28660)**: From Morphology and Contact Aware Hand Retargeting to Sim-to-Real Visuomotor Policy (UC Berkeley) · [Sim-to-real & real-to-sim](papers/simreal.md)
-- `2026-09-23` **[Generalizable Robotic Insertion with World Models](https://arxiv.org/abs/2609.28258)** (NVIDIA; UC San Diego; USC) · [World models & evaluation](papers/worldmodel.md)
-- `2026-09-23` **[CereVLA](https://arxiv.org/abs/2609.27468)**: Cerebellum-Inspired Consequence-Aware Residual Governance for Efficient Vision-Language-Action Execution (HKUST Guangzhou) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-23` ⭐ **[Dissecting advantage-guided post-training](https://arxiv.org/abs/2609.28161)** for Vision-Language-Action Policies (Shanghai Jiao Tong University; Xiaomi Robotics) · [Advantage-weighted & filtered BC](papers/advbc.md)
-- `2026-09-23` ⭐ **[Skild Physical Self-Play](https://www.skild.ai/blogs/physical-self-play)** (Skild AI) · [Industry recipes & deployment reports](papers/industry.md)
-- `2026-09-23` **[BEE](https://arxiv.org/abs/2609.27450)**: Intervention-Adaptive Real-World Reinforcement Learning with Vision-Language-Action Models (AgiBot; SCUT) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-23` **[Uncertainty-gated exploration noise](https://arxiv.org/abs/2609.28838)** Suppresses Task Collapse in Online RL Fine-Tuning of a Flow-Matching Vision-Language-Action Policy (KIT, Cukurova University) · [On-policy policy gradients](papers/onpolicy.md)
-- `2026-09-22` **[Hill Sampling for Test-Time Scaling](https://arxiv.org/abs/2609.25510)**: A Simple and Better Alternative to Repeated Sampling, Evolution, and Training (Oracle) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-09-22` **[Sample, Simulate, Select](https://arxiv.org/abs/2609.26420)**: Physics-in-the-Loop Text-to-Motion for Humanoids Without Training (University of Bonn) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-22` **[DreamStream](https://arxiv.org/abs/2609.26792)**: Towards Policy-Oriented Generative Simulation for End-to-End Driving (UCLA; Toyota Research Institute) · [Broader RL advances that transfer](papers/generalrl.md)
-- `2026-09-22` **[Know Your Body](https://arxiv.org/abs/2609.28530)**: A Harness for Direct and Self-Improving Robot Control with VLMs (Nanjing University; Ant Group; Zhejiang University) · [Black-box search](papers/blackbox.md)
-- `2026-09-22` **[HABILIS Brain 0](https://arxiv.org/abs/2609.25558)**: Geometry-Change Supervision for Vision-Language-Action and Residual Flow Recovery (Tommoro Robotics) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-22` **[Imperfection for Precision](https://arxiv.org/abs/2609.26672)**: Upcycling Imperfect Data for High-Precision Robotic Manipulation (Samsung Robotics eXperience; NUS; UIUC) · [Advantage-weighted & filtered BC](papers/advbc.md)
-- `2026-09-22` **[DynaForge](https://arxiv.org/abs/2609.25631)**: Planning-Guided Residual Learning for Dynamic Manipulation Demonstration Generation (LandSpace; SJTU) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-22` **[SafeLoop](https://arxiv.org/abs/2609.26313)**: Risk-Aware Rollback for Vision-Language-Action Manipulation (Nanjing University; HKUST Guangzhou; Beijing University of Technology) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-22` ⭐ **[PAKT](https://arxiv.org/abs/2609.25630)**: Physically-Aligned Kinesthetic Teaching for Reinforcement Learning (NVIDIA) · [Human corrections & DAgger](papers/hitl.md)
-- `2026-09-22` **[HiRE](https://arxiv.org/abs/2609.27068)**: Hindsight Reward Editing for Policy Finetuning (UC Berkeley, CUHK) · [Reward, value & progress models](papers/reward.md)
-- `2026-09-22` **[RouteRLT](https://arxiv.org/abs/2609.26467)**: Learning When and Which RL Specialist Should Control a Vision-Language-Action Policy (University of Toronto) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-21` **[Learning Beyond What Humans Can Demonstrate](https://arxiv.org/abs/2609.24996)** (UC Irvine) · [Human corrections & DAgger](papers/hitl.md)
-- `2026-09-21` **[Uranus](https://arxiv.org/abs/2609.24815)**: Building the Next-Generation Simulation Infrastructure for Embodied AI (D-Robotics AI Lab) · [World models & evaluation](papers/worldmodel.md)
-- `2026-09-21` **[Visuomotor Robotic Pruning in Planar Orchards Using Hybrid Reinforcement Learning](https://arxiv.org/abs/2609.24906)** (Oregon State University) · [Sim-to-real & real-to-sim](papers/simreal.md)
-- `2026-09-21` **[GraspTune](https://arxiv.org/abs/2609.24180)**: Tactile-Driven Execution Refinement for Robust Grasping (HKUST Guangzhou; KTH) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-21` **[Dexterous Robot Manipulation from Human Demonstrations via Contact-Anchored Retargeting and Residual Policy Learning](https://arxiv.org/abs/2609.24093)** (DexGEM Lab; SJTU; Tongji; DexRobot) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-21` **[InsertAnything](https://arxiv.org/abs/2609.24511)**: Generalizable Contact-Rich Precision Insertion from Simulation to Reality (UCAS; Institute of Automation CAS; PaXini AI) · [Sim-to-real & real-to-sim](papers/simreal.md)
-- `2026-09-21` **[Performance-Preserving Online Adaptation in Social Navigation via Diffusion Steering](https://arxiv.org/abs/2609.24317)** (Kyushu University) · [Residual, edit & steering policies](papers/residual.md)
-- `2026-09-21` **[D-JEPA](https://arxiv.org/abs/2609.24749)**: A Decision-Aligned Latent World Model (HKUST Guangzhou; Boston University; SJTU) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-21` **[Beyond Visual Quality](https://arxiv.org/abs/2609.24745)**: A Study of Test-Time Planning with World Action Models (Oxford; Purdue; UWE Bristol) · [Test-time search & verifiers](papers/testtime.md)
-- `2026-09-21` **[Imagine-RL](https://arxiv.org/abs/2609.24033)**: Residual-Confidence-Guided Cross-Attention for World-Model-Augmented VLA Reinforcement Learning (KAIST; USTB; SJTU; ICT CAS) · [Residual, edit & steering policies](papers/residual.md)
+- `2026-10-16` **[PRIME](https://arxiv.org/abs/2610.23769)**: Not All Actions Contribute Equally: Learning Precise Progress Estimation from Imprecise Demonstrations (Wang et al.) · [Reward, value & progress models](papers/reward.md)
+- `2026-10-16` **[AnchorQ](https://arxiv.org/abs/2610.22852)**: Sample-Efficient Reinforcement Learning for Policy Improvement via Flow-Reversed Action Anchors (Qi et al.) · [Residual, edit & steering policies](papers/residual.md)
+- `2026-10-15` **[ECG](https://arxiv.org/abs/2610.22576)**: Embodiment-Classifier Guidance: Transferring Frozen VLAs Across Robot Dynamics without Demonstrations (Han et al.) · [Residual, edit & steering policies](papers/residual.md)
+- `2026-10-15` **[GVC](https://arxiv.org/abs/2610.22497)**: Generative Value Classifier (Swerdlow et al.) · [Broader RL advances that transfer](papers/generalrl.md)
+- `2026-10-15` **[VaM](https://arxiv.org/abs/2610.22368)**: Value as Memory: Online Value-Guided Post-training for General Robot Policies (Yu et al.) · [Off-policy critics & offline-to-online RL](papers/offpolicy.md)
+- `2026-10-15` **[T2-Z](https://arxiv.org/abs/2610.22364)**: Test-Time Optimization of Environment Latents for Robotic World Models (Zhou et al.) · [World models & evaluation](papers/worldmodel.md)
+- `2026-10-15` **[CoDA](https://arxiv.org/abs/2610.22362)**: Co-Evolution of Data Engines and Action Policies (Yu et al.) · [Advantage-weighted & filtered BC](papers/advbc.md)
+- `2026-10-15` **[DSP](https://arxiv.org/abs/2610.22340)**: Dexterity from Supervised Play (He et al.) · [World models & evaluation](papers/worldmodel.md)
+- `2026-10-15` **[Covariance PG](https://arxiv.org/abs/2610.22263)**: Baselines and Score Centering in Policy Gradient Estimation (Han et al.) · [Broader RL advances that transfer](papers/generalrl.md)
+- `2026-10-15` **[C-GMT](https://arxiv.org/abs/2610.22119)**: Compliant GMT: Making General Motion Tracking Compliant via Residual Reference Adaptation (Parsuram et al.) · [Residual, edit & steering policies](papers/residual.md)
+- `2026-10-15` **[ExecutionBridge](https://arxiv.org/abs/2610.22041)**: Plans Are Not Executions: Adapting Frozen World-Model Planners to Controller-Induced Execution Shift (Zhao et al.) · [World models & evaluation](papers/worldmodel.md)
+- `2026-10-15` **[VeriVLA](https://arxiv.org/abs/2610.21985)**: Adaptive Test-Time Verification for Flow-Based VLAs with Latent World Models (Sun et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-15` **[DHS](https://arxiv.org/abs/2610.21666)**: Diffeomorphic Hidden-State Steering: Improving Imitation Learning Policy Robustness through Expert Hidden-State Geometry (Lee) · [Residual, edit & steering policies](papers/residual.md)
+- `2026-10-15` **[Velocity Loss OPD](https://arxiv.org/abs/2610.21522)**: Multi-Teacher On-Policy Distillation for Flow-Based Vision-Language-Action Models (Ni et al.) · [Human corrections & DAgger](papers/hitl.md)
+- `2026-10-15` **[PAV](https://arxiv.org/abs/2610.21434)**: Policy-Aligned Predictive Verification for Adaptive VLA Action-Chunk Execution (Kim et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-14` **[HiRe-MoMa](https://arxiv.org/abs/2610.20607)**: Hierarchical Residual Policy Learning for Real-World Mobile Manipulation with Sparse Human Guidance (Gong et al.) · [Residual, edit & steering policies](papers/residual.md)
+- `2026-10-14` **[GR-BC](https://arxiv.org/abs/2610.20504)**: Graph-Reweighted Behavior Cloning with Human Interventions for Precise Robotic Manipulation (Li et al.) · [Advantage-weighted & filtered BC](papers/advbc.md)
+- `2026-10-14` **[AdaRSI](https://arxiv.org/abs/2610.20474)**: On-Demand Recursive Self-Improvement for Embodied Agents (Wang et al.) · [Advantage-weighted & filtered BC](papers/advbc.md)
+- `2026-10-14` **[TEMPO](https://arxiv.org/abs/2610.20318)**: Efficient Test-Time Adaptation For Robot Policies (Alfarra et al.) · [Off-policy critics & offline-to-online RL](papers/offpolicy.md)
+- `2026-10-14` **[RAIN](https://arxiv.org/abs/2610.19765)**: Refine Actions If Needed: Adaptive Action Chunk Refinement for Robot Manipulation (Liu et al.) · [Residual, edit & steering policies](papers/residual.md)
+- `2026-10-14` **[ACRO](https://arxiv.org/abs/2610.19677)**: Actor-Critic Rollout Orchestration (Lee et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-14` **[Back on Track](https://arxiv.org/abs/2610.19579)**: Deployment-time Policy Improvement via World Model Planning (Crosby et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-14` **[VLRLA](https://arxiv.org/abs/2610.19517)**: Deployment-Time Adaptation of Vision-Language-Action Models through In-Context Reinforcement Learning (Shi et al.) · [Residual, edit & steering policies](papers/residual.md)
+- `2026-10-14` **[MetaGenSim](https://arxiv.org/abs/2610.19479)**: Active Generative Simulation: Meta-Learning What to Simulate for Sim-and-Real Policy Co-Training (Ma et al.) · [Sim-to-real & real-to-sim](papers/simreal.md)
+- `2026-10-13` **[Gemini 4 Argon](https://developers.googleblog.com/gemini-4-argon-for-robotics)** for Robotics (Google DeepMind) · [Sim-to-real & real-to-sim](papers/simreal.md)
+- `2026-10-13` **[PACER](https://arxiv.org/abs/2610.19248)**: Process-Aware VLA Policy Learning from Human Corrections for Robotic Disassembly (Liu et al.) · [Human corrections & DAgger](papers/hitl.md)
+- `2026-10-13` **[Adaptation field guide](https://arxiv.org/abs/2610.19143)**: Post-Training, Finetuning, and Steering:A Field Guide for Curating Training Data (Attarian et al.) · [Advantage-weighted & filtered BC](papers/advbc.md)
+- `2026-10-13` **[LoopWAM](https://arxiv.org/abs/2610.18873)**: Closed-Loop Generalist Policy Improvement from Deployment Rollouts (Guo et al.) · [Advantage-weighted & filtered BC](papers/advbc.md)
+- `2026-10-13` **[Proximal KL](https://arxiv.org/abs/2610.18738)**: Enabling Token-wise Importance Sampling in Off-Policy RLVR with Proximal KL Regularization (Bai et al.) · [Broader RL advances that transfer](papers/generalrl.md)
+- `2026-10-13` **[RoboFQE](https://arxiv.org/abs/2610.18699)**: Rollout-Free Evaluation of Visual Robot Policies from Offline Trajectories (Deng et al.) · [Reward, value & progress models](papers/reward.md)
+- `2026-10-13` **[ForkCast](https://arxiv.org/abs/2610.18650)**: Predictive Recovery for Vision-Language-Action Policies via Counterfactual Futures (Wen et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-13` **[ACCRUE](https://arxiv.org/abs/2610.18596)**: Continual Off-Policy Reinforcement Learning for Robot Foundation Models (Kim et al.) · [Off-policy critics & offline-to-online RL](papers/offpolicy.md)
+- `2026-10-13` **[WoVR+](https://arxiv.org/abs/2610.17922)**: World Model as Reliable Simulator for Versatile VLA Policy Optimization with RL (Zhou et al.) · [World models & evaluation](papers/worldmodel.md)
+- `2026-10-13` **[SOAR-Flow](https://arxiv.org/abs/2610.17799)**: Beyond Safe Execution: Safe Online Reinforcement Learning for Autonomous Driving with Value Calibration and Adaptive Guidance (Li et al.) · [Off-policy critics & offline-to-online RL](papers/offpolicy.md)
+- `2026-10-13` **[I3L](https://arxiv.org/abs/2610.17748)**: Iterative Interactive Imitation Learning for Whole-Body Mobile Manipulation (Ai et al.) · [Human corrections & DAgger](papers/hitl.md)
+- `2026-10-13` **[SCRIM](https://arxiv.org/abs/2610.17709)**: Where Small Mistakes Matter: Quantifying State Criticality for Imitation Learning (Ciftci et al.) · [Advantage-weighted & filtered BC](papers/advbc.md)
+- `2026-10-13` **[PrT-Flow](https://arxiv.org/abs/2610.17667)**: Probability-Tractable Flow Matching for Reinforcement Learning (Sun et al.) · [Broader RL advances that transfer](papers/generalrl.md)
+- `2026-10-13` **[YUBI-Real2Sim](https://arxiv.org/abs/2610.17521)**: 3DGS Scene Verification for Reliable Policy Evaluation (Nishizawa et al.) · [World models & evaluation](papers/worldmodel.md)
+- `2026-10-12` **[Smoothness curation audit](https://arxiv.org/abs/2610.17427)**: Smoothness Ranks Skill, Not Success: An Audit of Published Trajectory-Smoothness Curation Metrics Under Episode-Length Controls (Bassi) · [Advantage-weighted & filtered BC](papers/advbc.md)
+- `2026-10-12` **[LfDI](https://arxiv.org/abs/2610.17298)**: Improving Policy Learning from Delayed Interventions (Zhu et al.) · [Human corrections & DAgger](papers/hitl.md)
+- `2026-10-12` **[MOSAIC](https://arxiv.org/abs/2610.17001)**: Mode- and Support-Aware Inference-Time Control of Robot Diffusion Models (Bodmer et al.) · [Residual, edit & steering policies](papers/residual.md)
+- `2026-10-12` **[DR-APO](https://arxiv.org/abs/2610.16618)**: Decoupled-Representation Advantage-Guided Policy Optimization from Continuous Control to Embodied Navigation (Zhang et al.) · [Advantage-weighted & filtered BC](papers/advbc.md)
+- `2026-10-12` **[MERL](https://arxiv.org/abs/2610.16517)**: Trust-Calibrated VLA Policy Post-Training with Evolving Imagination (Li et al.) · [World models & evaluation](papers/worldmodel.md)
+- `2026-10-12` **[SHOES](https://arxiv.org/abs/2610.16457)**: Sim-to-real Hardware-adaptation via On-policy Expansion of Skills for Legged Robots (Tsuruhara et al.) · [Residual, edit & steering policies](papers/residual.md)
+- `2026-10-12` **[ReAP](https://arxiv.org/abs/2610.16309)**: From Visual Failure Recognition to Action-Conditioned Risk Prediction for Runtime Failure Monitoring (Liu et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-11` **[ReTrace](https://arxiv.org/abs/2610.15814)**: Cross-Stage Failure Attribution for Self-Improving Robotic Manipulation (Yu et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-11` **[QCRL](https://arxiv.org/abs/2610.15675)**: Recovering Low-Bit Failures in Vision-Language-Action Policies via Quantization-Conditioned Reinforcement Learning (Park et al.) · [Advantage-weighted & filtered BC](papers/advbc.md)
+- `2026-10-11` **[VLMeg](https://arxiv.org/abs/2610.15401)**: Harnessing VLM in Embodied RL: From Reward Regressor to Success Detector via Exploration-Augmented Key-Observation Gating (Liu et al.) · [Reward, value & progress models](papers/reward.md)
+- `2026-10-11` **[ProWorld](https://arxiv.org/abs/2610.15294)**: Multi-View World Model with Proprioceptive Feedback for Closed-Loop Policy Evaluation (Wang et al.) · [World models & evaluation](papers/worldmodel.md)
+- `2026-10-11` **[CS-VGB](https://arxiv.org/abs/2610.15281)**: Imperfect Verifiers, Exact Targets: Inference-Time Scaling for Continuous Generation (Jeon et al.) · [Broader RL advances that transfer](papers/generalrl.md)
+- `2026-10-10` **[EnactOpt](https://arxiv.org/abs/2610.14977)**: Diagnosis-Guided Harness Evolution for Embodied Agents (Feng et al.) · [Black-box search](papers/blackbox.md)
+- `2026-10-10` **[CFG-Policy](https://arxiv.org/abs/2610.14936)**: Unified Diffusion Policy Learning Framework via Classifier-free Guidance (Ding et al.) · [Residual, edit & steering policies](papers/residual.md)
+- `2026-10-10` **[TTCO](https://arxiv.org/abs/2610.14896)**: Test-Time Compute for Humanoid Behavior Foundation Models (Xie et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-10` **[Verify, Act, Distill](https://arxiv.org/abs/2610.14885)**: Turning Test-Time Compute into Test-Time Adaptation for Vision-Language-Action Models (Hiratsuka et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-10` **[AnyRank](https://arxiv.org/abs/2610.14603)**: Reliable Anytime Policy Ranking via Sequential Testing (Badithela et al.) · [World models & evaluation](papers/worldmodel.md)
+- `2026-10-10` **[ADS](https://arxiv.org/abs/2610.14588)**: Flow-Support-Weighted Proposals for Test-Time Verified VLA Policies (Zhao et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-10` **[Q-DEG](https://arxiv.org/abs/2610.14415)**: Red-Teaming of Vision-Language-Action Models via Quality Diversity Environment Generation (Zhao et al.) · [Advantage-weighted & filtered BC](papers/advbc.md)
+- `2026-10-09` **[DiTaR](https://arxiv.org/abs/2610.14159)**: Disentangling Task-Relevant Latent Dynamics for Reward Modeling (Li et al.) · [Reward, value & progress models](papers/reward.md)
+- `2026-10-09` **[CALL](https://arxiv.org/abs/2610.14117)**: Make π0.5 Learn to Call Astra for Reliable Robot Manipulation (Sun et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-09` **[Splat2Act](https://arxiv.org/abs/2610.13945)**: From Captured Scenes to Personalized VLA Manipulation (Ye et al.) · [Sim-to-real & real-to-sim](papers/simreal.md)
+- `2026-10-09` **[NSL](https://arxiv.org/abs/2610.13943)**: Noise Space Learning for VLA Adaptation (Lu et al.) · [Residual, edit & steering policies](papers/residual.md)
+- `2026-10-09` **[D2R](https://arxiv.org/abs/2610.13816)**: Dream to Remember: Continual Steering of Generalist Robot Policies with World Models (Tharwat et al.) · [Residual, edit & steering policies](papers/residual.md)
+- `2026-10-09` **[HF-WM](https://arxiv.org/abs/2610.13522)**: Beyond Successful Robot Demonstrations: Learning from Human Interactions and Modeling Failure Dynamics (Tu et al.) · [World models & evaluation](papers/worldmodel.md)
+- `2026-10-09` **[RESCUE](https://arxiv.org/abs/2610.13516)**: Is This Alarm Worth Acting On? Counterfactual Evaluation of VLA Runtime Monitors (Ahmedt-Aristizabal et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-09` **[Reflect-VLA](https://arxiv.org/abs/2610.13453)**: Internalizing Reflective Guidance via Dual-Path On-Policy Self-Distillation for Autonomous Driving (Luo et al.) · [Broader RL advances that transfer](papers/generalrl.md)
+- `2026-10-09` **[EndoRSI](https://arxiv.org/abs/2610.13376)**: Physical-Evidence-Driven Recursive Improvement of Endoscopic Robot Policies (Ng et al.) · [Black-box search](papers/blackbox.md)
+- `2026-10-09` **[Evo-RL](https://arxiv.org/abs/2610.13345)**: Iterative Robot Reinforcement Learning from Selective Experience (Ye et al.) · [Advantage-weighted & filtered BC](papers/advbc.md)
+- `2026-10-09` **[OGPO](https://arxiv.org/abs/2610.12914)**: Offline Goal-conditioned Policy Optimization for Recoverable Vision-Language-Action Models (Gao et al.) · [Off-policy critics & offline-to-online RL](papers/offpolicy.md)
+- `2026-10-09` **[FFM](https://arxiv.org/abs/2610.12848)**: Reinforcement Learning via Fixed-point Flow Matching (Blessing et al.) · [Broader RL advances that transfer](papers/generalrl.md)
+- `2026-10-08` **[SpatialHarness](https://arxiv.org/abs/2610.12457)**: Test-Time Spatial Scaffolding for Fine Robotic Manipulation (Wang et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-08` **[RoboRSI](https://arxiv.org/abs/2610.12424)**: Stable, efficient, and reusable robot self-evolution in complex real-world environments (Wen et al.) · [Black-box search](papers/blackbox.md)
+- `2026-10-08` **[RESETTLE](https://arxiv.org/abs/2610.12185)**: Robotic Recovery through Disagreement-Triggered Retrieval and Efficient Corrective Control (Chen et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-08` **[CAPABLE](https://arxiv.org/abs/2610.11971)**: Capability-Aware Policy Adaptation via Behavioral Latent Encoding (Khoshnazar et al.) · [Residual, edit & steering policies](papers/residual.md)
+- `2026-10-08` **[PathTime-VLA](https://arxiv.org/abs/2610.11771)**: Path-Time Decoupling for Factorized Post-Training of Vision-Language-Action Policies (Huang et al.) · [Off-policy critics & offline-to-online RL](papers/offpolicy.md)
+- `2026-10-07` **[NVIDIA GB300 tester-tray assembly](https://developer.nvidia.com/blog/the-machines-that-make-the-machines/)**: The Machines that Make the Machines (NVIDIA) · [Industry recipes & deployment reports](papers/industry.md)
+- `2026-10-07` **[WMPA](https://arxiv.org/abs/2610.10932)**: World-Model Policy Arbiter for Goal-Conditioned Reinforcement Learning (Quan et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-07` **[OSS detect-restore-resume](https://arxiv.org/abs/2610.10810)**: Diagnosing and Recovering from Observation-Space Shift at Long-Horizon Skill Seams (Wagh et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-07` **[RoboPrompt](https://arxiv.org/abs/2610.10534)**: Intuitive Robot Policy Steering with Sparse Human Input (Zou et al.) · [Human corrections & DAgger](papers/hitl.md)
+- `2026-10-07` **[EmbodiedRSI](https://arxiv.org/abs/2610.10498)**: Active Continual Robot Learning Through Hypothesis-Guided Co-Evolution (Song et al.) · [Black-box search](papers/blackbox.md)
+- `2026-10-07` **[FoldBack](https://arxiv.org/abs/2610.10462)**: Self-Correcting Masked Generative Policy for Long-Horizon Garment Folding (Zhuang et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-07` **[SQAM](https://arxiv.org/abs/2610.10437)**: Q-Learning with Scalar Adjoint Matching (Dong et al.) · [Off-policy critics & offline-to-online RL](papers/offpolicy.md)
+- `2026-10-07` **[DRIVE](https://arxiv.org/abs/2610.09943)**: Many Ways to Succeed: Diversity-Driven RL Fine-Tuning for VLA Generalization (Li et al.) · [On-policy policy gradients](papers/onpolicy.md)
+- `2026-10-07` **[ICDP](https://arxiv.org/abs/2610.09763)**: Beyond Policy Support: Interaction Constrained Offline Reinforcement Learning for Autonomous Driving (Selim et al.) · [Broader RL advances that transfer](papers/generalrl.md)
+- `2026-10-06` **[Robo-COP](https://arxiv.org/abs/2610.09228)**: Co-Evolving Robot Orchestrators and Policies through Deployment (Zhang et al.) · [Advantage-weighted & filtered BC](papers/advbc.md)
+- `2026-10-06` **[CureWM](https://arxiv.org/abs/2610.09134)**: World Models Dream of Success: Diagnosing and Repairing Failure Insensitivity in Robot World Models (Xu et al.) · [World models & evaluation](papers/worldmodel.md)
+- `2026-10-06` **[PhysEvo](https://arxiv.org/abs/2610.08995)**: Astra Can Act, Let It (Tian et al.) · [Black-box search](papers/blackbox.md)
+- `2026-10-06` **[LASER](https://arxiv.org/abs/2610.08989)**: Latent Space Adjoint Matching for Support-Constrained Entropy-Regularized Offline RL (Zhang et al.) · [Broader RL advances that transfer](papers/generalrl.md)
+- `2026-10-06` **[QF3](https://arxiv.org/abs/2610.08789)**: Fast Flow RL with Filtered Q-Gradients (Kim et al.) · [Off-policy critics & offline-to-online RL](papers/offpolicy.md)
+- `2026-10-06` **[PEARS](https://arxiv.org/abs/2610.08784)**: Physical-Prior-Guided Efficient Adaptation via Failure Reasoning and Diffusion Steering for Tactile Manipulation (Song et al.) · [Residual, edit & steering policies](papers/residual.md)
+- `2026-10-06` **[RIWANav](https://arxiv.org/abs/2610.08640)**: Recursive World-Action Models with Self-Improvement for Urban Navigation (Xie et al.) · [World models & evaluation](papers/worldmodel.md)
+- `2026-10-06` **[CA$^3$C](https://arxiv.org/abs/2610.07949)**: Commit While Futures Agree: Consequence-Aware Adaptive Action Chunking for Robot Manipulation (Li et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-06` **[SALT](https://arxiv.org/abs/2610.07946)**: Adapting Vision-Language-Action Models to Unknown Visual Disruptions During Execution (Lee et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-06` **[GP-EI damage recovery](https://arxiv.org/abs/2610.07616)**: Nine Trials to Recover: A Reproducible Benchmark for Repertoire-Free Soft-Robot Damage Adaptation (Zhang) · [Black-box search](papers/blackbox.md)
+- `2026-10-05` **[TIGER](https://arxiv.org/abs/2610.07527)**: Task-Space Imitation Guidance for Efficient Reinforcement Learning (Asayesh et al.) · [Off-policy critics & offline-to-online RL](papers/offpolicy.md)
+- `2026-10-05` **[ReDex](https://arxiv.org/abs/2610.07525)**: Repairing Sim-to-Real Dexterous Policies by Finger-Level Compliant Interaction (Li et al.) · [Human corrections & DAgger](papers/hitl.md)
+- `2026-10-05` **[FAVOR](https://arxiv.org/abs/2610.06280)**: Future Anchored Verification and Online Recovery for World Action Models (Qin et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-05` **[VLA RL augmentation](https://arxiv.org/abs/2610.05994)**: How (and How Not) to Use Data Augmentation in VLA Post-Training (Grooten et al.) · [On-policy policy gradients](papers/onpolicy.md)
+- `2026-10-05` **[Mulligan](https://arxiv.org/abs/2610.05882)**: Performance-Guided Data Collection for Efficient On-Robot Learning (Ankile et al.) · [Human corrections & DAgger](papers/hitl.md)
+- `2026-10-05` **[OGAM](https://arxiv.org/abs/2610.05878)**: Connecting Systematic Testing to Runtime Assurance through Object-Grounded Attention Monitoring for VLA Policies (Darwish et al.) · [Test-time search & verifiers](papers/testtime.md)
+- `2026-10-05` **[PHRetune](https://arxiv.org/abs/2610.05755)**: Demonstration Calibrated Port-Hamiltonian Retuning for Manipulation Policies (Yang et al.) · [Residual, edit & steering policies](papers/residual.md)
+- `2026-10-05` **[PIVOT-Q](https://arxiv.org/abs/2610.05745)**: Beyond In-Distribution Preservation: Recovering Generalization in Quantized VLAs via Vulnerability-Oriented Tuning (Ruan et al.) · [Human corrections & DAgger](papers/hitl.md)
 
 ## Start here
 
@@ -298,7 +216,7 @@ Treat the policy, or a few knobs around it, as a vector. Try perturbed copies, s
 
 **Loop step:** Improve · **Built on:** Perturb, evaluate, step (random search / finite differences / ES); Reward-weighted averaging (PoWER, PI2, CEM, MPPI); Adapt the search distribution (CMA-ES); Bayesian optimization (BO)
 
-**[All 40 entries →](papers/blackbox.md)** (26 from September 2025 onward)
+**[All 46 entries →](papers/blackbox.md)** (32 from September 2025 onward)
 
 - ⭐ **[Decade of BO for control](https://arxiv.org/abs/2609.09403)** (RWTH Aachen, University of Technology Nuremberg, TU Munich, 2026-09-08) — Survey framing controller tuning as episodic policy search where a GP surrogate picks each trial; reviews 110 hardware papers and releases TuneControl. 57 of 110 use vanilla BO; sim 4-parameter cart-pole: LogEI 4310±48 vs Sobol 4647±190 (median±IQR cost, lower better). · [code](https://github.com/Data-Science-in-Mechanical-Engineering/tunecontrol)
 - ⭐ **[ENPIRE](https://arxiv.org/abs/2606.19980)** (NVIDIA, Carnegie Mellon University, UC Berkeley, 2026-06-18) — Coding agents edit training recipes, train, run real rollouts scored automatically, and keep what raises success. Pin insertion: 8 agent/robot pairs reached near-perfect success in about 40 min vs over 1.5 h with one (success counts up to 8 retries). · [code](https://github.com/NVlabs/ENPIRE)
@@ -317,7 +235,7 @@ Roll out the pretrained policy as a stochastic policy, raise the log-probability
 
 **Loop step:** Improve · **Built on:** Likelihood-ratio policy gradient; Trust region by clipping (PPO); Where the baseline comes from: critic vs group; Getting a log-prob out of an expressive policy
 
-**[All 70 entries →](papers/onpolicy.md)** (58 from September 2025 onward)
+**[All 72 entries →](papers/onpolicy.md)** (60 from September 2025 onward)
 
 - ⭐ **[ADEPT](https://arxiv.org/abs/2608.19182)** (NVIDIA; University of Michigan, 2026-08-19) — Post-trains a reposing-pretrained PPO arm-hand policy: BC-distill the actor into new observations, warm up a fresh critic with the actor frozen, then PPO at actor LR 1e-5. Sim peg insertion: 5/5 seeds reach ADR 50 vs 0/5 at LR 1e-3.
 - ⭐ **[StructRL](https://arxiv.org/abs/2608.15139)** (Fudan University; Singapore Management University; Shanghai Artificial Intelligence Laboratory, 2026-08-15) — Keeps the flow decoder deterministic and adds exploration noise only to the output action, AR(1)-correlated within a chunk with learned, group-bounded scales for position, rotation and gripper. ManiSkill pi0.5 OOD average: SFT 25.9, piRL 49.3, action-space Gaussian 65.9, StructRL 70.3.
@@ -339,7 +257,7 @@ Learn a Q-function from every transition you have (demos, human corrections, old
 
 **Loop step:** Improve · **Built on:** Bellman backups and off-policy replay; Max-entropy actor-critic (SAC) and its offline-data variant RLPD (the engine of SERL and HIL-SERL); Conservative and in-sample critics; The offline-to-online hand-off
 
-**[All 123 entries →](papers/offpolicy.md)** (70 from September 2025 onward)
+**[All 133 entries →](papers/offpolicy.md)** (80 from September 2025 onward)
 
 - ⭐ **[RAPolicy](https://arxiv.org/abs/2609.22888)** (Fudan University; Shanghai Key Laboratory of Multimodal Embodied AI; Singapore Management University, 2026-09-19) — A rollout copy of pi0.5, re-synced after each small update group, collects data while the learner trains an IQL-style chunk critic and one-step flow actor only on stored actions. Real, 4 tasks, 20 trials each: 86.3% average vs EXPO-FT 50%. · [code](https://github.com/flyfaerss/RAPolicy)
 - ⭐ **[VLA-Precision](https://arxiv.org/abs/2609.04355)** (University of Science and Technology of China; Beihang University; Zhongguancun Academy; Hefei SpinX Technology, 2026-09-03) — Post-trains pi0.5's action-expert LoRA with flow-matching BC on demos, successes and human corrections, plus ensemble-critic advantages relative to a frozen reference instead of absolute-Q maximization. 9 real chemistry-lab tasks: 98.3% vs demo-only pi0.5 67.8%, ConRFT (Octo) 7.8%. · [code](https://github.com/scy-v/VLA-Precision)
@@ -362,7 +280,7 @@ Freeze the big pretrained policy and train a small add-on with RL: one that corr
 
 **Loop step:** Improve · **Built on:** Residual policy: the base is part of the environment; Start at base performance: zero-init, bound and scale the correction; Off-policy actor-critic with prior data is what makes this fit on a real robot; Latent-noise steering: RL picks the noise, not the action
 
-**[All 81 entries →](papers/residual.md)** (72 from September 2025 onward)
+**[All 99 entries →](papers/residual.md)** (90 from September 2025 onward)
 
 - ⭐ **[PSS (Principal Steering Subspaces)](https://arxiv.org/abs/2609.33765)** (XPENG Robotics; University of Michigan, 2026-09-27) — Finds noise directions that most move a frozen generative policy's actions using finite differences at 64 states; SAC steers those directions. Sim RoboMimic Diffusion-Square, final-five-evaluation mean, one seed: 0.878 vs 0.716 for full-latent steering.
 - ⭐ **[Real-Time EXPO-FT](https://arxiv.org/abs/2609.18207)** (Stanford University, 2026-09-16) — Slow pi0.5 proposes 32 chunks from a stale observation; a fast policy adds bounded edits from the fresh one; a Q-ensemble picks one. Real, 4 dynamic tasks, 10 min online data: 12.5/30 → 29/30 (EXPO-FT w/ RTC 25/30). · [code](https://github.com/pd-perry/expo-ft)
@@ -385,7 +303,7 @@ Keep the supervised imitation loss, but decide which actions (or which demos) th
 
 **Loop step:** Improve · **Built on:** Reward- and advantage-weighted regression (RWR/AWR); Filtered BC and rejection sampling; Advantage- or return-conditioned policies; Classifier-free guidance as a policy-improvement knob
 
-**[All 63 entries →](papers/advbc.md)** (46 from September 2025 onward)
+**[All 77 entries →](papers/advbc.md)** (60 from September 2025 onward)
 
 - ⭐ **[Dissecting advantage-guided post-training](https://arxiv.org/abs/2609.28161)** (Shanghai Jiao Tong University; Xiaomi Robotics, 2026-09-23) — Ablates separately how critic-derived advantages are built, calibrated and used; n-step TD, per-value-bin normalization and soft exponential weights on the pi0.5 loss worked best. Real bimanual, 4-task mean success: SFT 0.11, source-weighted DAgger 0.45, continuous weighting 0.74.
 - ⭐ **[RoboDrop](https://arxiv.org/abs/2609.10021)** (Tsinghua University; Striding AI, 2026-09-09) — In one warm-up epoch, compares each sample's compressed gradient with one from the most similar clean validation frames, and drops conflicting episodes before re-post-training pi0.5. Real, 4 tasks, 20 rollouts each: 35.0% → 67.5% with automatic filtering.
@@ -408,7 +326,7 @@ Run the policy, let a person (or now a machine) step in where it goes wrong, and
 
 **Loop step:** Find failures → Improve · **Built on:** Compounding error (covariate shift); DAgger: label the learner's own states; Human-gated vs robot-gated takeovers; Reweighting correction data
 
-**[All 80 entries →](papers/hitl.md)** (47 from September 2025 onward)
+**[All 90 entries →](papers/hitl.md)** (57 from September 2025 onward)
 
 - ⭐ **[BlenDAgger](https://arxiv.org/abs/2609.37599)** (Carnegie Mellon University, 2026-09-29) — Keeps the policy running during corrections, blending human and policy actions per DoF group and giving the human more control when they push hard, disagree, or the policy is uncertain. Final round, real Almond Scooping: 50% vs HG-DAgger 15%.
 - ⭐ **[Skill-Space Shooting](https://arxiv.org/abs/2609.38178)** (Tsinghua University; UC Berkeley; Shanghai Qi Zhi Institute, 2026-09-29) — A learned value model halts a pi0.5-class policy when its score drops below zero; Gemini 2.5 Pro picks and checks a repair skill; successful repairs become training data. Real Coffee mean progress: 71.25% vs 46.25% with extra human demos.
@@ -431,7 +349,7 @@ Leave the policy's weights alone and spend extra compute at deployment: sample s
 
 **Loop step:** Improve at deploy time (no policy weight updates) · **Built on:** Best-of-N with a verifier (sample, score, pick); KL-regularized optimum = guidance; Offline critics that are safe to argmax over; Lookahead with a model (shooting, MPPI, MCTS)
 
-**[All 143 entries →](papers/testtime.md)** (122 from September 2025 onward)
+**[All 166 entries →](papers/testtime.md)** (145 from September 2025 onward)
 
 - ⭐ **[PreferenceFlow](https://arxiv.org/abs/2609.36872)** (Westlake University, 2026-09-29) — Pairs each human takeover window with a frozen pi0.5 chunk from the same state, trains a small Bradley-Terry scorer on the pairs, and uses it to guide sampling. Four real Franka insertion tasks: 90.5% vs frozen 69.0%, intervention BC 84.5%.
 - ⭐ **[SeeQ](https://arxiv.org/abs/2609.22085)** (Carnegie Mellon University, 2026-09-18) — Trains a critic that only values finishing the active subtask (reward at subtask end, no bootstrapping across boundaries) and reranks 8 samples from a frozen pi0.5 with it. Real bimanual, 24 trials per task: 35.4% → 66.7% average. · [code](https://github.com/saksham002/generalist-value-functions)
@@ -454,7 +372,7 @@ These methods leave the policy alone and build the score it climbs against: a le
 
 **Loop step:** Measure → Find failures · **Built on:** Success classifier as reward; Progress from time (time-as-label); Preference and ranking rewards (Bradley-Terry); Potential-based shaping
 
-**[All 88 entries →](papers/reward.md)** (61 from September 2025 onward)
+**[All 92 entries →](papers/reward.md)** (65 from September 2025 onward)
 
 - ⭐ **[Dyna: reward model as failure detector](https://www.youtube.com/watch?v=Sjfz1TqxzEs)** (Dyna Robotics, 2026-09-24) — A learned video progress model monitors deployment: progress dips flag errors and steer targeted recovery-data collection and retraining. Dyna-1 napkin folding: 99.4% success over a 24-hour run; Dyna says conventional pipelines stall near 80% (talk, no paper).
 - ⭐ **[RynnValue](https://arxiv.org/abs/2608.09853)** (DAMO Academy, Hupan Lab, 2026-08-10) — Predicts seconds until task completion from an instruction and a few frames, trained on over 7,000 hours of video with no preference labels. As reward for real online DSRL on frozen pi0.5: 72.5% vs Robometer 52.5%, sparse 48.8%. · [code](https://github.com/alibaba-damo-academy/RynnValue)
@@ -477,7 +395,7 @@ Build a stand-in for the real robot, either a learned video or latent world mode
 
 **Loop step:** Deploy → Measure · **Built on:** Dyna: learn a model, then practice inside it; Latent imagination (PlaNet/Dreamer); Monte Carlo policy evaluation in a stand-in world; Model exploitation and compounding error
 
-**[All 104 entries →](papers/worldmodel.md)** (93 from September 2025 onward)
+**[All 117 entries →](papers/worldmodel.md)** (106 from September 2025 onward)
 
 - ⭐ **[WorldSample](https://arxiv.org/abs/2607.02431)** (Nanyang Technological University; Tsinghua University; Central South University; Beijing University of Posts and Telecommunications, 2026-07-02) — Adds a Dyna-like stream to real-robot SAC/RLPD: jittered actions are rendered by a post-trained Cosmos-Predict2.5 model, reward-labeled, and gated into the critic loss. Real robot, 5 tasks: 82% in 64 min vs HIL-SERL 56% in 83 min.
 - ⭐ **[RoboWorld](https://arxiv.org/abs/2607.01060)** (KAIST; Config, 2026-07-01) — Converts Wan2.1-T2V-1.3B into a causal, KV-cached, 4-step autoregressive video model on DROID, trained with Step Forcing to limit drift, and scores rollouts with GPT-4o. Across 8 VLAs (4,186 rollouts): Pearson r = 0.989 with the real RoboArena leaderboard.
@@ -500,7 +418,7 @@ Uses a simulator, often a scanned or generated copy of the real scene, as a safe
 
 **Loop step:** Deploy → Improve · **Built on:** Domain randomization; Real-to-sim: digital twins and cousins; BC-anchored sim RL (sim-real co-training); Sim-to-online RL on the real robot
 
-**[All 53 entries →](papers/simreal.md)** (42 from September 2025 onward)
+**[All 56 entries →](papers/simreal.md)** (45 from September 2025 onward)
 
 - ⭐ **[F4R](https://arxiv.org/abs/2609.35575)** (Nanyang Technological University; Xi'an Jiaotong University; Dexmal, 2026-09-28) — A VLM diagnoses real pi0.5 failures, the scene is rebuilt in Isaac Sim, and the policy is co-trained on failure-conditioned sim data, then PPO-refined and redeployed. Real OOD success: 26.25% → 90.0%, vs 71.25% for budget-matched Targeted BC.
 - ⭐ **[DLS (Where Success Breaks)](https://arxiv.org/abs/2609.06114)** (Show Lab, National University of Singapore, 2026-09-05) — Finds pi0/pi0.5 failures in parallel digital twins, turns hand-defined task phases into a dense potential, and applies a critic-free contrastive velocity loss plus a real-demo SFT anchor. pi0.5, 3 real tasks, ID/Unseen: 84.4/72.2 vs PPO 81.1/67.8, 100-demo SFT 78.9/54.4.
@@ -523,7 +441,7 @@ Companies take a big pretrained robot model and push one real task from "works i
 
 **Loop step:** The whole loop · **Built on:** On-policy data aggregation (DAgger and its human-gated variant); Automatic success and progress detection; Policy improvement through supervised learning (advantage-weighted or advantage-conditioned BC); Broad pretraining as the reason local hill-climbing transfers (a company claim, e.g. ACT-2)
 
-**[All 28 entries →](papers/industry.md)** (20 from September 2025 onward)
+**[All 29 entries →](papers/industry.md)** (21 from September 2025 onward)
 
 - ⭐ **[Skild Physical Self-Play](https://www.skild.ai/blogs/physical-self-play)** (Skild AI, 2026-09-23) — Previews RL post-training via self-play: in simulated robot soccer the policy's one stated objective is to score, playing recent versions of itself, then is transferred to a real humanoid. No metrics; 140 simulated years of play, real match on video.
 - ⭐ **[Dyna: deployment is the eval](https://www.dyna.co/research/scaling-customer-deployments)** (Dyna Robotics, 2026-08) — Fleet workflow: an auto-labeler splits each deployed episode into SOP steps with outcome and failure mode, humans review uncertain cases, and engineers query the fleet to retrain. Napkin folding: 35/hour, 75% passing (Dyna-1) → 95/hour, 93% (Dyna-2).
@@ -541,7 +459,7 @@ Not robot-manipulation papers: scaling laws for value functions and RL compute, 
 
 **Loop step:** Background for every step · **Built on:** Everything in Foundations
 
-**[All 79 entries →](papers/generalrl.md)** (59 from September 2025 onward)
+**[All 89 entries →](papers/generalrl.md)** (69 from September 2025 onward)
 
 *No ⭐ picks in this family yet; the full list is linked above.*
 
@@ -723,6 +641,7 @@ Not robot-manipulation papers: scaling laws for value functions and RL compute, 
 ### Surveys
 
 - **[A Comprehensive Survey on World Models for Embodied AI](https://arxiv.org/abs/2510.16732)** — Survey of embodied world models with a three-axis taxonomy (functionality, temporal modeling, spatial representation), cataloging datasets and metrics across robotics, driving and video prediction.
+- **[A Survey of Flow Matching in Reinforcement Learning](https://arxiv.org/abs/2610.16275)** — Taxonomy of flow-matching RL by modeled target (policies, critics, dynamics) and RL-signal mechanism (energy-weighted regression, flow policy gradients, GRPO), covering offline control, online fine-tuning and alignment, with comparisons to Gaussian and diffusion baselines.
 - **[A Survey of Reinforcement Learning for Large Reasoning Models](https://arxiv.org/abs/2509.08827)** — Survey of RL for reasoning LLMs since DeepSeek-R1: foundational components, core problems, training resources and downstream applications; companion awesome list. LLM-focused, not robot policies.
 - **[A Survey on Efficient Vision-Language-Action Models](https://arxiv.org/abs/2510.24795)** — TPAMI-accepted survey of efficient VLAs across three pillars: efficient model design (architectures, compression), efficient training, and efficient robot data collection.
 - **[A Survey on Reinforcement Learning of Vision-Language-Action Models for Robotic Manipulation](https://doi.org/10.36227/techrxiv.176531955.54563920/v1)** (Haoyuan Deng et al.) — Survey of RL for VLA manipulation along four axes: RL-VLA architecture (action, reward, transition modeling), online/offline/test-time training paradigms, real-world deployment, and benchmarking; companion Awesome-RL-VLA paper list.
@@ -742,6 +661,7 @@ Not robot-manipulation papers: scaling laws for value functions and RL compute, 
 - **[Vision Language Action Models in Robotic Manipulation: A Systematic Review](https://arxiv.org/abs/2507.10672)** — Systematic review of 102 VLA models, 26 datasets and 12 simulation platforms for manipulation, with a dataset taxonomy by semantic richness and multimodal alignment.
 - **[Vision-Language-Action in Robotics: A Survey of Datasets, Benchmarks, and Data Engines](https://arxiv.org/abs/2604.23001)** — TMLR-accepted data-centric VLA survey covering datasets (embodiment, modality, action space), benchmarks, and data engines (simulation, video reconstruction, task generation); argues future progress depends more on data engines and evaluation protocols than on architecture.
 - **[Vision-Language-Action Models for Robotics: A Review Towards Real-World Applications](https://arxiv.org/abs/2510.07077)** — Full-stack VLA survey (IEEE Access) covering architectures, modality processing, learning paradigms, robot platforms, data collection, datasets, augmentation and evaluation benchmarks for real-world deployment.
+- **[Who Improves the Robot? Toward Physical Recursive Self-Improvement](https://arxiv.org/abs/2610.18842)** — Survey proposing an L0-L5 framework separating capability- from meta-level and within- from across-task robot self-improvement, reviewing harness adaptation, model training and safety mechanisms; finds no surveyed work yet demonstrates Physical RSI.
 - **[World Models for Embodied Intelligence: From Plausible to Controllable to Actionable](https://arxiv.org/abs/2609.16697)** — Survey grading embodied world models in three tiers: plausible (task-relevant structure), controllable (predicts intervention effects), actionable (improves agent behavior), across manipulation, navigation, locomotion and driving.
 - **[World Models: A Comprehensive Survey of Architectures, Methodologies, Reasoning Paradigms, and Applications](https://arxiv.org/abs/2606.00133)** — Broad world-model survey organized by architecture, methodology, reasoning strategy and application (robotics, RL, driving, video); traces PlaNet, Dreamer, MuZero, imagination-based planning and latent policy learning.
 
@@ -977,7 +897,7 @@ Design contract: [docs/DESIGN.md](docs/DESIGN.md) · course plan: [docs/research
 
 ## How this list is made
 
-The first version (September 2026) came from an agent-assisted literature sweep: many search angles plus rounds of gap-finding (arXiv month by month, citation mining, company blogs and talks). Of the 952 papers and posts, 912 are marked `checked` or `corrected` in the catalog, and 40 are marked `read-once`; these are recorded review statuses, not independent replication. The 212 resources are also listed from source pages. `tools/arxiv_meta.py` checks every arXiv link in the paper list and its first-version date against the arXiv API and flags titles that do not match, and `tools/check_links.py` checks the non-arXiv links. The workflow for weekly updates is documented in [docs/maintenance/weekly-sweep.md](docs/maintenance/weekly-sweep.md).
+The first version (September 2026) came from an agent-assisted literature sweep: many search angles plus rounds of gap-finding (arXiv month by month, citation mining, company blogs and talks). Of the 1066 papers and posts, 912 are marked `checked` or `corrected` in the catalog, and 154 are marked `read-once`; these are recorded review statuses, not independent replication. The 214 resources are also listed from source pages. `tools/arxiv_meta.py` checks every arXiv link in the paper list and its first-version date against the arXiv API and flags titles that do not match, and `tools/check_links.py` checks the non-arXiv links. The workflow for weekly updates is documented in [docs/maintenance/weekly-sweep.md](docs/maintenance/weekly-sweep.md).
 
 Numbers are as reported by the authors. Some are bar-chart readings or estimates from small trial counts, and industry numbers are self-reported. Check the paper before citing a number. Research and drafting were assisted by Claude (Anthropic), which also helped write the lastmile code and chapter notes. Codex (OpenAI) was also used for source checks and fixes.
 
