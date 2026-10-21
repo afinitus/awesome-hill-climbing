@@ -11,11 +11,13 @@ Not robot-manipulation papers: scaling laws for value functions and RL compute, 
 - **Use it when:** Read these when you are choosing an algorithm family or a compute budget, or when a robot paper cites an idea from language-model RL and you want the original.
 - **What changed in 2025–26:** RL for language models and RL for robot policies increasingly share a toolkit in 2025-26: critic-free group baselines, KL-anchored fine-tuning from a pretrained model, learned verifiers, and spending compute at test time. Real-robot work still leans heavily on off-policy critics (SAC or TD3 with RLPD-style demo mixing), which language-model RL rarely uses.
 
-**89 entries**, newest first. ⭐ marks must-know work.
+**91 entries**, newest first. ⭐ marks must-know work.
 
 
 ## October 2026
 
+- **[Off-Policy PG Anatomy](https://arxiv.org/abs/2610.25725)** (Cao et al., 2026-10-19) — Off-policy policy-gradient consistency requires trajectory-level importance weighting or KL regularization with a grouped-mean baseline (group-relative PG); a constant baseline shift implements pessimism, giving asymmetric REINFORCE and a finite-sample regret bound.
+- **[VPFlow](https://arxiv.org/abs/2610.27280)** (Hu et al., 2026-10-19) — Latent world models supervised only by Monte Carlo goal-reaching value, with evolutionary search in a one-step flow policy's noise space; beats model-free baselines by at least 30.3 (state) and 10.1 (pixel) points success on 30 OGBench datasets.
 - **[GVC](https://arxiv.org/abs/2610.22497)** (Swerdlow et al., 2026-10-15) — Critic built from a return-conditioned policy that scores how likely an action is under each return, supervised by every action plus a squared-error anchor to bootstrapped targets; gains over discriminative and distributional critics in offline and online RL.
 - **[Covariance PG](https://arxiv.org/abs/2610.22263)** (Han et al., 2026-10-15) — Recasts the policy gradient under regularized importance sampling as a reward-score covariance, contrasting group-mean baselines (sample mean) with score centering (population mean); token-level ratios with group baseline but no score centering are generally biased when clipped.
 - **[Proximal KL](https://arxiv.org/abs/2610.18738)** (Bai et al., 2026-10-13) — Separates the proximal reference from the sampling policy and replaces PPO clipping with bounded future KL credit for token-wise importance weighting on stale data; beats GRPO in all seven off-policy comparisons by up to 2.58% on math benchmarks.

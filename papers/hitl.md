@@ -11,11 +11,12 @@ Run the policy, let a person (or now a machine) step in where it goes wrong, and
 - **Use it when:** Use this family when you have a decent imitation policy (roughly 30% to 80% success) that fails in specific, repeatable places, and a person who can recognize and fix those failures. It is the default last-mile tool when you have no reward function, when the task is long-horizon or contact-rich, and when you want the policy to stay close to its pretrained behavior.
 - **What changed in 2025–26:** Over the last 12 months, the policy being corrected became a VLA: pi0/pi0.5-class models replace small BC-RNNs, and the loops are built as systems. SOP streams fleet corrections to a cloud learner, and HELP splits the human work between a teleoperator and a floor operator who together supervise twelve robots. Methods also get more out of each correction: FlowPRO trains on paired failed and corrected segments with a DPO-style loss, and FlowDAgger maps corrections into a frozen flow policy's noise space instead of retraining it. Machines increasingly take the intervener's role (UniIntervene, Skill-Space Shooting), and how and when a correction is collected is now studied directly (RaC's recover-then-correct rule, TimelyDAgger's takeover timing).
 
-**90 entries**, newest first. ⭐ marks must-know work.
+**91 entries**, newest first. ⭐ marks must-know work.
 
 
 ## October 2026
 
+- **[TILDE](https://arxiv.org/abs/2610.25376)** (Lu et al., 2026-10-18) — On-policy distillation from an embodied foundation model plus teacher-executed recoveries, with a reward model triggering teacher takeovers (AutoDAgger) instead of a human; up to 4.1× task performance over behavior cloning on three real-world tasks.
 - **[Velocity Loss OPD](https://arxiv.org/abs/2610.21522)** (Ni et al., 2026-10-15) — Frozen domain-specialist VLAs supervise teacher velocities along the student's own action-flow trajectories in student-collected environment states; from joint SFT, absolute success gains of 22.55% on LIBERO-40, 33.4% on CALVIN, 22.6% on Meta-World MT50.
 - **[PACER](https://arxiv.org/abs/2610.19248)** (Liu et al., 2026-10-13) — Weights action chunks from policy rollouts and human corrections by progress, source and outcome in the supervised VLA loss, selecting via held-out validation; 87/100 approach-and-handoff successes vs. 54/100 for vanilla post-SFT on UR5e motherboard disassembly.
 - **[I3L](https://arxiv.org/abs/2610.17748)** (Ai et al., 2026-10-13) — Whole-body JoyLo+ takeover interface with policy-tracking leader arms plus four rounds of HG-DAgger-style correction and retraining; autonomous success rises 68.3 percentage points over base policies, 35.6 points above demonstration-only training at equal trajectories.
