@@ -11,11 +11,15 @@ Not robot-manipulation papers: scaling laws for value functions and RL compute, 
 - **Use it when:** Read these when you are choosing an algorithm family or a compute budget, or when a robot paper cites an idea from language-model RL and you want the original.
 - **What changed in 2025–26:** RL for language models and RL for robot policies increasingly share a toolkit in 2025-26: critic-free group baselines, KL-anchored fine-tuning from a pretrained model, learned verifiers, and spending compute at test time. Real-robot work still leans heavily on off-policy critics (SAC or TD3 with RLPD-style demo mixing), which language-model RL rarely uses.
 
-**91 entries**, newest first. ⭐ marks must-know work.
+**95 entries**, newest first. ⭐ marks must-know work.
 
 
 ## October 2026
 
+- **[S2L](https://arxiv.org/abs/2610.30461)** (Che et al., 2026-10-21) — Long-horizon value learner fed detached features from smaller-discount source critics that follow their own value targets; improves the paired terminal median on 40 of 57 Atari games, with aggregate gains in online and offline continuous control.
+- **[VRD](https://arxiv.org/abs/2610.29075)** (Jiang et al., 2026-10-21) — Value-guided distillation of flow-matching behavior policies in offline RL, filtering low-value modes by value quantiles or separating high-value generative trajectories in latent space; improves generative baselines on D4RL, OGBench and Minari, especially multi-modal non-expert datasets.
+- **[DoobPO](https://arxiv.org/abs/2610.28990)** (Su et al., 2026-10-20) — Likelihood-free RL fine-tuning of diffusion and flow policies: a lightweight ratio model represents the PPO or GRPO update, then the tilted target is distilled into the generative policy by conditional drift matching; evaluated on MuJoCo continuous control.
+- **[ArcFlow](https://arxiv.org/abs/2610.28788)** (Tran et al., 2026-10-20) — PPO-style per-action ratio clipping, training across a range of solver budgets and worst-budget checkpoint selection for flow policies; highest mean one-step return among five flow-policy baselines on 25 of 30 DM Control, manipulation and locomotion tasks.
 - **[Off-Policy PG Anatomy](https://arxiv.org/abs/2610.25725)** (Cao et al., 2026-10-19) — Off-policy policy-gradient consistency requires trajectory-level importance weighting or KL regularization with a grouped-mean baseline (group-relative PG); a constant baseline shift implements pessimism, giving asymmetric REINFORCE and a finite-sample regret bound.
 - **[VPFlow](https://arxiv.org/abs/2610.27280)** (Hu et al., 2026-10-19) — Latent world models supervised only by Monte Carlo goal-reaching value, with evolutionary search in a one-step flow policy's noise space; beats model-free baselines by at least 30.3 (state) and 10.1 (pixel) points success on 30 OGBench datasets.
 - **[GVC](https://arxiv.org/abs/2610.22497)** (Swerdlow et al., 2026-10-15) — Critic built from a return-conditioned policy that scores how likely an action is under each return, supervised by every action plus a squared-error anchor to bootstrapped targets; gains over discriminative and distributional critics in offline and online RL.
