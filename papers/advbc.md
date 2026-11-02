@@ -11,11 +11,13 @@ Keep the supervised imitation loss, but decide which actions (or which demos) th
 - **Use it when:** Use this family when you have a decent BC or VLA policy (roughly 20-60% success) on a specific task, a way to label episodes success or failure, and ideally a teleop device for takeovers, but you do not want to backprop RL through a large flow or diffusion sampler. Start with curation (RoboDrop, QoQ or CUPID-style audits, or cheap smoothness filters) when your demos are mixed-quality.
 - **What changed in 2025–26:** The big shift came with pi*0.6/RECAP in November 2025. Advantage-conditioned BC, where the policy is conditioned on a binarized advantage token and classifier-free guidance is optional, suits flow VLAs whose likelihood is awkward to weight, and it joined advantage-weighted BC as a main option; RECAP names CFGRL (May 2025) as the closest prior formulation. In the next ten months at least a dozen groups adopted or adapted the recipe: GigaBrain RAMP, chi0, DexPIE, DEED, ROVE, STEAM, Robo-ValueRL, PACE, DistAL, Facet-0, CLIFT and a prizewinning LeHome Challenge entry (1st in the simulation round, 2nd in the real-world final).
 
-**80 entries**, newest first. ⭐ marks must-know work.
+**82 entries**, newest first. ⭐ marks must-know work.
 
 
 ## October 2026
 
+- **[CuraEval](https://arxiv.org/abs/2610.38221)** (Xu et al., 2026-10-28) — Controlled comparison of demonstration-curation scores against size-matched random subsets and full data on mixed-skill robomimic; no curated condition significantly beats full-data training after Holm correction. · [code](https://github.com/jiuyixu25/CuraEval)
+- **[QCP](https://arxiv.org/abs/2610.37393)** (Kang et al., 2026-10-27) — Quality-conditioned policy improved by iterative hindsight relabeling: rollouts under target quality labels, successful ones added and relabeled by measured speed or smoothness, then fine-tuning; quality and success rise across iterations on Robomimic, RoboEval and real tasks.
 - **[ALIGN](https://arxiv.org/abs/2610.26455)** (Wang et al., 2026-10-19) — Advantage-conditioned BC that predicts categorical pairwise conditions in the policy's label space and injects them into a DiT action expert via AdaRMS; 90.0% and 56.7% real-robot success versus 56.7% and 33.3% for the strongest AC-BC baseline.
 - **[PGPG](https://arxiv.org/abs/2610.25692)** (Luu et al., 2026-10-19) — Pseudo-preference labels from ordered coverage alignment of autonomous rollouts against a few expert demos fine-tune pretrained diffusion and flow policies without human labels or hand-designed rewards; outperforms SFT baselines on long-horizon manipulation.
 - **[FERT](https://arxiv.org/abs/2610.25736)** (Yu et al., 2026-10-19) — Failure contexts from deployed robots retrieve matching segments of the fleet's shared successful experience as supervision for fine-tuning, with no new demos or corrections; multi-stage phone packaging success from 79.2% to 98.3% learning with 96 robots.

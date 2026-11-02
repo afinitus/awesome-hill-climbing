@@ -11,11 +11,14 @@ Not robot-manipulation papers: scaling laws for value functions and RL compute, 
 - **Use it when:** Read these when you are choosing an algorithm family or a compute budget, or when a robot paper cites an idea from language-model RL and you want the original.
 - **What changed in 2025–26:** RL for language models and RL for robot policies increasingly share a toolkit in 2025-26: critic-free group baselines, KL-anchored fine-tuning from a pretrained model, learned verifiers, and spending compute at test time. Real-robot work still leans heavily on off-policy critics (SAC or TD3 with RLPD-style demo mixing), which language-model RL rarely uses.
 
-**95 entries**, newest first. ⭐ marks must-know work.
+**98 entries**, newest first. ⭐ marks must-know work.
 
 
 ## October 2026
 
+- **[Freeze, Don't Clone](https://arxiv.org/abs/2610.36247)** (Islam et al., 2026-10-26) — Offline-to-online RL without retained offline data: freezing the pretrained expressive behavior prior instead of continuing behavioral cloning avoids prior collapse, improving IFQL, FQL and QC fine-tuning on seven OGBench domains.
+- **[VaLoP](https://arxiv.org/abs/2610.35607)** (Kim, 2026-10-26) — Reward guidance for diffusion and flow models that evaluates the value one sampler step ahead and pulls its gradient back with a generator correction; outperforms value-gradient guidance across image models and extends to critic-guided robot policies on LIBERO and RoboCasa.
+- **[An Empirical Study of Reinforcement Learning Scaling Laws](https://arxiv.org/abs/2610.33420)** (Zheng et al., 2026-10-24) — Empirical scaling laws for an actor-critic algorithm on Starpilot and Craftax predict performance, compute-optimal allocation and hyperparameters up to two orders of magnitude more compute, using an Elo-style score that is more predictable than mean return.
 - **[S2L](https://arxiv.org/abs/2610.30461)** (Che et al., 2026-10-21) — Long-horizon value learner fed detached features from smaller-discount source critics that follow their own value targets; improves the paired terminal median on 40 of 57 Atari games, with aggregate gains in online and offline continuous control.
 - **[VRD](https://arxiv.org/abs/2610.29075)** (Jiang et al., 2026-10-21) — Value-guided distillation of flow-matching behavior policies in offline RL, filtering low-value modes by value quantiles or separating high-value generative trajectories in latent space; improves generative baselines on D4RL, OGBench and Minari, especially multi-modal non-expert datasets.
 - **[DoobPO](https://arxiv.org/abs/2610.28990)** (Su et al., 2026-10-20) — Likelihood-free RL fine-tuning of diffusion and flow policies: a lightweight ratio model represents the PPO or GRPO update, then the tilted target is distilled into the generative policy by conditional drift matching; evaluated on MuJoCo continuous control.

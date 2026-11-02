@@ -11,11 +11,12 @@ Learn a Q-function from every transition you have (demos, human corrections, old
 - **Use it when:** Use this family when you already have a decent policy (roughly 40-80% on one task), each real episode is expensive, and you can get a binary success signal. Off-policy RL reuses every demo, correction and failed rollout, so it usually needs far fewer robot minutes than on-policy PPO/GRPO.
 - **What changed in 2025–26:** The target policy changed: the 2023-24 lineage (RLPD, SERL, HIL-SERL) trained small task-specific SAC policies, while 2026 work wraps the same off-policy machinery around pretrained flow VLAs such as pi0.5 and pi0.6 (EXPO-FT, RL Token, ALOE, LWD, RAPolicy). Critics increasingly score whole action chunks, following Q-chunking (Jul 2025), and follow-ups such as DQC, AQC and ACH decide how long to commit to a chunk. Other work questions how much offline critic pretraining and offline-data replay really help (WSRL, Three Regimes), and the human-in-the-loop HIL-SERL loop is being automated or scaled: AutoSERL replaces the live intervener with a one-demo scripted corrector, and LWD runs the loop on a 16-robot fleet.
 
-**136 entries**, newest first. ⭐ marks must-know work.
+**137 entries**, newest first. ⭐ marks must-know work.
 
 
 ## October 2026
 
+- **[RBGA](https://arxiv.org/abs/2610.33494)** (Yu et al., 2026-10-24) — Offline-to-online safe RL for dexterous manipulation that tracks the remaining episode safety budget and arbitrates step by step between the offline guide and the online policy by comparing cost-to-go estimates against it.
 - **[SEVI](https://arxiv.org/abs/2610.31829)** (Shithil et al., 2026-10-22) — Evidential safety critic estimates constraint-violation risk and epistemic uncertainty for each action during real-world RL and hands control to an offline recovery policy when risky; 13.4 to 57.1 percent fewer unsafe events than recovery-based safe RL.
 - **[VaDar](https://arxiv.org/abs/2610.26629)** (Saxena et al., 2026-10-19) — Single subgoal-independent policy trained to maximize a linear combination of per-subgoal critic values; solves long-horizon RoboCasa tasks even starting from a BC-pretrained policy with near-zero initial success.
 - **[Offline Empowerment](https://arxiv.org/abs/2610.24461)** (Garg et al., 2026-10-17) — Empowerment estimator learned from unlabeled prior trajectories, jointly with an empowerment-maximizing policy and its occupancy measure, then used to guide exploration in online goal-conditioned RL after offline pretraining. · [code](https://github.com/ishirgarg/offline-empowerment)
